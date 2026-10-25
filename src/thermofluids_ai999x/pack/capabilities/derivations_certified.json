@@ -1,0 +1,1157 @@
+{
+ "domain": "thermofluids",
+ "generated": "2026-10-22",
+ "tool": "tools/certify_derivations.py",
+ "derivations": [
+  {
+   "id": "derive_bernoulli_horizontal",
+   "kind": "derivation",
+   "title": "derive bernoulli horizontal",
+   "equation": "P2 = P1 + rho*(v1**2 - v2**2)/2",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "P2 = P1 + rho*(v1**2 - v2**2)/2",
+     "is": "relation:bernoulli_horizontal"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "P2 = P1 + rho*(v1**2 - v2**2)/2",
+     "reason": "premise"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that P2 = P1 + rho*(v1**2 - v2**2)/2.",
+    "Derive P2 = P1 + rho*(v1**2 - v2**2)/2.",
+    "Show that P2 = P1 + rho*(v1**2 - v2**2)/2.",
+    "Prove the derive bernoulli horizontal."
+   ],
+   "record": "derivation.derive_bernoulli_horizontal",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_blasius_local_skin_friction",
+   "kind": "derivation",
+   "title": "derive blasius local skin friction",
+   "equation": "cf = 0.6641146724303926/sqrt(Rex)",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "cf = 0.6641146724303926/sqrt(Rex)",
+     "is": "relation:blasius_local_skin_friction"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "cf = 0.6641146724303926/sqrt(Rex)",
+     "reason": "premise"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that cf = 0.6641146724303926/sqrt(Rex).",
+    "Derive cf = 0.6641146724303926/sqrt(Rex).",
+    "Show that cf = 0.6641146724303926/sqrt(Rex).",
+    "Prove the derive blasius local skin friction."
+   ],
+   "record": "derivation.derive_blasius_local_skin_friction",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_blasius_momentum_thickness",
+   "kind": "derivation",
+   "title": "derive blasius momentum thickness",
+   "equation": "th = 0.6641146724303926*x/sqrt(Rex)",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "th = 0.6641146724303926*x/sqrt(Rex)",
+     "is": "relation:blasius_momentum_thickness"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "th = 0.6641146724303926*x/sqrt(Rex)",
+     "reason": "premise"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that th = 0.6641146724303926*x/sqrt(Rex).",
+    "Derive th = 0.6641146724303926*x/sqrt(Rex).",
+    "Show that th = 0.6641146724303926*x/sqrt(Rex).",
+    "Prove the derive blasius momentum thickness."
+   ],
+   "record": "derivation.derive_blasius_momentum_thickness",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_brayton_efficiency_air",
+   "kind": "derivation",
+   "title": "derive brayton efficiency air",
+   "equation": "eta = 1 - rp**(-2/7)",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "eta = 1 - rp**(-2/7)",
+     "is": "relation:brayton_efficiency_air"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "eta = 1 - rp**(-2/7)",
+     "reason": "premise"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that eta = 1 - rp**(-2/7).",
+    "Derive eta = 1 - rp**(-2/7).",
+    "Show that eta = 1 - rp**(-2/7).",
+    "Prove the derive brayton efficiency air."
+   ],
+   "record": "derivation.derive_brayton_efficiency_air",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_buoyant_force",
+   "kind": "derivation",
+   "title": "derive buoyant force",
+   "equation": "F = rho*g*V",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "F = rho*g*V",
+     "is": "relation:buoyant_force"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "F = rho*g*V",
+     "reason": "premise"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that F = rho*g*V.",
+    "Derive F = rho*g*V.",
+    "Show that F = rho*g*V.",
+    "Prove the derive buoyant force."
+   ],
+   "record": "derivation.derive_buoyant_force",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_continuity_speed",
+   "kind": "derivation",
+   "title": "derive continuity speed",
+   "equation": "v2 = v1*(D1/D2)**2",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "v2 = v1*(D1/D2)**2",
+     "is": "relation:continuity_speed"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "v2 = v1*(D1/D2)**2",
+     "reason": "premise"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that v2 = v1*(D1/D2)**2.",
+    "Derive v2 = v1*(D1/D2)**2.",
+    "Show that v2 = v1*(D1/D2)**2.",
+    "Prove the derive continuity speed."
+   ],
+   "record": "derivation.derive_continuity_speed",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_darcy_weisbach_head_loss",
+   "kind": "derivation",
+   "title": "derive darcy weisbach head loss",
+   "equation": "hL = f*L*v**2/(2*g*D)",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "dP = f*L*rho*v**2/(2*D)",
+     "is": "relation:darcy_weisbach_pressure_drop"
+    },
+    {
+     "equation": "P = rho*g*h",
+     "is": "relation:hydrostatic_gauge_pressure"
+    },
+    {
+     "equation": "hL = dP/(rho*g)",
+     "is": "definition"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "hL = (f*L*rho*v**2/(2*D))/(rho*g)",
+     "reason": "substitute dP from premise into definition of hL"
+    },
+    {
+     "equation": "hL = f*L*v**2/(2*g*D)",
+     "reason": "cancel rho and rearrange terms"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that hL = f*L*v**2/(2*g*D).",
+    "Derive hL = f*L*v**2/(2*g*D).",
+    "Show that hL = f*L*v**2/(2*g*D).",
+    "Prove the derive darcy weisbach head loss."
+   ],
+   "record": "derivation.derive_darcy_weisbach_head_loss",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_darcy_weisbach_pressure_drop",
+   "kind": "derivation",
+   "title": "derive darcy weisbach pressure drop",
+   "equation": "dP = f*L*rho*v**2/(2*D)",
+   "topic": null,
+   "hypotheses": [
+    "h = hL"
+   ],
+   "premises": [
+    {
+     "equation": "hL = f*L*v**2/(2*g*D)",
+     "is": "relation:darcy_weisbach_head_loss"
+    },
+    {
+     "equation": "P = rho*g*h",
+     "is": "relation:hydrostatic_gauge_pressure"
+    },
+    {
+     "equation": "dP = P",
+     "is": "definition"
+    },
+    {
+     "equation": "h = hL",
+     "is": "condition"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "dP = rho*g*h",
+     "reason": "substitute dP for P in premise P = rho*g*h"
+    },
+    {
+     "equation": "dP = rho*g*hL",
+     "reason": "substitute h with hL using assumption h = hL"
+    },
+    {
+     "equation": "dP = rho*g*(f*L*v**2/(2*g*D))",
+     "reason": "substitute hL from premise hL = f*L*v**2/(2*g*D)"
+    },
+    {
+     "equation": "dP = f*L*rho*v**2/(2*D)",
+     "reason": "cancel g and rearrange terms"
+    }
+   ],
+   "conditions": [
+    "h = hL"
+   ],
+   "questions": [
+    "Prove that if h = hL then dP = f*L*rho*v**2/(2*D).",
+    "Given h = hL, show that dP = f*L*rho*v**2/(2*D).",
+    "Given h = hL, derive dP = f*L*rho*v**2/(2*D)."
+   ],
+   "record": "derivation.derive_darcy_weisbach_pressure_drop",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_diesel_efficiency_air",
+   "kind": "derivation",
+   "title": "derive diesel efficiency air",
+   "equation": "eta = 1 - r**(-2/5)*(rc**(7/5) - 1)/(7*(rc - 1)/5)",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "eta = 1 - r**(-2/5)*(rc**(7/5) - 1)/(7*(rc - 1)/5)",
+     "is": "relation:diesel_efficiency_air"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "eta = 1 - r**(-2/5)*(rc**(7/5) - 1)/(7*(rc - 1)/5)",
+     "reason": "premise"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that eta = 1 - r**(-2/5)*(rc**(7/5) - 1)/(7*(rc - 1)/5).",
+    "Derive eta = 1 - r**(-2/5)*(rc**(7/5) - 1)/(7*(rc - 1)/5).",
+    "Show that eta = 1 - r**(-2/5)*(rc**(7/5) - 1)/(7*(rc - 1)/5).",
+    "Prove the derive diesel efficiency air."
+   ],
+   "record": "derivation.derive_diesel_efficiency_air",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_dynamic_pressure",
+   "kind": "derivation",
+   "title": "derive dynamic pressure",
+   "equation": "q = rho*v**2/2",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "q = rho*v**2/2",
+     "is": "relation:dynamic_pressure"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "q = rho*v**2/2",
+     "reason": "premise"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that q = rho*v**2/2.",
+    "Derive q = rho*v**2/2.",
+    "Show that q = rho*v**2/2.",
+    "Prove the derive dynamic pressure."
+   ],
+   "record": "derivation.derive_dynamic_pressure",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_effectiveness_phase_change",
+   "kind": "derivation",
+   "title": "derive effectiveness phase change",
+   "equation": "eps = 1 - exp(-N)",
+   "topic": null,
+   "hypotheses": [
+    "Cr = 0"
+   ],
+   "premises": [
+    {
+     "equation": "eps = (1 - exp(-N*(1 + Cr)))/(1 + Cr)",
+     "is": "relation:effectiveness_parallel_flow"
+    },
+    {
+     "equation": "Cr = 0",
+     "is": "condition"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "eps = (1 - exp(-N*(1 + 0)))/(1 + 0)",
+     "reason": "Substitute Cr=0 into the general effectiveness equation"
+    },
+    {
+     "equation": "eps = (1 - exp(-N*1))/1",
+     "reason": "Simplify the term (1+0) to 1"
+    },
+    {
+     "equation": "eps = 1 - exp(-N)",
+     "reason": "Simplify the fraction by dividing by 1 and reducing N*1 to N"
+    }
+   ],
+   "conditions": [
+    "Cr = 0"
+   ],
+   "questions": [
+    "Prove that if Cr = 0 then eps = 1 - exp(-N).",
+    "Given Cr = 0, show that eps = 1 - exp(-N).",
+    "Given Cr = 0, derive eps = 1 - exp(-N)."
+   ],
+   "record": "derivation.derive_effectiveness_phase_change",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_humidity_ratio_vapour_pressure",
+   "kind": "derivation",
+   "title": "derive humidity ratio vapour pressure",
+   "equation": "W = 0.621945*pv/(P - pv)",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "W = 0.621945*pv/(P - pv)",
+     "is": "relation:humidity_ratio_vapour_pressure"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "W = 0.621945*pv/(P - pv)",
+     "reason": "premise"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that W = 0.621945*pv/(P - pv).",
+    "Derive W = 0.621945*pv/(P - pv).",
+    "Show that W = 0.621945*pv/(P - pv).",
+    "Prove the derive humidity ratio vapour pressure."
+   ],
+   "record": "derivation.derive_humidity_ratio_vapour_pressure",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_hydraulic_power",
+   "kind": "derivation",
+   "title": "derive hydraulic power",
+   "equation": "P = rho*g*Q*H",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "P = rho*g*Q*H",
+     "is": "relation:hydraulic_power"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "P = rho*g*Q*H",
+     "reason": "direct application of certified formula for hydraulic power"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that P = rho*g*Q*H.",
+    "Derive P = rho*g*Q*H.",
+    "Show that P = rho*g*Q*H.",
+    "Prove the derive hydraulic power."
+   ],
+   "record": "derivation.derive_hydraulic_power",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_hydrostatic_force_plane",
+   "kind": "derivation",
+   "title": "derive hydrostatic force plane",
+   "equation": "F = rho*g*hc*A",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "F = rho*g*hc*A",
+     "is": "relation:hydrostatic_force_plane"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "F = rho*g*hc*A",
+     "reason": "direct application of certified formula for hydrostatic force on plane surface"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that F = rho*g*hc*A.",
+    "Derive F = rho*g*hc*A.",
+    "Show that F = rho*g*hc*A.",
+    "Prove the derive hydrostatic force plane."
+   ],
+   "record": "derivation.derive_hydrostatic_force_plane",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_minor_loss_head",
+   "kind": "derivation",
+   "title": "derive minor loss head",
+   "equation": "hL = K*v**2/(2*g)",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "hL = K*v**2/(2*g)",
+     "is": "relation:minor_loss_head"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "hL = K*v**2/(2*g)",
+     "reason": "copy premise exactly"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that hL = K*v**2/(2*g).",
+    "Derive hL = K*v**2/(2*g).",
+    "Show that hL = K*v**2/(2*g).",
+    "Prove the derive minor loss head."
+   ],
+   "record": "derivation.derive_minor_loss_head",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_nusselt_heat_transfer_coefficient",
+   "kind": "derivation",
+   "title": "derive nusselt heat transfer coefficient",
+   "equation": "h = Nu*k/Lc",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "Nu = h*Lc/k",
+     "is": "relation:nusselt_heat_transfer_coefficient"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "Nu*k = h*Lc",
+     "reason": "multiply both sides of Nu = h*Lc/k by k"
+    },
+    {
+     "equation": "h = Nu*k/Lc",
+     "reason": "divide both sides by Lc"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that h = Nu*k/Lc.",
+    "Derive h = Nu*k/Lc.",
+    "Show that h = Nu*k/Lc.",
+    "Prove the derive nusselt heat transfer coefficient."
+   ],
+   "record": "derivation.derive_nusselt_heat_transfer_coefficient",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_otto_efficiency_air",
+   "kind": "derivation",
+   "title": "derive otto efficiency air",
+   "equation": "eta = 1 - r**(-2/5)",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "eta = 1 - r**(-2/5)",
+     "is": "relation:otto_efficiency_air"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "eta = 1 - r**(-2/5)",
+     "reason": "premise"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that eta = 1 - r**(-2/5).",
+    "Derive eta = 1 - r**(-2/5).",
+    "Show that eta = 1 - r**(-2/5).",
+    "Prove the derive otto efficiency air."
+   ],
+   "record": "derivation.derive_otto_efficiency_air",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_overall_heat_rate",
+   "kind": "derivation",
+   "title": "derive overall heat rate",
+   "equation": "q = U*A*(Ti - To)",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "q = U*A*(Ti - To)",
+     "is": "relation:overall_heat_rate"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "q = U*A*(Ti - To)",
+     "reason": "premise"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that q = U*A*(Ti - To).",
+    "Derive q = U*A*(Ti - To).",
+    "Show that q = U*A*(Ti - To).",
+    "Prove the derive overall heat rate."
+   ],
+   "record": "derivation.derive_overall_heat_rate",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_overall_u_plane_wall",
+   "kind": "derivation",
+   "title": "derive overall u plane wall",
+   "equation": "U = 1/(1/h1 + L/k + 1/h2)",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "U = 1/(1/h1 + L/k + 1/h2)",
+     "is": "relation:overall_u_plane_wall"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "U = 1/(1/h1 + L/k + 1/h2)",
+     "reason": "premise"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that U = 1/(1/h1 + L/k + 1/h2).",
+    "Derive U = 1/(1/h1 + L/k + 1/h2).",
+    "Show that U = 1/(1/h1 + L/k + 1/h2).",
+    "Prove the derive overall u plane wall."
+   ],
+   "record": "derivation.derive_overall_u_plane_wall",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_plane_wall_conduction",
+   "kind": "derivation",
+   "title": "derive plane wall conduction",
+   "equation": "q = k*A*(T1 - T2)/L",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "q = k*A*(T1 - T2)/L",
+     "is": "relation:plane_wall_conduction"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "q = k*A*(T1 - T2)/L",
+     "reason": "premise"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that q = k*A*(T1 - T2)/L.",
+    "Derive q = k*A*(T1 - T2)/L.",
+    "Show that q = k*A*(T1 - T2)/L.",
+    "Prove the derive plane wall conduction."
+   ],
+   "record": "derivation.derive_plane_wall_conduction",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_pump_shaft_power",
+   "kind": "derivation",
+   "title": "derive pump shaft power",
+   "equation": "P = rho*g*Q*H/eta",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "P = rho*g*Q*H/eta",
+     "is": "relation:pump_shaft_power"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "P = rho*g*Q*H/eta",
+     "reason": "direct application of certified formula for shaft power"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that P = rho*g*Q*H/eta.",
+    "Derive P = rho*g*Q*H/eta.",
+    "Show that P = rho*g*Q*H/eta.",
+    "Prove the derive pump shaft power."
+   ],
+   "record": "derivation.derive_pump_shaft_power",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_radiation_net_exchange",
+   "kind": "derivation",
+   "title": "derive radiation net exchange",
+   "equation": "q = eps*sigma*A*(Ts**4 - Tsur**4)",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "q = eps*sigma*A*(Ts**4 - Tsur**4)",
+     "is": "relation:radiation_net_exchange"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "q = eps*sigma*A*(Ts**4 - Tsur**4)",
+     "reason": "premise"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that q = eps*sigma*A*(Ts**4 - Tsur**4).",
+    "Derive q = eps*sigma*A*(Ts**4 - Tsur**4).",
+    "Show that q = eps*sigma*A*(Ts**4 - Tsur**4).",
+    "Prove the derive radiation net exchange."
+   ],
+   "record": "derivation.derive_radiation_net_exchange",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_radiation_parallel_plates",
+   "kind": "derivation",
+   "title": "derive radiation parallel plates",
+   "equation": "qf = sigma*(T1**4 - T2**4)/(1/e1 + 1/e2 - 1)",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "qf = sigma*(T1**4 - T2**4)/(1/e1 + 1/e2 - 1)",
+     "is": "relation:radiation_parallel_plates"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "qf = sigma*(T1**4 - T2**4)/(1/e1 + 1/e2 - 1)",
+     "reason": "premise"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that qf = sigma*(T1**4 - T2**4)/(1/e1 + 1/e2 - 1).",
+    "Derive qf = sigma*(T1**4 - T2**4)/(1/e1 + 1/e2 - 1).",
+    "Show that qf = sigma*(T1**4 - T2**4)/(1/e1 + 1/e2 - 1).",
+    "Prove the derive radiation parallel plates."
+   ],
+   "record": "derivation.derive_radiation_parallel_plates",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_reynolds_number",
+   "kind": "derivation",
+   "title": "derive reynolds number",
+   "equation": "Re = rho*v*D/mu",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "Re = rho*v*D/mu",
+     "is": "relation:reynolds_number"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "Re = rho*v*D/mu",
+     "reason": "premise"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that Re = rho*v*D/mu.",
+    "Derive Re = rho*v*D/mu.",
+    "Show that Re = rho*v*D/mu.",
+    "Prove the derive reynolds number."
+   ],
+   "record": "derivation.derive_reynolds_number",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_reynolds_number_kinematic",
+   "kind": "derivation",
+   "title": "derive reynolds number kinematic",
+   "equation": "Re = v*D/nu",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "nu = mu/rho",
+     "is": "relation:kinematic_viscosity"
+    },
+    {
+     "equation": "Re = rho*v*D/mu",
+     "is": "relation:reynolds_number"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "mu = nu*rho",
+     "reason": "from nu = mu/rho by multiplying both sides by rho"
+    },
+    {
+     "equation": "Re = rho*v*D/(nu*rho)",
+     "reason": "substitute mu in Re = rho*v*D/mu with nu*rho"
+    },
+    {
+     "equation": "Re = v*D/nu",
+     "reason": "cancel rho in numerator and denominator"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that Re = v*D/nu.",
+    "Derive Re = v*D/nu.",
+    "Show that Re = v*D/nu.",
+    "Prove the derive reynolds number kinematic."
+   ],
+   "record": "derivation.derive_reynolds_number_kinematic",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_speed_of_sound_ideal_gas",
+   "kind": "derivation",
+   "title": "derive speed of sound ideal gas",
+   "equation": "a = sqrt(gamma*R*T)",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "a = sqrt(gamma*R*T)",
+     "is": "relation:speed_of_sound_ideal_gas"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "a = sqrt(gamma*R*T)",
+     "reason": "premise"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that a = sqrt(gamma*R*T).",
+    "Derive a = sqrt(gamma*R*T).",
+    "Show that a = sqrt(gamma*R*T).",
+    "Prove the derive speed of sound ideal gas."
+   ],
+   "record": "derivation.derive_speed_of_sound_ideal_gas",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "derive_sphere_conduction",
+   "kind": "derivation",
+   "title": "derive sphere conduction",
+   "equation": "q = 4*pi*k*(T1 - T2)/(1/r1 - 1/r2)",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [
+    {
+     "equation": "q = 4*pi*k*(T1 - T2)/(1/r1 - 1/r2)",
+     "is": "relation:sphere_conduction"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "q = 4*pi*k*(T1 - T2)/(1/r1 - 1/r2)",
+     "reason": "premise"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that q = 4*pi*k*(T1 - T2)/(1/r1 - 1/r2).",
+    "Derive q = 4*pi*k*(T1 - T2)/(1/r1 - 1/r2).",
+    "Show that q = 4*pi*k*(T1 - T2)/(1/r1 - 1/r2).",
+    "Prove the derive sphere conduction."
+   ],
+   "record": "derivation.derive_sphere_conduction",
+   "run": "thermofluids-derivations-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-22",
+    "tool": "tools/certify_derivations.py"
+   }
+  }
+ ]
+}

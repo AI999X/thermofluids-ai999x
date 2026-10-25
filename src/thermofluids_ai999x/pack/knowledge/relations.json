@@ -1,0 +1,5071 @@
+{
+ "domain": "thermofluids",
+ "version": "0.1.1",
+ "relations": [
+  {
+   "key": "hydrostatic_gauge_pressure",
+   "family": "fluid_statics",
+   "name": "Gauge pressure at a depth in a liquid",
+   "equation": "P = rho*g*h",
+   "symbols": {
+    "P": {
+     "kind": "pressure",
+     "role": "gauge",
+     "sign": "positive",
+     "desc": "gauge pressure at the depth"
+    },
+    "rho": {
+     "kind": "density",
+     "role": "fluid",
+     "sign": "positive",
+     "desc": "density of the fluid",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "g": {
+     "kind": "acceleration",
+     "role": "gravity",
+     "sign": "positive",
+     "default": {
+      "value": 9.80665,
+      "unit": "m/s^2",
+      "assumption": "standard gravity g = 9.80665 m/s^2 near Earth's surface",
+      "unless": [
+       "non_earth"
+      ]
+     }
+    },
+    "h": {
+     "kind": "length",
+     "role": "depth",
+     "sign": "positive",
+     "desc": "depth below the free surface"
+    }
+   },
+   "assumptions": [
+    "incompressible liquid at rest",
+    "uniform gravity"
+   ],
+   "requires": [
+    "hydrostatic"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "a point at a depth below the free surface of a liquid at rest"
+   ],
+   "fails_when": [
+    "compressible fluids over large heights",
+    "accelerating containers"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/hydrostatic_gauge_pressure.json",
+   "category": "theorem"
+  },
+  {
+   "key": "absolute_pressure_depth",
+   "family": "fluid_statics",
+   "name": "Absolute pressure at a depth in a liquid",
+   "equation": "P = P0 + rho*g*h",
+   "symbols": {
+    "P": {
+     "kind": "pressure",
+     "role": "absolute",
+     "sign": "positive",
+     "desc": "absolute pressure at the depth"
+    },
+    "P0": {
+     "kind": "pressure",
+     "role": "atmospheric",
+     "sign": "positive",
+     "desc": "pressure at the free surface"
+    },
+    "rho": {
+     "kind": "density",
+     "role": "fluid",
+     "sign": "positive",
+     "desc": "density of the fluid",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "g": {
+     "kind": "acceleration",
+     "role": "gravity",
+     "sign": "positive",
+     "default": {
+      "value": 9.80665,
+      "unit": "m/s^2",
+      "assumption": "standard gravity g = 9.80665 m/s^2 near Earth's surface",
+      "unless": [
+       "non_earth"
+      ]
+     }
+    },
+    "h": {
+     "kind": "length",
+     "role": "depth",
+     "sign": "positive",
+     "desc": "depth below the free surface"
+    }
+   },
+   "assumptions": [
+    "incompressible liquid at rest",
+    "uniform gravity"
+   ],
+   "requires": [
+    "hydrostatic"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "a point at a depth below a free surface with a known surface pressure"
+   ],
+   "fails_when": [
+    "compressible fluids over large heights",
+    "accelerating containers"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/absolute_pressure_depth.json",
+   "category": "theorem"
+  },
+  {
+   "key": "buoyant_force",
+   "family": "fluid_statics",
+   "name": "Buoyant force (Archimedes' principle)",
+   "equation": "F = rho*g*V",
+   "symbols": {
+    "F": {
+     "kind": "force",
+     "role": "buoyant",
+     "sign": "positive",
+     "desc": "buoyant force"
+    },
+    "rho": {
+     "kind": "density",
+     "role": "fluid",
+     "sign": "positive",
+     "desc": "density of the fluid",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "g": {
+     "kind": "acceleration",
+     "role": "gravity",
+     "sign": "positive",
+     "default": {
+      "value": 9.80665,
+      "unit": "m/s^2",
+      "assumption": "standard gravity g = 9.80665 m/s^2 near Earth's surface",
+      "unless": [
+       "non_earth"
+      ]
+     }
+    },
+    "V": {
+     "kind": "volume",
+     "role": "submerged",
+     "sign": "positive",
+     "desc": "volume of fluid displaced",
+     "accepts": [
+      "plain"
+     ]
+    }
+   },
+   "assumptions": [
+    "fluid at rest",
+    "uniform gravity",
+    "uniform fluid density"
+   ],
+   "requires": [
+    "buoyancy"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "a body wholly or partly immersed in a fluid at rest"
+   ],
+   "fails_when": [
+    "accelerating fluid",
+    "stratified fluid"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/buoyant_force.json",
+   "category": "theorem"
+  },
+  {
+   "key": "continuity_speed",
+   "family": "fluid_dynamics",
+   "name": "Continuity: speed after a change of pipe diameter",
+   "equation": "v2 = v1*(D1/D2)**2",
+   "symbols": {
+    "v2": {
+     "kind": "speed",
+     "role": "outlet",
+     "sign": "positive",
+     "desc": "mean velocity at the outlet"
+    },
+    "v1": {
+     "kind": "speed",
+     "role": "inlet",
+     "sign": "positive",
+     "desc": "mean velocity at the inlet"
+    },
+    "D1": {
+     "kind": "length",
+     "role": "inlet_diameter",
+     "sign": "positive",
+     "desc": "diameter at the inlet"
+    },
+    "D2": {
+     "kind": "length",
+     "role": "outlet_diameter",
+     "sign": "positive",
+     "desc": "diameter at the outlet"
+    }
+   },
+   "assumptions": [
+    "incompressible steady flow",
+    "circular cross sections",
+    "uniform velocity over each section"
+   ],
+   "requires": [
+    "continuity"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "liquid flowing through a reducer, nozzle or expansion"
+   ],
+   "fails_when": [
+    "compressible gas flow with large density change"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/continuity_speed.json",
+   "category": "theorem"
+  },
+  {
+   "key": "bernoulli_horizontal",
+   "family": "fluid_dynamics",
+   "name": "Bernoulli's equation along a horizontal streamline",
+   "equation": "P2 = P1 + rho*(v1**2 - v2**2)/2",
+   "symbols": {
+    "P2": {
+     "kind": "pressure",
+     "role": "outlet",
+     "sign": "any",
+     "desc": "pressure at the outlet"
+    },
+    "P1": {
+     "kind": "pressure",
+     "role": "inlet",
+     "sign": "any",
+     "desc": "pressure at the inlet"
+    },
+    "rho": {
+     "kind": "density",
+     "role": "fluid",
+     "sign": "positive",
+     "desc": "density of the fluid",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "v1": {
+     "kind": "speed",
+     "role": "inlet",
+     "sign": "positive",
+     "desc": "speed at the inlet"
+    },
+    "v2": {
+     "kind": "speed",
+     "role": "outlet",
+     "sign": "positive",
+     "desc": "speed at the outlet"
+    }
+   },
+   "assumptions": [
+    "steady, incompressible, inviscid flow along a streamline",
+    "no height change"
+   ],
+   "requires": [
+    "bernoulli",
+    "horizontal"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "frictionless flow between two points at the same height"
+   ],
+   "fails_when": [
+    "viscous losses",
+    "pumps or turbines between the points"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/bernoulli_horizontal.json",
+   "category": "theorem"
+  },
+  {
+   "key": "torricelli_efflux",
+   "family": "fluid_dynamics",
+   "name": "Speed of efflux from a hole (Torricelli's law)",
+   "equation": "v = sqrt(2*g*h)",
+   "symbols": {
+    "v": {
+     "kind": "speed",
+     "role": "efflux",
+     "sign": "positive",
+     "desc": "speed of the jet leaving the hole",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "g": {
+     "kind": "acceleration",
+     "role": "gravity",
+     "sign": "positive",
+     "default": {
+      "value": 9.80665,
+      "unit": "m/s^2",
+      "assumption": "standard gravity g = 9.80665 m/s^2 near Earth's surface",
+      "unless": [
+       "non_earth"
+      ]
+     }
+    },
+    "h": {
+     "kind": "length",
+     "role": "depth",
+     "sign": "positive",
+     "desc": "depth of the hole below the free surface",
+     "accepts": [
+      "height"
+     ]
+    }
+   },
+   "assumptions": [
+    "large tank (surface speed negligible)",
+    "no losses at the hole",
+    "open to the atmosphere"
+   ],
+   "requires": [
+    "torricelli"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "liquid draining from a small hole in a large open tank"
+   ],
+   "fails_when": [
+    "viscous losses (use a discharge coefficient)",
+    "pressurized tanks"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/torricelli_efflux.json",
+   "category": "theorem"
+  },
+  {
+   "key": "dynamic_pressure",
+   "family": "fluid_dynamics",
+   "name": "Dynamic pressure of a moving fluid",
+   "equation": "q = rho*v**2/2",
+   "symbols": {
+    "q": {
+     "kind": "pressure",
+     "role": "dynamic",
+     "sign": "positive",
+     "desc": "dynamic pressure"
+    },
+    "rho": {
+     "kind": "density",
+     "role": "fluid",
+     "sign": "positive",
+     "desc": "density of the fluid",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "v": {
+     "kind": "speed",
+     "role": "flow",
+     "sign": "positive",
+     "desc": "mean flow velocity",
+     "accepts": [
+      "plain"
+     ]
+    }
+   },
+   "assumptions": [
+    "incompressible flow (low Mach number)"
+   ],
+   "requires": [
+    "dynamic_pressure"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "a pitot-static measurement or the kinetic pressure of a stream"
+   ],
+   "fails_when": [
+    "compressible flow above Mach 0.3"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/dynamic_pressure.json",
+   "category": "theorem"
+  },
+  {
+   "key": "reynolds_number",
+   "family": "pipe_flow",
+   "name": "Reynolds number from density, velocity, diameter and viscosity",
+   "equation": "Re = rho*v*D/mu",
+   "symbols": {
+    "Re": {
+     "kind": "reynolds_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Reynolds number"
+    },
+    "rho": {
+     "kind": "density",
+     "role": "fluid",
+     "sign": "positive",
+     "desc": "density of the fluid",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "v": {
+     "kind": "speed",
+     "role": "flow",
+     "sign": "positive",
+     "desc": "mean flow velocity",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "D": {
+     "kind": "length",
+     "role": "diameter",
+     "sign": "positive",
+     "desc": "pipe or body diameter"
+    },
+    "mu": {
+     "kind": "dynamic_viscosity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "dynamic viscosity of the fluid"
+    }
+   },
+   "assumptions": [
+    "Newtonian fluid",
+    "the diameter as the characteristic length"
+   ],
+   "requires": [
+    "fluid_flow"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "flow in a circular pipe or past a sphere or cylinder of that diameter"
+   ],
+   "fails_when": [
+    "non-Newtonian fluids"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/reynolds_number.json",
+   "category": "theorem"
+  },
+  {
+   "key": "reynolds_number_kinematic",
+   "family": "pipe_flow",
+   "name": "Reynolds number from velocity, diameter and kinematic viscosity",
+   "equation": "Re = v*D/nu",
+   "symbols": {
+    "Re": {
+     "kind": "reynolds_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Reynolds number"
+    },
+    "v": {
+     "kind": "speed",
+     "role": "flow",
+     "sign": "positive",
+     "desc": "mean flow velocity",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "D": {
+     "kind": "length",
+     "role": "diameter",
+     "sign": "positive",
+     "desc": "pipe or body diameter"
+    },
+    "nu": {
+     "kind": "kinematic_viscosity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "kinematic viscosity of the fluid"
+    }
+   },
+   "assumptions": [
+    "Newtonian fluid",
+    "the diameter as the characteristic length"
+   ],
+   "requires": [
+    "fluid_flow"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "flow in a circular pipe or past a sphere or cylinder of that diameter"
+   ],
+   "fails_when": [
+    "non-Newtonian fluids"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/reynolds_number_kinematic.json",
+   "category": "theorem"
+  },
+  {
+   "key": "kinematic_viscosity",
+   "family": "pipe_flow",
+   "name": "Kinematic viscosity from dynamic viscosity and density",
+   "equation": "nu = mu/rho",
+   "symbols": {
+    "nu": {
+     "kind": "kinematic_viscosity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "kinematic viscosity"
+    },
+    "mu": {
+     "kind": "dynamic_viscosity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "dynamic viscosity of the fluid"
+    },
+    "rho": {
+     "kind": "density",
+     "role": "fluid",
+     "sign": "positive",
+     "desc": "density of the fluid",
+     "accepts": [
+      "plain"
+     ]
+    }
+   },
+   "assumptions": [
+    "Newtonian fluid"
+   ],
+   "requires": [
+    "kinematic"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "converting between dynamic and kinematic viscosity"
+   ],
+   "fails_when": [
+    "non-Newtonian fluids (no single viscosity)"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/kinematic_viscosity.json",
+   "category": "theorem"
+  },
+  {
+   "key": "laminar_friction_factor",
+   "family": "pipe_flow",
+   "name": "Darcy friction factor in laminar pipe flow",
+   "equation": "f = 64/Re",
+   "symbols": {
+    "f": {
+     "kind": "darcy_friction_factor",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Darcy friction factor"
+    },
+    "Re": {
+     "kind": "reynolds_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Reynolds number"
+    }
+   },
+   "assumptions": [
+    "fully developed laminar flow in a circular pipe",
+    "Darcy (not Fanning) friction factor"
+   ],
+   "requires": [
+    "pipe",
+    "laminar"
+   ],
+   "excludes": [
+    "turbulent",
+    "fanning"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "Re below about 2300 in a circular pipe"
+   ],
+   "fails_when": [
+    "turbulent or transitional flow",
+    "non-circular ducts"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/laminar_friction_factor.json",
+   "category": "theorem"
+  },
+  {
+   "key": "blasius_friction_factor",
+   "family": "pipe_flow",
+   "name": "Blasius friction factor for turbulent flow in a smooth pipe",
+   "equation": "f = 0.3164*Re**(-1/4)",
+   "symbols": {
+    "f": {
+     "kind": "darcy_friction_factor",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Darcy friction factor"
+    },
+    "Re": {
+     "kind": "reynolds_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Reynolds number"
+    }
+   },
+   "assumptions": [
+    "fully developed turbulent flow in a hydraulically smooth circular pipe",
+    "Darcy friction factor"
+   ],
+   "requires": [
+    "pipe",
+    "turbulent",
+    "smooth_pipe"
+   ],
+   "excludes": [
+    "laminar",
+    "fanning"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "4000 < Re < 100000 in a smooth pipe"
+   ],
+   "fails_when": [
+    "rough pipes",
+    "Re above about 100000"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/blasius_friction_factor.json",
+   "category": "theorem"
+  },
+  {
+   "key": "swamee_jain_friction_factor",
+   "family": "pipe_flow",
+   "name": "Swamee-Jain explicit friction factor for turbulent pipe flow",
+   "equation": "f = 0.25/(log(eps/(3.7*D) + (6.97/Re)**(9/10))/log(10))**2",
+   "symbols": {
+    "f": {
+     "kind": "darcy_friction_factor",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Darcy friction factor"
+    },
+    "eps": {
+     "kind": "length",
+     "role": "roughness",
+     "sign": "positive",
+     "desc": "absolute roughness of the pipe wall"
+    },
+    "D": {
+     "kind": "length",
+     "role": "diameter",
+     "sign": "positive",
+     "desc": "inner diameter of the pipe"
+    },
+    "Re": {
+     "kind": "reynolds_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Reynolds number"
+    }
+   },
+   "assumptions": [
+    "fully developed turbulent flow in a circular pipe",
+    "Darcy friction factor"
+   ],
+   "requires": [
+    "pipe",
+    "swamee_jain"
+   ],
+   "excludes": [
+    "laminar",
+    "fanning"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "5000 < Re < 1e8 and 1e-6 < eps/D < 0.01"
+   ],
+   "fails_when": [
+    "laminar flow",
+    "eps/D outside the fitted range"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/swamee_jain_friction_factor.json",
+   "category": "theorem"
+  },
+  {
+   "key": "haaland_friction_factor",
+   "family": "pipe_flow",
+   "name": "Haaland explicit friction factor for turbulent pipe flow",
+   "equation": "f = 1/(1.8*log((eps/(3.7*D))**(111/100) + 6.9/Re)/log(10))**2",
+   "symbols": {
+    "f": {
+     "kind": "darcy_friction_factor",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Darcy friction factor"
+    },
+    "eps": {
+     "kind": "length",
+     "role": "roughness",
+     "sign": "positive",
+     "desc": "absolute roughness of the pipe wall"
+    },
+    "D": {
+     "kind": "length",
+     "role": "diameter",
+     "sign": "positive",
+     "desc": "inner diameter of the pipe"
+    },
+    "Re": {
+     "kind": "reynolds_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Reynolds number"
+    }
+   },
+   "assumptions": [
+    "fully developed turbulent flow in a circular pipe",
+    "Darcy friction factor"
+   ],
+   "requires": [
+    "pipe",
+    "haaland"
+   ],
+   "excludes": [
+    "laminar",
+    "fanning"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "4000 < Re < 1e8 and eps/D < 0.05"
+   ],
+   "fails_when": [
+    "laminar flow"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/haaland_friction_factor.json",
+   "category": "theorem"
+  },
+  {
+   "key": "darcy_weisbach_head_loss",
+   "family": "pipe_flow",
+   "name": "Darcy-Weisbach head loss in a pipe",
+   "equation": "hL = f*L*v**2/(2*g*D)",
+   "symbols": {
+    "hL": {
+     "kind": "length",
+     "role": "head_loss",
+     "sign": "positive",
+     "desc": "head loss to friction"
+    },
+    "f": {
+     "kind": "darcy_friction_factor",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Darcy friction factor"
+    },
+    "L": {
+     "kind": "length",
+     "role": "pipe_length",
+     "sign": "positive",
+     "desc": "length of the pipe"
+    },
+    "v": {
+     "kind": "speed",
+     "role": "flow",
+     "sign": "positive",
+     "desc": "mean flow velocity",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "g": {
+     "kind": "acceleration",
+     "role": "gravity",
+     "sign": "positive",
+     "default": {
+      "value": 9.80665,
+      "unit": "m/s^2",
+      "assumption": "standard gravity g = 9.80665 m/s^2 near Earth's surface",
+      "unless": [
+       "non_earth"
+      ]
+     }
+    },
+    "D": {
+     "kind": "length",
+     "role": "diameter",
+     "sign": "positive",
+     "desc": "inner diameter of the pipe"
+    }
+   },
+   "assumptions": [
+    "fully developed flow",
+    "Darcy friction factor",
+    "constant diameter"
+   ],
+   "requires": [
+    "pipe"
+   ],
+   "excludes": [
+    "fanning"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "frictional loss along a straight pipe of constant diameter"
+   ],
+   "fails_when": [
+    "Fanning friction factor given",
+    "fittings (minor losses)"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/darcy_weisbach_head_loss.json",
+   "category": "theorem"
+  },
+  {
+   "key": "darcy_weisbach_pressure_drop",
+   "family": "pipe_flow",
+   "name": "Darcy-Weisbach pressure drop in a pipe",
+   "equation": "dP = f*L*rho*v**2/(2*D)",
+   "symbols": {
+    "dP": {
+     "kind": "pressure",
+     "role": "drop",
+     "sign": "positive",
+     "desc": "frictional pressure drop"
+    },
+    "f": {
+     "kind": "darcy_friction_factor",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Darcy friction factor"
+    },
+    "L": {
+     "kind": "length",
+     "role": "pipe_length",
+     "sign": "positive",
+     "desc": "length of the pipe"
+    },
+    "rho": {
+     "kind": "density",
+     "role": "fluid",
+     "sign": "positive",
+     "desc": "density of the fluid",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "v": {
+     "kind": "speed",
+     "role": "flow",
+     "sign": "positive",
+     "desc": "mean flow velocity",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "D": {
+     "kind": "length",
+     "role": "diameter",
+     "sign": "positive",
+     "desc": "inner diameter of the pipe"
+    }
+   },
+   "assumptions": [
+    "fully developed flow",
+    "Darcy friction factor",
+    "constant diameter"
+   ],
+   "requires": [
+    "pipe"
+   ],
+   "excludes": [
+    "fanning"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "frictional pressure loss along a straight pipe of constant diameter"
+   ],
+   "fails_when": [
+    "Fanning friction factor given"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/darcy_weisbach_pressure_drop.json",
+   "category": "theorem"
+  },
+  {
+   "key": "hagen_poiseuille",
+   "family": "pipe_flow",
+   "name": "Hagen-Poiseuille flow rate in laminar pipe flow",
+   "equation": "Q = pi*D**4*dP/(128*mu*L)",
+   "symbols": {
+    "Q": {
+     "kind": "flow_rate",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "volume flow rate"
+    },
+    "D": {
+     "kind": "length",
+     "role": "diameter",
+     "sign": "positive",
+     "desc": "inner diameter of the pipe"
+    },
+    "dP": {
+     "kind": "pressure",
+     "role": "drop",
+     "sign": "positive",
+     "desc": "pressure drop along the pipe"
+    },
+    "mu": {
+     "kind": "dynamic_viscosity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "dynamic viscosity of the fluid"
+    },
+    "L": {
+     "kind": "length",
+     "role": "pipe_length",
+     "sign": "positive",
+     "desc": "length of the pipe"
+    }
+   },
+   "assumptions": [
+    "fully developed laminar flow",
+    "Newtonian fluid",
+    "circular pipe"
+   ],
+   "requires": [
+    "pipe",
+    "laminar"
+   ],
+   "excludes": [
+    "turbulent"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "Re below about 2300"
+   ],
+   "fails_when": [
+    "turbulent flow",
+    "entrance region"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/hagen_poiseuille.json",
+   "category": "theorem"
+  },
+  {
+   "key": "minor_loss_head",
+   "family": "pipe_flow",
+   "name": "Minor head loss in a fitting",
+   "equation": "hL = K*v**2/(2*g)",
+   "symbols": {
+    "hL": {
+     "kind": "length",
+     "role": "head_loss",
+     "sign": "positive",
+     "desc": "head loss across the fitting"
+    },
+    "K": {
+     "kind": "loss_coefficient",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "loss coefficient of the fitting"
+    },
+    "v": {
+     "kind": "speed",
+     "role": "flow",
+     "sign": "positive",
+     "desc": "mean flow velocity",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "g": {
+     "kind": "acceleration",
+     "role": "gravity",
+     "sign": "positive",
+     "default": {
+      "value": 9.80665,
+      "unit": "m/s^2",
+      "assumption": "standard gravity g = 9.80665 m/s^2 near Earth's surface",
+      "unless": [
+       "non_earth"
+      ]
+     }
+    }
+   },
+   "assumptions": [
+    "fully turbulent flow (K independent of Re)",
+    "K based on the mean velocity in the pipe"
+   ],
+   "requires": [
+    "fitting"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "valves, elbows, entrances, exits and expansions"
+   ],
+   "fails_when": [
+    "laminar flow (K depends on Re)"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/minor_loss_head.json",
+   "category": "theorem"
+  },
+  {
+   "key": "hydraulic_power",
+   "family": "pumps",
+   "name": "Hydraulic power delivered to a fluid",
+   "equation": "P = rho*g*Q*H",
+   "symbols": {
+    "P": {
+     "kind": "power",
+     "role": "hydraulic",
+     "sign": "positive",
+     "desc": "power delivered to the fluid"
+    },
+    "rho": {
+     "kind": "density",
+     "role": "fluid",
+     "sign": "positive",
+     "desc": "density of the fluid",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "g": {
+     "kind": "acceleration",
+     "role": "gravity",
+     "sign": "positive",
+     "default": {
+      "value": 9.80665,
+      "unit": "m/s^2",
+      "assumption": "standard gravity g = 9.80665 m/s^2 near Earth's surface",
+      "unless": [
+       "non_earth"
+      ]
+     }
+    },
+    "Q": {
+     "kind": "flow_rate",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "volume flow rate"
+    },
+    "H": {
+     "kind": "length",
+     "role": "pump_head",
+     "sign": "positive",
+     "desc": "head added by the pump"
+    }
+   },
+   "assumptions": [
+    "incompressible liquid",
+    "steady flow"
+   ],
+   "requires": [
+    "pump"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "a pump adding head H to a liquid stream"
+   ],
+   "fails_when": [
+    "compressible gases with large pressure ratios"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/hydraulic_power.json",
+   "category": "theorem"
+  },
+  {
+   "key": "pump_shaft_power",
+   "family": "pumps",
+   "name": "Shaft power required by a pump",
+   "equation": "P = rho*g*Q*H/eta",
+   "symbols": {
+    "P": {
+     "kind": "power",
+     "role": "shaft",
+     "sign": "positive",
+     "desc": "shaft power required"
+    },
+    "rho": {
+     "kind": "density",
+     "role": "fluid",
+     "sign": "positive",
+     "desc": "density of the fluid",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "g": {
+     "kind": "acceleration",
+     "role": "gravity",
+     "sign": "positive",
+     "default": {
+      "value": 9.80665,
+      "unit": "m/s^2",
+      "assumption": "standard gravity g = 9.80665 m/s^2 near Earth's surface",
+      "unless": [
+       "non_earth"
+      ]
+     }
+    },
+    "Q": {
+     "kind": "flow_rate",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "volume flow rate"
+    },
+    "H": {
+     "kind": "length",
+     "role": "pump_head",
+     "sign": "positive",
+     "desc": "head added by the pump"
+    },
+    "eta": {
+     "kind": "efficiency",
+     "role": "pump",
+     "sign": "positive",
+     "desc": "pump efficiency (a fraction)",
+     "accepts": [
+      "plain"
+     ]
+    }
+   },
+   "assumptions": [
+    "incompressible liquid",
+    "steady flow",
+    "efficiency given as a fraction"
+   ],
+   "requires": [
+    "pump"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "sizing the drive of a pump"
+   ],
+   "fails_when": [
+    "efficiency stated as a percentage (give it as a fraction)"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/pump_shaft_power.json",
+   "category": "theorem"
+  },
+  {
+   "key": "hydrostatic_force_plane",
+   "family": "fluid_statics",
+   "name": "Hydrostatic force on a submerged plane surface",
+   "equation": "F = rho*g*hc*A",
+   "symbols": {
+    "F": {
+     "kind": "force",
+     "role": "hydrostatic",
+     "sign": "positive",
+     "desc": "resultant hydrostatic force on the surface"
+    },
+    "rho": {
+     "kind": "density",
+     "role": "fluid",
+     "sign": "positive",
+     "desc": "density of the fluid",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "g": {
+     "kind": "acceleration",
+     "role": "gravity",
+     "sign": "positive",
+     "default": {
+      "value": 9.80665,
+      "unit": "m/s^2",
+      "assumption": "standard gravity g = 9.80665 m/s^2 near Earth's surface",
+      "unless": [
+       "non_earth"
+      ]
+     }
+    },
+    "hc": {
+     "kind": "length",
+     "role": "centroid_depth",
+     "sign": "positive",
+     "desc": "depth of the surface's centroid"
+    },
+    "A": {
+     "kind": "area",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "area of the surface"
+    }
+   },
+   "assumptions": [
+    "liquid at rest",
+    "gauge pressure (atmosphere acts on both sides)"
+   ],
+   "requires": [
+    "submerged_surface"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "a plane gate, wall or plate wholly submerged in a liquid"
+   ],
+   "fails_when": [
+    "surfaces partly above the free surface"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/hydrostatic_force_plane.json",
+   "category": "theorem"
+  },
+  {
+   "key": "drag_force",
+   "family": "external_flow",
+   "name": "Drag force from the drag coefficient",
+   "equation": "F = Cd*rho*v**2*A/2",
+   "symbols": {
+    "F": {
+     "kind": "force",
+     "role": "drag",
+     "sign": "positive",
+     "desc": "drag force"
+    },
+    "Cd": {
+     "kind": "drag_coefficient",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "drag coefficient"
+    },
+    "rho": {
+     "kind": "density",
+     "role": "fluid",
+     "sign": "positive",
+     "desc": "density of the fluid",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "v": {
+     "kind": "speed",
+     "role": "flow",
+     "sign": "positive",
+     "desc": "mean flow velocity",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "A": {
+     "kind": "area",
+     "role": "frontal",
+     "sign": "positive",
+     "desc": "frontal (reference) area",
+     "accepts": [
+      "plain",
+      "wing"
+     ]
+    }
+   },
+   "assumptions": [
+    "drag coefficient based on the stated reference area",
+    "incompressible flow"
+   ],
+   "requires": [
+    "drag"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "a body moving through a fluid with a known drag coefficient"
+   ],
+   "fails_when": [
+    "compressible flow near Mach 1"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/drag_force.json",
+   "category": "theorem"
+  },
+  {
+   "key": "lift_force",
+   "family": "external_flow",
+   "name": "Lift force from the lift coefficient",
+   "equation": "F = CL*rho*v**2*A/2",
+   "symbols": {
+    "F": {
+     "kind": "force",
+     "role": "lift",
+     "sign": "positive",
+     "desc": "lift force"
+    },
+    "CL": {
+     "kind": "lift_coefficient",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "lift coefficient"
+    },
+    "rho": {
+     "kind": "density",
+     "role": "fluid",
+     "sign": "positive",
+     "desc": "density of the fluid",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "v": {
+     "kind": "speed",
+     "role": "flow",
+     "sign": "positive",
+     "desc": "mean flow velocity",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "A": {
+     "kind": "area",
+     "role": "wing",
+     "sign": "positive",
+     "desc": "wing planform area",
+     "accepts": [
+      "plain"
+     ]
+    }
+   },
+   "assumptions": [
+    "lift coefficient based on the planform area",
+    "incompressible flow"
+   ],
+   "requires": [
+    "lift"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "a wing or airfoil with a known lift coefficient"
+   ],
+   "fails_when": [
+    "stall",
+    "compressible flow near Mach 1"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/lift_force.json",
+   "category": "theorem"
+  },
+  {
+   "key": "stokes_drag",
+   "family": "external_flow",
+   "name": "Stokes drag on a small sphere",
+   "equation": "F = 3*pi*mu*D*v",
+   "symbols": {
+    "F": {
+     "kind": "force",
+     "role": "drag",
+     "sign": "positive",
+     "desc": "drag force on the sphere"
+    },
+    "mu": {
+     "kind": "dynamic_viscosity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "dynamic viscosity of the fluid"
+    },
+    "D": {
+     "kind": "length",
+     "role": "diameter",
+     "sign": "positive",
+     "desc": "sphere diameter"
+    },
+    "v": {
+     "kind": "speed",
+     "role": "flow",
+     "sign": "positive",
+     "desc": "mean flow velocity",
+     "accepts": [
+      "plain"
+     ]
+    }
+   },
+   "assumptions": [
+    "creeping flow (Re < 1)",
+    "rigid sphere far from walls"
+   ],
+   "requires": [
+    "stokes"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "a small particle or droplet moving slowly through a viscous fluid"
+   ],
+   "fails_when": [
+    "Re above about 1"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/stokes_drag.json",
+   "category": "theorem"
+  },
+  {
+   "key": "stokes_terminal_velocity",
+   "family": "external_flow",
+   "name": "Terminal settling velocity of a small sphere (Stokes)",
+   "equation": "v = g*D**2*(rho_p - rho)/(18*mu)",
+   "symbols": {
+    "v": {
+     "kind": "speed",
+     "role": "terminal",
+     "sign": "positive",
+     "desc": "terminal settling velocity"
+    },
+    "g": {
+     "kind": "acceleration",
+     "role": "gravity",
+     "sign": "positive",
+     "default": {
+      "value": 9.80665,
+      "unit": "m/s^2",
+      "assumption": "standard gravity g = 9.80665 m/s^2 near Earth's surface",
+      "unless": [
+       "non_earth"
+      ]
+     }
+    },
+    "D": {
+     "kind": "length",
+     "role": "diameter",
+     "sign": "positive",
+     "desc": "sphere diameter"
+    },
+    "rho_p": {
+     "kind": "density",
+     "role": "particle",
+     "sign": "positive",
+     "desc": "density of the particle"
+    },
+    "rho": {
+     "kind": "density",
+     "role": "fluid",
+     "sign": "positive",
+     "desc": "density of the fluid",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "mu": {
+     "kind": "dynamic_viscosity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "dynamic viscosity of the fluid"
+    }
+   },
+   "assumptions": [
+    "creeping flow (Re < 1)",
+    "particle denser than the fluid",
+    "rigid sphere"
+   ],
+   "requires": [
+    "stokes"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "fine particles or droplets settling in a viscous fluid"
+   ],
+   "fails_when": [
+    "Re above about 1",
+    "hindered settling in dense suspensions"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/stokes_terminal_velocity.json",
+   "category": "theorem"
+  },
+  {
+   "key": "thin_airfoil_lift_coefficient",
+   "family": "aerodynamics",
+   "name": "Lift coefficient of a thin symmetric airfoil",
+   "equation": "CL = 2*pi*alpha",
+   "symbols": {
+    "CL": {
+     "kind": "lift_coefficient",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "section lift coefficient"
+    },
+    "alpha": {
+     "kind": "angle",
+     "role": "attack",
+     "sign": "positive",
+     "desc": "angle of attack"
+    }
+   },
+   "assumptions": [
+    "thin symmetric airfoil",
+    "small angle of attack",
+    "inviscid incompressible flow"
+   ],
+   "requires": [
+    "thin_airfoil"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "small angles of attack below stall"
+   ],
+   "fails_when": [
+    "near or beyond stall",
+    "cambered airfoils (add the zero-lift angle)"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/thin_airfoil_lift_coefficient.json",
+   "category": "theorem"
+  },
+  {
+   "key": "mach_number",
+   "family": "compressible_flow",
+   "name": "Mach number",
+   "equation": "M = v/a",
+   "symbols": {
+    "M": {
+     "kind": "mach_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Mach number"
+    },
+    "v": {
+     "kind": "speed",
+     "role": "flow",
+     "sign": "positive",
+     "desc": "mean flow velocity",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "a": {
+     "kind": "speed",
+     "role": "sound",
+     "sign": "positive",
+     "desc": "local speed of sound"
+    }
+   },
+   "assumptions": [
+    "v and a measured in the same frame and state"
+   ],
+   "requires": [
+    "compressible"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "any flow or flight speed compared with the local speed of sound"
+   ],
+   "fails_when": [
+    "a taken at a different temperature"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/mach_number.json",
+   "category": "theorem"
+  },
+  {
+   "key": "speed_of_sound_ideal_gas",
+   "family": "compressible_flow",
+   "name": "Speed of sound in an ideal gas",
+   "equation": "a = sqrt(gamma*R*T)",
+   "symbols": {
+    "a": {
+     "kind": "speed",
+     "role": "sound",
+     "sign": "positive",
+     "desc": "speed of sound"
+    },
+    "gamma": {
+     "kind": "heat_capacity_ratio",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "ratio of specific heats"
+    },
+    "R": {
+     "kind": "specific_gas_constant",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "specific gas constant"
+    },
+    "T": {
+     "kind": "temperature",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "absolute temperature of the gas"
+    }
+   },
+   "assumptions": [
+    "ideal gas",
+    "small-amplitude (acoustic) waves"
+   ],
+   "requires": [
+    "compressible"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "gases at moderate pressure"
+   ],
+   "fails_when": [
+    "dense or real gases near saturation",
+    "liquids"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/speed_of_sound_ideal_gas.json",
+   "category": "theorem"
+  },
+  {
+   "key": "stagnation_temperature_mach",
+   "family": "compressible_flow",
+   "name": "Stagnation temperature from the Mach number",
+   "equation": "T0 = T*(1 + (gamma - 1)*M**2/2)",
+   "symbols": {
+    "T0": {
+     "kind": "temperature",
+     "role": "stagnation",
+     "sign": "positive",
+     "desc": "stagnation (total) temperature"
+    },
+    "T": {
+     "kind": "temperature",
+     "role": "static",
+     "sign": "positive",
+     "desc": "static temperature",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "gamma": {
+     "kind": "heat_capacity_ratio",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "ratio of specific heats"
+    },
+    "M": {
+     "kind": "mach_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Mach number"
+    }
+   },
+   "assumptions": [
+    "ideal gas with constant specific heats",
+    "adiabatic deceleration"
+   ],
+   "requires": [
+    "compressible"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "any adiabatic flow of an ideal gas"
+   ],
+   "fails_when": [
+    "heat transfer to or from the stream",
+    "high-temperature real-gas effects"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/stagnation_temperature_mach.json",
+   "category": "theorem"
+  },
+  {
+   "key": "stagnation_pressure_air",
+   "family": "compressible_flow",
+   "name": "Isentropic stagnation pressure of air from the Mach number",
+   "equation": "P0 = P*(1 + M**2/5)**(7/2)",
+   "symbols": {
+    "P0": {
+     "kind": "pressure",
+     "role": "stagnation",
+     "sign": "positive",
+     "desc": "stagnation pressure"
+    },
+    "P": {
+     "kind": "pressure",
+     "role": "static",
+     "sign": "positive",
+     "desc": "static pressure",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "M": {
+     "kind": "mach_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Mach number"
+    }
+   },
+   "assumptions": [
+    "air as an ideal gas with gamma = 1.4",
+    "isentropic deceleration"
+   ],
+   "requires": [
+    "compressible",
+    "air"
+   ],
+   "excludes": [
+    "non_air"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "isentropic flow of air"
+   ],
+   "fails_when": [
+    "across shock waves",
+    "gases other than air"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/stagnation_pressure_air.json",
+   "category": "theorem"
+  },
+  {
+   "key": "normal_shock_mach_air",
+   "family": "compressible_flow",
+   "name": "Mach number behind a normal shock in air",
+   "equation": "M2 = sqrt((M1**2 + 5)/(7*M1**2 - 1))",
+   "symbols": {
+    "M2": {
+     "kind": "mach_number",
+     "role": "downstream",
+     "sign": "positive",
+     "desc": "Mach number behind the shock"
+    },
+    "M1": {
+     "kind": "mach_number",
+     "role": "upstream",
+     "sign": "positive",
+     "desc": "Mach number ahead of the shock"
+    }
+   },
+   "assumptions": [
+    "air as an ideal gas with gamma = 1.4",
+    "steady normal shock",
+    "adiabatic"
+   ],
+   "requires": [
+    "shock",
+    "air"
+   ],
+   "excludes": [
+    "non_air"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "a stationary normal shock with supersonic upstream flow"
+   ],
+   "fails_when": [
+    "oblique shocks",
+    "M1 <= 1 (no shock)"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/normal_shock_mach_air.json",
+   "category": "theorem"
+  },
+  {
+   "key": "normal_shock_pressure_air",
+   "family": "compressible_flow",
+   "name": "Static pressure behind a normal shock in air",
+   "equation": "P2 = P1*(7*M1**2 - 1)/6",
+   "symbols": {
+    "P2": {
+     "kind": "pressure",
+     "role": "downstream",
+     "sign": "positive",
+     "desc": "static pressure behind the shock"
+    },
+    "P1": {
+     "kind": "pressure",
+     "role": "upstream",
+     "sign": "positive",
+     "desc": "static pressure ahead of the shock"
+    },
+    "M1": {
+     "kind": "mach_number",
+     "role": "upstream",
+     "sign": "positive",
+     "desc": "Mach number ahead of the shock"
+    }
+   },
+   "assumptions": [
+    "air as an ideal gas with gamma = 1.4",
+    "steady normal shock",
+    "adiabatic"
+   ],
+   "requires": [
+    "shock",
+    "air"
+   ],
+   "excludes": [
+    "non_air"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "a stationary normal shock with supersonic upstream flow"
+   ],
+   "fails_when": [
+    "oblique shocks",
+    "M1 <= 1 (no shock)"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/normal_shock_pressure_air.json",
+   "category": "theorem"
+  },
+  {
+   "key": "blasius_displacement_thickness",
+   "family": "boundary_layers",
+   "name": "Displacement thickness of a laminar flat-plate boundary layer",
+   "equation": "ds = 1.7207876575205*x/sqrt(Rex)",
+   "symbols": {
+    "ds": {
+     "kind": "length",
+     "role": "displacement_thickness",
+     "sign": "positive",
+     "desc": "displacement thickness"
+    },
+    "x": {
+     "kind": "length",
+     "role": "plate_distance",
+     "sign": "positive",
+     "desc": "distance from the leading edge"
+    },
+    "Rex": {
+     "kind": "reynolds_number",
+     "role": "local",
+     "sign": "positive",
+     "desc": "local Reynolds number U x / nu",
+     "accepts": [
+      "plain"
+     ]
+    }
+   },
+   "assumptions": [
+    "steady laminar flow over a flat plate",
+    "zero pressure gradient"
+   ],
+   "requires": [
+    "flat_plate",
+    "laminar"
+   ],
+   "excludes": [
+    "turbulent"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "Re_x below about 500000"
+   ],
+   "fails_when": [
+    "turbulent boundary layers",
+    "pressure gradients"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/blasius_displacement_thickness.json",
+   "category": "theorem"
+  },
+  {
+   "key": "blasius_momentum_thickness",
+   "family": "boundary_layers",
+   "name": "Momentum thickness of a laminar flat-plate boundary layer",
+   "equation": "th = 0.6641146724303926*x/sqrt(Rex)",
+   "symbols": {
+    "th": {
+     "kind": "length",
+     "role": "momentum_thickness",
+     "sign": "positive",
+     "desc": "momentum thickness"
+    },
+    "x": {
+     "kind": "length",
+     "role": "plate_distance",
+     "sign": "positive",
+     "desc": "distance from the leading edge"
+    },
+    "Rex": {
+     "kind": "reynolds_number",
+     "role": "local",
+     "sign": "positive",
+     "desc": "local Reynolds number U x / nu",
+     "accepts": [
+      "plain"
+     ]
+    }
+   },
+   "assumptions": [
+    "steady laminar flow over a flat plate",
+    "zero pressure gradient"
+   ],
+   "requires": [
+    "flat_plate",
+    "laminar"
+   ],
+   "excludes": [
+    "turbulent"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "Re_x below about 500000"
+   ],
+   "fails_when": [
+    "turbulent boundary layers",
+    "pressure gradients"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/blasius_momentum_thickness.json",
+   "category": "theorem"
+  },
+  {
+   "key": "blasius_local_skin_friction",
+   "family": "boundary_layers",
+   "name": "Local skin-friction coefficient of a laminar flat plate",
+   "equation": "cf = 0.6641146724303926/sqrt(Rex)",
+   "symbols": {
+    "cf": {
+     "kind": "skin_friction_coefficient",
+     "role": "local",
+     "sign": "positive",
+     "desc": "local skin-friction coefficient"
+    },
+    "Rex": {
+     "kind": "reynolds_number",
+     "role": "local",
+     "sign": "positive",
+     "desc": "local Reynolds number U x / nu",
+     "accepts": [
+      "plain"
+     ]
+    }
+   },
+   "assumptions": [
+    "steady laminar flow over a flat plate",
+    "zero pressure gradient"
+   ],
+   "requires": [
+    "flat_plate",
+    "laminar"
+   ],
+   "excludes": [
+    "turbulent"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "Re_x below about 500000"
+   ],
+   "fails_when": [
+    "turbulent boundary layers",
+    "pressure gradients"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/blasius_local_skin_friction.json",
+   "category": "theorem"
+  },
+  {
+   "key": "blasius_average_skin_friction",
+   "family": "boundary_layers",
+   "name": "Average skin-friction coefficient of a laminar flat plate",
+   "equation": "cfm = 1.3282293448607851/sqrt(ReL)",
+   "symbols": {
+    "cfm": {
+     "kind": "skin_friction_coefficient",
+     "role": "average",
+     "sign": "positive",
+     "desc": "average skin-friction coefficient over the plate"
+    },
+    "ReL": {
+     "kind": "reynolds_number",
+     "role": "plate",
+     "sign": "positive",
+     "desc": "Reynolds number based on the plate length",
+     "accepts": [
+      "plain"
+     ]
+    }
+   },
+   "assumptions": [
+    "laminar boundary layer over the whole plate",
+    "zero pressure gradient"
+   ],
+   "requires": [
+    "flat_plate",
+    "laminar"
+   ],
+   "excludes": [
+    "turbulent"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "Re_L below about 500000"
+   ],
+   "fails_when": [
+    "transition on the plate",
+    "pressure gradients"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/blasius_average_skin_friction.json",
+   "category": "theorem"
+  },
+  {
+   "key": "froude_number",
+   "family": "open_channel",
+   "name": "Froude number of an open-channel flow",
+   "equation": "Fr = v/sqrt(g*h)",
+   "symbols": {
+    "Fr": {
+     "kind": "froude_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Froude number"
+    },
+    "v": {
+     "kind": "speed",
+     "role": "flow",
+     "sign": "positive",
+     "desc": "mean flow velocity",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "g": {
+     "kind": "acceleration",
+     "role": "gravity",
+     "sign": "positive",
+     "default": {
+      "value": 9.80665,
+      "unit": "m/s^2",
+      "assumption": "standard gravity g = 9.80665 m/s^2 near Earth's surface",
+      "unless": [
+       "non_earth"
+      ]
+     }
+    },
+    "h": {
+     "kind": "length",
+     "role": "depth",
+     "sign": "positive",
+     "desc": "flow depth"
+    }
+   },
+   "assumptions": [
+    "rectangular channel (hydraulic depth = flow depth)"
+   ],
+   "requires": [
+    "open_channel"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "free-surface flow in a channel or river"
+   ],
+   "fails_when": [
+    "closed conduits flowing full"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/froude_number.json",
+   "category": "theorem"
+  },
+  {
+   "key": "plane_wall_conduction",
+   "family": "conduction",
+   "name": "Fourier's law: heat conduction through a plane wall",
+   "equation": "q = k*A*(T1 - T2)/L",
+   "symbols": {
+    "q": {
+     "kind": "power",
+     "role": "heat_rate",
+     "sign": "any",
+     "desc": "rate of heat transfer"
+    },
+    "k": {
+     "kind": "thermal_conductivity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "thermal conductivity"
+    },
+    "A": {
+     "kind": "area",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "wall area"
+    },
+    "T1": {
+     "kind": "temperature",
+     "role": "inner_surface",
+     "sign": "positive",
+     "desc": "inner surface temperature"
+    },
+    "T2": {
+     "kind": "temperature",
+     "role": "outer_surface",
+     "sign": "positive",
+     "desc": "outer surface temperature"
+    },
+    "L": {
+     "kind": "length",
+     "role": "thickness",
+     "sign": "positive",
+     "desc": "wall thickness"
+    }
+   },
+   "assumptions": [
+    "steady one-dimensional conduction",
+    "constant thermal conductivity",
+    "no heat generation"
+   ],
+   "requires": [
+    "conduction",
+    "plane_wall"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "a flat wall, slab or window with known surface temperatures"
+   ],
+   "fails_when": [
+    "transient conduction",
+    "multidimensional heat flow"
+   ],
+   "conventions": [
+    "q is positive from the inner to the outer surface"
+   ],
+   "certificate": "release/promotion_families/plane_wall_conduction.json",
+   "category": "theorem"
+  },
+  {
+   "key": "cylinder_conduction",
+   "family": "conduction",
+   "name": "Radial heat conduction through a cylindrical wall",
+   "equation": "q = 2*pi*k*L*(T1 - T2)/log(r2/r1)",
+   "symbols": {
+    "q": {
+     "kind": "power",
+     "role": "heat_rate",
+     "sign": "any",
+     "desc": "rate of heat transfer"
+    },
+    "k": {
+     "kind": "thermal_conductivity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "thermal conductivity"
+    },
+    "L": {
+     "kind": "length",
+     "role": "pipe_length",
+     "sign": "positive",
+     "desc": "length of the cylinder"
+    },
+    "T1": {
+     "kind": "temperature",
+     "role": "inner_surface",
+     "sign": "positive",
+     "desc": "inner surface temperature"
+    },
+    "T2": {
+     "kind": "temperature",
+     "role": "outer_surface",
+     "sign": "positive",
+     "desc": "outer surface temperature"
+    },
+    "r1": {
+     "kind": "length",
+     "role": "inner_radius",
+     "sign": "positive",
+     "desc": "inner radius"
+    },
+    "r2": {
+     "kind": "length",
+     "role": "outer_radius",
+     "sign": "positive",
+     "desc": "outer radius"
+    }
+   },
+   "assumptions": [
+    "steady radial conduction",
+    "constant thermal conductivity",
+    "no heat generation"
+   ],
+   "requires": [
+    "conduction",
+    "cylindrical"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "pipe walls and pipe insulation"
+   ],
+   "fails_when": [
+    "axial heat flow",
+    "transient conduction"
+   ],
+   "conventions": [
+    "q is positive outward"
+   ],
+   "certificate": "release/promotion_families/cylinder_conduction.json",
+   "category": "theorem"
+  },
+  {
+   "key": "sphere_conduction",
+   "family": "conduction",
+   "name": "Radial heat conduction through a spherical shell",
+   "equation": "q = 4*pi*k*(T1 - T2)/(1/r1 - 1/r2)",
+   "symbols": {
+    "q": {
+     "kind": "power",
+     "role": "heat_rate",
+     "sign": "any",
+     "desc": "rate of heat transfer"
+    },
+    "k": {
+     "kind": "thermal_conductivity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "thermal conductivity"
+    },
+    "T1": {
+     "kind": "temperature",
+     "role": "inner_surface",
+     "sign": "positive",
+     "desc": "inner surface temperature"
+    },
+    "T2": {
+     "kind": "temperature",
+     "role": "outer_surface",
+     "sign": "positive",
+     "desc": "outer surface temperature"
+    },
+    "r1": {
+     "kind": "length",
+     "role": "inner_radius",
+     "sign": "positive",
+     "desc": "inner radius"
+    },
+    "r2": {
+     "kind": "length",
+     "role": "outer_radius",
+     "sign": "positive",
+     "desc": "outer radius"
+    }
+   },
+   "assumptions": [
+    "steady radial conduction",
+    "constant thermal conductivity"
+   ],
+   "requires": [
+    "conduction",
+    "spherical"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "spherical tanks and their insulation"
+   ],
+   "fails_when": [
+    "transient conduction"
+   ],
+   "conventions": [
+    "q is positive outward"
+   ],
+   "certificate": "release/promotion_families/sphere_conduction.json",
+   "category": "theorem"
+  },
+  {
+   "key": "overall_u_plane_wall",
+   "family": "conduction",
+   "name": "Overall heat transfer coefficient of a plane wall with convection on both sides",
+   "equation": "U = 1/(1/h1 + L/k + 1/h2)",
+   "symbols": {
+    "U": {
+     "kind": "heat_transfer_coefficient",
+     "role": "overall",
+     "sign": "positive",
+     "desc": "overall heat transfer coefficient"
+    },
+    "h1": {
+     "kind": "heat_transfer_coefficient",
+     "role": "inner",
+     "sign": "positive",
+     "desc": "inside heat transfer coefficient"
+    },
+    "L": {
+     "kind": "length",
+     "role": "thickness",
+     "sign": "positive",
+     "desc": "wall thickness"
+    },
+    "k": {
+     "kind": "thermal_conductivity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "thermal conductivity"
+    },
+    "h2": {
+     "kind": "heat_transfer_coefficient",
+     "role": "outer",
+     "sign": "positive",
+     "desc": "outside heat transfer coefficient"
+    }
+   },
+   "assumptions": [
+    "steady one-dimensional heat flow",
+    "a single plane layer",
+    "no radiation"
+   ],
+   "requires": [
+    "overall"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "walls and windows between two fluids"
+   ],
+   "fails_when": [
+    "cylindrical walls (areas differ)",
+    "several layers (add each L/k)"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/overall_u_plane_wall.json",
+   "category": "theorem"
+  },
+  {
+   "key": "overall_heat_rate",
+   "family": "conduction",
+   "name": "Heat transfer rate from the overall heat transfer coefficient",
+   "equation": "q = U*A*(Ti - To)",
+   "symbols": {
+    "q": {
+     "kind": "power",
+     "role": "heat_rate",
+     "sign": "any",
+     "desc": "rate of heat transfer"
+    },
+    "U": {
+     "kind": "heat_transfer_coefficient",
+     "role": "overall",
+     "sign": "positive",
+     "desc": "overall heat transfer coefficient"
+    },
+    "A": {
+     "kind": "area",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "wall area"
+    },
+    "Ti": {
+     "kind": "temperature",
+     "role": "inside_fluid",
+     "sign": "positive",
+     "desc": "inside fluid temperature"
+    },
+    "To": {
+     "kind": "temperature",
+     "role": "outside_fluid",
+     "sign": "positive",
+     "desc": "outside fluid temperature"
+    }
+   },
+   "assumptions": [
+    "steady heat flow",
+    "U based on the stated area"
+   ],
+   "requires": [
+    "overall"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "building envelopes and walls between two fluids"
+   ],
+   "fails_when": [
+    "transient conditions"
+   ],
+   "conventions": [
+    "q is positive from the inside to the outside"
+   ],
+   "certificate": "release/promotion_families/overall_heat_rate.json",
+   "category": "theorem"
+  },
+  {
+   "key": "critical_insulation_radius",
+   "family": "conduction",
+   "name": "Critical radius of insulation on a cylinder",
+   "equation": "r = k/h",
+   "symbols": {
+    "r": {
+     "kind": "length",
+     "role": "critical_radius",
+     "sign": "positive",
+     "desc": "critical outer radius of the insulation"
+    },
+    "k": {
+     "kind": "thermal_conductivity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "thermal conductivity"
+    },
+    "h": {
+     "kind": "heat_transfer_coefficient",
+     "role": "outer",
+     "sign": "positive",
+     "desc": "outside heat transfer coefficient",
+     "accepts": [
+      "plain"
+     ]
+    }
+   },
+   "assumptions": [
+    "cylindrical insulation",
+    "constant outside heat transfer coefficient",
+    "no radiation"
+   ],
+   "requires": [
+    "critical_insulation"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "deciding whether insulating a small pipe or wire increases heat loss"
+   ],
+   "fails_when": [
+    "spheres (r = 2k/h)"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/critical_insulation_radius.json",
+   "category": "theorem"
+  },
+  {
+   "key": "wall_generation_max_temperature",
+   "family": "conduction",
+   "name": "Maximum temperature of a plane wall with uniform heat generation",
+   "equation": "Tmax = Ts + q*L**2/(2*k)",
+   "symbols": {
+    "Tmax": {
+     "kind": "temperature",
+     "role": "max",
+     "sign": "positive",
+     "desc": "temperature at the mid-plane"
+    },
+    "Ts": {
+     "kind": "temperature",
+     "role": "surface",
+     "sign": "positive",
+     "desc": "surface temperature"
+    },
+    "q": {
+     "kind": "volumetric_heat_generation",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "heat generated per unit volume"
+    },
+    "L": {
+     "kind": "length",
+     "role": "half_thickness",
+     "sign": "positive",
+     "desc": "half-thickness of the wall"
+    },
+    "k": {
+     "kind": "thermal_conductivity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "thermal conductivity"
+    }
+   },
+   "assumptions": [
+    "steady one-dimensional conduction",
+    "both faces at the same temperature",
+    "uniform generation"
+   ],
+   "requires": [
+    "heat_generation"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "electrically heated slabs and fuel plates"
+   ],
+   "fails_when": [
+    "unequal surface temperatures",
+    "temperature-dependent conductivity"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/wall_generation_max_temperature.json",
+   "category": "theorem"
+  },
+  {
+   "key": "thermal_diffusivity",
+   "family": "conduction",
+   "name": "Thermal diffusivity",
+   "equation": "alpha = k/(rho*cp)",
+   "symbols": {
+    "alpha": {
+     "kind": "thermal_diffusivity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "thermal diffusivity"
+    },
+    "k": {
+     "kind": "thermal_conductivity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "thermal conductivity"
+    },
+    "rho": {
+     "kind": "density",
+     "role": "material",
+     "sign": "positive",
+     "desc": "density of the material",
+     "accepts": [
+      "plain",
+      "fluid"
+     ]
+    },
+    "cp": {
+     "kind": "specific_heat",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "specific heat capacity"
+    }
+   },
+   "assumptions": [
+    "constant properties"
+   ],
+   "requires": [
+    "diffusivity"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "transient conduction in solids and fluids"
+   ],
+   "fails_when": [
+    "phase change"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/thermal_diffusivity.json",
+   "category": "theorem"
+  },
+  {
+   "key": "biot_number",
+   "family": "transient_conduction",
+   "name": "Biot number",
+   "equation": "Bi = h*Lc/k",
+   "symbols": {
+    "Bi": {
+     "kind": "biot_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Biot number"
+    },
+    "h": {
+     "kind": "heat_transfer_coefficient",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "convection heat transfer coefficient"
+    },
+    "Lc": {
+     "kind": "length",
+     "role": "characteristic",
+     "sign": "positive",
+     "desc": "characteristic length"
+    },
+    "k": {
+     "kind": "thermal_conductivity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "thermal conductivity"
+    }
+   },
+   "assumptions": [
+    "Lc = volume / surface area for the lumped-capacitance test"
+   ],
+   "requires": [
+    "biot"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "judging whether a body's internal temperature is uniform (Bi < 0.1)"
+   ],
+   "fails_when": [
+    "h varying strongly over the surface"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/biot_number.json",
+   "category": "theorem"
+  },
+  {
+   "key": "fourier_number",
+   "family": "transient_conduction",
+   "name": "Fourier number",
+   "equation": "Fo = alpha*t/Lc**2",
+   "symbols": {
+    "Fo": {
+     "kind": "fourier_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Fourier number"
+    },
+    "alpha": {
+     "kind": "thermal_diffusivity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "thermal diffusivity"
+    },
+    "t": {
+     "kind": "time",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "elapsed time"
+    },
+    "Lc": {
+     "kind": "length",
+     "role": "characteristic",
+     "sign": "positive",
+     "desc": "characteristic length"
+    }
+   },
+   "assumptions": [
+    "constant properties"
+   ],
+   "requires": [
+    "fourier_number"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "transient conduction charts and series solutions"
+   ],
+   "fails_when": [
+    "phase change"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/fourier_number.json",
+   "category": "theorem"
+  },
+  {
+   "key": "newton_cooling",
+   "family": "convection",
+   "name": "Newton's law of cooling (convection heat transfer)",
+   "equation": "q = h*A*(Ts - Tinf)",
+   "symbols": {
+    "q": {
+     "kind": "power",
+     "role": "heat_rate",
+     "sign": "any",
+     "desc": "rate of heat transfer"
+    },
+    "h": {
+     "kind": "heat_transfer_coefficient",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "convection heat transfer coefficient"
+    },
+    "A": {
+     "kind": "area",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "surface area in contact with the fluid"
+    },
+    "Ts": {
+     "kind": "temperature",
+     "role": "surface",
+     "sign": "positive",
+     "desc": "surface temperature"
+    },
+    "Tinf": {
+     "kind": "temperature",
+     "role": "fluid",
+     "sign": "positive",
+     "desc": "temperature of the fluid far from the surface"
+    }
+   },
+   "assumptions": [
+    "uniform surface temperature",
+    "h averaged over the surface"
+   ],
+   "requires": [
+    "convection"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "heat exchange between a surface and a moving or still fluid"
+   ],
+   "fails_when": [
+    "radiation not negligible"
+   ],
+   "conventions": [
+    "q is positive from the surface to the fluid"
+   ],
+   "certificate": "release/promotion_families/newton_cooling.json",
+   "category": "theorem"
+  },
+  {
+   "key": "nusselt_heat_transfer_coefficient",
+   "family": "convection",
+   "name": "Heat transfer coefficient from the Nusselt number",
+   "equation": "h = Nu*k/Lc",
+   "symbols": {
+    "h": {
+     "kind": "heat_transfer_coefficient",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "convection heat transfer coefficient"
+    },
+    "Nu": {
+     "kind": "nusselt_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "average Nusselt number",
+     "accepts": [
+      "average"
+     ]
+    },
+    "k": {
+     "kind": "thermal_conductivity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "thermal conductivity"
+    },
+    "Lc": {
+     "kind": "length",
+     "role": "characteristic",
+     "sign": "positive",
+     "desc": "characteristic length (diameter or plate length)",
+     "accepts": [
+      "diameter",
+      "plate_length"
+     ]
+    }
+   },
+   "assumptions": [
+    "Nu based on the same characteristic length",
+    "k of the fluid"
+   ],
+   "requires": [
+    "nusselt"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "turning a convection correlation's Nusselt number into h"
+   ],
+   "fails_when": [
+    "k of the solid used instead of the fluid"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/nusselt_heat_transfer_coefficient.json",
+   "category": "theorem"
+  },
+  {
+   "key": "prandtl_number",
+   "family": "convection",
+   "name": "Prandtl number",
+   "equation": "Pr = cp*mu/k",
+   "symbols": {
+    "Pr": {
+     "kind": "prandtl_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Prandtl number of the fluid"
+    },
+    "cp": {
+     "kind": "specific_heat",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "specific heat of the fluid"
+    },
+    "mu": {
+     "kind": "dynamic_viscosity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "dynamic viscosity of the fluid"
+    },
+    "k": {
+     "kind": "thermal_conductivity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "thermal conductivity"
+    }
+   },
+   "assumptions": [
+    "properties at the film temperature"
+   ],
+   "requires": [
+    "prandtl"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "any Newtonian fluid"
+   ],
+   "fails_when": [
+    "non-Newtonian fluids"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/prandtl_number.json",
+   "category": "theorem"
+  },
+  {
+   "key": "dittus_boelter_heating",
+   "family": "convection",
+   "name": "Dittus-Boelter correlation, fluid being heated",
+   "equation": "Nu = 0.023*Re**(4/5)*Pr**(2/5)",
+   "symbols": {
+    "Nu": {
+     "kind": "nusselt_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Nusselt number"
+    },
+    "Re": {
+     "kind": "reynolds_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Reynolds number"
+    },
+    "Pr": {
+     "kind": "prandtl_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Prandtl number of the fluid"
+    }
+   },
+   "assumptions": [
+    "fully developed turbulent flow in a smooth circular tube",
+    "properties at the bulk temperature"
+   ],
+   "requires": [
+    "dittus_boelter",
+    "heated_fluid"
+   ],
+   "excludes": [
+    "cooled_fluid",
+    "laminar"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "Re > 10000 and 0.6 < Pr < 160"
+   ],
+   "fails_when": [
+    "laminar or transitional flow",
+    "large wall-to-bulk temperature differences"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/dittus_boelter_heating.json",
+   "category": "theorem"
+  },
+  {
+   "key": "dittus_boelter_cooling",
+   "family": "convection",
+   "name": "Dittus-Boelter correlation, fluid being cooled",
+   "equation": "Nu = 0.023*Re**(4/5)*Pr**(3/10)",
+   "symbols": {
+    "Nu": {
+     "kind": "nusselt_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Nusselt number"
+    },
+    "Re": {
+     "kind": "reynolds_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Reynolds number"
+    },
+    "Pr": {
+     "kind": "prandtl_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Prandtl number of the fluid"
+    }
+   },
+   "assumptions": [
+    "fully developed turbulent flow in a smooth circular tube",
+    "properties at the bulk temperature"
+   ],
+   "requires": [
+    "dittus_boelter",
+    "cooled_fluid"
+   ],
+   "excludes": [
+    "heated_fluid",
+    "laminar"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "Re > 10000 and 0.6 < Pr < 160"
+   ],
+   "fails_when": [
+    "laminar or transitional flow",
+    "large wall-to-bulk temperature differences"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/dittus_boelter_cooling.json",
+   "category": "theorem"
+  },
+  {
+   "key": "flat_plate_laminar_average_nusselt",
+   "family": "convection",
+   "name": "Average Nusselt number for laminar flow over a flat plate",
+   "equation": "Nu = 0.664*ReL**(1/2)*Pr**(1/3)",
+   "symbols": {
+    "Nu": {
+     "kind": "nusselt_number",
+     "role": "average",
+     "sign": "positive",
+     "desc": "average Nusselt number over the plate",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "ReL": {
+     "kind": "reynolds_number",
+     "role": "plate",
+     "sign": "positive",
+     "desc": "Reynolds number based on the plate length",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "Pr": {
+     "kind": "prandtl_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Prandtl number of the fluid"
+    }
+   },
+   "assumptions": [
+    "laminar boundary layer over the whole plate",
+    "isothermal plate"
+   ],
+   "requires": [
+    "flat_plate",
+    "laminar"
+   ],
+   "excludes": [
+    "turbulent"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "Re_L < 500000 and 0.6 < Pr < 10"
+   ],
+   "fails_when": [
+    "mixed laminar-turbulent plates",
+    "liquid metals"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/flat_plate_laminar_average_nusselt.json",
+   "category": "theorem"
+  },
+  {
+   "key": "flat_plate_laminar_local_nusselt",
+   "family": "convection",
+   "name": "Local Nusselt number for laminar flow over a flat plate",
+   "equation": "Nux = 0.332*Rex**(1/2)*Pr**(1/3)",
+   "symbols": {
+    "Nux": {
+     "kind": "nusselt_number",
+     "role": "local",
+     "sign": "positive",
+     "desc": "local Nusselt number"
+    },
+    "Rex": {
+     "kind": "reynolds_number",
+     "role": "local",
+     "sign": "positive",
+     "desc": "local Reynolds number U x / nu",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "Pr": {
+     "kind": "prandtl_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Prandtl number of the fluid"
+    }
+   },
+   "assumptions": [
+    "laminar boundary layer",
+    "isothermal plate"
+   ],
+   "requires": [
+    "flat_plate",
+    "laminar"
+   ],
+   "excludes": [
+    "turbulent"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "Re_x < 500000 and 0.6 < Pr < 10"
+   ],
+   "fails_when": [
+    "turbulent boundary layers",
+    "liquid metals"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/flat_plate_laminar_local_nusselt.json",
+   "category": "theorem"
+  },
+  {
+   "key": "grashof_number",
+   "family": "natural_convection",
+   "name": "Grashof number",
+   "equation": "Gr = g*beta*(Ts - Tinf)*L**3/nu**2",
+   "symbols": {
+    "Gr": {
+     "kind": "grashof_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Grashof number"
+    },
+    "g": {
+     "kind": "acceleration",
+     "role": "gravity",
+     "sign": "positive",
+     "default": {
+      "value": 9.80665,
+      "unit": "m/s^2",
+      "assumption": "standard gravity g = 9.80665 m/s^2 near Earth's surface",
+      "unless": [
+       "non_earth"
+      ]
+     }
+    },
+    "beta": {
+     "kind": "expansion_coefficient",
+     "role": "volume",
+     "sign": "positive",
+     "desc": "volumetric thermal expansion coefficient of the fluid"
+    },
+    "Ts": {
+     "kind": "temperature",
+     "role": "surface",
+     "sign": "positive",
+     "desc": "surface temperature"
+    },
+    "Tinf": {
+     "kind": "temperature",
+     "role": "fluid",
+     "sign": "positive",
+     "desc": "temperature of the fluid far from the surface"
+    },
+    "L": {
+     "kind": "length",
+     "role": "plate_length",
+     "sign": "positive",
+     "desc": "height of the plate (characteristic length)",
+     "accepts": [
+      "height",
+      "characteristic"
+     ]
+    },
+    "nu": {
+     "kind": "kinematic_viscosity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "kinematic viscosity of the fluid"
+    }
+   },
+   "assumptions": [
+    "Boussinesq approximation",
+    "surface hotter than the fluid"
+   ],
+   "requires": [
+    "natural_convection"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "buoyancy-driven flow next to a heated or cooled surface"
+   ],
+   "fails_when": [
+    "large temperature differences"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/grashof_number.json",
+   "category": "theorem"
+  },
+  {
+   "key": "rayleigh_number",
+   "family": "natural_convection",
+   "name": "Rayleigh number",
+   "equation": "Ra = Gr*Pr",
+   "symbols": {
+    "Ra": {
+     "kind": "rayleigh_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Rayleigh number"
+    },
+    "Gr": {
+     "kind": "grashof_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Grashof number"
+    },
+    "Pr": {
+     "kind": "prandtl_number",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "Prandtl number of the fluid"
+    }
+   },
+   "assumptions": [
+    "properties at the film temperature"
+   ],
+   "requires": [
+    "rayleigh"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "natural convection correlations"
+   ],
+   "fails_when": [
+    "forced convection"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/rayleigh_number.json",
+   "category": "theorem"
+  },
+  {
+   "key": "blackbody_emissive_power",
+   "family": "radiation",
+   "name": "Emissive power of a blackbody (Stefan-Boltzmann law)",
+   "equation": "E = sigma*T**4",
+   "symbols": {
+    "E": {
+     "kind": "heat_flux",
+     "role": "emissive",
+     "sign": "positive",
+     "desc": "emissive power per unit area"
+    },
+    "sigma": {
+     "kind": "stefan_boltzmann_constant",
+     "role": "constant",
+     "sign": "positive",
+     "default": {
+      "value": 5.670374419e-08,
+      "unit": "W/(m^2*K^4)",
+      "assumption": "the Stefan-Boltzmann constant 5.670374419e-8 W/(m^2*K^4)",
+      "unless": []
+     }
+    },
+    "T": {
+     "kind": "temperature",
+     "role": "surface",
+     "sign": "positive",
+     "desc": "absolute temperature of the surface",
+     "accepts": [
+      "plain"
+     ]
+    }
+   },
+   "assumptions": [
+    "an ideal blackbody",
+    "absolute temperature"
+   ],
+   "requires": [
+    "radiation",
+    "blackbody"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "total hemispherical emission of a black surface"
+   ],
+   "fails_when": [
+    "real (grey) surfaces without an emissivity"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/blackbody_emissive_power.json",
+   "category": "theorem"
+  },
+  {
+   "key": "radiation_net_exchange",
+   "family": "radiation",
+   "name": "Net radiation exchange of a small grey surface with large surroundings",
+   "equation": "q = eps*sigma*A*(Ts**4 - Tsur**4)",
+   "symbols": {
+    "q": {
+     "kind": "power",
+     "role": "heat_rate",
+     "sign": "any",
+     "desc": "rate of heat transfer"
+    },
+    "eps": {
+     "kind": "emissivity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "emissivity of the surface"
+    },
+    "sigma": {
+     "kind": "stefan_boltzmann_constant",
+     "role": "constant",
+     "sign": "positive",
+     "default": {
+      "value": 5.670374419e-08,
+      "unit": "W/(m^2*K^4)",
+      "assumption": "the Stefan-Boltzmann constant 5.670374419e-8 W/(m^2*K^4)",
+      "unless": []
+     }
+    },
+    "A": {
+     "kind": "area",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "surface area"
+    },
+    "Ts": {
+     "kind": "temperature",
+     "role": "surface",
+     "sign": "positive",
+     "desc": "surface temperature"
+    },
+    "Tsur": {
+     "kind": "temperature",
+     "role": "surroundings",
+     "sign": "positive",
+     "desc": "temperature of the surroundings"
+    }
+   },
+   "assumptions": [
+    "grey diffuse surface",
+    "surroundings large compared with the surface"
+   ],
+   "requires": [
+    "radiation"
+   ],
+   "excludes": [
+    "parallel_plates"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "a small body inside a large enclosure"
+   ],
+   "fails_when": [
+    "surfaces of comparable size"
+   ],
+   "conventions": [
+    "q is positive from the surface to the surroundings"
+   ],
+   "certificate": "release/promotion_families/radiation_net_exchange.json",
+   "category": "theorem"
+  },
+  {
+   "key": "radiation_parallel_plates",
+   "family": "radiation",
+   "name": "Net radiation between two large parallel grey plates",
+   "equation": "qf = sigma*(T1**4 - T2**4)/(1/e1 + 1/e2 - 1)",
+   "symbols": {
+    "qf": {
+     "kind": "heat_flux",
+     "role": "net",
+     "sign": "any",
+     "desc": "net radiative heat flux from plate 1 to plate 2"
+    },
+    "sigma": {
+     "kind": "stefan_boltzmann_constant",
+     "role": "constant",
+     "sign": "positive",
+     "default": {
+      "value": 5.670374419e-08,
+      "unit": "W/(m^2*K^4)",
+      "assumption": "the Stefan-Boltzmann constant 5.670374419e-8 W/(m^2*K^4)",
+      "unless": []
+     }
+    },
+    "T1": {
+     "kind": "temperature",
+     "role": "first_plate",
+     "sign": "positive",
+     "desc": "temperature of the first plate"
+    },
+    "T2": {
+     "kind": "temperature",
+     "role": "second_plate",
+     "sign": "positive",
+     "desc": "temperature of the second plate"
+    },
+    "e1": {
+     "kind": "emissivity",
+     "role": "first",
+     "sign": "positive",
+     "desc": "emissivity of the first plate"
+    },
+    "e2": {
+     "kind": "emissivity",
+     "role": "second",
+     "sign": "positive",
+     "desc": "emissivity of the second plate"
+    }
+   },
+   "assumptions": [
+    "infinite parallel grey diffuse plates",
+    "no participating medium"
+   ],
+   "requires": [
+    "radiation",
+    "parallel_plates"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "closely spaced large plates"
+   ],
+   "fails_when": [
+    "finite plates far apart (view factor below 1)"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/radiation_parallel_plates.json",
+   "category": "theorem"
+  },
+  {
+   "key": "wien_displacement",
+   "family": "radiation",
+   "name": "Wien's displacement law",
+   "equation": "lam = b/T",
+   "symbols": {
+    "lam": {
+     "kind": "length",
+     "role": "peak_wavelength",
+     "sign": "positive",
+     "desc": "wavelength of maximum spectral emission"
+    },
+    "T": {
+     "kind": "temperature",
+     "role": "surface",
+     "sign": "positive",
+     "desc": "absolute temperature of the surface",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "b": {
+     "kind": "wien_constant",
+     "role": "constant",
+     "sign": "positive",
+     "default": {
+      "value": 0.002897771955185172,
+      "unit": "m*K",
+      "assumption": "Wien's displacement constant b = 2.897771955e-3 m*K",
+      "unless": []
+     }
+    }
+   },
+   "assumptions": [
+    "blackbody (or grey body) emission"
+   ],
+   "requires": [
+    "peak_emission"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "the peak of the Planck spectrum"
+   ],
+   "fails_when": [
+    "strongly selective emitters"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/wien_displacement.json",
+   "category": "theorem"
+  },
+  {
+   "key": "radiation_heat_transfer_coefficient",
+   "family": "radiation",
+   "name": "Linearised radiation heat transfer coefficient",
+   "equation": "hr = eps*sigma*(Ts + Tsur)*(Ts**2 + Tsur**2)",
+   "symbols": {
+    "hr": {
+     "kind": "heat_transfer_coefficient",
+     "role": "radiation",
+     "sign": "positive",
+     "desc": "radiation heat transfer coefficient"
+    },
+    "eps": {
+     "kind": "emissivity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "surface emissivity"
+    },
+    "sigma": {
+     "kind": "stefan_boltzmann_constant",
+     "role": "constant",
+     "sign": "positive",
+     "default": {
+      "value": 5.670374419e-08,
+      "unit": "W/(m^2*K^4)",
+      "assumption": "the Stefan-Boltzmann constant 5.670374419e-8 W/(m^2*K^4)",
+      "unless": []
+     }
+    },
+    "Ts": {
+     "kind": "temperature",
+     "role": "surface",
+     "sign": "positive",
+     "desc": "surface temperature"
+    },
+    "Tsur": {
+     "kind": "temperature",
+     "role": "surroundings",
+     "sign": "positive",
+     "desc": "temperature of the surroundings"
+    }
+   },
+   "assumptions": [
+    "small grey surface in large surroundings"
+   ],
+   "requires": [
+    "radiation"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "combining radiation with convection"
+   ],
+   "fails_when": [
+    "surfaces of comparable size"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/radiation_heat_transfer_coefficient.json",
+   "category": "theorem"
+  },
+  {
+   "key": "infinite_fin_heat_rate",
+   "family": "fins",
+   "name": "Heat transfer rate of a very long fin",
+   "equation": "q = sqrt(h*P*k*Ac)*(Tb - Tinf)",
+   "symbols": {
+    "q": {
+     "kind": "power",
+     "role": "heat_rate",
+     "sign": "any",
+     "desc": "rate of heat transfer"
+    },
+    "h": {
+     "kind": "heat_transfer_coefficient",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "convection heat transfer coefficient"
+    },
+    "P": {
+     "kind": "length",
+     "role": "perimeter",
+     "sign": "positive",
+     "desc": "perimeter of the fin's cross section"
+    },
+    "k": {
+     "kind": "thermal_conductivity",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "thermal conductivity"
+    },
+    "Ac": {
+     "kind": "area",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "cross-sectional area of the fin"
+    },
+    "Tb": {
+     "kind": "temperature",
+     "role": "base",
+     "sign": "positive",
+     "desc": "temperature at the fin base"
+    },
+    "Tinf": {
+     "kind": "temperature",
+     "role": "fluid",
+     "sign": "positive",
+     "desc": "temperature of the fluid far from the surface"
+    }
+   },
+   "assumptions": [
+    "one-dimensional conduction along the fin",
+    "uniform h",
+    "constant cross section",
+    "very long fin"
+   ],
+   "requires": [
+    "fin",
+    "long_fin"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "m L above about 2.65"
+   ],
+   "fails_when": [
+    "short fins (use the adiabatic-tip result)"
+   ],
+   "conventions": [
+    "q is positive from the fin to the fluid"
+   ],
+   "certificate": "release/promotion_families/infinite_fin_heat_rate.json",
+   "category": "theorem"
+  },
+  {
+   "key": "lumped_capacitance_temperature",
+   "family": "transient_conduction",
+   "name": "Temperature of a lumped body cooling or heating in a fluid",
+   "equation": "T = Tinf + (Ti - Tinf)*exp(-h*A*t/(rho*V*c))",
+   "symbols": {
+    "T": {
+     "kind": "temperature",
+     "role": "final",
+     "sign": "positive",
+     "desc": "temperature of the body at time t"
+    },
+    "Tinf": {
+     "kind": "temperature",
+     "role": "fluid",
+     "sign": "positive",
+     "desc": "temperature of the fluid far from the surface"
+    },
+    "Ti": {
+     "kind": "temperature",
+     "role": "initial",
+     "sign": "positive",
+     "desc": "initial temperature of the body"
+    },
+    "h": {
+     "kind": "heat_transfer_coefficient",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "convection heat transfer coefficient"
+    },
+    "A": {
+     "kind": "area",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "surface area of the body"
+    },
+    "t": {
+     "kind": "time",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "elapsed time"
+    },
+    "rho": {
+     "kind": "density",
+     "role": "material",
+     "sign": "positive",
+     "desc": "density of the body",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "V": {
+     "kind": "volume",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "volume of the body"
+    },
+    "c": {
+     "kind": "specific_heat",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "specific heat of the body"
+    }
+   },
+   "assumptions": [
+    "Biot number below about 0.1 (uniform internal temperature)",
+    "constant h and properties"
+   ],
+   "requires": [
+    "lumped"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "small or highly conductive bodies"
+   ],
+   "fails_when": [
+    "Bi > 0.1",
+    "radiation not negligible"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/lumped_capacitance_temperature.json",
+   "category": "theorem"
+  },
+  {
+   "key": "lumped_time_constant",
+   "family": "transient_conduction",
+   "name": "Thermal time constant of a lumped body",
+   "equation": "tau = rho*V*c/(h*A)",
+   "symbols": {
+    "tau": {
+     "kind": "time",
+     "role": "time_constant",
+     "sign": "positive",
+     "desc": "thermal time constant"
+    },
+    "rho": {
+     "kind": "density",
+     "role": "material",
+     "sign": "positive",
+     "desc": "density of the body",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "V": {
+     "kind": "volume",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "volume of the body"
+    },
+    "c": {
+     "kind": "specific_heat",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "specific heat of the body"
+    },
+    "h": {
+     "kind": "heat_transfer_coefficient",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "convection heat transfer coefficient"
+    },
+    "A": {
+     "kind": "area",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "surface area of the body"
+    }
+   },
+   "assumptions": [
+    "Biot number below about 0.1",
+    "constant h and properties"
+   ],
+   "requires": [
+    "lumped"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "thermocouples and small bodies"
+   ],
+   "fails_when": [
+    "Bi > 0.1"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/lumped_time_constant.json",
+   "category": "theorem"
+  },
+  {
+   "key": "ntu_definition",
+   "family": "heat_exchangers",
+   "name": "Number of transfer units of a heat exchanger",
+   "equation": "N = U*A/Cmin",
+   "symbols": {
+    "N": {
+     "kind": "number_of_transfer_units",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "number of transfer units UA/Cmin"
+    },
+    "U": {
+     "kind": "heat_transfer_coefficient",
+     "role": "overall",
+     "sign": "positive",
+     "desc": "overall heat transfer coefficient"
+    },
+    "A": {
+     "kind": "area",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "heat transfer area"
+    },
+    "Cmin": {
+     "kind": "heat_capacity_rate",
+     "role": "min",
+     "sign": "positive",
+     "desc": "smaller of the two heat capacity rates (m cp)"
+    }
+   },
+   "assumptions": [
+    "U uniform over the area"
+   ],
+   "requires": [
+    "heat_exchanger"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "the effectiveness-NTU method"
+   ],
+   "fails_when": [
+    "U varying strongly along the exchanger"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/ntu_definition.json",
+   "category": "theorem"
+  },
+  {
+   "key": "effectiveness_parallel_flow",
+   "family": "heat_exchangers",
+   "name": "Effectiveness of a parallel-flow heat exchanger",
+   "equation": "eps = (1 - exp(-N*(1 + Cr)))/(1 + Cr)",
+   "symbols": {
+    "eps": {
+     "kind": "heat_exchanger_effectiveness",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "heat exchanger effectiveness"
+    },
+    "N": {
+     "kind": "number_of_transfer_units",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "number of transfer units UA/Cmin"
+    },
+    "Cr": {
+     "kind": "heat_capacity_rate_ratio",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "capacity rate ratio Cmin/Cmax"
+    }
+   },
+   "assumptions": [
+    "steady flow, constant properties"
+   ],
+   "requires": [
+    "heat_exchanger",
+    "parallel_flow"
+   ],
+   "excludes": [
+    "counterflow"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "pure parallel-flow (co-current) exchangers"
+   ],
+   "fails_when": [
+    "counterflow or crossflow arrangements"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/effectiveness_parallel_flow.json",
+   "category": "theorem"
+  },
+  {
+   "key": "effectiveness_phase_change",
+   "family": "heat_exchangers",
+   "name": "Effectiveness of a heat exchanger with one stream changing phase",
+   "equation": "eps = 1 - exp(-N)",
+   "symbols": {
+    "eps": {
+     "kind": "heat_exchanger_effectiveness",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "heat exchanger effectiveness"
+    },
+    "N": {
+     "kind": "number_of_transfer_units",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "number of transfer units UA/Cmin"
+    }
+   },
+   "assumptions": [
+    "one stream at constant temperature (Cr = 0)"
+   ],
+   "requires": [
+    "heat_exchanger",
+    "phase_change"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "condensers and evaporators, any flow arrangement"
+   ],
+   "fails_when": [
+    "both streams changing temperature"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/effectiveness_phase_change.json",
+   "category": "theorem"
+  },
+  {
+   "key": "heat_rate_effectiveness",
+   "family": "heat_exchangers",
+   "name": "Heat transfer rate from the effectiveness",
+   "equation": "Q = eps*Cmin*(Thi - Tci)",
+   "symbols": {
+    "Q": {
+     "kind": "power",
+     "role": "heat_rate",
+     "sign": "any",
+     "desc": "rate of heat transfer"
+    },
+    "eps": {
+     "kind": "heat_exchanger_effectiveness",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "heat exchanger effectiveness"
+    },
+    "Cmin": {
+     "kind": "heat_capacity_rate",
+     "role": "min",
+     "sign": "positive",
+     "desc": "smaller of the two heat capacity rates (m cp)"
+    },
+    "Thi": {
+     "kind": "temperature",
+     "role": "hot_inlet",
+     "sign": "positive",
+     "desc": "inlet temperature of the hot fluid"
+    },
+    "Tci": {
+     "kind": "temperature",
+     "role": "cold_inlet",
+     "sign": "positive",
+     "desc": "inlet temperature of the cold fluid"
+    }
+   },
+   "assumptions": [
+    "steady flow",
+    "no heat loss to the surroundings"
+   ],
+   "requires": [
+    "heat_exchanger"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "rating an exchanger whose effectiveness is known"
+   ],
+   "fails_when": [
+    "effectiveness of another arrangement used"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/heat_rate_effectiveness.json",
+   "category": "theorem"
+  },
+  {
+   "key": "sensible_heat_rate",
+   "family": "heat_exchangers",
+   "name": "Heat added to a flowing stream (steady-flow energy balance)",
+   "equation": "Q = mdot*cp*(Tout - Tin)",
+   "symbols": {
+    "Q": {
+     "kind": "power",
+     "role": "heat_rate",
+     "sign": "any",
+     "desc": "rate of heat transfer"
+    },
+    "mdot": {
+     "kind": "mass_flow_rate",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "mass flow rate of the stream"
+    },
+    "cp": {
+     "kind": "specific_heat",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "specific heat of the fluid"
+    },
+    "Tout": {
+     "kind": "temperature",
+     "role": "outlet",
+     "sign": "positive",
+     "desc": "outlet temperature"
+    },
+    "Tin": {
+     "kind": "temperature",
+     "role": "inlet",
+     "sign": "positive",
+     "desc": "inlet temperature"
+    }
+   },
+   "assumptions": [
+    "steady flow",
+    "constant cp",
+    "no phase change",
+    "kinetic and potential energy changes negligible"
+   ],
+   "requires": [
+    "stream_heating"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "heaters, coolers and each side of a heat exchanger"
+   ],
+   "fails_when": [
+    "phase change in the stream"
+   ],
+   "conventions": [
+    "Q is positive when the stream is heated"
+   ],
+   "certificate": "release/promotion_families/sensible_heat_rate.json",
+   "category": "theorem"
+  },
+  {
+   "key": "carnot_efficiency",
+   "family": "thermodynamic_cycles",
+   "name": "Carnot efficiency of a reversible heat engine",
+   "equation": "eta = 1 - Tc/Th",
+   "symbols": {
+    "eta": {
+     "kind": "efficiency",
+     "role": "carnot",
+     "sign": "positive",
+     "desc": "Carnot (maximum) efficiency",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "Tc": {
+     "kind": "temperature",
+     "role": "cold",
+     "sign": "positive",
+     "desc": "temperature of the cold reservoir"
+    },
+    "Th": {
+     "kind": "temperature",
+     "role": "hot",
+     "sign": "positive",
+     "desc": "temperature of the hot reservoir"
+    }
+   },
+   "assumptions": [
+    "reversible cycle between two reservoirs",
+    "absolute temperatures"
+   ],
+   "requires": [
+    "carnot"
+   ],
+   "excludes": [
+    "refrigerator",
+    "heat_pump"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "the upper limit of any heat engine between two temperatures"
+   ],
+   "fails_when": [
+    "real (irreversible) engines"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/carnot_efficiency.json",
+   "category": "theorem"
+  },
+  {
+   "key": "carnot_cop_refrigerator",
+   "family": "thermodynamic_cycles",
+   "name": "Coefficient of performance of a Carnot refrigerator",
+   "equation": "cop = Tc/(Th - Tc)",
+   "symbols": {
+    "cop": {
+     "kind": "efficiency",
+     "role": "cop",
+     "sign": "positive",
+     "desc": "coefficient of performance (cooling)"
+    },
+    "Tc": {
+     "kind": "temperature",
+     "role": "cold",
+     "sign": "positive",
+     "desc": "temperature of the cold reservoir"
+    },
+    "Th": {
+     "kind": "temperature",
+     "role": "hot",
+     "sign": "positive",
+     "desc": "temperature of the hot reservoir"
+    }
+   },
+   "assumptions": [
+    "reversible refrigeration cycle",
+    "absolute temperatures"
+   ],
+   "requires": [
+    "carnot",
+    "refrigerator"
+   ],
+   "excludes": [
+    "heat_pump"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "the upper limit of a refrigerator's COP"
+   ],
+   "fails_when": [
+    "real refrigerators"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/carnot_cop_refrigerator.json",
+   "category": "theorem"
+  },
+  {
+   "key": "carnot_cop_heat_pump",
+   "family": "thermodynamic_cycles",
+   "name": "Coefficient of performance of a Carnot heat pump",
+   "equation": "cop = Th/(Th - Tc)",
+   "symbols": {
+    "cop": {
+     "kind": "efficiency",
+     "role": "cop",
+     "sign": "positive",
+     "desc": "coefficient of performance (heating)"
+    },
+    "Tc": {
+     "kind": "temperature",
+     "role": "cold",
+     "sign": "positive",
+     "desc": "temperature of the cold reservoir"
+    },
+    "Th": {
+     "kind": "temperature",
+     "role": "hot",
+     "sign": "positive",
+     "desc": "temperature of the hot reservoir"
+    }
+   },
+   "assumptions": [
+    "reversible heat-pump cycle",
+    "absolute temperatures"
+   ],
+   "requires": [
+    "carnot",
+    "heat_pump"
+   ],
+   "excludes": [
+    "refrigerator"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "the upper limit of a heat pump's COP"
+   ],
+   "fails_when": [
+    "real heat pumps"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/carnot_cop_heat_pump.json",
+   "category": "theorem"
+  },
+  {
+   "key": "otto_efficiency_air",
+   "family": "thermodynamic_cycles",
+   "name": "Thermal efficiency of the air-standard Otto cycle",
+   "equation": "eta = 1 - r**(-2/5)",
+   "symbols": {
+    "eta": {
+     "kind": "efficiency",
+     "role": "cycle",
+     "sign": "positive",
+     "desc": "thermal efficiency of the cycle",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "r": {
+     "kind": "compression_ratio",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "compression ratio V1/V2"
+    }
+   },
+   "assumptions": [
+    "cold-air-standard: air as an ideal gas with gamma = 1.4",
+    "reversible adiabatic compression and expansion"
+   ],
+   "requires": [
+    "otto",
+    "air"
+   ],
+   "excludes": [
+    "non_air"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "idealised spark-ignition engines"
+   ],
+   "fails_when": [
+    "working fluids other than air",
+    "real engine losses"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/otto_efficiency_air.json",
+   "category": "theorem"
+  },
+  {
+   "key": "diesel_efficiency_air",
+   "family": "thermodynamic_cycles",
+   "name": "Thermal efficiency of the air-standard Diesel cycle",
+   "equation": "eta = 1 - r**(-2/5)*(rc**(7/5) - 1)/(7*(rc - 1)/5)",
+   "symbols": {
+    "eta": {
+     "kind": "efficiency",
+     "role": "cycle",
+     "sign": "positive",
+     "desc": "thermal efficiency of the cycle",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "r": {
+     "kind": "compression_ratio",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "compression ratio V1/V2"
+    },
+    "rc": {
+     "kind": "cutoff_ratio",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "cutoff ratio V3/V2"
+    }
+   },
+   "assumptions": [
+    "cold-air-standard: air as an ideal gas with gamma = 1.4",
+    "heat added at constant pressure"
+   ],
+   "requires": [
+    "diesel",
+    "air"
+   ],
+   "excludes": [
+    "non_air"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "idealised compression-ignition engines"
+   ],
+   "fails_when": [
+    "working fluids other than air"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/diesel_efficiency_air.json",
+   "category": "theorem"
+  },
+  {
+   "key": "brayton_efficiency_air",
+   "family": "thermodynamic_cycles",
+   "name": "Thermal efficiency of the air-standard Brayton cycle",
+   "equation": "eta = 1 - rp**(-2/7)",
+   "symbols": {
+    "eta": {
+     "kind": "efficiency",
+     "role": "cycle",
+     "sign": "positive",
+     "desc": "thermal efficiency of the cycle",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "rp": {
+     "kind": "pressure_ratio",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "compressor pressure ratio"
+    }
+   },
+   "assumptions": [
+    "cold-air-standard: air as an ideal gas with gamma = 1.4",
+    "isentropic compressor and turbine"
+   ],
+   "requires": [
+    "brayton",
+    "air"
+   ],
+   "excludes": [
+    "non_air"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "idealised gas-turbine cycles"
+   ],
+   "fails_when": [
+    "component inefficiencies",
+    "regeneration"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/brayton_efficiency_air.json",
+   "category": "theorem"
+  },
+  {
+   "key": "isentropic_temperature_pressure_air",
+   "family": "gas_processes",
+   "name": "Temperature after an isentropic pressure change of air",
+   "equation": "T2 = T1*(P2/P1)**(2/7)",
+   "symbols": {
+    "T2": {
+     "kind": "temperature",
+     "role": "final",
+     "sign": "positive",
+     "desc": "final temperature"
+    },
+    "T1": {
+     "kind": "temperature",
+     "role": "initial",
+     "sign": "positive",
+     "desc": "initial temperature"
+    },
+    "P2": {
+     "kind": "pressure",
+     "role": "final",
+     "sign": "positive",
+     "desc": "final pressure"
+    },
+    "P1": {
+     "kind": "pressure",
+     "role": "initial",
+     "sign": "positive",
+     "desc": "initial pressure"
+    }
+   },
+   "assumptions": [
+    "air as an ideal gas with gamma = 1.4",
+    "reversible adiabatic process"
+   ],
+   "requires": [
+    "adiabatic_process",
+    "air"
+   ],
+   "excludes": [
+    "non_air",
+    "has_efficiency"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "ideal compressors, turbines and nozzles with air"
+   ],
+   "fails_when": [
+    "irreversible processes (use an isentropic efficiency)"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/isentropic_temperature_pressure_air.json",
+   "category": "theorem"
+  },
+  {
+   "key": "isentropic_temperature_volume_air",
+   "family": "gas_processes",
+   "name": "Temperature after an isentropic volume change of air",
+   "equation": "T2 = T1*(V1/V2)**(2/5)",
+   "symbols": {
+    "T2": {
+     "kind": "temperature",
+     "role": "final",
+     "sign": "positive",
+     "desc": "final temperature"
+    },
+    "T1": {
+     "kind": "temperature",
+     "role": "initial",
+     "sign": "positive",
+     "desc": "initial temperature"
+    },
+    "V1": {
+     "kind": "volume",
+     "role": "original",
+     "sign": "positive",
+     "desc": "initial volume"
+    },
+    "V2": {
+     "kind": "volume",
+     "role": "final",
+     "sign": "positive",
+     "desc": "final volume"
+    }
+   },
+   "assumptions": [
+    "air as an ideal gas with gamma = 1.4",
+    "reversible adiabatic process"
+   ],
+   "requires": [
+    "adiabatic_process",
+    "air"
+   ],
+   "excludes": [
+    "non_air",
+    "has_efficiency"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "ideal piston-cylinder compression or expansion of air"
+   ],
+   "fails_when": [
+    "irreversible processes"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/isentropic_temperature_volume_air.json",
+   "category": "theorem"
+  },
+  {
+   "key": "compressor_outlet_temperature_air",
+   "family": "gas_processes",
+   "name": "Actual outlet temperature of an adiabatic air compressor",
+   "equation": "T2 = T1*(1 + ((P2/P1)**(2/7) - 1)/eta)",
+   "symbols": {
+    "T2": {
+     "kind": "temperature",
+     "role": "final",
+     "sign": "positive",
+     "desc": "final temperature"
+    },
+    "T1": {
+     "kind": "temperature",
+     "role": "initial",
+     "sign": "positive",
+     "desc": "initial temperature"
+    },
+    "P2": {
+     "kind": "pressure",
+     "role": "final",
+     "sign": "positive",
+     "desc": "final pressure"
+    },
+    "P1": {
+     "kind": "pressure",
+     "role": "initial",
+     "sign": "positive",
+     "desc": "initial pressure"
+    },
+    "eta": {
+     "kind": "efficiency",
+     "role": "isentropic",
+     "sign": "positive",
+     "desc": "isentropic efficiency of the compressor"
+    }
+   },
+   "assumptions": [
+    "air as an ideal gas with gamma = 1.4",
+    "adiabatic compressor"
+   ],
+   "requires": [
+    "compressor",
+    "air"
+   ],
+   "excludes": [
+    "non_air"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "real compressors with a known isentropic efficiency"
+   ],
+   "fails_when": [
+    "cooled compressors"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/compressor_outlet_temperature_air.json",
+   "category": "theorem"
+  },
+  {
+   "key": "ideal_gas_law",
+   "family": "gas_processes",
+   "name": "Ideal gas law",
+   "equation": "P*V = n*R*T",
+   "symbols": {
+    "P": {
+     "kind": "pressure",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "absolute pressure of the gas",
+     "accepts": [
+      "absolute"
+     ]
+    },
+    "V": {
+     "kind": "volume",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "volume of the gas"
+    },
+    "n": {
+     "kind": "amount",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "amount of gas"
+    },
+    "R": {
+     "kind": "gas_constant",
+     "role": "constant",
+     "sign": "positive",
+     "default": {
+      "value": 8.314462618,
+      "unit": "J/(mol*K)",
+      "assumption": "the molar gas constant R = 8.314462618 J/(mol*K)",
+      "unless": []
+     }
+    },
+    "T": {
+     "kind": "temperature",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "absolute temperature"
+    }
+   },
+   "assumptions": [
+    "ideal gas",
+    "absolute pressure and temperature"
+   ],
+   "requires": [
+    "ideal_gas"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "gases at moderate pressure"
+   ],
+   "fails_when": [
+    "high pressures or near condensation"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/ideal_gas_law.json",
+   "category": "theorem"
+  },
+  {
+   "key": "isothermal_work_ideal_gas",
+   "family": "gas_processes",
+   "name": "Work done by an ideal gas in a reversible isothermal process",
+   "equation": "W = n*R*T*log(V2/V1)",
+   "symbols": {
+    "W": {
+     "kind": "energy",
+     "role": "work",
+     "sign": "any",
+     "desc": "work done by the gas"
+    },
+    "n": {
+     "kind": "amount",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "amount of gas"
+    },
+    "R": {
+     "kind": "gas_constant",
+     "role": "constant",
+     "sign": "positive",
+     "default": {
+      "value": 8.314462618,
+      "unit": "J/(mol*K)",
+      "assumption": "the molar gas constant R = 8.314462618 J/(mol*K)",
+      "unless": []
+     }
+    },
+    "T": {
+     "kind": "temperature",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "constant absolute temperature"
+    },
+    "V2": {
+     "kind": "volume",
+     "role": "final",
+     "sign": "positive",
+     "desc": "final volume"
+    },
+    "V1": {
+     "kind": "volume",
+     "role": "original",
+     "sign": "positive",
+     "desc": "initial volume"
+    }
+   },
+   "assumptions": [
+    "ideal gas",
+    "reversible (quasi-static) process"
+   ],
+   "requires": [
+    "isothermal"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "slow expansion or compression at constant temperature"
+   ],
+   "fails_when": [
+    "irreversible expansion against a constant external pressure"
+   ],
+   "conventions": [
+    "W is positive when the gas expands"
+   ],
+   "certificate": "release/promotion_families/isothermal_work_ideal_gas.json",
+   "category": "theorem"
+  },
+  {
+   "key": "entropy_change_ideal_gas",
+   "family": "gas_processes",
+   "name": "Specific entropy change of an ideal gas",
+   "equation": "ds = cp*log(T2/T1) - R*log(P2/P1)",
+   "symbols": {
+    "ds": {
+     "kind": "specific_entropy",
+     "role": "change",
+     "sign": "any",
+     "desc": "change in specific entropy"
+    },
+    "cp": {
+     "kind": "specific_heat",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "specific heat at constant pressure"
+    },
+    "R": {
+     "kind": "specific_gas_constant",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "specific gas constant"
+    },
+    "T1": {
+     "kind": "temperature",
+     "role": "initial",
+     "sign": "positive",
+     "desc": "initial temperature"
+    },
+    "T2": {
+     "kind": "temperature",
+     "role": "final",
+     "sign": "positive",
+     "desc": "final temperature"
+    },
+    "P1": {
+     "kind": "pressure",
+     "role": "initial",
+     "sign": "positive",
+     "desc": "initial pressure"
+    },
+    "P2": {
+     "kind": "pressure",
+     "role": "final",
+     "sign": "positive",
+     "desc": "final pressure"
+    }
+   },
+   "assumptions": [
+    "ideal gas with constant specific heats"
+   ],
+   "requires": [
+    "entropy",
+    "ideal_gas"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "any process between two equilibrium states"
+   ],
+   "fails_when": [
+    "temperature-dependent cp over wide ranges",
+    "real gases"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/entropy_change_ideal_gas.json",
+   "category": "theorem"
+  },
+  {
+   "key": "entropy_change_incompressible",
+   "family": "gas_processes",
+   "name": "Entropy change of an incompressible substance",
+   "equation": "dS = m*c*log(T2/T1)",
+   "symbols": {
+    "dS": {
+     "kind": "entropy",
+     "role": "change",
+     "sign": "any",
+     "desc": "total entropy change"
+    },
+    "m": {
+     "kind": "mass",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "mass"
+    },
+    "c": {
+     "kind": "specific_heat",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "specific heat"
+    },
+    "T2": {
+     "kind": "temperature",
+     "role": "final",
+     "sign": "positive",
+     "desc": "final temperature"
+    },
+    "T1": {
+     "kind": "temperature",
+     "role": "initial",
+     "sign": "positive",
+     "desc": "initial temperature"
+    }
+   },
+   "assumptions": [
+    "incompressible substance with constant specific heat"
+   ],
+   "requires": [
+    "entropy",
+    "incompressible_substance"
+   ],
+   "excludes": [
+    "ideal_gas"
+   ],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "liquids and solids heated or cooled"
+   ],
+   "fails_when": [
+    "phase change",
+    "gases"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/entropy_change_incompressible.json",
+   "category": "theorem"
+  },
+  {
+   "key": "humidity_ratio_vapour_pressure",
+   "family": "psychrometrics",
+   "name": "Humidity ratio from the partial pressure of water vapour",
+   "equation": "W = 0.621945*pv/(P - pv)",
+   "symbols": {
+    "W": {
+     "kind": "humidity_ratio",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "humidity ratio (kg water vapour per kg dry air)"
+    },
+    "pv": {
+     "kind": "pressure",
+     "role": "vapour",
+     "sign": "positive",
+     "desc": "partial pressure of water vapour"
+    },
+    "P": {
+     "kind": "pressure",
+     "role": "atmospheric",
+     "sign": "positive",
+     "desc": "total (barometric) pressure of the moist air",
+     "accepts": [
+      "plain",
+      "absolute"
+     ]
+    }
+   },
+   "assumptions": [
+    "moist air as an ideal-gas mixture",
+    "ratio of molar masses 0.621945"
+   ],
+   "requires": [
+    "moist_air"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "atmospheric air-conditioning and drying calculations"
+   ],
+   "fails_when": [
+    "high pressures (enhancement factor)"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/humidity_ratio_vapour_pressure.json",
+   "category": "theorem"
+  },
+  {
+   "key": "moist_air_enthalpy",
+   "family": "psychrometrics",
+   "name": "Specific enthalpy of moist air",
+   "equation": "h = cpa*(T - T0) + W*(hg + cpv*(T - T0))",
+   "symbols": {
+    "h": {
+     "kind": "specific_enthalpy",
+     "role": "plain",
+     "sign": "any",
+     "desc": "enthalpy per kilogram of dry air"
+    },
+    "T": {
+     "kind": "temperature",
+     "role": "dry_bulb",
+     "sign": "positive",
+     "desc": "dry-bulb temperature",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "W": {
+     "kind": "humidity_ratio",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "humidity ratio (kg water vapour per kg dry air)"
+    },
+    "cpa": {
+     "kind": "specific_heat",
+     "role": "dry_air",
+     "sign": "positive",
+     "default": {
+      "value": 1006,
+      "unit": "J/(kg*K)",
+      "assumption": "specific heat of dry air 1.006 kJ/(kg*K) (ASHRAE)",
+      "unless": []
+     }
+    },
+    "cpv": {
+     "kind": "specific_heat",
+     "role": "water_vapour",
+     "sign": "positive",
+     "default": {
+      "value": 1860,
+      "unit": "J/(kg*K)",
+      "assumption": "specific heat of water vapour 1.86 kJ/(kg*K) (ASHRAE)",
+      "unless": []
+     }
+    },
+    "hg": {
+     "kind": "latent_heat",
+     "role": "reference",
+     "sign": "positive",
+     "default": {
+      "value": 2501000,
+      "unit": "J/kg",
+      "assumption": "enthalpy of saturated water vapour at 0 °C, 2501 kJ/kg (ASHRAE)",
+      "unless": []
+     }
+    },
+    "T0": {
+     "kind": "temperature",
+     "role": "reference",
+     "sign": "positive",
+     "default": {
+      "value": 273.15,
+      "unit": "K",
+      "assumption": "enthalpy reference state 0 °C",
+      "unless": []
+     }
+    }
+   },
+   "assumptions": [
+    "reference state: dry air and liquid water at 0 °C",
+    "constant specific heats"
+   ],
+   "requires": [
+    "moist_air"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "air-conditioning processes between about -40 and 60 °C"
+   ],
+   "fails_when": [
+    "very high temperatures"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/moist_air_enthalpy.json",
+   "category": "theorem"
+  },
+  {
+   "key": "moist_air_specific_volume",
+   "family": "psychrometrics",
+   "name": "Specific volume of moist air per kilogram of dry air",
+   "equation": "v = Ra*T*(1 + 1.607858*W)/P",
+   "symbols": {
+    "v": {
+     "kind": "specific_volume",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "specific volume per kilogram of dry air"
+    },
+    "T": {
+     "kind": "temperature",
+     "role": "dry_bulb",
+     "sign": "positive",
+     "desc": "dry-bulb temperature",
+     "accepts": [
+      "plain"
+     ]
+    },
+    "W": {
+     "kind": "humidity_ratio",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "humidity ratio (kg water vapour per kg dry air)"
+    },
+    "P": {
+     "kind": "pressure",
+     "role": "atmospheric",
+     "sign": "positive",
+     "desc": "total (barometric) pressure of the moist air",
+     "accepts": [
+      "plain",
+      "absolute"
+     ]
+    },
+    "Ra": {
+     "kind": "specific_gas_constant",
+     "role": "dry_air",
+     "sign": "positive",
+     "default": {
+      "value": 287.042,
+      "unit": "J/(kg*K)",
+      "assumption": "gas constant of dry air 287.042 J/(kg*K) (ASHRAE)",
+      "unless": []
+     }
+    }
+   },
+   "assumptions": [
+    "moist air as an ideal-gas mixture"
+   ],
+   "requires": [
+    "moist_air"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "fan and duct sizing in air conditioning"
+   ],
+   "fails_when": [
+    "high pressures"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/moist_air_specific_volume.json",
+   "category": "theorem"
+  },
+  {
+   "key": "adiabatic_flame_temperature_simple",
+   "family": "combustion",
+   "name": "Adiabatic flame temperature with constant product specific heat",
+   "equation": "Tad = T0 + LHV/((1 + AFR)*cp)",
+   "symbols": {
+    "Tad": {
+     "kind": "temperature",
+     "role": "flame",
+     "sign": "positive",
+     "desc": "adiabatic flame temperature"
+    },
+    "T0": {
+     "kind": "temperature",
+     "role": "reactant",
+     "sign": "positive",
+     "desc": "temperature of the reactants",
+     "accepts": [
+      "initial",
+      "plain"
+     ]
+    },
+    "LHV": {
+     "kind": "heating_value",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "lower heating value of the fuel"
+    },
+    "AFR": {
+     "kind": "air_fuel_ratio",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "air-fuel ratio by mass"
+    },
+    "cp": {
+     "kind": "specific_heat",
+     "role": "plain",
+     "sign": "positive",
+     "desc": "mean specific heat of the products"
+    }
+   },
+   "assumptions": [
+    "complete combustion",
+    "no dissociation",
+    "adiabatic, constant-pressure burning",
+    "constant mean cp of the products"
+   ],
+   "requires": [
+    "combustion"
+   ],
+   "excludes": [],
+   "frame": "the fluid or body at rest unless stated",
+   "applies_when": [
+    "first estimates of flame temperature for lean or stoichiometric mixtures"
+   ],
+   "fails_when": [
+    "near-stoichiometric flames above about 2000 K (dissociation)"
+   ],
+   "conventions": [
+    "magnitudes unless a sign is stated"
+   ],
+   "certificate": "release/promotion_families/adiabatic_flame_temperature_simple.json",
+   "category": "theorem"
+  }
+ ]
+}

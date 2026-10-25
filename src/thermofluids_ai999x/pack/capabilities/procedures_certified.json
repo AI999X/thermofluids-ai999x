@@ -1,0 +1,20 @@
+{
+ "certified": [
+  "colebrook_friction_factor",
+  "lmtd",
+  "hx_effectiveness_ntu",
+  "saturation_vapour_pressure",
+  "dew_point_temperature",
+  "humidity_ratio_from_relative_humidity",
+  "wet_bulb_temperature",
+  "stoichiometric_air_fuel_ratio",
+  "equivalence_ratio",
+  "gnielinski_nusselt",
+  "churchill_bernstein_cylinder",
+  "churchill_chu_vertical_plate",
+  "pin_fin_efficiency"
+ ],
+ "generated": "2026-10-22",
+ "tool": "tools/certify_procedures.py",
+ "report": "release/procedure_certification.json"
+}

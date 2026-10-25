@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "thermofluids-ai999x: an offline, verified thermofluids solver"
+authors:
+  - family-names: Farabi
+    given-names: Ibnul Jaif
+    affiliation: AI999X
+version: 1.0.0
+license: Apache-2.0
+url: "https://huggingface.co/AI999X/thermofluids-ai999x"
+repository-code: "https://huggingface.co/AI999X/thermofluids-ai999x"
+keywords:
+  - thermofluids
+  - fluid-mechanics
+  - heat-transfer
+  - thermodynamics
+  - psychrometrics
+  - combustion
+  - pipe-flow
+  - ai999x
+  - offline
+  - cpu
+  - education
+  - step-by-step
