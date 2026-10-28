@@ -4,7 +4,7 @@
 
 **[Install](https://pypi.org/project/thermofluids-ai999x/)** · **[Capability guide](https://huggingface.co/AI999X/thermofluids-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/thermofluids-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.1
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.2
 
 Field: **Engineering** · Tasks: Question Answering, Token Classification, Text Classification, Sentence Similarity, Feature Extraction
 
@@ -27,7 +27,7 @@ thermofluids-ai999x is an offline, deterministic Python solver that answers ther
 
 | Property | Value |
 |---|---|
-| Package | `thermofluids-ai999x` 1.0.1 (import `thermofluids_ai999x`) |
+| Package | `thermofluids-ai999x` 1.0.2 (import `thermofluids_ai999x`) |
 | Type | Deterministic neuro-symbolic thermofluids engine (rule-based reading + certified symbolic capabilities) |
 | Capabilities | 27 certified derivations, 13 certified procedures, 86 certified relations |
 | Knowledge pack | version 0.1.1 |
@@ -61,7 +61,7 @@ thermofluids.ask("Who created you?").message
 # -> thermofluids-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-Command line: `thermofluids-ai999x "<question>"`, `thermofluids-ai999x --capabilities`. The outputs above were produced by running this exact code on thermofluids-ai999x 1.0.1.
+Command line: `thermofluids-ai999x "<question>"`, `thermofluids-ai999x --capabilities`. The outputs above were produced by running this exact code on thermofluids-ai999x 1.0.2.
 
 ## Find the right capability, and draw it
 
@@ -227,10 +227,10 @@ _Wet-bulb temperature at 101325 Pa for dry-bulb temperatures 10, 15, 20, 25, 30,
 ## Citation
 
 ```bibtex
-@software{thermofluids_ai999x_1_0_1,
+@software{thermofluids_ai999x_1_0_2,
   title  = {thermofluids-ai999x: an offline, verified thermofluids solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.0.1},
+  year   = {2026}, version = {1.0.2},
   url    = {https://huggingface.co/AI999X/thermofluids-ai999x}
 }
 ```

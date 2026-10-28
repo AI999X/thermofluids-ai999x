@@ -201,6 +201,14 @@ $$
 - **Assumes:** incompressible liquid at rest; uniform gravity
 - **Evidence:** theorem
 
+![A tank of liquid (ρ = 1000 kg/m^3) to depth h = 12 m with the gauge pressure on its wall: the package's pressure at h/4, h/2, 3h/4 and h (at the surface the gauge pressure is zero), drawn as arrows to a common scale](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/hydrostatic-gauge-pressure-schematic)
+
+*A tank of liquid (ρ = 1000 kg/m^3) to depth h = 12 m with the gauge pressure on its wall: the package's pressure at h/4, h/2, 3h/4 and h (at the surface the gauge pressure is zero), drawn as arrows to a common scale. Marked: 117.7 kPa at the bottom (the worked example), 0 kPa at 0 m, 29.42 kPa at 3 m, 58.84 kPa at 6 m, 88.26 kPa at 9 m.*
+
+![P (gauge pressure at the depth) against rho (density of the fluid) from 500 kg/m^3 to 1500 kg/m^3](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/hydrostatic-gauge-pressure-curve)
+
+*P (gauge pressure at the depth) against rho (density of the fluid) from 500 kg/m^3 to 1500 kg/m^3. One curve for each value of h (depth below the free surface): 12 m, 6 m, 24 m. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, rho = 1000 kg/m^3, P = 117680 Pa.*
+
 ```python
 thermofluids_ai999x.solve('hydrostatic_gauge_pressure', rho='1000 kg/m^3', h='12 m', target='P')
 # -> 117680 Pa   (SOLVED)
@@ -242,6 +250,14 @@ $$
 - **Assumes:** incompressible liquid at rest; uniform gravity
 - **Evidence:** theorem
 
+![A tank of liquid (ρ = 1025 kg/m^3, surface pressure 101325 Pa) to depth h = 20 m with the absolute pressure on its wall: the package's pressure at h/4, h/2, 3h/4 and h (at the surface the stated surface pressure), drawn as arrows to a common scale](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/absolute-pressure-depth-schematic)
+
+*A tank of liquid (ρ = 1025 kg/m^3, surface pressure 101325 Pa) to depth h = 20 m with the absolute pressure on its wall: the package's pressure at h/4, h/2, 3h/4 and h (at the surface the stated surface pressure), drawn as arrows to a common scale. Marked: 302.4 kPa at the bottom (the worked example), 101.3 kPa at 0 m, 151.6 kPa at 5 m, 201.8 kPa at 10 m, 252.1 kPa at 15 m.*
+
+![P (absolute pressure at the depth) against P0 (pressure at the free surface) from 50662](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/absolute-pressure-depth-curve)
+
+*P (absolute pressure at the depth) against P0 (pressure at the free surface) from 50662.5 Pa to 151988 Pa. One curve for each value of rho (density of the fluid): 1025 kg/m^3, 512.5 kg/m^3, 2050 kg/m^3. Other inputs as in the worked example: h = 20 m. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, P0 = 101325 Pa, P = 302361 Pa.*
+
 ```python
 thermofluids_ai999x.solve('absolute_pressure_depth', P0='101325 Pa', rho='1025 kg/m^3', h='20 m', target='P')
 # -> 302361 Pa   (SOLVED)
@@ -282,6 +298,14 @@ $$
 - **Assumes:** fluid at rest; uniform gravity; uniform fluid density
 - **Evidence:** theorem
 
+![F (buoyant force) against rho (density of the fluid) from 500 kg/m^3 to 1500 kg/m^3](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/buoyant-force-curve)
+
+*F (buoyant force) against rho (density of the fluid) from 500 kg/m^3 to 1500 kg/m^3. One curve for each value of V (volume of fluid displaced): 0.02 m^3, 0.01 m^3, 0.04 m^3. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, rho = 1000 kg/m^3, F = 196.133 N.*
+
+![F (buoyant force) over rho (density of the fluid) from 500 kg/m^3 to 1500 kg/m^3 and V (volume of fluid displaced) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/buoyant-force-field)
+
+*F (buoyant force) over rho (density of the fluid) from 500 kg/m^3 to 1500 kg/m^3 and V (volume of fluid displaced) from 0.01 m^3 to 0.03 m^3: each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its value (light 49.0333 N to dark 441.299 N); iso-lines at F = 100, 200, 300, 400 N. Marked: the worked example, rho = 1000 kg/m^3, V = 0.02 m^3, F = 196.133 N.*
+
 ```python
 thermofluids_ai999x.solve('buoyant_force', rho='1000 kg/m^3', V='0.02 m^3', target='F')
 # -> 196.133 N   (SOLVED)
@@ -321,6 +345,14 @@ $$
 - **Fails when:** compressible gas flow with large density change
 - **Assumes:** incompressible steady flow; circular cross sections; uniform velocity over each section
 - **Evidence:** theorem
+
+![Flow through a contraction drawn to scale: diameter 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/continuity-speed-schematic)
+
+*Flow through a contraction drawn to scale: diameter 0.1 m narrowing to 0.05 m, inlet speed 2 m/s (the worked example); arrow lengths are proportional to the mean speed. Marked: the package's outlet speed v2 = 8 m/s.*
+
+![v2 (mean velocity at the outlet) against D2 (diameter at the outlet) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/continuity-speed-curve)
+
+*v2 (mean velocity at the outlet) against D2 (diameter at the outlet) from 0.025 m to 0.075 m. One curve for each value of D1 (diameter at the inlet): 0.1 m, 0.05 m, 0.2 m. Other inputs as in the worked example: v1 = 2 m/s. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, D2 = 0.05 m, v2 = 8 m/s.*
 
 ```python
 thermofluids_ai999x.solve('continuity_speed', v1='2 m/s', D1='0.1 m', D2='0.05 m', target='v2')
@@ -363,6 +395,14 @@ $$
 - **Assumes:** steady, incompressible, inviscid flow along a streamline; no height change
 - **Evidence:** theorem
 
+![Bernoulli's equation along a horizontal contraction (ρ = 1000 kg/m^3, P1 = 200 kPa, v1 = 2 m/s, v2 = 6 m/s; the worked example)](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/bernoulli-horizontal-schematic)
+
+*Bernoulli's equation along a horizontal contraction (ρ = 1000 kg/m^3, P1 = 200 kPa, v1 = 2 m/s, v2 = 6 m/s; the worked example). The pipe is drawn for a stated inlet diameter 0.1 m, the outlet 0.057735 m from the package's continuity relation; the pressure at 41 positions is the package's Bernoulli pressure at the local speed (from continuity). Marked: P2 = 184 kPa.*
+
+![P2 (pressure at the outlet) against v2 (speed at the outlet) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/bernoulli-horizontal-curve)
+
+*P2 (pressure at the outlet) against v2 (speed at the outlet) from 0.6 m/s to 60 m/s on a logarithmic axis. One curve for each value of P1 (pressure at the inlet): 200 kPa, 100 kPa, 400 kPa. Other inputs as in the worked example: rho = 1000 kg/m^3, v1 = 2 m/s. 41 points per curve computed by thermofluids-ai999x; marked: the worked example, v2 = 6 m/s, P2 = 184000 Pa.*
+
 ```python
 thermofluids_ai999x.solve('bernoulli_horizontal', P1='200 kPa', rho='1000 kg/m^3', v1='2 m/s', v2='6 m/s', target='P2')
 # -> 184000 Pa   (SOLVED)
@@ -402,6 +442,10 @@ $$
 - **Assumes:** large tank (surface speed negligible); no losses at the hole; open to the atmosphere
 - **Evidence:** theorem
 
+![v (speed of the jet leaving the hole) against h (depth of the hole below the free surface) from 1 m to 3 m](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/torricelli-efflux-curve)
+
+*v (speed of the jet leaving the hole) against h (depth of the hole below the free surface) from 1 m to 3 m. 31 points computed by thermofluids-ai999x; marked: the worked example, h = 2 m, v = 6.26311 m/s.*
+
 ```python
 thermofluids_ai999x.solve('torricelli_efflux', h='2 m', target='v')
 # -> 6.26311 m/s   (SOLVED)
@@ -440,6 +484,14 @@ $$
 - **Fails when:** compressible flow above Mach 0.3
 - **Assumes:** incompressible flow (low Mach number)
 - **Evidence:** theorem
+
+![q (dynamic pressure) against v (mean flow velocity) from 20 m/s to 60 m/s](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/dynamic-pressure-curve)
+
+*q (dynamic pressure) against v (mean flow velocity) from 20 m/s to 60 m/s. One curve for each value of rho (density of the fluid): 1.225 kg/m^3, 0.6125 kg/m^3, 2.45 kg/m^3. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, v = 40 m/s, q = 980 Pa.*
+
+![q (dynamic pressure) over v (mean flow velocity) from 20 m/s to 60 m/s and rho (density of the fluid) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/dynamic-pressure-field)
+
+*q (dynamic pressure) over v (mean flow velocity) from 20 m/s to 60 m/s and rho (density of the fluid) from 0.6125 kg/m^3 to 1.8375 kg/m^3: each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its value (light 122.5 Pa to dark 3307.5 Pa); iso-lines at q = 1000, 2000, 3000 Pa. Marked: the worked example, v = 40 m/s, rho = 1.225 kg/m^3, q = 980 Pa.*
 
 ```python
 thermofluids_ai999x.solve('dynamic_pressure', rho='1.225 kg/m^3', v='40 m/s', target='q')
@@ -482,6 +534,10 @@ $$
 - **Assumes:** Newtonian fluid; the diameter as the characteristic length
 - **Evidence:** theorem
 
+![Re (Reynolds number) against mu (dynamic viscosity of the fluid) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/reynolds-number-curve)
+
+*Re (Reynolds number) against mu (dynamic viscosity of the fluid) from 0.0005 Pa*s to 0.0015 Pa*s. One curve for each value of rho (density of the fluid): 998 kg/m^3, 499 kg/m^3, 1996 kg/m^3. Other inputs as in the worked example: v = 1.5 m/s, D = 0.05 m. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, mu = 0.001 Pa*s, Re = 74850.*
+
 ```python
 thermofluids_ai999x.solve('reynolds_number', rho='998 kg/m^3', v='1.5 m/s', D='0.05 m', mu='0.001 Pa*s', target='Re')
 # -> 74850 1   (SOLVED)
@@ -522,6 +578,10 @@ $$
 - **Assumes:** Newtonian fluid; the diameter as the characteristic length
 - **Evidence:** theorem
 
+![Re (Reynolds number) against nu (kinematic viscosity of the fluid) from 7](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/reynolds-number-kinematic-curve)
+
+*Re (Reynolds number) against nu (kinematic viscosity of the fluid) from 7.5000e-06 m^2/s to 2.2500e-05 m^2/s. One curve for each value of v (mean flow velocity): 10 m/s, 5 m/s, 20 m/s. Other inputs as in the worked example: D = 0.03 m. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, nu = 1.5000e-05 m^2/s, Re = 20000.*
+
 ```python
 thermofluids_ai999x.solve('reynolds_number_kinematic', v='10 m/s', D='0.03 m', nu='1.5e-05 m^2/s', target='Re')
 # -> 20000 1   (SOLVED)
@@ -560,6 +620,14 @@ $$
 - **Fails when:** non-Newtonian fluids (no single viscosity)
 - **Assumes:** Newtonian fluid
 - **Evidence:** theorem
+
+![nu (kinematic viscosity) against rho (density of the fluid) from 400 kg/m^3 to 1200 kg/m^3](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/kinematic-viscosity-curve)
+
+*nu (kinematic viscosity) against rho (density of the fluid) from 400 kg/m^3 to 1200 kg/m^3. One curve for each value of mu (dynamic viscosity of the fluid): 0.002 Pa*s, 0.001 Pa*s, 0.004 Pa*s. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, rho = 800 kg/m^3, nu = 2.5000e-06 m^2/s.*
+
+![nu (kinematic viscosity) over mu (dynamic viscosity of the fluid) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/kinematic-viscosity-field)
+
+*nu (kinematic viscosity) over mu (dynamic viscosity of the fluid) from 0.001 Pa*s to 0.003 Pa*s and rho (density of the fluid) from 400 kg/m^3 to 1200 kg/m^3: each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its value (light 8.3333e-07 m^2/s to dark 7.5000e-06 m^2/s); iso-lines at nu = 2.00e-6, 4.00e-6, 6.00e-6 m^2/s. Marked: the worked example, mu = 0.002 Pa*s, rho = 800 kg/m^3, nu = 2.5000e-06 m^2/s.*
 
 ```python
 thermofluids_ai999x.solve('kinematic_viscosity', mu='0.002 Pa*s', rho='800 kg/m^3', target='nu')
@@ -600,6 +668,14 @@ $$
 - **Assumes:** fully developed laminar flow in a circular pipe; Darcy (not Fanning) friction factor
 - **Evidence:** theorem
 
+![Friction factor against Reynolds number (log–log): the package's laminar line 64/Re to Re = 2300, its Blasius smooth-pipe formula from 4000 to 10⁵ and, for comparison, its Colebrook factor of a smooth pipe to 10⁶ — each at up to 41 Reynolds numbers](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/laminar-friction-factor-chart)
+
+*Friction factor against Reynolds number (log–log): the package's laminar line 64/Re to Re = 2300, its Blasius smooth-pipe formula from 4000 to 10⁵ and, for comparison, its Colebrook factor of a smooth pipe to 10⁶ — each at up to 41 Reynolds numbers. Marked: the worked example on the laminar 64/Re line, Re = 1200, f = 0.0533333.*
+
+![f (Darcy friction factor) against Re (Reynolds number) from 600 to 1800](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/laminar-friction-factor-curve)
+
+*f (Darcy friction factor) against Re (Reynolds number) from 600 to 1800. 31 points computed by thermofluids-ai999x; marked: the worked example, Re = 1200, f = 0.0533333.*
+
 ```python
 thermofluids_ai999x.solve('laminar_friction_factor', Re='1200 1', target='f')
 # -> 0.0533333 1   (SOLVED)
@@ -638,6 +714,14 @@ $$
 - **Fails when:** rough pipes; Re above about 100000
 - **Assumes:** fully developed turbulent flow in a hydraulically smooth circular pipe; Darcy friction factor
 - **Evidence:** theorem
+
+![Friction factor against Reynolds number (log–log): the package's laminar line 64/Re to Re = 2300, its Blasius smooth-pipe formula from 4000 to 10⁵ and, for comparison, its Colebrook factor of a smooth pipe to 10⁶ — each at up to 41 Reynolds numbers](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/blasius-friction-factor-chart)
+
+*Friction factor against Reynolds number (log–log): the package's laminar line 64/Re to Re = 2300, its Blasius smooth-pipe formula from 4000 to 10⁵ and, for comparison, its Colebrook factor of a smooth pipe to 10⁶ — each at up to 41 Reynolds numbers. Marked: the worked example on the Blasius line, Re = 50000, f = 0.0211589.*
+
+![f (Darcy friction factor) against Re (Reynolds number) from 25000 to 75000](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/blasius-friction-factor-curve)
+
+*f (Darcy friction factor) against Re (Reynolds number) from 25000 to 75000. 31 points computed by thermofluids-ai999x; marked: the worked example, Re = 50000, f = 0.0211589.*
 
 ```python
 thermofluids_ai999x.solve('blasius_friction_factor', Re='50000 1', target='f')
@@ -680,6 +764,14 @@ $$
 - **Assumes:** fully developed turbulent flow in a circular pipe; Darcy friction factor
 - **Evidence:** theorem
 
+![Friction-factor chart from the package's Swamee–Jain formula at 41 Reynolds numbers from 5000 to 10⁸, pipe diameter D = 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/swamee-jain-friction-factor-chart)
+
+*Friction-factor chart from the package's Swamee–Jain formula at 41 Reynolds numbers from 5000 to 10⁸, pipe diameter D = 0.1 m, relative roughness ε/D = 0.0001, 0.00045, 0.001, 0.01, 0.05 (labelled at the right), with its laminar 64/Re line below Re = 2300; log–log axes. Marked: the worked example, ε = 4.5000e-05 m (ε/D = 0.00045), Re = 100000, f = 0.0201957.*
+
+![f (Darcy friction factor) against eps (absolute roughness of the pipe wall) from 4](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/swamee-jain-friction-factor-curve)
+
+*f (Darcy friction factor) against eps (absolute roughness of the pipe wall) from 4.5000e-06 m to 0.00045 m on a logarithmic axis. One curve for each value of Re (Reynolds number): 100000, 50000, 200000. Other inputs as in the worked example: D = 0.1 m. 41 points per curve computed by thermofluids-ai999x; marked: the worked example, eps = 4.5000e-05 m, f = 0.0201957.*
+
 ```python
 thermofluids_ai999x.solve('swamee_jain_friction_factor', eps='4.5e-05 m', D='0.1 m', Re='100000 1', target='f')
 # -> 0.0201957 1   (SOLVED)
@@ -720,6 +812,14 @@ $$
 - **Fails when:** laminar flow
 - **Assumes:** fully developed turbulent flow in a circular pipe; Darcy friction factor
 - **Evidence:** theorem
+
+![Friction-factor chart from the package's Haaland formula at 41 Reynolds numbers from 5000 to 10⁸, pipe diameter D = 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/haaland-friction-factor-chart)
+
+*Friction-factor chart from the package's Haaland formula at 41 Reynolds numbers from 5000 to 10⁸, pipe diameter D = 0.05 m, relative roughness ε/D = 0.0001, 0.001, 0.003, 0.01, 0.05 (labelled at the right), with its laminar 64/Re line below Re = 2300; log–log axes. Marked: the worked example, ε = 0.00015 m (ε/D = 0.003), Re = 80000, f = 0.0276632.*
+
+![f (Darcy friction factor) against eps (absolute roughness of the pipe wall) from 1](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/haaland-friction-factor-curve)
+
+*f (Darcy friction factor) against eps (absolute roughness of the pipe wall) from 1.5000e-05 m to 0.0015 m on a logarithmic axis. One curve for each value of D (inner diameter of the pipe): 0.05 m, 0.025 m, 0.1 m. Other inputs as in the worked example: Re = 80000 1. 41 points per curve computed by thermofluids-ai999x; marked: the worked example, eps = 0.00015 m, f = 0.0276632.*
 
 ```python
 thermofluids_ai999x.solve('haaland_friction_factor', eps='0.00015 m', D='0.05 m', Re='80000 1', target='f')
@@ -764,6 +864,10 @@ $$
 - **Assumes:** fully developed flow; Darcy friction factor; constant diameter
 - **Evidence:** theorem
 
+![hL (head loss to friction) against D (inner diameter of the pipe) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/darcy-weisbach-head-loss-curve)
+
+*hL (head loss to friction) against D (inner diameter of the pipe) from 0.05 m to 0.15 m. One curve for each value of v (mean flow velocity): 2 m/s, 1 m/s, 4 m/s. Other inputs as in the worked example: f = 0.02 1, L = 100 m. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, D = 0.1 m, hL = 4.07886 m.*
+
 ```python
 thermofluids_ai999x.solve('darcy_weisbach_head_loss', f='0.02 1', L='100 m', v='2 m/s', D='0.1 m', target='hL')
 # -> 4.07886 m   (SOLVED)
@@ -807,6 +911,10 @@ $$
 - **Assumes:** fully developed flow; Darcy friction factor; constant diameter
 - **Evidence:** theorem
 
+![dP (frictional pressure drop) against D (inner diameter of the pipe) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/darcy-weisbach-pressure-drop-curve)
+
+*dP (frictional pressure drop) against D (inner diameter of the pipe) from 0.025 m to 0.075 m. One curve for each value of v (mean flow velocity): 1.5 m/s, 0.75 m/s, 3 m/s. Other inputs as in the worked example: f = 0.03 1, L = 30 m, rho = 870 kg/m^3. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, D = 0.05 m, dP = 17617.5 Pa.*
+
 ```python
 thermofluids_ai999x.solve('darcy_weisbach_pressure_drop', f='0.03 1', L='30 m', rho='870 kg/m^3', v='1.5 m/s', D='0.05 m', target='dP')
 # -> 17617.5 Pa   (SOLVED)
@@ -849,6 +957,14 @@ $$
 - **Assumes:** fully developed laminar flow; Newtonian fluid; circular pipe
 - **Evidence:** theorem
 
+![Laminar flow in a pipe (D = 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/hagen-poiseuille-schematic)
+
+*Laminar flow in a pipe (D = 0.01 m, pressure drop 20000 Pa over 10 m, μ = 0.05 Pa*s; the worked example). Marked: the package's volume flow Q = 9.8175e-06 m³/s; the mean speed Q/A = 0.125 m/s and the parabolic velocity profile u = 2·(Q/A)·(1 − r²/R²) with its centre-line maximum 0.25 m/s are derived from it.*
+
+![Q (volume flow rate) against D (inner diameter of the pipe) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/hagen-poiseuille-curve)
+
+*Q (volume flow rate) against D (inner diameter of the pipe) from 0.005 m to 0.015 m. One curve for each value of dP (pressure drop along the pipe): 20000 Pa, 10000 Pa, 40000 Pa. Other inputs as in the worked example: mu = 0.05 Pa*s, L = 10 m. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, D = 0.01 m, Q = 9.8175e-06 m^3/s.*
+
 ```python
 thermofluids_ai999x.solve('hagen_poiseuille', D='0.01 m', dP='20000 Pa', mu='0.05 Pa*s', L='10 m', target='Q')
 # -> 9.81748e-06 m^3/s   (SOLVED)
@@ -888,6 +1004,14 @@ $$
 - **Fails when:** laminar flow (K depends on Re)
 - **Assumes:** fully turbulent flow (K independent of Re); K based on the mean velocity in the pipe
 - **Evidence:** theorem
+
+![hL (head loss across the fitting) against v (mean flow velocity) from 1](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/minor-loss-head-curve)
+
+*hL (head loss across the fitting) against v (mean flow velocity) from 1.5 m/s to 4.5 m/s. One curve for each value of K (loss coefficient of the fitting): 10, 5, 20. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, v = 3 m/s, hL = 4.58872 m.*
+
+![hL (head loss across the fitting) over v (mean flow velocity) from 1](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/minor-loss-head-field)
+
+*hL (head loss across the fitting) over v (mean flow velocity) from 1.5 m/s to 4.5 m/s and K (loss coefficient of the fitting) from 5 to 15: each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its value (light 0.57359 m to dark 15.4869 m); iso-lines at hL = 2.5, 5, 7.5, 10, 12.5 m. Marked: the worked example, v = 3 m/s, K = 10, hL = 4.58872 m.*
 
 ```python
 thermofluids_ai999x.solve('minor_loss_head', K='10 1', v='3 m/s', target='hL')
@@ -929,6 +1053,10 @@ $$
 - **Fails when:** compressible gases with large pressure ratios
 - **Assumes:** incompressible liquid; steady flow
 - **Evidence:** theorem
+
+![P (power delivered to the fluid) against rho (density of the fluid) from 500 kg/m^3 to 1500 kg/m^3](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/hydraulic-power-curve)
+
+*P (power delivered to the fluid) against rho (density of the fluid) from 500 kg/m^3 to 1500 kg/m^3. One curve for each value of Q (volume flow rate): 0.05 m^3/s, 0.025 m^3/s, 0.1 m^3/s. Other inputs as in the worked example: H = 20 m. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, rho = 1000 kg/m^3, P = 9806.65 W.*
 
 ```python
 thermofluids_ai999x.solve('hydraulic_power', rho='1000 kg/m^3', Q='0.05 m^3/s', H='20 m', target='P')
@@ -972,6 +1100,10 @@ $$
 - **Assumes:** incompressible liquid; steady flow; efficiency given as a fraction
 - **Evidence:** theorem
 
+![P (shaft power required) against eta (pump efficiency (a fraction)) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/pump-shaft-power-curve)
+
+*P (shaft power required) against eta (pump efficiency (a fraction)) from 0.02 to 0.98. One curve for each value of rho (density of the fluid): 1000 kg/m^3, 500 kg/m^3, 2000 kg/m^3. Other inputs as in the worked example: Q = 0.03 m^3/s, H = 25 m. 41 points per curve computed by thermofluids-ai999x; marked: the worked example, eta = 0.8, P = 9193.73 W.*
+
 ```python
 thermofluids_ai999x.solve('pump_shaft_power', rho='1000 kg/m^3', Q='0.03 m^3/s', H='25 m', eta='0.8 1', target='P')
 # -> 9193.73 W   (SOLVED)
@@ -1012,6 +1144,10 @@ $$
 - **Fails when:** surfaces partly above the free surface
 - **Assumes:** liquid at rest; gauge pressure (atmosphere acts on both sides)
 - **Evidence:** theorem
+
+![F (resultant hydrostatic force on the surface) against rho (density of the fluid) from 500 kg/m^3 to 1500 kg/m^3](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/hydrostatic-force-plane-curve)
+
+*F (resultant hydrostatic force on the surface) against rho (density of the fluid) from 500 kg/m^3 to 1500 kg/m^3. One curve for each value of hc (depth of the surface's centroid): 3 m, 1.5 m, 6 m. Other inputs as in the worked example: A = 2 m^2. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, rho = 1000 kg/m^3, F = 58839.9 N.*
 
 ```python
 thermofluids_ai999x.solve('hydrostatic_force_plane', rho='1000 kg/m^3', hc='3 m', A='2 m^2', target='F')
@@ -1054,6 +1190,10 @@ $$
 - **Assumes:** drag coefficient based on the stated reference area; incompressible flow
 - **Evidence:** theorem
 
+![F (drag force) against v (mean flow velocity) from 15 m/s to 45 m/s](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/drag-force-curve)
+
+*F (drag force) against v (mean flow velocity) from 15 m/s to 45 m/s. One curve for each value of rho (density of the fluid): 1.2 kg/m^3, 0.6 kg/m^3, 2.4 kg/m^3. Other inputs as in the worked example: Cd = 0.3 1, A = 2.2 m^2. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, v = 30 m/s, F = 356.4 N.*
+
 ```python
 thermofluids_ai999x.solve('drag_force', Cd='0.3 1', rho='1.2 kg/m^3', v='30 m/s', A='2.2 m^2', target='F')
 # -> 356.4 N   (SOLVED)
@@ -1095,6 +1235,10 @@ $$
 - **Assumes:** lift coefficient based on the planform area; incompressible flow
 - **Evidence:** theorem
 
+![F (lift force) against v (mean flow velocity) from 35 m/s to 105 m/s](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/lift-force-curve)
+
+*F (lift force) against v (mean flow velocity) from 35 m/s to 105 m/s. One curve for each value of CL (lift coefficient): 1.2, 0.6, 2.4. Other inputs as in the worked example: rho = 1.1 kg/m^3, A = 20 m^2. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, v = 70 m/s, F = 64680 N.*
+
 ```python
 thermofluids_ai999x.solve('lift_force', CL='1.2 1', rho='1.1 kg/m^3', v='70 m/s', A='20 m^2', target='F')
 # -> 64680 N   (SOLVED)
@@ -1134,6 +1278,10 @@ $$
 - **Fails when:** Re above about 1
 - **Assumes:** creeping flow $(Re < 1)$; rigid sphere far from walls
 - **Evidence:** theorem
+
+![F (drag force on the sphere) against mu (dynamic viscosity of the fluid) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/stokes-drag-curve)
+
+*F (drag force on the sphere) against mu (dynamic viscosity of the fluid) from 0.0005 Pa*s to 0.0015 Pa*s. One curve for each value of D (sphere diameter): 0.0001 m, 5.0000e-05 m, 0.0002 m. Other inputs as in the worked example: v = 0.002 m/s. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, mu = 0.001 Pa*s, F = 1.8850e-09 N.*
 
 ```python
 thermofluids_ai999x.solve('stokes_drag', mu='0.001 Pa*s', D='0.0001 m', v='0.002 m/s', target='F')
@@ -1177,6 +1325,10 @@ $$
 - **Assumes:** creeping flow $(Re < 1)$; particle denser than the fluid; rigid sphere
 - **Evidence:** theorem
 
+![v (terminal settling velocity) against mu (dynamic viscosity of the fluid) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/stokes-terminal-velocity-curve)
+
+*v (terminal settling velocity) against mu (dynamic viscosity of the fluid) from 0.0005 Pa*s to 0.0015 Pa*s. One curve for each value of D (sphere diameter): 0.0001 m, 5.0000e-05 m, 0.0002 m. Other inputs as in the worked example: rho_p = 2650 kg/m^3, rho = 1000 kg/m^3. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, mu = 0.001 Pa*s, v = 0.00898943 m/s.*
+
 ```python
 thermofluids_ai999x.solve('stokes_terminal_velocity', D='0.0001 m', rho_p='2650 kg/m^3', rho='1000 kg/m^3', mu='0.001 Pa*s', target='v')
 # -> 0.00898943 m/s   (SOLVED)
@@ -1214,6 +1366,10 @@ $$
 - **Fails when:** near or beyond stall; cambered airfoils (add the zero-lift angle)
 - **Assumes:** thin symmetric airfoil; small angle of attack; inviscid incompressible flow
 - **Evidence:** theorem
+
+![CL (section lift coefficient) against alpha (angle of attack) from 0 deg to 90 deg](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/thin-airfoil-lift-coefficient-curve)
+
+*CL (section lift coefficient) against alpha (angle of attack) from 0 deg to 90 deg. 40 points computed by thermofluids-ai999x; marked: the worked example, alpha = 5 deg, CL = 0.548311.*
 
 ```python
 thermofluids_ai999x.solve('thin_airfoil_lift_coefficient', alpha='5 deg', target='CL')
@@ -1253,6 +1409,14 @@ $$
 - **Fails when:** a taken at a different temperature
 - **Assumes:** v and a measured in the same frame and state
 - **Evidence:** theorem
+
+![M (Mach number) against a (local speed of sound) from 150 m/s to 450 m/s](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/mach-number-curve)
+
+*M (Mach number) against a (local speed of sound) from 150 m/s to 450 m/s. One curve for each value of v (mean flow velocity): 250 m/s, 125 m/s, 500 m/s. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, a = 300 m/s, M = 0.833333.*
+
+![M (Mach number) over v (mean flow velocity) from 125 m/s to 375 m/s and a (local speed of sound) from 150 m/s to 450 m/s: each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its value (light 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/mach-number-field)
+
+*M (Mach number) over v (mean flow velocity) from 125 m/s to 375 m/s and a (local speed of sound) from 150 m/s to 450 m/s: each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its value (light 0.277778 to dark 2.5); iso-lines at M = 0.5, 1, 1.5, 2. Marked: the worked example, v = 250 m/s, a = 300 m/s, M = 0.833333.*
 
 ```python
 thermofluids_ai999x.solve('mach_number', v='250 m/s', a='300 m/s', target='M')
@@ -1294,6 +1458,10 @@ $$
 - **Assumes:** ideal gas; small-amplitude (acoustic) waves
 - **Evidence:** theorem
 
+![a (speed of sound) against gamma (ratio of specific heats) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/speed-of-sound-ideal-gas-curve)
+
+*a (speed of sound) against gamma (ratio of specific heats) from 0.7 to 2.1. One curve for each value of R (specific gas constant): 287 J/(kg*K), 143.5 J/(kg*K), 574 J/(kg*K). Other inputs as in the worked example: T = 300 K. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, gamma = 1.4, a = 347.189 m/s.*
+
 ```python
 thermofluids_ai999x.solve('speed_of_sound_ideal_gas', gamma='1.4 1', R='287 J/(kg*K)', T='300 K', target='a')
 # -> 347.189 m/s   (SOLVED)
@@ -1333,6 +1501,10 @@ $$
 - **Fails when:** heat transfer to or from the stream; high-temperature real-gas effects
 - **Assumes:** ideal gas with constant specific heats; adiabatic deceleration
 - **Evidence:** theorem
+
+![T0 (stagnation (total) temperature) against M (Mach number) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/stagnation-temperature-mach-curve)
+
+*T0 (stagnation (total) temperature) against M (Mach number) from 0.2 to 20 on a logarithmic axis. One curve for each value of gamma (ratio of specific heats): 1.4, 2.8. Other inputs as in the worked example: T = 220 K. 41 points per curve computed by thermofluids-ai999x; marked: the worked example, M = 2, T0 = 396 K.*
 
 ```python
 thermofluids_ai999x.solve('stagnation_temperature_mach', T='220 K', gamma='1.4 1', M='2 1', target='T0')
@@ -1374,6 +1546,10 @@ $$
 - **Assumes:** air as an ideal gas with $\gamma = 1.4$; isentropic deceleration
 - **Evidence:** theorem
 
+![P0 (stagnation pressure) against M (Mach number) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/stagnation-pressure-air-curve)
+
+*P0 (stagnation pressure) against M (Mach number) from 0.15 to 15 on a logarithmic axis, logarithmic output axis. One curve for each value of P (static pressure): 50 kPa, 25 kPa, 100 kPa. 41 points per curve computed by thermofluids-ai999x; marked: the worked example, M = 1.5, P0 = 183552 Pa.*
+
 ```python
 thermofluids_ai999x.solve('stagnation_pressure_air', P='50 kPa', M='1.5 1', target='P0')
 # -> 183552 Pa   (SOLVED)
@@ -1412,6 +1588,14 @@ $$
 - **Fails when:** oblique shocks; $M_{1}  \leq  1$ (no shock)
 - **Assumes:** air as an ideal gas with $\gamma = 1.4$; steady normal shock; adiabatic
 - **Evidence:** theorem
+
+![A normal shock in air (γ = 1](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/normal-shock-mach-air-shock)
+
+*A normal shock in air (γ = 1.4) at M1 = 2 with an upstream static pressure of 100 kPa (the worked example): the package gives M2 = 0.57735 and P2 = 450 kPa; the stagnation pressures from its stagnation-pressure relation, 782.445 kPa before and 564.044 kPa after (the loss across the shock). Marked: M2, P2 and both stagnation pressures.*
+
+![M2 (Mach number behind the shock) against M1 (Mach number ahead of the shock) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/normal-shock-mach-air-curve)
+
+*M2 (Mach number behind the shock) against M1 (Mach number ahead of the shock) from 0.2 to 20 on a logarithmic axis. 35 points computed by thermofluids-ai999x; marked: the worked example, M1 = 2, M2 = 0.57735.*
 
 ```python
 thermofluids_ai999x.solve('normal_shock_mach_air', M1='2 1', target='M2')
@@ -1453,6 +1637,14 @@ $$
 - **Assumes:** air as an ideal gas with $\gamma = 1.4$; steady normal shock; adiabatic
 - **Evidence:** theorem
 
+![A normal shock in air (γ = 1](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/normal-shock-pressure-air-shock)
+
+*A normal shock in air (γ = 1.4) at M1 = 2 with an upstream static pressure of 100 kPa (the worked example): the package gives M2 = 0.57735 and P2 = 450 kPa; the stagnation pressures from its stagnation-pressure relation, 782.445 kPa before and 564.044 kPa after (the loss across the shock). Marked: M2, P2 and both stagnation pressures.*
+
+![P2 (static pressure behind the shock) against M1 (Mach number ahead of the shock) from 1 to 3](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/normal-shock-pressure-air-curve)
+
+*P2 (static pressure behind the shock) against M1 (Mach number ahead of the shock) from 1 to 3. One curve for each value of P1 (static pressure ahead of the shock): 100 kPa, 50 kPa, 200 kPa. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, M1 = 2, P2 = 450000 Pa.*
+
 ```python
 thermofluids_ai999x.solve('normal_shock_pressure_air', P1='100 kPa', M1='2 1', target='P2')
 # -> 450000 Pa   (SOLVED)
@@ -1492,6 +1684,14 @@ $$
 - **Fails when:** turbulent boundary layers; pressure gradients
 - **Assumes:** steady laminar flow over a flat plate; zero pressure gradient
 - **Evidence:** theorem
+
+![Laminar boundary layer on a flat plate: displacement and momentum thickness from the package's Blasius relations at 40 positions, with the local Reynolds number growing in proportion to x (Rex = 200000 at x = 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/blasius-displacement-thickness-profile)
+
+*Laminar boundary layer on a flat plate: displacement and momentum thickness from the package's Blasius relations at 40 positions, with the local Reynolds number growing in proportion to x (Rex = 200000 at x = 0.5 m, the worked example). Marked: the example point, δ* = 1.9239 mm at x = 0.5 m.*
+
+![ds (displacement thickness) against Rex (local Reynolds number U x / nu) from 100000 to 300000](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/blasius-displacement-thickness-curve)
+
+*ds (displacement thickness) against Rex (local Reynolds number U x / nu) from 100000 to 300000. One curve for each value of x (distance from the leading edge): 0.5 m, 0.25 m, 1 m. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, Rex = 200000, ds = 0.0019239 m.*
 
 ```python
 thermofluids_ai999x.solve('blasius_displacement_thickness', x='0.5 m', Rex='200000 1', target='ds')
@@ -1533,6 +1733,14 @@ $$
 - **Assumes:** steady laminar flow over a flat plate; zero pressure gradient
 - **Evidence:** theorem
 
+![Laminar boundary layer on a flat plate: displacement and momentum thickness from the package's Blasius relations at 40 positions, with the local Reynolds number growing in proportion to x (Rex = 200000 at x = 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/blasius-momentum-thickness-profile)
+
+*Laminar boundary layer on a flat plate: displacement and momentum thickness from the package's Blasius relations at 40 positions, with the local Reynolds number growing in proportion to x (Rex = 200000 at x = 0.5 m, the worked example). Marked: the example point, θ = 0.742503 mm at x = 0.5 m.*
+
+![th (momentum thickness) against Rex (local Reynolds number U x / nu) from 100000 to 300000](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/blasius-momentum-thickness-curve)
+
+*th (momentum thickness) against Rex (local Reynolds number U x / nu) from 100000 to 300000. One curve for each value of x (distance from the leading edge): 0.5 m, 0.25 m, 1 m. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, Rex = 200000, th = 0.000742503 m.*
+
 ```python
 thermofluids_ai999x.solve('blasius_momentum_thickness', x='0.5 m', Rex='200000 1', target='th')
 # -> 0.000742503 m   (SOLVED)
@@ -1571,6 +1779,10 @@ $$
 - **Fails when:** turbulent boundary layers; pressure gradients
 - **Assumes:** steady laminar flow over a flat plate; zero pressure gradient
 - **Evidence:** theorem
+
+![cf (local skin-friction coefficient) against Rex (local Reynolds number U x / nu) from 50000 to 150000](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/blasius-local-skin-friction-curve)
+
+*cf (local skin-friction coefficient) against Rex (local Reynolds number U x / nu) from 50000 to 150000. 31 points computed by thermofluids-ai999x; marked: the worked example, Rex = 100000, cf = 0.00210011.*
 
 ```python
 thermofluids_ai999x.solve('blasius_local_skin_friction', Rex='100000 1', target='cf')
@@ -1611,6 +1823,10 @@ $$
 - **Assumes:** laminar boundary layer over the whole plate; zero pressure gradient
 - **Evidence:** theorem
 
+![cfm (average skin-friction coefficient over the plate) against ReL (Reynolds number based on the plate length) from 125000 to 375000](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/blasius-average-skin-friction-curve)
+
+*cfm (average skin-friction coefficient over the plate) against ReL (Reynolds number based on the plate length) from 125000 to 375000. 31 points computed by thermofluids-ai999x; marked: the worked example, ReL = 250000, cfm = 0.00265646.*
+
 ```python
 thermofluids_ai999x.solve('blasius_average_skin_friction', ReL='250000 1', target='cfm')
 # -> 0.00265646 1   (SOLVED)
@@ -1650,6 +1866,14 @@ $$
 - **Fails when:** closed conduits flowing full
 - **Assumes:** rectangular channel (hydraulic depth = flow depth)
 - **Evidence:** theorem
+
+![Fr (Froude number) against h (flow depth) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/froude-number-curve)
+
+*Fr (Froude number) against h (flow depth) from 0.25 m to 0.75 m. One curve for each value of v (mean flow velocity): 3 m/s, 1.5 m/s, 6 m/s. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, h = 0.5 m, Fr = 1.3548.*
+
+![Fr (Froude number) over v (mean flow velocity) from 1](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/froude-number-field)
+
+*Fr (Froude number) over v (mean flow velocity) from 1.5 m/s to 4.5 m/s and h (flow depth) from 0.25 m to 0.75 m: each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its value (light 0.553096 to dark 2.87397); iso-lines at Fr = 1, 1.5, 2, 2.5. Marked: the worked example, v = 3 m/s, h = 0.5 m, Fr = 1.3548.*
 
 ```python
 thermofluids_ai999x.solve('froude_number', v='3 m/s', h='0.5 m', target='Fr')
@@ -1692,6 +1916,14 @@ $$
 - **Fails when:** transient conduction; multidimensional heat flow
 - **Assumes:** steady one-dimensional conduction; constant thermal conductivity; no heat generation
 - **Evidence:** theorem
+
+![Steady conduction through a plane wall of thickness L = 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/plane-wall-conduction-profile)
+
+*Steady conduction through a plane wall of thickness L = 0.2 m, area 10 m^2, k = 0.7 W/(m*K), faces at 20 °C and 5 °C (the worked example); the temperature falls linearly through the wall. Marked: the package's heat rate Q = 525 W (flux 52.5 W/m², Q divided by the area).*
+
+![q (rate of heat transfer) against L (wall thickness) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/plane-wall-conduction-curve)
+
+*q (rate of heat transfer) against L (wall thickness) from 0.1 m to 0.3 m. One curve for each value of T1 (inner surface temperature): 20 °C, 10 °C, 40 °C. Other inputs as in the worked example: k = 0.7 W/(m*K), A = 10 m^2, T2 = 5 °C. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, L = 0.2 m, q = 525 W.*
 
 ```python
 thermofluids_ai999x.solve('plane_wall_conduction', k='0.7 W/(m*K)', A='10 m^2', T1='20 °C', T2='5 °C', L='0.2 m', target='q')
@@ -1736,6 +1968,14 @@ $$
 - **Assumes:** steady radial conduction; constant thermal conductivity; no heat generation
 - **Evidence:** theorem
 
+![Steady radial conduction through a cylinder wall (the worked example): r1 = 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/cylinder-conduction-profile)
+
+*Steady radial conduction through a cylinder wall (the worked example): r1 = 0.05 m at 120 °C, r2 = 0.06 m at 119 °C, k = 45 W/(m*K), length 5 m. Top: the cross-section with the radial heat flow; bottom: the temperature through the wall, T(r) = T1 − (T1 − T2)·ln(r/r1)/ln(r2/r1), derived from the stated surface temperatures. Marked: the package's heat rate Q = 7753.97 W.*
+
+![q (rate of heat transfer) against r1 (inner radius) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/cylinder-conduction-curve)
+
+*q (rate of heat transfer) against r1 (inner radius) from 0.005 m to 0.0561009 m on a logarithmic axis. One curve for each value of T1 (inner surface temperature): 120 °C, 60 °C, 240 °C. Other inputs as in the worked example: k = 45 W/(m*K), L = 5 m, T2 = 119 °C, r2 = 0.06 m. 22 points per curve computed by thermofluids-ai999x; marked: the worked example, r1 = 0.05 m, q = 7753.97 W.*
+
 ```python
 thermofluids_ai999x.solve('cylinder_conduction', k='45 W/(m*K)', L='5 m', T1='120 °C', T2='119 °C', r1='0.05 m', r2='0.06 m', target='q')
 # -> 7753.97 W   (SOLVED)
@@ -1778,6 +2018,14 @@ $$
 - **Assumes:** steady radial conduction; constant thermal conductivity
 - **Evidence:** theorem
 
+![Steady radial conduction through a sphere wall (the worked example): r1 = 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/sphere-conduction-profile)
+
+*Steady radial conduction through a sphere wall (the worked example): r1 = 0.1 m at 400 K, r2 = 0.15 m at 300 K, k = 0.04 W/(m*K). Top: the cross-section with the radial heat flow; bottom: the temperature through the wall, T(r) = T1 − (T1 − T2)·(1/r1 − 1/r)/(1/r1 − 1/r2), derived from the stated surface temperatures. Marked: the package's heat rate Q = 15.0796 W.*
+
+![q (rate of heat transfer) against r1 (inner radius) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/sphere-conduction-curve)
+
+*q (rate of heat transfer) against r1 (inner radius) from 0.01 m to 0.141254 m on a logarithmic axis. One curve for each value of T1 (inner surface temperature): 400 K, 200 K, 800 K. Other inputs as in the worked example: k = 0.04 W/(m*K), T2 = 300 K, r2 = 0.15 m. 24 points per curve computed by thermofluids-ai999x; marked: the worked example, r1 = 0.1 m, q = 15.0796 W.*
+
 ```python
 thermofluids_ai999x.solve('sphere_conduction', k='0.04 W/(m*K)', T1='400 K', T2='300 K', r1='0.1 m', r2='0.15 m', target='q')
 # -> 15.0796 W   (SOLVED)
@@ -1818,6 +2066,14 @@ $$
 - **Fails when:** cylindrical walls (areas differ); several layers (add each L/k)
 - **Assumes:** steady one-dimensional heat flow; a single plane layer; no radiation
 - **Evidence:** theorem
+
+![A plane wall between two fluids (h1 = 10 W/(m^2*K), wall L = 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/overall-u-plane-wall-network)
+
+*A plane wall between two fluids (h1 = 10 W/(m^2*K), wall L = 0.2 m, k = 0.7 W/(m*K), h2 = 25 W/(m^2*K); the worked example) and its thermal-resistance chain per square metre: the three resistances 1/h1, L/k and 1/h2 in m²·K/W are the inputs inverted (derived); they add in series. Marked: the package's overall coefficient U = 2.34899 W/(m²·K) (1/U = 0.425714 m²·K/W).*
+
+![U (overall heat transfer coefficient) against L (wall thickness) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/overall-u-plane-wall-curve)
+
+*U (overall heat transfer coefficient) against L (wall thickness) from 0.02 m to 2 m on a logarithmic axis. One curve for each value of k (thermal conductivity): 0.7 W/(m*K), 0.35 W/(m*K), 1.4 W/(m*K). Other inputs as in the worked example: h1 = 10 W/(m^2*K), h2 = 25 W/(m^2*K). 41 points per curve computed by thermofluids-ai999x; marked: the worked example, L = 0.2 m, U = 2.34899 W/(m^2*K).*
 
 ```python
 thermofluids_ai999x.solve('overall_u_plane_wall', h1='10 W/(m^2*K)', L='0.2 m', k='0.7 W/(m*K)', h2='25 W/(m^2*K)', target='U')
@@ -1860,6 +2116,10 @@ $$
 - **Assumes:** steady heat flow; U based on the stated area
 - **Evidence:** theorem
 
+![q (rate of heat transfer) against U (overall heat transfer coefficient) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/overall-heat-rate-curve)
+
+*q (rate of heat transfer) against U (overall heat transfer coefficient) from 0.25 W/(m^2*K) to 0.75 W/(m^2*K). One curve for each value of A (wall area): 20 m^2, 10 m^2, 40 m^2. Other inputs as in the worked example: Ti = 21 °C, To = -5 °C. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, U = 0.5 W/(m^2*K), q = 260 W.*
+
 ```python
 thermofluids_ai999x.solve('overall_heat_rate', U='0.5 W/(m^2*K)', A='20 m^2', Ti='21 °C', To='-5 °C', target='q')
 # -> 260 W   (SOLVED)
@@ -1898,6 +2158,14 @@ $$
 - **Fails when:** spheres $(r = 2k/h)$
 - **Assumes:** cylindrical insulation; constant outside heat transfer coefficient; no radiation
 - **Evidence:** theorem
+
+![Heat loss per metre from a pipe of radius 2 mm covered with insulation of k = 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/critical-insulation-radius-curve)
+
+*Heat loss per metre from a pipe of radius 2 mm covered with insulation of k = 0.05 W/(m*K) in a fluid with h = 10 W/(m^2*K) (the worked example's k and h; the pipe radius and a 50 K temperature difference are stated), derived from the conduction and convection resistances in series. Adding insulation first raises the loss; the maximum lies at the package's critical radius, marked: r_cr = k/h = 5 mm.*
+
+![r (critical outer radius of the insulation) against h (outside heat transfer coefficient) from 5 W/(m^2*K) to 15 W/(m^2*K)](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/critical-insulation-radius-curve-2)
+
+*r (critical outer radius of the insulation) against h (outside heat transfer coefficient) from 5 W/(m^2*K) to 15 W/(m^2*K). One curve for each value of k (thermal conductivity): 0.05 W/(m*K), 0.025 W/(m*K), 0.1 W/(m*K). 31 points per curve computed by thermofluids-ai999x; marked: the worked example, h = 10 W/(m^2*K), r = 0.005 m.*
 
 ```python
 thermofluids_ai999x.solve('critical_insulation_radius', k='0.05 W/(m*K)', h='10 W/(m^2*K)', target='r')
@@ -1940,6 +2208,14 @@ $$
 - **Assumes:** steady one-dimensional conduction; both faces at the same temperature; uniform generation
 - **Evidence:** theorem
 
+![A plane wall of half-thickness L = 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/wall-generation-max-temperature-profile)
+
+*A plane wall of half-thickness L = 0.01 m (k = 20 W/(m*K)) generating heat uniformly at 1e+06 W/m^3, both faces held at 350 K (the worked example). The temperature is parabolic, T = Ts + (Tmax − Ts)(1 − x²/L²), drawn from the package's mid-plane maximum (derived shape). Marked: Tmax = 352.5 K.*
+
+![Tmax (temperature at the mid-plane) against L (half-thickness of the wall) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/wall-generation-max-temperature-curve)
+
+*Tmax (temperature at the mid-plane) against L (half-thickness of the wall) from 0.001 m to 0.1 m on a logarithmic axis. One curve for each value of Ts (surface temperature): 350 K, 175 K, 700 K. Other inputs as in the worked example: q = 1000000.0 W/m^3, k = 20 W/(m*K). 41 points per curve computed by thermofluids-ai999x; marked: the worked example, L = 0.01 m, Tmax = 352.5 K.*
+
 ```python
 thermofluids_ai999x.solve('wall_generation_max_temperature', Ts='350 K', q='1e+06 W/m^3', L='0.01 m', k='20 W/(m*K)', target='Tmax')
 # -> 352.5 K   (SOLVED)
@@ -1979,6 +2255,10 @@ $$
 - **Fails when:** phase change
 - **Assumes:** constant properties
 - **Evidence:** theorem
+
+![alpha (thermal diffusivity) against rho (density of the material) from 4450 kg/m^3 to 13350 kg/m^3](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/thermal-diffusivity-curve)
+
+*alpha (thermal diffusivity) against rho (density of the material) from 4450 kg/m^3 to 13350 kg/m^3. One curve for each value of k (thermal conductivity): 400 W/(m*K), 200 W/(m*K), 800 W/(m*K). Other inputs as in the worked example: cp = 385 J/(kg*K). 31 points per curve computed by thermofluids-ai999x; marked: the worked example, rho = 8900 kg/m^3, alpha = 0.000116737 m^2/s.*
 
 ```python
 thermofluids_ai999x.solve('thermal_diffusivity', k='400 W/(m*K)', rho='8900 kg/m^3', cp='385 J/(kg*K)', target='alpha')
@@ -2020,6 +2300,10 @@ $$
 - **Assumes:** Lc = volume / surface area for the lumped-capacitance test
 - **Evidence:** theorem
 
+![Bi (Biot number) against k (thermal conductivity) from 100 W/(m*K) to 300 W/(m*K)](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/biot-number-curve)
+
+*Bi (Biot number) against k (thermal conductivity) from 100 W/(m*K) to 300 W/(m*K). One curve for each value of h (convection heat transfer coefficient): 50 W/(m^2*K), 25 W/(m^2*K), 100 W/(m^2*K). Other inputs as in the worked example: Lc = 0.01 m. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, k = 200 W/(m*K), Bi = 0.0025.*
+
 ```python
 thermofluids_ai999x.solve('biot_number', h='50 W/(m^2*K)', Lc='0.01 m', k='200 W/(m*K)', target='Bi')
 # -> 0.0025 1   (SOLVED)
@@ -2059,6 +2343,10 @@ $$
 - **Fails when:** phase change
 - **Assumes:** constant properties
 - **Evidence:** theorem
+
+![Fo (Fourier number) against Lc (characteristic length) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/fourier-number-curve)
+
+*Fo (Fourier number) against Lc (characteristic length) from 0.01 m to 0.03 m. One curve for each value of alpha (thermal diffusivity): 1.0000e-05 m^2/s, 5.0000e-06 m^2/s, 2.0000e-05 m^2/s. Other inputs as in the worked example: t = 60 s. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, Lc = 0.02 m, Fo = 1.5.*
 
 ```python
 thermofluids_ai999x.solve('fourier_number', alpha='1e-05 m^2/s', t='60 s', Lc='0.02 m', target='Fo')
@@ -2101,6 +2389,10 @@ $$
 - **Assumes:** uniform surface temperature; h averaged over the surface
 - **Evidence:** theorem
 
+![q (rate of heat transfer) against h (convection heat transfer coefficient) from 12](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/newton-cooling-curve)
+
+*q (rate of heat transfer) against h (convection heat transfer coefficient) from 12.5 W/(m^2*K) to 37.5 W/(m^2*K). One curve for each value of Ts (surface temperature): 80 °C, 40 °C, 160 °C. Other inputs as in the worked example: A = 0.5 m^2, Tinf = 20 °C. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, h = 25 W/(m^2*K), q = 750 W.*
+
 ```python
 thermofluids_ai999x.solve('newton_cooling', h='25 W/(m^2*K)', A='0.5 m^2', Ts='80 °C', Tinf='20 °C', target='q')
 # -> 750 W   (SOLVED)
@@ -2140,6 +2432,10 @@ $$
 - **Fails when:** k of the solid used instead of the fluid
 - **Assumes:** Nu based on the same characteristic length; k of the fluid
 - **Evidence:** theorem
+
+![h (convection heat transfer coefficient) against Lc (characteristic length (diameter or plate length)) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/nusselt-heat-transfer-coefficient-curve)
+
+*h (convection heat transfer coefficient) against Lc (characteristic length (diameter or plate length)) from 0.025 m to 0.075 m. One curve for each value of Nu (average Nusselt number): 120, 60, 240. Other inputs as in the worked example: k = 0.6 W/(m*K). 31 points per curve computed by thermofluids-ai999x; marked: the worked example, Lc = 0.05 m, h = 1440 W/(m^2*K).*
 
 ```python
 thermofluids_ai999x.solve('nusselt_heat_transfer_coefficient', Nu='120 1', k='0.6 W/(m*K)', Lc='0.05 m', target='h')
@@ -2181,6 +2477,10 @@ $$
 - **Assumes:** properties at the film temperature
 - **Evidence:** theorem
 
+![Pr (Prandtl number of the fluid) against k (thermal conductivity) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/prandtl-number-curve)
+
+*Pr (Prandtl number of the fluid) against k (thermal conductivity) from 0.3 W/(m*K) to 0.9 W/(m*K). One curve for each value of cp (specific heat of the fluid): 4180 J/(kg*K), 2090 J/(kg*K), 8360 J/(kg*K). Other inputs as in the worked example: mu = 0.001 Pa*s. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, k = 0.6 W/(m*K), Pr = 6.96667.*
+
 ```python
 thermofluids_ai999x.solve('prandtl_number', cp='4180 J/(kg*K)', mu='0.001 Pa*s', k='0.6 W/(m*K)', target='Pr')
 # -> 6.96667 1   (SOLVED)
@@ -2220,6 +2520,14 @@ $$
 - **Fails when:** laminar or transitional flow; large wall-to-bulk temperature differences
 - **Assumes:** fully developed turbulent flow in a smooth circular tube; properties at the bulk temperature
 - **Evidence:** theorem
+
+![Nu (Nusselt number) against Pr (Prandtl number of the fluid) from 2](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/dittus-boelter-heating-curve)
+
+*Nu (Nusselt number) against Pr (Prandtl number of the fluid) from 2.5 to 7.5. One curve for each value of Re (Reynolds number): 50000, 25000, 100000. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, Pr = 5, Nu = 251.473.*
+
+![Nu (Nusselt number) over Re (Reynolds number) from 25000 to 75000 and Pr (Prandtl number of the fluid) from 2](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/dittus-boelter-heating-field)
+
+*Nu (Nusselt number) over Re (Reynolds number) from 25000 to 75000 and Pr (Prandtl number of the fluid) from 2.5 to 7.5: each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its value (light 109.46 to dark 409.074); iso-lines at Nu = 150, 200, 250, 300, 350, 400. Marked: the worked example, Re = 50000, Pr = 5, Nu = 251.473.*
 
 ```python
 thermofluids_ai999x.solve('dittus_boelter_heating', Re='50000 1', Pr='5 1', target='Nu')
@@ -2261,6 +2569,14 @@ $$
 - **Assumes:** fully developed turbulent flow in a smooth circular tube; properties at the bulk temperature
 - **Evidence:** theorem
 
+![Nu (Nusselt number) against Re (Reynolds number) from 25000 to 75000](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/dittus-boelter-cooling-curve)
+
+*Nu (Nusselt number) against Re (Reynolds number) from 25000 to 75000. One curve for each value of Pr (Prandtl number of the fluid): 5, 2.5, 10. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, Re = 50000, Nu = 214.089.*
+
+![Nu (Nusselt number) over Re (Reynolds number) from 25000 to 75000 and Pr (Prandtl number of the fluid) from 2](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/dittus-boelter-cooling-field)
+
+*Nu (Nusselt number) over Re (Reynolds number) from 25000 to 75000 and Pr (Prandtl number of the fluid) from 2.5 to 7.5: each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its value (light 99.8762 to dark 334.422); iso-lines at Nu = 150, 200, 250, 300. Marked: the worked example, Re = 50000, Pr = 5, Nu = 214.089.*
+
 ```python
 thermofluids_ai999x.solve('dittus_boelter_cooling', Re='50000 1', Pr='5 1', target='Nu')
 # -> 214.089 1   (SOLVED)
@@ -2301,6 +2617,14 @@ $$
 - **Assumes:** laminar boundary layer over the whole plate; isothermal plate
 - **Evidence:** theorem
 
+![Nu (average Nusselt number over the plate) against ReL (Reynolds number based on the plate length) from 50000 to 150000](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/flat-plate-laminar-average-nusselt-curve)
+
+*Nu (average Nusselt number over the plate) against ReL (Reynolds number based on the plate length) from 50000 to 150000. One curve for each value of Pr (Prandtl number of the fluid): 0.7, 0.35, 1.4. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, ReL = 100000, Nu = 186.438.*
+
+![Nu (average Nusselt number over the plate) over ReL (Reynolds number based on the plate length) from 50000 to 150000 and Pr (Prandtl number of the fluid) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/flat-plate-laminar-average-nusselt-field)
+
+*Nu (average Nusselt number over the plate) over ReL (Reynolds number based on the plate length) from 50000 to 150000 and Pr (Prandtl number of the fluid) from 0.35 to 1.05: each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its value (light 104.635 to dark 261.383); iso-lines at Nu = 150, 200, 250. Marked: the worked example, ReL = 100000, Pr = 0.7, Nu = 186.438.*
+
 ```python
 thermofluids_ai999x.solve('flat_plate_laminar_average_nusselt', ReL='100000 1', Pr='0.7 1', target='Nu')
 # -> 186.438 1   (SOLVED)
@@ -2340,6 +2664,14 @@ $$
 - **Fails when:** turbulent boundary layers; liquid metals
 - **Assumes:** laminar boundary layer; isothermal plate
 - **Evidence:** theorem
+
+![Nux (local Nusselt number) against Rex (local Reynolds number U x / nu) from 50000 to 150000](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/flat-plate-laminar-local-nusselt-curve)
+
+*Nux (local Nusselt number) against Rex (local Reynolds number U x / nu) from 50000 to 150000. One curve for each value of Pr (Prandtl number of the fluid): 0.7, 0.35, 1.4. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, Rex = 100000, Nux = 93.2189.*
+
+![Nux (local Nusselt number) over Rex (local Reynolds number U x / nu) from 50000 to 150000 and Pr (Prandtl number of the fluid) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/flat-plate-laminar-local-nusselt-field)
+
+*Nux (local Nusselt number) over Rex (local Reynolds number U x / nu) from 50000 to 150000 and Pr (Prandtl number of the fluid) from 0.35 to 1.05: each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its value (light 52.3174 to dark 130.691); iso-lines at Nux = 60, 80, 100, 120. Marked: the worked example, Rex = 100000, Pr = 0.7, Nux = 93.2189.*
 
 ```python
 thermofluids_ai999x.solve('flat_plate_laminar_local_nusselt', Rex='100000 1', Pr='0.7 1', target='Nux')
@@ -2384,6 +2716,10 @@ $$
 - **Assumes:** Boussinesq approximation; surface hotter than the fluid
 - **Evidence:** theorem
 
+![Gr (Grashof number) against nu (kinematic viscosity of the fluid) from 8](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/grashof-number-curve)
+
+*Gr (Grashof number) against nu (kinematic viscosity of the fluid) from 8.0000e-06 m^2/s to 2.4000e-05 m^2/s. One curve for each value of L (height of the plate (characteristic length)): 0.5 m, 0.25 m, 1 m. Other inputs as in the worked example: beta = 0.0033 1/K, Ts = 330 K, Tinf = 300 K. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, nu = 1.6000e-05 m^2/s, Gr = 4.7405e+08.*
+
 ```python
 thermofluids_ai999x.solve('grashof_number', beta='0.0033 1/K', Ts='330 K', Tinf='300 K', L='0.5 m', nu='1.6e-05 m^2/s', target='Gr')
 # -> 4.74052e+08 1   (SOLVED)
@@ -2423,6 +2759,14 @@ $$
 - **Assumes:** properties at the film temperature
 - **Evidence:** theorem
 
+![Ra (Rayleigh number) against Gr (Grashof number) from 5](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/rayleigh-number-curve)
+
+*Ra (Rayleigh number) against Gr (Grashof number) from 5.0000e+07 to 1.5000e+08. One curve for each value of Pr (Prandtl number of the fluid): 0.71, 0.355, 1.42. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, Gr = 1.0000e+08, Ra = 7.1000e+07.*
+
+![Ra (Rayleigh number) over Gr (Grashof number) from 5](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/rayleigh-number-field)
+
+*Ra (Rayleigh number) over Gr (Grashof number) from 5.0000e+07 to 1.5000e+08 and Pr (Prandtl number of the fluid) from 0.355 to 1.065: each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its value (light 1.7750e+07 to dark 1.5975e+08); iso-lines at Ra = 2.50e7, 5.00e7, 7.50e7, 1.00e8, 1.25e8, 1.50e8. Marked: the worked example, Gr = 1.0000e+08, Pr = 0.71, Ra = 7.1000e+07.*
+
 ```python
 thermofluids_ai999x.solve('rayleigh_number', Gr='1e+08 1', Pr='0.71 1', target='Ra')
 # -> 7.1e+07 1   (SOLVED)
@@ -2461,6 +2805,10 @@ $$
 - **Fails when:** real (grey) surfaces without an emissivity
 - **Assumes:** an ideal blackbody; absolute temperature
 - **Evidence:** theorem
+
+![E (emissive power per unit area) against T (absolute temperature of the surface) from 500 K to 1500 K](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/blackbody-emissive-power-curve)
+
+*E (emissive power per unit area) against T (absolute temperature of the surface) from 500 K to 1500 K. 31 points computed by thermofluids-ai999x; marked: the worked example, T = 1000 K, E = 56703.7 W/m^2.*
 
 ```python
 thermofluids_ai999x.solve('blackbody_emissive_power', T='1000 K', target='E')
@@ -2505,6 +2853,10 @@ $$
 - **Assumes:** grey diffuse surface; surroundings large compared with the surface
 - **Evidence:** theorem
 
+![q (rate of heat transfer) against Ts (surface temperature) from 50 K to 5000 K on a logarithmic axis](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/radiation-net-exchange-curve)
+
+*q (rate of heat transfer) against Ts (surface temperature) from 50 K to 5000 K on a logarithmic axis. Other inputs as in the worked example: eps = 0.8 1, A = 0.5 m^2, Tsur = 300 K. 41 points computed by thermofluids-ai999x; marked: the worked example, Ts = 500 K, q = 1233.87 W.*
+
 ```python
 thermofluids_ai999x.solve('radiation_net_exchange', eps='0.8 1', A='0.5 m^2', Ts='500 K', Tsur='300 K', target='q')
 # -> 1233.87 W   (SOLVED)
@@ -2547,6 +2899,14 @@ $$
 - **Assumes:** infinite parallel grey diffuse plates; no participating medium
 - **Evidence:** theorem
 
+![Radiation between two large parallel grey plates at 800 K (emissivity 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/radiation-parallel-plates-schematic)
+
+*Radiation between two large parallel grey plates at 800 K (emissivity 0.8) and 400 K (emissivity 0.6), the worked example. Marked: the package's net flux q = 11360.5 W/m², and the blackbody emissive powers of the two surfaces from its blackbody capability, 23225.9 and 1451.62 W/m².*
+
+![qf (net radiative heat flux from plate 1 to plate 2) against T1 (temperature of the first plate) from 80 K to 8000 K on a logarithmic axis](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/radiation-parallel-plates-curve)
+
+*qf (net radiative heat flux from plate 1 to plate 2) against T1 (temperature of the first plate) from 80 K to 8000 K on a logarithmic axis. Other inputs as in the worked example: T2 = 400 K, e1 = 0.8 1, e2 = 0.6 1. 41 points computed by thermofluids-ai999x; marked: the worked example, T1 = 800 K, qf = 11360.5 W/m^2.*
+
 ```python
 thermofluids_ai999x.solve('radiation_parallel_plates', T1='800 K', T2='400 K', e1='0.8 1', e2='0.6 1', target='qf')
 # -> 11360.5 W/m^2   (SOLVED)
@@ -2585,6 +2945,10 @@ $$
 - **Fails when:** strongly selective emitters
 - **Assumes:** blackbody (or grey body) emission
 - **Evidence:** theorem
+
+![lam (wavelength of maximum spectral emission) against T (absolute temperature of the surface) from 2900 K to 8700 K](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/wien-displacement-curve)
+
+*lam (wavelength of maximum spectral emission) against T (absolute temperature of the surface) from 2900 K to 8700 K. 31 points computed by thermofluids-ai999x; marked: the worked example, T = 5800 K, lam = 4.9962e-07 m.*
 
 ```python
 thermofluids_ai999x.solve('wien_displacement', T='5800 K', target='lam')
@@ -2626,6 +2990,10 @@ $$
 - **Fails when:** surfaces of comparable size
 - **Assumes:** small grey surface in large surroundings
 - **Evidence:** theorem
+
+![hr (radiation heat transfer coefficient) against Tsur (temperature of the surroundings) from 30 K to 3000 K on a logarithmic axis](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/radiation-heat-transfer-coefficient-curve)
+
+*hr (radiation heat transfer coefficient) against Tsur (temperature of the surroundings) from 30 K to 3000 K on a logarithmic axis. One curve for each value of Ts (surface temperature): 400 K, 800 K. Other inputs as in the worked example: eps = 0.9 1. 41 points per curve computed by thermofluids-ai999x; marked: the worked example, Tsur = 300 K, hr = 8.93084 W/(m^2*K).*
 
 ```python
 thermofluids_ai999x.solve('radiation_heat_transfer_coefficient', eps='0.9 1', Ts='400 K', Tsur='300 K', target='hr')
@@ -2669,6 +3037,14 @@ $$
 - **Fails when:** short fins (use the adiabatic-tip result)
 - **Assumes:** one-dimensional conduction along the fin; uniform h; constant cross section; very long fin
 - **Evidence:** theorem
+
+![Temperature along a very long fin (h = 25 W/(m^2*K), perimeter 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/infinite-fin-heat-rate-fin)
+
+*Temperature along a very long fin (h = 25 W/(m^2*K), perimeter 0.0314 m, k = 200 W/(m*K), cross-section 7.8500e-05 m^2, base 100 °C in fluid at 25 °C; the worked example): T = T∞ + (Tb − T∞)·e^(−mx) with m = √(hP/(kAc)) = 7.07107 1/m, derived from the inputs. Marked: the package's heat rate through the base, q = 8.32618 W; the excess falls to 1/e at x = 1/m = 14.1421 cm.*
+
+![q (rate of heat transfer) against h (convection heat transfer coefficient) from 12](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/infinite-fin-heat-rate-curve)
+
+*q (rate of heat transfer) against h (convection heat transfer coefficient) from 12.5 W/(m^2*K) to 37.5 W/(m^2*K). One curve for each value of Tb (temperature at the fin base): 100 °C, 50 °C, 200 °C. Other inputs as in the worked example: P = 0.0314 m, k = 200 W/(m*K), Ac = 7.85e-05 m^2, Tinf = 25 °C. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, h = 25 W/(m^2*K), q = 8.32618 W.*
 
 ```python
 thermofluids_ai999x.solve('infinite_fin_heat_rate', h='25 W/(m^2*K)', P='0.0314 m', k='200 W/(m*K)', Ac='7.85e-05 m^2', Tb='100 °C', Tinf='25 °C', target='q')
@@ -2715,6 +3091,14 @@ $$
 - **Assumes:** Biot number below about 0.1 (uniform internal temperature); constant h and properties
 - **Evidence:** theorem
 
+![Lumped cooling of a body (ρ = 7800 kg/m^3, V = 5](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/lumped-capacitance-temperature-curve)
+
+*Lumped cooling of a body (ρ = 7800 kg/m^3, V = 5.0000e-06 m^3, c = 450 J/(kg*K), A = 0.002 m^2, h = 40 W/(m^2*K)) from 300 °C in fluid at 25 °C: the package's temperature at 51 times over five time constants, the time constant τ = 219.375 s from its time-constant capability (dashed at τ, 2τ, 3τ). Marked: T = 184.137 °C at t = 120 s (the worked example).*
+
+![T (temperature of the body at time t) against Ti (initial temperature of the body) from 150 °C to 450 °C](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/lumped-capacitance-temperature-curve-2)
+
+*T (temperature of the body at time t) against Ti (initial temperature of the body) from 150 °C to 450 °C. One curve for each value of h (convection heat transfer coefficient): 40 W/(m^2*K), 20 W/(m^2*K), 80 W/(m^2*K). Other inputs as in the worked example: Tinf = 25 °C, A = 0.002 m^2, t = 120 s, rho = 7800 kg/m^3, V = 5e-06 m^3, c = 450 J/(kg*K). 31 points per curve computed by thermofluids-ai999x; marked: the worked example, Ti = 300 °C, T = 457.287 K.*
+
 ```python
 thermofluids_ai999x.solve('lumped_capacitance_temperature', Tinf='25 °C', Ti='300 °C', h='40 W/(m^2*K)', A='0.002 m^2', t='120 s', rho='7800 kg/m^3', V='5e-06 m^3', c='450 J/(kg*K)', target='T')
 # -> 457.287 K   (SOLVED)
@@ -2757,6 +3141,14 @@ $$
 - **Assumes:** Biot number below about 0.1; constant h and properties
 - **Evidence:** theorem
 
+![Lumped cooling of a body (ρ = 7800 kg/m^3, V = 5](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/lumped-time-constant-curve)
+
+*Lumped cooling of a body (ρ = 7800 kg/m^3, V = 5.0000e-06 m^3, c = 450 J/(kg*K), A = 0.002 m^2, h = 40 W/(m^2*K)) from 300 °C in fluid at 25 °C: the package's temperature at 51 times over five time constants, the time constant τ = 219.375 s from its time-constant capability (dashed at τ, 2τ, 3τ). Marked: τ = 219.375 s.*
+
+![tau (thermal time constant) against h (convection heat transfer coefficient) from 20 W/(m^2*K) to 60 W/(m^2*K)](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/lumped-time-constant-curve-2)
+
+*tau (thermal time constant) against h (convection heat transfer coefficient) from 20 W/(m^2*K) to 60 W/(m^2*K). One curve for each value of rho (density of the body): 7800 kg/m^3, 3900 kg/m^3, 15600 kg/m^3. Other inputs as in the worked example: V = 5e-06 m^3, c = 450 J/(kg*K), A = 0.002 m^2. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, h = 40 W/(m^2*K), tau = 219.375 s.*
+
 ```python
 thermofluids_ai999x.solve('lumped_time_constant', rho='7800 kg/m^3', V='5e-06 m^3', c='450 J/(kg*K)', h='40 W/(m^2*K)', A='0.002 m^2', target='tau')
 # -> 219.375 s   (SOLVED)
@@ -2796,6 +3188,10 @@ $$
 - **Fails when:** U varying strongly along the exchanger
 - **Assumes:** U uniform over the area
 - **Evidence:** theorem
+
+![N (number of transfer units UA/Cmin) against Cmin (smaller of the two heat capacity rates (m cp)) from 1000 W/K to 3000 W/K](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/ntu-definition-curve)
+
+*N (number of transfer units UA/Cmin) against Cmin (smaller of the two heat capacity rates (m cp)) from 1000 W/K to 3000 W/K. One curve for each value of U (overall heat transfer coefficient): 500 W/(m^2*K), 250 W/(m^2*K), 1000 W/(m^2*K). Other inputs as in the worked example: A = 10 m^2. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, Cmin = 2000 W/K, N = 2.5.*
 
 ```python
 thermofluids_ai999x.solve('ntu_definition', U='500 W/(m^2*K)', A='10 m^2', Cmin='2000 W/K', target='N')
@@ -2837,6 +3233,14 @@ $$
 - **Assumes:** steady flow, constant properties
 - **Evidence:** theorem
 
+![eps (heat exchanger effectiveness) against N (number of transfer units UA/Cmin) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/effectiveness-parallel-flow-curve)
+
+*eps (heat exchanger effectiveness) against N (number of transfer units UA/Cmin) from 0.1 to 10 on a logarithmic axis. One curve for each value of Cr (capacity rate ratio Cmin/Cmax): 0.5, 0.26, 0.74. 41 points per curve computed by thermofluids-ai999x; marked: the worked example, N = 1, eps = 0.517913.*
+
+![eps (heat exchanger effectiveness) over N (number of transfer units UA/Cmin) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/effectiveness-parallel-flow-field)
+
+*eps (heat exchanger effectiveness) over N (number of transfer units UA/Cmin) from 0.1 to 10 and Cr (capacity rate ratio Cmin/Cmax) from 0.02 to 0.98 (logarithmic horizontal axis): each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its value (light 0.0907223 to dark 0.980356); iso-lines at eps = 0.2, 0.4, 0.6, 0.8. Marked: the worked example, N = 1, Cr = 0.5, eps = 0.517913.*
+
 ```python
 thermofluids_ai999x.solve('effectiveness_parallel_flow', N='1 1', Cr='0.5 1', target='eps')
 # -> 0.517913 1   (SOLVED)
@@ -2874,6 +3278,10 @@ $$
 - **Fails when:** both streams changing temperature
 - **Assumes:** one stream at constant temperature $(Cr = 0)$
 - **Evidence:** theorem
+
+![eps (heat exchanger effectiveness) against N (number of transfer units UA/Cmin) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/effectiveness-phase-change-curve)
+
+*eps (heat exchanger effectiveness) against N (number of transfer units UA/Cmin) from 0.2 to 20 on a logarithmic axis. 41 points computed by thermofluids-ai999x; marked: the worked example, N = 2, eps = 0.864665.*
 
 ```python
 thermofluids_ai999x.solve('effectiveness_phase_change', N='2 1', target='eps')
@@ -2916,6 +3324,10 @@ $$
 - **Assumes:** steady flow; no heat loss to the surroundings
 - **Evidence:** theorem
 
+![Q (rate of heat transfer) against eps (heat exchanger effectiveness) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/heat-rate-effectiveness-curve)
+
+*Q (rate of heat transfer) against eps (heat exchanger effectiveness) from 0.3 to 0.9. One curve for each value of Thi (inlet temperature of the hot fluid): 150 °C, 75 °C, 300 °C. Other inputs as in the worked example: Cmin = 2000 W/K, Tci = 30 °C. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, eps = 0.6, Q = 144000 W.*
+
 ```python
 thermofluids_ai999x.solve('heat_rate_effectiveness', eps='0.6 1', Cmin='2000 W/K', Thi='150 °C', Tci='30 °C', target='Q')
 # -> 144000 W   (SOLVED)
@@ -2957,6 +3369,10 @@ $$
 - **Assumes:** steady flow; constant cp; no phase change; kinetic and potential energy changes negligible
 - **Evidence:** theorem
 
+![Q (rate of heat transfer) against mdot (mass flow rate of the stream) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/sensible-heat-rate-curve)
+
+*Q (rate of heat transfer) against mdot (mass flow rate of the stream) from 0.25 kg/s to 0.75 kg/s. One curve for each value of Tout (outlet temperature): 60 °C, 30 °C, 120 °C. Other inputs as in the worked example: cp = 4180 J/(kg*K), Tin = 20 °C. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, mdot = 0.5 kg/s, Q = 83600 W.*
+
 ```python
 thermofluids_ai999x.solve('sensible_heat_rate', mdot='0.5 kg/s', cp='4180 J/(kg*K)', Tout='60 °C', Tin='20 °C', target='Q')
 # -> 83600 W   (SOLVED)
@@ -2996,6 +3412,14 @@ $$
 - **Fails when:** real (irreversible) engines
 - **Assumes:** reversible cycle between two reservoirs; absolute temperatures
 - **Evidence:** theorem
+
+![Carnot cycle between Th = 600 K and Tc = 300 K (the worked example) for air: stated start 10 bar in 1 L (0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/carnot-efficiency-cycle)
+
+*Carnot cycle between Th = 600 K and Tc = 300 K (the worked example) for air: stated start 10 bar in 1 L (0.200454 mol, from the package's ideal-gas law), isothermal expansion to 2 L. The isentropes end at V3 = 11.3137 L and V4 = 5.65685 L (the package's isentropic relation solved for the volume); pressures from its ideal-gas law, entropy from its ideal-gas entropy change. P–V on logarithmic axes (top), T–s (bottom, a rectangle). Marked: the package's efficiency η = 0.5.*
+
+![eta (Carnot (maximum) efficiency) against Th (temperature of the hot reservoir) from 300 K to 900 K](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/carnot-efficiency-curve)
+
+*eta (Carnot (maximum) efficiency) against Th (temperature of the hot reservoir) from 300 K to 900 K. One curve for each value of Tc (temperature of the cold reservoir): 300 K, 150 K, 600 K. 30 points per curve computed by thermofluids-ai999x; marked: the worked example, Th = 600 K, eta = 0.5.*
 
 ```python
 thermofluids_ai999x.solve('carnot_efficiency', Tc='300 K', Th='600 K', target='eta')
@@ -3037,6 +3461,14 @@ $$
 - **Assumes:** reversible refrigeration cycle; absolute temperatures
 - **Evidence:** theorem
 
+![Reversed Carnot cycle (refrigerator) between Tc = 270 K and Th = 300 K (the worked example) on T–s axes, running counter-clockwise: heat taken in at Tc (1→2), isentropic compression (2→3), heat rejected at Th (3→4), isentropic expansion (4→1)](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/carnot-cop-refrigerator-cycle)
+
+*Reversed Carnot cycle (refrigerator) between Tc = 270 K and Th = 300 K (the worked example) on T–s axes, running counter-clockwise: heat taken in at Tc (1→2), isentropic compression (2→3), heat rejected at Th (3→4), isentropic expansion (4→1). The width is the entropy change of air at Tc for a stated pressure halving, 0.198933 kJ/(kg·K) from the package. Marked: the package's coefficient of performance 9.*
+
+![cop (coefficient of performance (cooling)) against Tc (temperature of the cold reservoir) from 135 K to 405 K](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/carnot-cop-refrigerator-curve)
+
+*cop (coefficient of performance (cooling)) against Tc (temperature of the cold reservoir) from 135 K to 405 K. One curve for each value of Th (temperature of the hot reservoir): 300 K, 600 K. 19 points per curve computed by thermofluids-ai999x; marked: the worked example, Tc = 270 K, cop = 9.*
+
 ```python
 thermofluids_ai999x.solve('carnot_cop_refrigerator', Tc='270 K', Th='300 K', target='cop')
 # -> 9 1   (SOLVED)
@@ -3076,6 +3508,14 @@ $$
 - **Fails when:** real heat pumps
 - **Assumes:** reversible heat-pump cycle; absolute temperatures
 - **Evidence:** theorem
+
+![Reversed Carnot cycle (heat pump) between Tc = 275 K and Th = 295 K (the worked example) on T–s axes, running counter-clockwise: heat taken in at Tc (1→2), isentropic compression (2→3), heat rejected at Th (3→4), isentropic expansion (4→1)](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/carnot-cop-heat-pump-cycle)
+
+*Reversed Carnot cycle (heat pump) between Tc = 275 K and Th = 295 K (the worked example) on T–s axes, running counter-clockwise: heat taken in at Tc (1→2), isentropic compression (2→3), heat rejected at Th (3→4), isentropic expansion (4→1). The width is the entropy change of air at Tc for a stated pressure halving, 0.198933 kJ/(kg·K) from the package. Marked: the package's coefficient of performance 14.75.*
+
+![cop (coefficient of performance (heating)) against Th (temperature of the hot reservoir) from 265](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/carnot-cop-heat-pump-curve)
+
+*cop (coefficient of performance (heating)) against Th (temperature of the hot reservoir) from 265.5 K to 324.5 K. One curve for each value of Tc (temperature of the cold reservoir): 275 K, 137.5 K. 26 points per curve computed by thermofluids-ai999x; marked: the worked example, Th = 295 K, cop = 14.75.*
 
 ```python
 thermofluids_ai999x.solve('carnot_cop_heat_pump', Tc='275 K', Th='295 K', target='cop')
@@ -3120,6 +3560,14 @@ $$
 
 *An air-standard Otto cycle drawn on pressure–volume axes: compression ratio 8, intake 1 bar and 300 K in 0.5 L, peak temperature 1800 K (stated). Each point is a solve of the package's isentropic and ideal-gas relations (amount of air 0.0200454 mol): T2 = 689.219 K, T4 = 783.496 K; the enclosed area is the net work. The package's Otto efficiency for r = 8 is 0.564725; marked: state 3, P = 48 bar.*
 
+![Air-standard Otto cycle, compression ratio r = 8 (the worked example) with a stated intake of 1 bar, 300 K in 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/otto-efficiency-air-cycle)
+
+*Air-standard Otto cycle, compression ratio r = 8 (the worked example) with a stated intake of 1 bar, 300 K in 0.5 L and a peak temperature of 1800 K, on P–V (top) and T–s (bottom) axes. Every point is a run of the package: temperatures on the isentropes from its isentropic temperature–volume relation, pressures from the ideal-gas law (0.0200454 mol), entropy from its ideal-gas entropy change (cp = 1005, R = 287 J/(kg·K)). Marked: T2 = 689.219 K, T4 = 783.496 K, peak pressure 48 bar, the package's efficiency η = 0.564725.*
+
+![eta (thermal efficiency of the cycle) against r (compression ratio V1/V2) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/otto-efficiency-air-curve)
+
+*eta (thermal efficiency of the cycle) against r (compression ratio V1/V2) from 0.8 to 80 on a logarithmic axis. 39 points computed by thermofluids-ai999x; marked: the worked example, r = 8, eta = 0.564725.*
+
 ```python
 thermofluids_ai999x.solve('otto_efficiency_air', r='8 1', target='eta')
 # -> 0.564725 1   (SOLVED)
@@ -3160,6 +3608,14 @@ $$
 - **Assumes:** cold-air-standard: air as an ideal gas with $\gamma = 1.4$; heat added at constant pressure
 - **Evidence:** theorem
 
+![Air-standard Diesel cycle, compression ratio r = 18, cut-off ratio rc = 2 (the worked example), stated intake 1 bar, 300 K in 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/diesel-efficiency-air-cycle)
+
+*Air-standard Diesel cycle, compression ratio r = 18, cut-off ratio rc = 2 (the worked example), stated intake 1 bar, 300 K in 0.5 L; P–V (top) and T–s (bottom). Isentropes from the package's isentropic relation, the constant-pressure heating from its ideal-gas law (0.0200454 mol), entropy from its ideal-gas entropy change (cp = 1005, R = 287 J/(kg·K)). Marked: T2 = 953.301 K, T3 = 1906.6 K, T4 = 791.705 K, P2 = 57.1981 bar, the package's efficiency η = 0.631578.*
+
+![eta (thermal efficiency of the cycle) against r (compression ratio V1/V2) from 1](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/diesel-efficiency-air-curve)
+
+*eta (thermal efficiency of the cycle) against r (compression ratio V1/V2) from 1.8 to 180 on a logarithmic axis. One curve for each value of rc (cutoff ratio V3/V2): 2, 4. 41 points per curve computed by thermofluids-ai999x; marked: the worked example, r = 18, eta = 0.631578.*
+
 ```python
 thermofluids_ai999x.solve('diesel_efficiency_air', r='18 1', rc='2 1', target='eta')
 # -> 0.631578 1   (SOLVED)
@@ -3198,6 +3654,14 @@ $$
 - **Fails when:** component inefficiencies; regeneration
 - **Assumes:** cold-air-standard: air as an ideal gas with $\gamma = 1.4$; isentropic compressor and turbine
 - **Evidence:** theorem
+
+![Air-standard Brayton cycle, pressure ratio rp = 10 (the worked example), stated compressor inlet 1 bar and 300 K, turbine inlet 1400 K, for 1 mol of air; P–V (top) and T–s (bottom)](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/brayton-efficiency-air-cycle)
+
+*Air-standard Brayton cycle, pressure ratio rp = 10 (the worked example), stated compressor inlet 1 bar and 300 K, turbine inlet 1400 K, for 1 mol of air; P–V (top) and T–s (bottom). Temperatures on the isentropes from the package's isentropic temperature–pressure relation, volumes from its ideal-gas law, entropy from its ideal-gas entropy change (cp = 1005, R = 287 J/(kg·K)). Marked: T2 = 579.209 K, T4 = 725.126 K, the package's efficiency η = 0.482053.*
+
+![eta (thermal efficiency of the cycle) against rp (compressor pressure ratio) from 1 to 100 on a logarithmic axis](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/brayton-efficiency-air-curve)
+
+*eta (thermal efficiency of the cycle) against rp (compressor pressure ratio) from 1 to 100 on a logarithmic axis. 40 points computed by thermofluids-ai999x; marked: the worked example, rp = 10, eta = 0.482053.*
 
 ```python
 thermofluids_ai999x.solve('brayton_efficiency_air', rp='10 1', target='eta')
@@ -3240,6 +3704,10 @@ $$
 - **Assumes:** air as an ideal gas with $\gamma = 1.4$; reversible adiabatic process
 - **Evidence:** theorem
 
+![T2 (final temperature) against P1 (initial pressure) from 50 kPa to 150 kPa](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/isentropic-temperature-pressure-air-curve)
+
+*T2 (final temperature) against P1 (initial pressure) from 50 kPa to 150 kPa. One curve for each value of T1 (initial temperature): 300 K, 150 K, 600 K. Other inputs as in the worked example: P2 = 800 kPa. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, P1 = 100 kPa, T2 = 543.434 K.*
+
 ```python
 thermofluids_ai999x.solve('isentropic_temperature_pressure_air', T1='300 K', P1='100 kPa', P2='800 kPa', target='T2')
 # -> 543.434 K   (SOLVED)
@@ -3280,6 +3748,10 @@ $$
 - **Fails when:** irreversible processes
 - **Assumes:** air as an ideal gas with $\gamma = 1.4$; reversible adiabatic process
 - **Evidence:** theorem
+
+![T2 (final temperature) against V2 (final volume) from 6](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/isentropic-temperature-volume-air-curve)
+
+*T2 (final temperature) against V2 (final volume) from 6.2500e-05 m^3 to 0.0001875 m^3. One curve for each value of T1 (initial temperature): 300 K, 150 K, 600 K. Other inputs as in the worked example: V1 = 0.001 m^3. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, V2 = 0.000125 m^3, T2 = 689.219 K.*
 
 ```python
 thermofluids_ai999x.solve('isentropic_temperature_volume_air', T1='300 K', V1='0.001 m^3', V2='0.000125 m^3', target='T2')
@@ -3323,6 +3795,14 @@ $$
 - **Assumes:** air as an ideal gas with $\gamma = 1.4$; adiabatic compressor
 - **Evidence:** theorem
 
+![Adiabatic compression of air from 300 K and 100 kPa to 600 kPa with an isentropic efficiency of 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/compressor-outlet-temperature-air-process)
+
+*Adiabatic compression of air from 300 K and 100 kPa to 600 kPa with an isentropic efficiency of 0.85 (the worked example) on T–s axes, with the two isobars from the package's ideal-gas entropy change (cp = 1005, R = 287 J/(kg·K)). The ideal outlet 2s comes from its isentropic temperature–pressure relation, the actual outlet 2 from the compressor capability. Marked: T2s = 500.553 K, T2 = 535.945 K, entropy generated 0.0689151 kJ/(kg·K).*
+
+![T2 (final temperature) against eta (isentropic efficiency of the compressor) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/compressor-outlet-temperature-air-curve)
+
+*T2 (final temperature) against eta (isentropic efficiency of the compressor) from 0.02 to 0.98. One curve for each value of T1 (initial temperature): 300 K, 150 K, 600 K. Other inputs as in the worked example: P2 = 600 kPa, P1 = 100 kPa. 41 points per curve computed by thermofluids-ai999x; marked: the worked example, eta = 0.85, T2 = 535.945 K.*
+
 ```python
 thermofluids_ai999x.solve('compressor_outlet_temperature_air', T1='300 K', P1='100 kPa', P2='600 kPa', eta='0.85 1', target='T2')
 # -> 535.945 K   (SOLVED)
@@ -3363,6 +3843,10 @@ $$
 - **Fails when:** high pressures or near condensation
 - **Assumes:** ideal gas; absolute pressure and temperature
 - **Evidence:** theorem
+
+![P*V (Ideal gas law) against V (volume of the gas) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/ideal-gas-law-curve)
+
+*P*V (Ideal gas law) against V (volume of the gas) from 0.025 m^3 to 0.075 m^3. One curve for each value of n (amount of gas): 2 mol, 1 mol, 4 mol. Other inputs as in the worked example: T = 300 K. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, V = 0.05 m^3, P*V = 99773.6 Pa.*
 
 ```python
 thermofluids_ai999x.solve('ideal_gas_law', V='0.05 m^3', n='2 mol', T='300 K', target='P')
@@ -3405,6 +3889,14 @@ $$
 - **Fails when:** irreversible expansion against a constant external pressure
 - **Assumes:** ideal gas; reversible (quasi-static) process
 - **Evidence:** theorem
+
+![Isothermal expansion of 1 mol of ideal gas at 300 K from 10 L to 20 L (the worked example) on P–V axes; pressures from the package's ideal-gas law at 41 volumes](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/isothermal-work-ideal-gas-process)
+
+*Isothermal expansion of 1 mol of ideal gas at 300 K from 10 L to 20 L (the worked example) on P–V axes; pressures from the package's ideal-gas law at 41 volumes. The shaded area under the isotherm is the work; marked: the package's W = 1728.94 J, P1 = 249.434 kPa, P2 = 124.717 kPa.*
+
+![W (work done by the gas) against V2 (final volume) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/isothermal-work-ideal-gas-curve)
+
+*W (work done by the gas) against V2 (final volume) from 0.01 m^3 to 0.03 m^3. One curve for each value of n (amount of gas): 1 mol, 0.5 mol, 2 mol. Other inputs as in the worked example: T = 300 K, V1 = 0.01 m^3. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, V2 = 0.02 m^3, W = 1728.94 J.*
 
 ```python
 thermofluids_ai999x.solve('isothermal_work_ideal_gas', n='1 mol', T='300 K', V2='0.02 m^3', V1='0.01 m^3', target='W')
@@ -3449,6 +3941,14 @@ $$
 - **Assumes:** ideal gas with constant specific heats
 - **Evidence:** theorem
 
+![Entropy change of an ideal gas (cp = 1005, R = 287 J/(kg·K)) from 300 K, 100 kPa to 600 K, 500 kPa (the worked example) on T–s axes; both isobars are 25 runs each of the package's entropy relation from state 1](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/entropy-change-ideal-gas-process)
+
+*Entropy change of an ideal gas (cp = 1005, R = 287 J/(kg·K)) from 300 K, 100 kPa to 600 K, 500 kPa (the worked example) on T–s axes; both isobars are 25 runs each of the package's entropy relation from state 1. Marked: state 2, Δs = 234.704 J/(kg·K).*
+
+![ds (change in specific entropy) against T1 (initial temperature) from 150 K to 450 K](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/entropy-change-ideal-gas-curve)
+
+*ds (change in specific entropy) against T1 (initial temperature) from 150 K to 450 K. One curve for each value of cp (specific heat at constant pressure): 1005 J/(kg*K), 502.5 J/(kg*K), 2010 J/(kg*K). Other inputs as in the worked example: R = 287 J/(kg*K), T2 = 600 K, P1 = 100 kPa, P2 = 500 kPa. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, T1 = 300 K, ds = 234.704 J/(kg*K).*
+
 ```python
 thermofluids_ai999x.solve('entropy_change_ideal_gas', cp='1005 J/(kg*K)', R='287 J/(kg*K)', T1='300 K', T2='600 K', P1='100 kPa', P2='500 kPa', target='ds')
 # -> 234.704 J/(kg*K)   (SOLVED)
@@ -3491,6 +3991,10 @@ $$
 - **Assumes:** incompressible substance with constant specific heat
 - **Evidence:** theorem
 
+![dS (total entropy change) against T1 (initial temperature) from 2 °C to 200 °C on a logarithmic axis](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/entropy-change-incompressible-curve)
+
+*dS (total entropy change) against T1 (initial temperature) from 2 °C to 200 °C on a logarithmic axis. One curve for each value of m (mass): 2 kg, 1 kg, 4 kg. Other inputs as in the worked example: c = 4180 J/(kg*K), T2 = 80 °C. 41 points per curve computed by thermofluids-ai999x; marked: the worked example, T1 = 20 °C, dS = 1556.7 J/K.*
+
 ```python
 thermofluids_ai999x.solve('entropy_change_incompressible', m='2 kg', c='4180 J/(kg*K)', T2='80 °C', T1='20 °C', target='dS')
 # -> 1556.7 J/K   (SOLVED)
@@ -3529,6 +4033,14 @@ $$
 - **Fails when:** high pressures (enhancement factor)
 - **Assumes:** moist air as an ideal-gas mixture; ratio of molar masses 0.621945
 - **Evidence:** theorem
+
+![W (humidity ratio (kg water vapour per kg dry air)) against P (total (barometric) pressure of the moist air) from 50662](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/humidity-ratio-vapour-pressure-curve)
+
+*W (humidity ratio (kg water vapour per kg dry air)) against P (total (barometric) pressure of the moist air) from 50662.5 Pa to 151988 Pa. One curve for each value of pv (partial pressure of water vapour): 2000 Pa, 1000 Pa, 4000 Pa. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, P = 101325 Pa, W = 0.0125234.*
+
+![W (humidity ratio (kg water vapour per kg dry air)) over pv (partial pressure of water vapour) from 1000 Pa to 3000 Pa and P (total (barometric) pressure of the moist air) from 50662](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/humidity-ratio-vapour-pressure-field)
+
+*W (humidity ratio (kg water vapour per kg dry air)) over pv (partial pressure of water vapour) from 1000 Pa to 3000 Pa and P (total (barometric) pressure of the moist air) from 50662.5 Pa to 151988 Pa: each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its value (light 0.00411918 to dark 0.0391468); iso-lines at W = 0.01, 0.02, 0.03. Marked: the worked example, pv = 2000 Pa, P = 101325 Pa, W = 0.0125234.*
 
 ```python
 thermofluids_ai999x.solve('humidity_ratio_vapour_pressure', pv='2000 Pa', P='101325 Pa', target='W')
@@ -3573,6 +4085,14 @@ $$
 - **Assumes:** reference state: dry air and liquid water at 0 °C; constant specific heats
 - **Evidence:** theorem
 
+![h (enthalpy per kilogram of dry air) against T (dry-bulb temperature) from 12](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/moist-air-enthalpy-curve)
+
+*h (enthalpy per kilogram of dry air) against T (dry-bulb temperature) from 12.5 °C to 37.5 °C. One curve for each value of W (humidity ratio (kg water vapour per kg dry air)): 0.01, 0.26, 0.74. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, T = 25 °C, h = 50625 J/kg.*
+
+![h (enthalpy per kilogram of dry air) over W (humidity ratio (kg water vapour per kg dry air)) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/moist-air-enthalpy-field)
+
+*h (enthalpy per kilogram of dry air) over W (humidity ratio (kg water vapour per kg dry air)) from 0.02 to 0.98 and T (dry-bulb temperature) from 12.5 °C to 37.5 °C: each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its value (light 63060 J/kg to dark 2.55706e+06 J/kg); iso-lines at h = 5.00e5, 1.00e6, 1.50e6, 2.00e6, 2.50e6 J/kg. Marked: the worked example, W = 0.01, T = 25 °C, h = 50625 J/kg.*
+
 ```python
 thermofluids_ai999x.solve('moist_air_enthalpy', T='25 °C', W='0.01 1', target='h')
 # -> 50625 J/kg   (SOLVED)
@@ -3614,6 +4134,10 @@ $$
 - **Assumes:** moist air as an ideal-gas mixture
 - **Evidence:** theorem
 
+![v (specific volume per kilogram of dry air) against P (total (barometric) pressure of the moist air) from 50662](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/moist-air-specific-volume-curve)
+
+*v (specific volume per kilogram of dry air) against P (total (barometric) pressure of the moist air) from 50662.5 Pa to 151988 Pa. One curve for each value of W (humidity ratio (kg water vapour per kg dry air)): 0.01, 0.26, 0.74. Other inputs as in the worked example: T = 25 °C. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, P = 101325 Pa, v = 0.858205 m^3/kg.*
+
 ```python
 thermofluids_ai999x.solve('moist_air_specific_volume', T='25 °C', W='0.01 1', P='101325 Pa', target='v')
 # -> 0.858205 m^3/kg   (SOLVED)
@@ -3654,6 +4178,10 @@ $$
 - **Fails when:** near-stoichiometric flames above about 2000 K (dissociation)
 - **Assumes:** complete combustion; no dissociation; adiabatic, constant-pressure burning; constant mean cp of the products
 - **Evidence:** theorem
+
+![Tad (adiabatic flame temperature) against cp (mean specific heat of the products) from 120 J/(kg*K) to 12000 J/(kg*K) on a logarithmic axis](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/adiabatic-flame-temperature-simple-curve)
+
+*Tad (adiabatic flame temperature) against cp (mean specific heat of the products) from 120 J/(kg*K) to 12000 J/(kg*K) on a logarithmic axis. One curve for each value of LHV (lower heating value of the fuel): 5.0000e+07 J/kg, 2.5000e+07 J/kg, 1.0000e+08 J/kg. Other inputs as in the worked example: T0 = 298 K, AFR = 17.2 1. 41 points per curve computed by thermofluids-ai999x; marked: the worked example, cp = 1200 J/(kg*K), Tad = 2587.38 K.*
 
 ```python
 thermofluids_ai999x.solve('adiabatic_flame_temperature_simple', T0='298 K', LHV='5e+07 J/kg', AFR='17.2 1', cp='1200 J/(kg*K)', target='Tad')
@@ -3721,6 +4249,14 @@ $$
 
 *Darcy friction factor of turbulent pipe flow against Reynolds number (logarithmic axis) for five relative roughnesses from smooth to ε/D = 0.05, each from the Colebrook equation solved by the package at up to 89 Reynolds numbers between 4000 and 10⁸. Marked: Re = 100000, ε/D = 0.0002, f = 0.0190054.*
 
+![Friction-factor (Moody) chart: the package's Colebrook friction factor at 41 Reynolds numbers from 4000 to 10⁸ for relative roughnesses 0, 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/colebrook-friction-factor-chart-2)
+
+*Friction-factor (Moody) chart: the package's Colebrook friction factor at 41 Reynolds numbers from 4000 to 10⁸ for relative roughnesses 0, 0.0001, 0.0002, 0.001, 0.01, 0.05 (labelled at the right), with its laminar 64/Re line below Re = 2300; log–log axes. Marked: the worked example, Re = 100000, ε/D = 0.0002, f = 0.0190054.*
+
+![f (Darcy friction factor) against eD (relative roughness (roughness / diameter)) from 2](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/colebrook-friction-factor-curve)
+
+*f (Darcy friction factor) against eD (relative roughness (roughness / diameter)) from 2.0000e-05 to 0.002 on a logarithmic axis. One curve for each value of Re (Reynolds number (turbulent, at least 4000)): 100000, 50000, 200000. 41 points per curve computed by thermofluids-ai999x; marked: the worked example, eD = 0.0002, f = 0.0190054.*
+
 ```python
 thermofluids_ai999x.solve('colebrook_friction_factor', Re=100000, eD=0.0002)
 # -> f = 0.0190054 1   (SOLVED)
@@ -3766,6 +4302,14 @@ $$
 - **Method:** $(dT1 - dT2) / ln$(dT1 / dT2) from the terminal differences of the chosen arrangement
 - **Assumes:** both terminal temperature differences positive; the hot stream cools and the cold stream warms
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![Stream temperatures along a counterflow heat exchanger with the worked example's ends: hot 150 → 90 °C, cold 30 → 70 °C](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/lmtd-profile)
+
+*Stream temperatures along a counterflow heat exchanger with the worked example's ends: hot 150 → 90 °C, cold 30 → 70 °C. The package returns the end differences ΔT1 = 80 K, ΔT2 = 60 K and the log-mean difference; the curves between the ends are derived from them (the local difference changes exponentially along a constant-U exchanger). Marked: LMTD = 69.5212 K.*
+
+![lmtd (log-mean temperature difference) against Th_in (hot stream inlet temperature) from 211](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/lmtd-curve)
+
+*lmtd (log-mean temperature difference) against Th_in (hot stream inlet temperature) from 211.575 K to 634.725 K. One curve for each value of Tc_in (cold stream inlet temperature): 303.15 K, 151.575 K. Other inputs as in the worked example: Th_out = 363.15 K, Tc_out = 343.15 K, arrangement = counterflow. 20 points per curve computed by thermofluids-ai999x; marked: the worked example, Th_in = 423.15 K, lmtd = 69.5212 K.*
 
 ```python
 thermofluids_ai999x.solve('lmtd', Th_in=423.15, Th_out=363.15, Tc_in=303.15, Tc_out=343.15, arrangement='counterflow')
@@ -3821,6 +4365,14 @@ $$
 
 *Heat-exchanger effectiveness against the number of transfer units for counterflow and parallel flow with heat-capacity rates 2000 and 4000 W/K (ratio 0.5), computed by the package at 60 values of UA. Marked: counterflow, UA = 3000 W/K, NTU = 1.5, ε = 0.690785, Q = 165788 W.*
 
+![Stream temperatures along a counterflow exchanger: hot stream C = 2000 W/K entering at 150 °C, cold stream C = 4000 W/K entering at 30 °C, UA = 3000 W/K (the worked example)](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/hx-effectiveness-ntu-profile)
+
+*Stream temperatures along a counterflow exchanger: hot stream C = 2000 W/K entering at 150 °C, cold stream C = 4000 W/K entering at 30 °C, UA = 3000 W/K (the worked example). The outlets are the package's: hot 67.1058 °C, cold 71.4471 °C; the curves between the ends are derived from the four end temperatures (exponential change of the local difference). Marked: Q = 165788 W, ε = 0.690785, NTU = 1.5.*
+
+![Q (heat transfer rate) against C_cold (heat capacity rate of the cold stream (m cp)) from 400 W/K to 40000 W/K on a logarithmic axis](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/hx-effectiveness-ntu-curve)
+
+*Q (heat transfer rate) against C_cold (heat capacity rate of the cold stream (m cp)) from 400 W/K to 40000 W/K on a logarithmic axis. One curve for each value of Th_in (hot inlet temperature): 423.15 K, 846.3 K. Other inputs as in the worked example: C_hot = 2000 W/K, UA = 3000 W/K, Tc_in = 303.15 K, arrangement = counterflow. 41 points per curve computed by thermofluids-ai999x; marked: the worked example, C_cold = 4000 W/K, Q = 165788 W.*
+
 ```python
 thermofluids_ai999x.solve('hx_effectiveness_ntu', C_hot=2000, C_cold=4000, UA=3000, Th_in=423.15, Tc_in=303.15, arrangement='counterflow')
 # -> Q = 165788 W, Th_out = 340.256 K, Tc_out = 344.597 K, effectiveness = 0.690785 1, NTU = 1.5 1   (SOLVED)
@@ -3854,6 +4406,10 @@ $$
 - **Method:** ASHRAE (Hyland-Wexler) correlation for ln p_ws
 - **Assumes:** -100 °$C  \leq  T  \leq  200$ °C
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![p_sat (saturation pressure of water vapour) against T (temperature) from 149](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/saturation-vapour-pressure-curve)
+
+*p_sat (saturation pressure of water vapour) against T (temperature) from 149.075 K to 447.225 K, logarithmic output axis. 28 points computed by thermofluids-ai999x; marked: the worked example, T = 298.15 K, p_sat = 3169.22 Pa.*
 
 ```python
 thermofluids_ai999x.solve('saturation_vapour_pressure', T=298.15)
@@ -3896,6 +4452,14 @@ $$
 - **Method:** $p_v = RH$ p_ws(T), then p_ws(T_dew) = p_v solved by bisection to the last digit
 - **Assumes:** $0 < RH  \leq  1$; -100 °$C  \leq  T  \leq  200$ °C
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![Psychrometric chart at a stated 101325 Pa (the package's humidity ratio at 20–80 % and 100 % relative humidity) with the worked example: air at 25 °C and 60 % (11](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/dew-point-temperature-chart)
+
+*Psychrometric chart at a stated 101325 Pa (the package's humidity ratio at 20–80 % and 100 % relative humidity) with the worked example: air at 25 °C and 60 % (11.895 g/kg) cooled at constant moisture until it saturates. Marked: the package's dew point 16.7011 °C and vapour pressure 1901.53 Pa.*
+
+![T_dew (dew-point temperature) against RH (relative humidity (fraction, or % written)) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/dew-point-temperature-curve)
+
+*T_dew (dew-point temperature) against RH (relative humidity (fraction, or % written)) from 0.02 to 0.98. Other inputs as in the worked example: T = 298.15 K. 41 points computed by thermofluids-ai999x; marked: the worked example, RH = 0.6, T_dew = 289.851 K.*
 
 ```python
 thermofluids_ai999x.solve('dew_point_temperature', T=298.15, RH=0.6)
@@ -3940,6 +4504,14 @@ $$
 
 *Psychrometric chart at 101325 Pa: humidity ratio against dry-bulb temperature at 20, 40, 60, 80 and 100 % relative humidity, computed by the package every 1 °C. Air at 30 °C and 40 % has a wet-bulb temperature of 20.0643 °C; marked: T = 30 °C, W = 10.6028 g/kg.*
 
+![Psychrometric chart at 101325 Pa (humidity ratio against dry-bulb temperature at 20–80 % relative humidity and saturation, the package's humidity-ratio capability every 1 °C) with the worked example: air at 30 °C and 50 % relative humidity](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/humidity-ratio-from-relative-humidity-chart-2)
+
+*Psychrometric chart at 101325 Pa (humidity ratio against dry-bulb temperature at 20–80 % relative humidity and saturation, the package's humidity-ratio capability every 1 °C) with the worked example: air at 30 °C and 50 % relative humidity. Marked: W = 13.3102 g/kg, vapour pressure 2123.02 Pa; saturated air at the same temperature holds 27.2026 g/kg.*
+
+![W (humidity ratio (kg/kg dry air)) against P (total (barometric) pressure) from 50662](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/humidity-ratio-from-relative-humidity-curve)
+
+*W (humidity ratio (kg/kg dry air)) against P (total (barometric) pressure) from 50662.5 Pa to 151988 Pa. Other inputs as in the worked example: T = 303.15 K, RH = 0.5. 31 points computed by thermofluids-ai999x; marked: the worked example, P = 101325 Pa, W = 0.0133102.*
+
 ```python
 thermofluids_ai999x.solve('humidity_ratio_from_relative_humidity', T=303.15, RH=0.5, P=101325)
 # -> W = 0.0133102 1, p_v = 2123.02 Pa   (SOLVED)
@@ -3981,6 +4553,14 @@ $$
 
 *Wet-bulb temperature at 101325 Pa for dry-bulb temperatures 10, 15, 20, 25, 30, 35, 40 °C (rows) and relative humidities 20, 40, 60, 80 and 100 % (columns), each cell computed by the package (°C, one decimal). At 100 % the wet bulb equals the dry bulb; at 40 °C and 20 % it is 22 °C.*
 
+![Psychrometric chart at 101325 Pa (the package's humidity ratio at 20–80 % and 100 % relative humidity) with the worked example: air at 30 °C and 40 % (10](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/wet-bulb-temperature-chart)
+
+*Psychrometric chart at 101325 Pa (the package's humidity ratio at 20–80 % and 100 % relative humidity) with the worked example: air at 30 °C and 40 % (10.6028 g/kg, returned) followed toward saturation at its wet-bulb temperature. Marked: the package's T_wb = 20.0643 °C and the saturated humidity ratio there, 14.7551 g/kg.*
+
+![T_wb (thermodynamic wet-bulb temperature) against P (total (barometric) pressure) from 10132](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/wet-bulb-temperature-curve)
+
+*T_wb (thermodynamic wet-bulb temperature) against P (total (barometric) pressure) from 10132.5 Pa to 1.01325e+06 Pa on a logarithmic axis. Other inputs as in the worked example: T = 303.15 K, RH = 0.4. 41 points computed by thermofluids-ai999x; marked: the worked example, P = 101325 Pa, T_wb = 293.214 K.*
+
 ```python
 thermofluids_ai999x.solve('wet_bulb_temperature', T=303.15, RH=0.4, P=101325)
 # -> T_wb = 293.214 K, W = 0.0106028 1   (SOLVED)
@@ -4016,6 +4596,10 @@ $$
 - **Method:** atom balance of CxHy + (x + y/4)(O2 + 3.76 N2), then the mass ratio with standard atomic weights
 - **Assumes:** complete combustion to CO2 and H2O; air = O2 + 3.76 N2
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![afr_stoich (stoichiometric air-fuel ratio (mass)) for each option of fuel (the fuel), one run of thermofluids-ai999x per option: methane: 17](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/stoichiometric-air-fuel-ratio-bars)
+
+*afr_stoich (stoichiometric air-fuel ratio (mass)) for each option of fuel (the fuel), one run of thermofluids-ai999x per option: methane: 17.1203, ethane: 15.9846, propane: 15.5714, ethylene: 14.6857, acetylene: 13.1856, hydrogen: 34.0602. The worked example uses methane.*
 
 ```python
 thermofluids_ai999x.solve('stoichiometric_air_fuel_ratio', fuel='methane')
@@ -4060,6 +4644,10 @@ $$
 - **Assumes:** afr > 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![phi (equivalence ratio (fuel-air ratio over stoichiometric)) against afr (actual air-fuel ratio by mass) from 10 to 30](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/equivalence-ratio-curve)
+
+*phi (equivalence ratio (fuel-air ratio over stoichiometric)) against afr (actual air-fuel ratio by mass) from 10 to 30. One curve for each value of fuel (the fuel): methane, ethane, propane, ethylene. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, afr = 20, phi = 0.856016.*
+
 ```python
 thermofluids_ai999x.solve('equivalence_ratio', fuel='methane', afr=20)
 # -> phi = 0.856016, afr_stoich = 17.1203 1, excess_air = 0.168203   (SOLVED)
@@ -4097,6 +4685,10 @@ $$
 - **Assumes:** $3000  \leq  Re  \leq  5e6$; $0.5  \leq  Pr  \leq  2000$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![Nu (Nusselt number based on the diameter) against Pr (Prandtl number (0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/gnielinski-nusselt-curve)
+
+*Nu (Nusselt number based on the diameter) against Pr (Prandtl number (0.5 to 2000)) from 0.5 to 50 on a logarithmic axis. One curve for each value of Re (Reynolds number (3000 to 5e6)): 50000, 25000, 100000. Other inputs as in the worked example: f = 0.021. 41 points per curve computed by thermofluids-ai999x; marked: the worked example, Pr = 5, Nu = 285.589.*
+
 ```python
 thermofluids_ai999x.solve('gnielinski_nusselt', Re=50000, Pr=5, f=0.021)
 # -> Nu = 285.589 1   (SOLVED)
@@ -4131,6 +4723,14 @@ $$
 - **Method:** $Nu = 0.3 + 0.62$ $Re^{1/2}$ Pr^(1/3) / (1 + (0.4/Pr)^(2/3))^$(1/4)$ (1 + (Re/282000)^(5/8))^$(4/5)$
 - **Assumes:** $Re Pr  \geq  0.2$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![Nu (average Nusselt number based on the diameter) against Pr (Prandtl number) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/churchill-bernstein-cylinder-curve)
+
+*Nu (average Nusselt number based on the diameter) against Pr (Prandtl number) from 0.35 to 1.05. One curve for each value of Re (Reynolds number based on the diameter): 10000, 5000, 20000. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, Pr = 0.7, Nu = 53.3278.*
+
+![Nu (average Nusselt number based on the diameter) over Re (Reynolds number based on the diameter) from 5000 to 15000 and Pr (Prandtl number) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/churchill-bernstein-cylinder-field)
+
+*Nu (average Nusselt number based on the diameter) over Re (Reynolds number based on the diameter) from 5000 to 15000 and Pr (Prandtl number) from 0.35 to 1.05: each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its value (light 27.6263 to dark 78.4918); iso-lines at Nu = 30, 40, 50, 60, 70. Marked: the worked example, Re = 10000, Pr = 0.7, Nu = 53.3278.*
 
 ```python
 thermofluids_ai999x.solve('churchill_bernstein_cylinder', Re=10000, Pr=0.7)
@@ -4167,6 +4767,14 @@ $$
 - **Method:** Nu = (0.825 + 0.387 Ra^(1/6) / (1 + (0.492/Pr)^(9/16))^$(8/27)$)^2
 - **Assumes:** $0 < Ra  \leq  1e13$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![Nu (average Nusselt number) against Ra (Rayleigh number based on the plate height) from 5](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/churchill-chu-vertical-plate-curve)
+
+*Nu (average Nusselt number) against Ra (Rayleigh number based on the plate height) from 5.0000e+08 to 1.5000e+09. One curve for each value of Pr (Prandtl number): 0.71, 0.355, 1.42. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, Ra = 1.0000e+09, Nu = 122.857.*
+
+![Nu (average Nusselt number) over Ra (Rayleigh number based on the plate height) from 5](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/churchill-chu-vertical-plate-field)
+
+*Nu (average Nusselt number) over Ra (Rayleigh number based on the plate height) from 5.0000e+08 to 1.5000e+09 and Pr (Prandtl number) from 0.071 to 7.1 (logarithmic vertical axis): each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its value (light 65.1384 to dark 173.214); iso-lines at Nu = 80, 100, 120, 140, 160. Marked: the worked example, Ra = 1.0000e+09, Pr = 0.71, Nu = 122.857.*
 
 ```python
 thermofluids_ai999x.solve('churchill_chu_vertical_plate', Ra=1000000000.0, Pr=0.71)
@@ -4205,6 +4813,14 @@ $$
 - **Method:** eta = tanh(mL)/(mL), $m = sqrt$($4h/(kD)$)
 - **Assumes:** h, k, D, $L > 0$; one-dimensional conduction, uniform h, insulated tip
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![A pin fin (D = 5 mm, L = 50 mm, k = 200 W/(m·K), h = 50 W/(m²·K); the worked example) drawn to scale, over its temperature excess θ/θ_b = cosh(m(L−x))/cosh(mL) (adiabatic tip), derived from the package's mL = 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/pin-fin-efficiency-fin)
+
+*A pin fin (D = 5 mm, L = 50 mm, k = 200 W/(m·K), h = 50 W/(m²·K); the worked example) drawn to scale, over its temperature excess θ/θ_b = cosh(m(L−x))/cosh(mL) (adiabatic tip), derived from the package's mL = 0.707107. The efficiency is the mean excess over the base excess. Marked: the package's η = 0.861057, tip excess 0.793278 (derived).*
+
+![efficiency (fin efficiency) against L (fin length) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/pin-fin-efficiency-curve)
+
+*efficiency (fin efficiency) against L (fin length) from 0.005 m to 0.5 m on a logarithmic axis. One curve for each value of h (heat transfer coefficient): 50 W/(m^2*K), 25 W/(m^2*K), 100 W/(m^2*K). Other inputs as in the worked example: k = 200 W/(m*K), D = 0.005 m. 41 points per curve computed by thermofluids-ai999x; marked: the worked example, L = 0.05 m, efficiency = 0.861057.*
 
 ```python
 thermofluids_ai999x.solve('pin_fin_efficiency', h=50, k=200, D=0.005, L=0.05)
