@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "thermofluids-ai999x"
-version = "1.0.0"
+version = "1.0.1"
 description = "Offline thermofluids solver: fluid statics and dynamics, pipe flow, boundary layers, aerodynamics, heat conduction, convection and radiation, heat exchangers, thermodynamic cycles, psychrometrics and combustion, with steps, LaTeX and honest refusals"
 readme = "README.md"
 requires-python = ">=3.10"

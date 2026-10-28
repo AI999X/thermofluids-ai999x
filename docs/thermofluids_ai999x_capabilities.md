@@ -3116,6 +3116,10 @@ $$
 - **Assumes:** cold-air-standard: air as an ideal gas with $\gamma = 1.4$; reversible adiabatic compression and expansion
 - **Evidence:** theorem
 
+![An air-standard Otto cycle drawn on pressure–volume axes: compression ratio 8, intake 1 bar and 300 K in 0](https://huggingface.co/AI999X/thermofluids-ai999x/resolve/main/figures/otto-cycle-pv.svg)
+
+*An air-standard Otto cycle drawn on pressure–volume axes: compression ratio 8, intake 1 bar and 300 K in 0.5 L, peak temperature 1800 K (stated). Each point is a solve of the package's isentropic and ideal-gas relations (amount of air 0.0200454 mol): T2 = 689.219 K, T4 = 783.496 K; the enclosed area is the net work. The package's Otto efficiency for r = 8 is 0.564725; marked: state 3, P = 48 bar.*
+
 ```python
 thermofluids_ai999x.solve('otto_efficiency_air', r='8 1', target='eta')
 # -> 0.564725 1   (SOLVED)
@@ -3713,6 +3717,10 @@ $$
 - **Assumes:** $Re  \geq  4000$; $0  \leq  eD  \leq  0.05$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![Darcy friction factor of turbulent pipe flow against Reynolds number (logarithmic axis) for five relative roughnesses from smooth to ε/D = 0](https://huggingface.co/AI999X/thermofluids-ai999x/resolve/main/figures/colebrook-friction-factor-chart.svg)
+
+*Darcy friction factor of turbulent pipe flow against Reynolds number (logarithmic axis) for five relative roughnesses from smooth to ε/D = 0.05, each from the Colebrook equation solved by the package at up to 89 Reynolds numbers between 4000 and 10⁸. Marked: Re = 100000, ε/D = 0.0002, f = 0.0190054.*
+
 ```python
 thermofluids_ai999x.solve('colebrook_friction_factor', Re=100000, eD=0.0002)
 # -> f = 0.0190054 1   (SOLVED)
@@ -3808,6 +3816,10 @@ $$
 - **Method:** NTU = UA/Cmin, Cr = Cmin/Cmax, effectiveness of the arrangement, Q = eps Cmin (Th,in - Tc,in), energy balances
 - **Assumes:** positive capacity rates and UA; hot inlet hotter than cold inlet
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![Heat-exchanger effectiveness against the number of transfer units for counterflow and parallel flow with heat-capacity rates 2000 and 4000 W/K (ratio 0](https://huggingface.co/AI999X/thermofluids-ai999x/resolve/main/figures/hx-effectiveness-ntu-chart.svg)
+
+*Heat-exchanger effectiveness against the number of transfer units for counterflow and parallel flow with heat-capacity rates 2000 and 4000 W/K (ratio 0.5), computed by the package at 60 values of UA. Marked: counterflow, UA = 3000 W/K, NTU = 1.5, ε = 0.690785, Q = 165788 W.*
 
 ```python
 thermofluids_ai999x.solve('hx_effectiveness_ntu', C_hot=2000, C_cold=4000, UA=3000, Th_in=423.15, Tc_in=303.15, arrangement='counterflow')
@@ -3924,6 +3936,10 @@ $$
 - **Assumes:** $0 < RH  \leq  1$; P greater than the vapour pressure
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![Psychrometric chart at 101325 Pa: humidity ratio against dry-bulb temperature at 20, 40, 60, 80 and 100 % relative humidity, computed by the package every 1 °C](https://huggingface.co/AI999X/thermofluids-ai999x/resolve/main/figures/humidity-ratio-from-relative-humidity-chart.svg)
+
+*Psychrometric chart at 101325 Pa: humidity ratio against dry-bulb temperature at 20, 40, 60, 80 and 100 % relative humidity, computed by the package every 1 °C. Air at 30 °C and 40 % has a wet-bulb temperature of 20.0643 °C; marked: T = 30 °C, W = 10.6028 g/kg.*
+
 ```python
 thermofluids_ai999x.solve('humidity_ratio_from_relative_humidity', T=303.15, RH=0.5, P=101325)
 # -> W = 0.0133102 1, p_v = 2123.02 Pa   (SOLVED)
@@ -3960,6 +3976,10 @@ $$
 - **Method:** the ASHRAE psychrometric equation W(T, T_wb, P) = W solved for T_wb by bisection
 - **Assumes:** $0 < RH  \leq  1$; 0 °$C  \leq  T  \leq  50$ °C for the liquid-water branch
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![Wet-bulb temperature at 101325 Pa for dry-bulb temperatures 10, 15, 20, 25, 30, 35, 40 °C (rows) and relative humidities 20, 40, 60, 80 and 100 % (columns), each cell computed by the package (°C, one decimal)](https://huggingface.co/AI999X/thermofluids-ai999x/resolve/main/figures/wet-bulb-temperature-heatmap.svg)
+
+*Wet-bulb temperature at 101325 Pa for dry-bulb temperatures 10, 15, 20, 25, 30, 35, 40 °C (rows) and relative humidities 20, 40, 60, 80 and 100 % (columns), each cell computed by the package (°C, one decimal). At 100 % the wet bulb equals the dry bulb; at 40 °C and 20 % it is 22 °C.*
 
 ```python
 thermofluids_ai999x.solve('wet_bulb_temperature', T=303.15, RH=0.4, P=101325)
