@@ -1,6 +1,6 @@
 # thermofluids: the Thermofluids program — user guide
 
-**thermofluids-ai999x 1.0.3**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
+**thermofluids-ai999x 1.1.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
 
 Thermofluids covers fluid statics and dynamics, pipe flow, boundary layers, aerodynamics, heat conduction, convection and radiation, heat exchangers, thermodynamic cycles, psychrometrics and combustion. This guide is about `thermofluids`, the model as a self-contained program for Windows and Linux: 99 capabilities in 20 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model's page (https://www.ai999x.com/models/thermofluids-ai999x/); the Python package (`pip install thermofluids-ai999x`) has its own guide. Every command output printed here is what the program printed.
 
