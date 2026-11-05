@@ -1,4 +1,4 @@
-# thermofluids: the Thermofluids program — user guide
+# thermofluids: the Thermofluids program, user guide
 
 **thermofluids-ai999x 1.1.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
 
@@ -17,63 +17,63 @@ Thermofluids covers fluid statics and dynamics, pipe flow, boundary layers, aero
 
 ## 1. Get it
 
-Version 1.4.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
+Version 1.5.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
 
 | what | system | download |
 |---|---|---|
-| Desktop app: Thermofluids | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-thermofluids-1.4.0-windows-x86_64.zip |
-| Desktop app: Thermofluids | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-thermofluids-1.4.0-linux-x86_64.tar.gz |
-| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-windows-x86_64.zip |
-| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz |
-| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-windows-x86_64.zip |
-| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz |
+| Desktop app: Thermofluids | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-thermofluids-1.5.0-windows-x86_64.zip |
+| Desktop app: Thermofluids | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-thermofluids-1.5.0-linux-x86_64.tar.gz |
+| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip |
+| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz |
+| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip |
+| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz |
 
 ### Desktop app
 
-Thermofluids in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-thermofluids-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-thermofluids.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+Thermofluids in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-thermofluids-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-thermofluids.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-thermofluids-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-thermofluids-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-thermofluids-1.4.0-linux-x86_64.tar.gz
-./ai999x-thermofluids-1.4.0-linux-x86_64/ai999x-thermofluids
+tar xzf ai999x-thermofluids-1.5.0-linux-x86_64.tar.gz
+./ai999x-thermofluids-1.5.0-linux-x86_64/ai999x-thermofluids
 ```
 
-It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-1.4.0-linux-x86_64.tar.gz
-./ai999x-1.4.0-linux-x86_64/ai999x
+tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
+./ai999x-1.5.0-linux-x86_64/ai999x
 ```
 
-### Command line — Linux
+### Command line: Linux
 
 The bundle holds one program per model; `thermofluids` is this one. The checksum line should print OK.
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.4.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.4.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 thermofluids --version
 ```
 
-### Command line — Windows (PowerShell)
+### Command line: Windows (PowerShell)
 
 The fourth line should print True.
 
 ```powershell
-$F = "ai999x-cli-1.4.0-windows-x86_64.zip"
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/$F" -OutFile $F
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.5.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.4.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 thermofluids --version
 ```
@@ -96,7 +96,7 @@ Prints the model, its version and that this is the Rust build.
 
 ```shell
 $ thermofluids --version
-thermofluids-ai999x 1.0.3 (Rust build, ax-engine 0.1.0)
+thermofluids-ai999x 1.5.0 (Rust build, ax-engine 1.5.0)
 ```
 
 ### 2.2 Ask in words
@@ -208,35 +208,7 @@ distance from the leading edge (x) = 0.5000002369 m
   assumes: steady laminar flow over a flat plate; zero pressure gradient; the situation is: flat plate, laminar
 ```
 
-### 2.10 Draw the figures
-
-The live figures for your own inputs, written as SVG files into the folder given with --out (here the current folder); open them in any browser. Without --out the SVG text comes back as JSON.
-
-```shell
-$ thermofluids figures dew_point_temperature "T=25 °C" RH=0.6 --out .
-[
-  {
-    "slug": "dew-point-temperature-chart",
-    "title": "Dew point on the psychrometric chart",
-    "caption": "Psychrometric chart at 1.013e+05 Pa, stated (the model's humidity ratio at 20 to 80 % and 100 % relative humidity) with the given air at 25 °C and 60 % (11.9 g/kg) cooled at constant moisture until it saturates. Marked: the model's dew point 16.7 °C and vapour pressure 1.902 kPa. In SI units: T_dew = 289.9 K. Your inputs: T = 25 °C, RH = 0.6.",
-    "file": ".\\dew-point-temperature-chart.svg"
-  },
-  {
-    "slug": "dew-point-temperature-live-1",
-    "title": "Dew-point temperature as dry-bulb temperature varies",
-    "caption": "Dew-point temperature as T runs from 6.25 to 43.75 °C, every other input as you entered it (41 solutions). Marked: your T = 25 °C gives T_dew = 289.9. Your inputs: T = 25 °C, RH = 0.6.",
-    "file": ".\\dew-point-temperature-live-1.svg"
-  },
-  {
-    "slug": "dew-point-temperature-live-2",
-    "title": "Dew-point temperature as relative humidity (fraction, or % written) varies",
-    "caption": "Dew-point temperature as RH runs from 0.15 to 0.9857, every other input as you entered it (27 solutions). Marked: your RH = 0.6 gives T_dew = 289.9. Your inputs: T = 25 °C, RH = 0.6.",
-    "file": ".\\dew-point-temperature-live-2.svg"
-  }
-]
-```
-
-### 2.11 Many questions at once
+### 2.10 Many questions at once
 
 One JSON request per line in, one JSON answer per line out, in order: for scripts, notebooks and agents (the program starts once). In PowerShell: Get-Content cases.jsonl | thermofluids batch
 
@@ -309,30 +281,6 @@ answers = [json.loads(line) for line in out.splitlines()]
 
 `thermofluids figures <capability> name=value ... --out DIR` draws the live figures for those inputs and writes each as an SVG file into DIR (an existing folder); without `--out` the SVG text comes back as JSON. The desktop app and the model page draw the same figures as soon as you press Compute.
 
-```shell
-$ thermofluids figures dew_point_temperature "T=25 °C" RH=0.6 --out .
-[
-  {
-    "slug": "dew-point-temperature-chart",
-    "title": "Dew point on the psychrometric chart",
-    "caption": "Psychrometric chart at 1.013e+05 Pa, stated (the model's humidity ratio at 20 to 80 % and 100 % relative humidity) with the given air at 25 °C and 60 % (11.9 g/kg) cooled at constant moisture until it saturates. Marked: the model's dew point 16.7 °C and vapour pressure 1.902 kPa. In SI units: T_dew = 289.9 K. Your inputs: T = 25 °C, RH = 0.6.",
-    "file": ".\\dew-point-temperature-chart.svg"
-  },
-  {
-    "slug": "dew-point-temperature-live-1",
-    "title": "Dew-point temperature as dry-bulb temperature varies",
-    "caption": "Dew-point temperature as T runs from 6.25 to 43.75 °C, every other input as you entered it (41 solutions). Marked: your T = 25 °C gives T_dew = 289.9. Your inputs: T = 25 °C, RH = 0.6.",
-    "file": ".\\dew-point-temperature-live-1.svg"
-  },
-  {
-    "slug": "dew-point-temperature-live-2",
-    "title": "Dew-point temperature as relative humidity (fraction, or % written) varies",
-    "caption": "Dew-point temperature as RH runs from 0.15 to 0.9857, every other input as you entered it (27 solutions). Marked: your RH = 0.6 gives T_dew = 289.9. Your inputs: T = 25 °C, RH = 0.6.",
-    "file": ".\\dew-point-temperature-live-2.svg"
-  }
-]
-```
-
 ## 7. In a web page or Node.js: WebAssembly
 
 The same model is a WebAssembly module, `thermofluids_ai999x.wasm` (https://www.ai999x.com/compute/rust/thermofluids_ai999x.wasm), with a small loader, `ax-wasm.js` (https://www.ai999x.com/compute/rust/ax-wasm.js). It runs in a browser, a Web Worker or Node.js, with no server.
@@ -356,9 +304,9 @@ By topic. For each: what it does, what it needs and gives, when it applies, and 
 
 <a id="thin_airfoil_lift_coefficient"></a>
 
-#### Lift coefficient of a thin symmetric airfoil — `thin_airfoil_lift_coefficient`
+#### Lift coefficient of a thin symmetric airfoil, `thin_airfoil_lift_coefficient`
 
-One equation links section lift coefficient (CL) and angle of attack (alpha). Give all but one of them and it is solved for the one left out — by default section lift coefficient (CL).
+One equation links section lift coefficient (CL) and angle of attack (alpha). Give all but one of them and it is solved for the one left out, by default section lift coefficient (CL).
 
 $$
 C_{L} = 2 \pi \alpha
@@ -367,7 +315,7 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `alpha` | in | angle of attack | rad |
-| `CL` | out | section lift coefficient | — |
+| `CL` | out | section lift coefficient | - |
 
 **Applies when:** thin symmetric airfoil; small angle of attack; inviscid incompressible flow; small angles of attack below stall.
 
@@ -385,9 +333,9 @@ section lift coefficient (CL) = 0.5483113556
 
 <a id="blasius_average_skin_friction"></a>
 
-#### Average skin-friction coefficient of a laminar flat plate — `blasius_average_skin_friction`
+#### Average skin-friction coefficient of a laminar flat plate, `blasius_average_skin_friction`
 
-One equation links average skin-friction coefficient over the plate (cfm) and Reynolds number based on the plate length (ReL). Give all but one of them and it is solved for the one left out — by default average skin-friction coefficient over the plate (cfm).
+One equation links average skin-friction coefficient over the plate (cfm) and Reynolds number based on the plate length (ReL). Give all but one of them and it is solved for the one left out, by default average skin-friction coefficient over the plate (cfm).
 
 $$
 \text{cfm} = \frac{1.3282293448607851}{\sqrt{\text{ReL}}}
@@ -395,8 +343,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `ReL` | in | Reynolds number based on the plate length | — |
-| `cfm` | out | average skin-friction coefficient over the plate | — |
+| `ReL` | in | Reynolds number based on the plate length | - |
+| `cfm` | out | average skin-friction coefficient over the plate | - |
 
 **Applies when:** laminar boundary layer over the whole plate; zero pressure gradient; Re_L below about 500000.
 
@@ -412,9 +360,9 @@ average skin-friction coefficient over the plate (cfm) = 0.00265645869
 
 <a id="blasius_displacement_thickness"></a>
 
-#### Displacement thickness of a laminar flat-plate boundary layer — `blasius_displacement_thickness`
+#### Displacement thickness of a laminar flat-plate boundary layer, `blasius_displacement_thickness`
 
-One equation links displacement thickness (ds), distance from the leading edge (x) and local Reynolds number U x / nu (Rex). Give all but one of them and it is solved for the one left out — by default displacement thickness (ds).
+One equation links displacement thickness (ds), distance from the leading edge (x) and local Reynolds number U x / nu (Rex). Give all but one of them and it is solved for the one left out, by default displacement thickness (ds).
 
 $$
 d_{s} = \frac{1.7207876575205 x}{\sqrt{\text{Rex}}}
@@ -423,7 +371,7 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `x` | in | distance from the leading edge | m |
-| `Rex` | in | local Reynolds number U x / nu | — |
+| `Rex` | in | local Reynolds number U x / nu | - |
 | `ds` | out | displacement thickness | m |
 
 **Applies when:** steady laminar flow over a flat plate; zero pressure gradient; Re_x below about 500000.
@@ -441,9 +389,9 @@ displacement thickness (ds) = 0.001923899089 m
 
 <a id="blasius_local_skin_friction"></a>
 
-#### Local skin-friction coefficient of a laminar flat plate — `blasius_local_skin_friction`
+#### Local skin-friction coefficient of a laminar flat plate, `blasius_local_skin_friction`
 
-One equation links local skin-friction coefficient (cf) and local Reynolds number U x / nu (Rex). Give all but one of them and it is solved for the one left out — by default local skin-friction coefficient (cf).
+One equation links local skin-friction coefficient (cf) and local Reynolds number U x / nu (Rex). Give all but one of them and it is solved for the one left out, by default local skin-friction coefficient (cf).
 
 $$
 c_{f} = \frac{0.6641146724303926}{\sqrt{\text{Rex}}}
@@ -451,8 +399,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `Rex` | in | local Reynolds number U x / nu | — |
-| `cf` | out | local skin-friction coefficient | — |
+| `Rex` | in | local Reynolds number U x / nu | - |
+| `cf` | out | local skin-friction coefficient | - |
 
 **Applies when:** steady laminar flow over a flat plate; zero pressure gradient; Re_x below about 500000.
 
@@ -468,9 +416,9 @@ local skin-friction coefficient (cf) = 0.002100114992
 
 <a id="blasius_momentum_thickness"></a>
 
-#### Momentum thickness of a laminar flat-plate boundary layer — `blasius_momentum_thickness`
+#### Momentum thickness of a laminar flat-plate boundary layer, `blasius_momentum_thickness`
 
-One equation links momentum thickness (th), distance from the leading edge (x) and local Reynolds number U x / nu (Rex). Give all but one of them and it is solved for the one left out — by default momentum thickness (th).
+One equation links momentum thickness (th), distance from the leading edge (x) and local Reynolds number U x / nu (Rex). Give all but one of them and it is solved for the one left out, by default momentum thickness (th).
 
 $$
 t_{h} = \frac{0.6641146724303926 x}{\sqrt{\text{Rex}}}
@@ -479,7 +427,7 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `x` | in | distance from the leading edge | m |
-| `Rex` | in | local Reynolds number U x / nu | — |
+| `Rex` | in | local Reynolds number U x / nu | - |
 | `th` | out | momentum thickness | m |
 
 **Applies when:** steady laminar flow over a flat plate; zero pressure gradient; Re_x below about 500000.
@@ -499,9 +447,9 @@ momentum thickness (th) = 0.0007425027762 m
 
 <a id="adiabatic_flame_temperature_simple"></a>
 
-#### Adiabatic flame temperature with constant product specific heat — `adiabatic_flame_temperature_simple`
+#### Adiabatic flame temperature with constant product specific heat, `adiabatic_flame_temperature_simple`
 
-One equation links adiabatic flame temperature (Tad), temperature of the reactants (T0), lower heating value of the fuel (LHV), air-fuel ratio by mass (AFR) and mean specific heat of the products (cp). Give all but one of them and it is solved for the one left out — by default adiabatic flame temperature (Tad).
+One equation links adiabatic flame temperature (Tad), temperature of the reactants (T0), lower heating value of the fuel (LHV), air-fuel ratio by mass (AFR) and mean specific heat of the products (cp). Give all but one of them and it is solved for the one left out, by default adiabatic flame temperature (Tad).
 
 $$
 \text{Tad} = T_{0} + \frac{\text{LHV}}{\left(1 + \text{AFR}\right) c_{p}}
@@ -511,7 +459,7 @@ $$
 |---|---|---|---|
 | `T0` | in | temperature of the reactants | K |
 | `LHV` | in | lower heating value of the fuel | J/kg |
-| `AFR` | in | air-fuel ratio by mass | — |
+| `AFR` | in | air-fuel ratio by mass | - |
 | `cp` | in | mean specific heat of the products | J/(kg*K) |
 | `Tad` | out | adiabatic flame temperature | K |
 
@@ -532,7 +480,7 @@ adiabatic flame temperature (Tad) = 2587.377289 K
 
 <a id="equivalence_ratio"></a>
 
-#### Equivalence ratio of a fuel-air mixture — `equivalence_ratio`
+#### Equivalence ratio of a fuel-air mixture: `equivalence_ratio`
 
 Equivalence ratio and excess air of a gaseous fuel burned at a given air-fuel ratio by mass.
 
@@ -542,11 +490,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `fuel` | in | the fuel | — |
-| `afr` | in | actual air-fuel ratio by mass | — |
-| `phi` | out | equivalence ratio (fuel-air ratio over stoichiometric) | — |
-| `afr_stoich` | out | stoichiometric air-fuel ratio | — |
-| `excess_air` | out | excess air as a fraction | — |
+| `fuel` | in | the fuel | - |
+| `afr` | in | actual air-fuel ratio by mass | - |
+| `phi` | out | equivalence ratio (fuel-air ratio over stoichiometric) | - |
+| `afr_stoich` | out | stoichiometric air-fuel ratio | - |
+| `excess_air` | out | excess air as a fraction | - |
 
 **Applies when:** afr > 0.
 
@@ -565,7 +513,7 @@ excess_air = 0.168202522
 
 <a id="stoichiometric_air_fuel_ratio"></a>
 
-#### Stoichiometric air-fuel ratio of a gaseous fuel — `stoichiometric_air_fuel_ratio`
+#### Stoichiometric air-fuel ratio of a gaseous fuel, `stoichiometric_air_fuel_ratio`
 
 Mass of air per mass of fuel for complete combustion, with the moles of O2 and air per mole of fuel.
 
@@ -575,10 +523,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `fuel` | in | the fuel | — |
-| `afr_stoich` | out | stoichiometric air-fuel ratio (mass) | — |
-| `o2_moles` | out | moles of O2 per mole of fuel | — |
-| `air_moles` | out | moles of air per mole of fuel | — |
+| `fuel` | in | the fuel | - |
+| `afr_stoich` | out | stoichiometric air-fuel ratio (mass) | - |
+| `o2_moles` | out | moles of O2 per mole of fuel | - |
+| `air_moles` | out | moles of air per mole of fuel | - |
 
 **Applies when:** complete combustion to CO2 and H2O; air = O2 + 3.76 N2.
 
@@ -598,9 +546,9 @@ air_moles = 9.52
 
 <a id="stagnation_pressure_air"></a>
 
-#### Isentropic stagnation pressure of air from the Mach number — `stagnation_pressure_air`
+#### Isentropic stagnation pressure of air from the Mach number, `stagnation_pressure_air`
 
-One equation links stagnation pressure (P0), static pressure (P) and Mach number (M). Give all but one of them and it is solved for the one left out — by default stagnation pressure (P0).
+One equation links stagnation pressure (P0), static pressure (P) and Mach number (M). Give all but one of them and it is solved for the one left out, by default stagnation pressure (P0).
 
 $$
 P_{0} = P \left(1 + \frac{M^{2}}{5}\right)^{\frac{7}{2}}
@@ -609,7 +557,7 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `P` | in | static pressure | Pa |
-| `M` | in | Mach number | — |
+| `M` | in | Mach number | - |
 | `P0` | out | stagnation pressure | Pa |
 
 **Applies when:** air as an ideal gas with gamma = 1.4; isentropic deceleration; isentropic flow of air.
@@ -627,9 +575,9 @@ stagnation pressure (P0) = 183551.5314 Pa
 
 <a id="mach_number"></a>
 
-#### Mach number — `mach_number`
+#### Mach number: `mach_number`
 
-One equation links Mach number (M), mean flow velocity (v) and local speed of sound (a). Give all but one of them and it is solved for the one left out — by default Mach number (M).
+One equation links Mach number (M), mean flow velocity (v) and local speed of sound (a). Give all but one of them and it is solved for the one left out, by default Mach number (M).
 
 $$
 M = \frac{v}{a}
@@ -639,7 +587,7 @@ $$
 |---|---|---|---|
 | `v` | in | mean flow velocity | m/s |
 | `a` | in | local speed of sound | m/s |
-| `M` | out | Mach number | — |
+| `M` | out | Mach number | - |
 
 **Applies when:** v and a measured in the same frame and state; any flow or flight speed compared with the local speed of sound.
 
@@ -656,9 +604,9 @@ Mach number (M) = 0.8333333333
 
 <a id="normal_shock_mach_air"></a>
 
-#### Mach number behind a normal shock in air — `normal_shock_mach_air`
+#### Mach number behind a normal shock in air: `normal_shock_mach_air`
 
-One equation links Mach number behind the shock (M2) and Mach number ahead of the shock (M1). Give all but one of them and it is solved for the one left out — by default Mach number behind the shock (M2).
+One equation links Mach number behind the shock (M2) and Mach number ahead of the shock (M1). Give all but one of them and it is solved for the one left out, by default Mach number behind the shock (M2).
 
 $$
 M_{2} = \sqrt{\frac{M_{1}^{2} + 5}{7 M_{1}^{2} - 1}}
@@ -666,8 +614,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `M1` | in | Mach number ahead of the shock | — |
-| `M2` | out | Mach number behind the shock | — |
+| `M1` | in | Mach number ahead of the shock | - |
+| `M2` | out | Mach number behind the shock | - |
 
 **Applies when:** air as an ideal gas with gamma = 1.4; steady normal shock; adiabatic; a stationary normal shock with supersonic upstream flow.
 
@@ -683,9 +631,9 @@ Mach number behind the shock (M2) = 0.5773502692
 
 <a id="speed_of_sound_ideal_gas"></a>
 
-#### Speed of sound in an ideal gas — `speed_of_sound_ideal_gas`
+#### Speed of sound in an ideal gas: `speed_of_sound_ideal_gas`
 
-One equation links speed of sound (a), ratio of specific heats (gamma), specific gas constant (R) and absolute temperature of the gas (T). Give all but one of them and it is solved for the one left out — by default speed of sound (a).
+One equation links speed of sound (a), ratio of specific heats (gamma), specific gas constant (R) and absolute temperature of the gas (T). Give all but one of them and it is solved for the one left out, by default speed of sound (a).
 
 $$
 a = \sqrt{\gamma R T}
@@ -693,7 +641,7 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `gamma` | in | ratio of specific heats | — |
+| `gamma` | in | ratio of specific heats | - |
 | `R` | in | specific gas constant | J/(kg*K) |
 | `T` | in | absolute temperature of the gas | K |
 | `a` | out | speed of sound | m/s |
@@ -714,9 +662,9 @@ speed of sound (a) = 347.1887095 m/s
 
 <a id="stagnation_temperature_mach"></a>
 
-#### Stagnation temperature from the Mach number — `stagnation_temperature_mach`
+#### Stagnation temperature from the Mach number, `stagnation_temperature_mach`
 
-One equation links stagnation (total) temperature (T0), static temperature (T), ratio of specific heats (gamma) and Mach number (M). Give all but one of them and it is solved for the one left out — by default stagnation (total) temperature (T0).
+One equation links stagnation (total) temperature (T0), static temperature (T), ratio of specific heats (gamma) and Mach number (M). Give all but one of them and it is solved for the one left out, by default stagnation (total) temperature (T0).
 
 $$
 T_{0} = T \left(1 + \frac{\left(\gamma - 1\right) M^{2}}{2}\right)
@@ -725,8 +673,8 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `T` | in | static temperature | K |
-| `gamma` | in | ratio of specific heats | — |
-| `M` | in | Mach number | — |
+| `gamma` | in | ratio of specific heats | - |
+| `M` | in | Mach number | - |
 | `T0` | out | stagnation (total) temperature | K |
 
 **Applies when:** ideal gas with constant specific heats; adiabatic deceleration; any adiabatic flow of an ideal gas.
@@ -745,9 +693,9 @@ stagnation (total) temperature (T0) = 396 K
 
 <a id="normal_shock_pressure_air"></a>
 
-#### Static pressure behind a normal shock in air — `normal_shock_pressure_air`
+#### Static pressure behind a normal shock in air, `normal_shock_pressure_air`
 
-One equation links static pressure behind the shock (P2), static pressure ahead of the shock (P1) and Mach number ahead of the shock (M1). Give all but one of them and it is solved for the one left out — by default static pressure behind the shock (P2).
+One equation links static pressure behind the shock (P2), static pressure ahead of the shock (P1) and Mach number ahead of the shock (M1). Give all but one of them and it is solved for the one left out, by default static pressure behind the shock (P2).
 
 $$
 P_{2} = \frac{P_{1} \left(7 M_{1}^{2} - 1\right)}{6}
@@ -756,7 +704,7 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `P1` | in | static pressure ahead of the shock | Pa |
-| `M1` | in | Mach number ahead of the shock | — |
+| `M1` | in | Mach number ahead of the shock | - |
 | `P2` | out | static pressure behind the shock | Pa |
 
 **Applies when:** air as an ideal gas with gamma = 1.4; steady normal shock; adiabatic; a stationary normal shock with supersonic upstream flow.
@@ -776,9 +724,9 @@ static pressure behind the shock (P2) = 450000 Pa
 
 <a id="critical_insulation_radius"></a>
 
-#### Critical radius of insulation on a cylinder — `critical_insulation_radius`
+#### Critical radius of insulation on a cylinder, `critical_insulation_radius`
 
-One equation links critical outer radius of the insulation (r), thermal conductivity (k) and outside heat transfer coefficient (h). Give all but one of them and it is solved for the one left out — by default critical outer radius of the insulation (r).
+One equation links critical outer radius of the insulation (r), thermal conductivity (k) and outside heat transfer coefficient (h). Give all but one of them and it is solved for the one left out, by default critical outer radius of the insulation (r).
 
 $$
 r = \frac{k}{h}
@@ -805,9 +753,9 @@ critical outer radius of the insulation (r) = 0.005 m
 
 <a id="plane_wall_conduction"></a>
 
-#### Fourier's law: heat conduction through a plane wall — `plane_wall_conduction`
+#### Fourier's law: heat conduction through a plane wall, `plane_wall_conduction`
 
-One equation links rate of heat transfer (q), thermal conductivity (k), wall area (A), inner surface temperature (T1), outer surface temperature (T2) and wall thickness (L). Give all but one of them and it is solved for the one left out — by default rate of heat transfer (q).
+One equation links rate of heat transfer (q), thermal conductivity (k), wall area (A), inner surface temperature (T1), outer surface temperature (T2) and wall thickness (L). Give all but one of them and it is solved for the one left out, by default rate of heat transfer (q).
 
 $$
 q = \frac{k A \left(T_{1} - T_{2}\right)}{L}
@@ -840,9 +788,9 @@ rate of heat transfer (q) = 525 W
 
 <a id="overall_heat_rate"></a>
 
-#### Heat transfer rate from the overall heat transfer coefficient — `overall_heat_rate`
+#### Heat transfer rate from the overall heat transfer coefficient, `overall_heat_rate`
 
-One equation links rate of heat transfer (q), overall heat transfer coefficient (U), wall area (A), inside fluid temperature (Ti) and outside fluid temperature (To). Give all but one of them and it is solved for the one left out — by default rate of heat transfer (q).
+One equation links rate of heat transfer (q), overall heat transfer coefficient (U), wall area (A), inside fluid temperature (Ti) and outside fluid temperature (To). Give all but one of them and it is solved for the one left out, by default rate of heat transfer (q).
 
 $$
 q = U A \left(T_{i} - T_{o}\right)
@@ -873,9 +821,9 @@ rate of heat transfer (q) = 260 W
 
 <a id="wall_generation_max_temperature"></a>
 
-#### Maximum temperature of a plane wall with uniform heat generation — `wall_generation_max_temperature`
+#### Maximum temperature of a plane wall with uniform heat generation, `wall_generation_max_temperature`
 
-One equation links temperature at the mid-plane (Tmax), surface temperature (Ts), heat generated per unit volume (q), half-thickness of the wall (L) and thermal conductivity (k). Give all but one of them and it is solved for the one left out — by default temperature at the mid-plane (Tmax).
+One equation links temperature at the mid-plane (Tmax), surface temperature (Ts), heat generated per unit volume (q), half-thickness of the wall (L) and thermal conductivity (k). Give all but one of them and it is solved for the one left out, by default temperature at the mid-plane (Tmax).
 
 $$
 T_{\text{max}} = T_{s} + \frac{q L^{2}}{2 k}
@@ -906,9 +854,9 @@ temperature at the mid-plane (Tmax) = 352.5 K
 
 <a id="overall_u_plane_wall"></a>
 
-#### Overall heat transfer coefficient of a plane wall with convection on both sides — `overall_u_plane_wall`
+#### Overall heat transfer coefficient of a plane wall with convection on both sides, `overall_u_plane_wall`
 
-One equation links overall heat transfer coefficient (U), inside heat transfer coefficient (h1), wall thickness (L), thermal conductivity (k) and outside heat transfer coefficient (h2). Give all but one of them and it is solved for the one left out — by default overall heat transfer coefficient (U).
+One equation links overall heat transfer coefficient (U), inside heat transfer coefficient (h1), wall thickness (L), thermal conductivity (k) and outside heat transfer coefficient (h2). Give all but one of them and it is solved for the one left out, by default overall heat transfer coefficient (U).
 
 $$
 U = \frac{1}{\frac{1}{h_{1}} + \frac{L}{k} + \frac{1}{h_{2}}}
@@ -939,9 +887,9 @@ overall heat transfer coefficient (U) = 2.348993289 W/(m^2*K)
 
 <a id="cylinder_conduction"></a>
 
-#### Radial heat conduction through a cylindrical wall — `cylinder_conduction`
+#### Radial heat conduction through a cylindrical wall, `cylinder_conduction`
 
-One equation links rate of heat transfer (q), thermal conductivity (k), length of the cylinder (L), inner surface temperature (T1), outer surface temperature (T2), inner radius (r1) and outer radius (r2). Give all but one of them and it is solved for the one left out — by default rate of heat transfer (q).
+One equation links rate of heat transfer (q), thermal conductivity (k), length of the cylinder (L), inner surface temperature (T1), outer surface temperature (T2), inner radius (r1) and outer radius (r2). Give all but one of them and it is solved for the one left out, by default rate of heat transfer (q).
 
 $$
 q = \frac{2 \pi k L \left(T_{1} - T_{2}\right)}{\ln\left(\frac{r_{2}}{r_{1}}\right)}
@@ -976,9 +924,9 @@ rate of heat transfer (q) = 7753.974456 W
 
 <a id="sphere_conduction"></a>
 
-#### Radial heat conduction through a spherical shell — `sphere_conduction`
+#### Radial heat conduction through a spherical shell, `sphere_conduction`
 
-One equation links rate of heat transfer (q), thermal conductivity (k), inner surface temperature (T1), outer surface temperature (T2), inner radius (r1) and outer radius (r2). Give all but one of them and it is solved for the one left out — by default rate of heat transfer (q).
+One equation links rate of heat transfer (q), thermal conductivity (k), inner surface temperature (T1), outer surface temperature (T2), inner radius (r1) and outer radius (r2). Give all but one of them and it is solved for the one left out, by default rate of heat transfer (q).
 
 $$
 q = \frac{4 \pi k \left(T_{1} - T_{2}\right)}{\frac{1}{r_{1}} - \frac{1}{r_{2}}}
@@ -1011,9 +959,9 @@ rate of heat transfer (q) = 15.07964474 W
 
 <a id="thermal_diffusivity"></a>
 
-#### Thermal diffusivity — `thermal_diffusivity`
+#### Thermal diffusivity: `thermal_diffusivity`
 
-One equation links thermal diffusivity (alpha), thermal conductivity (k), density of the material (rho) and specific heat capacity (cp). Give all but one of them and it is solved for the one left out — by default thermal diffusivity (alpha).
+One equation links thermal diffusivity (alpha), thermal conductivity (k), density of the material (rho) and specific heat capacity (cp). Give all but one of them and it is solved for the one left out, by default thermal diffusivity (alpha).
 
 $$
 \alpha = \frac{k}{\rho c_{p}}
@@ -1044,9 +992,9 @@ thermal diffusivity (alpha) = 0.0001167371954 m^2/s
 
 <a id="flat_plate_laminar_average_nusselt"></a>
 
-#### Average Nusselt number for laminar flow over a flat plate — `flat_plate_laminar_average_nusselt`
+#### Average Nusselt number for laminar flow over a flat plate, `flat_plate_laminar_average_nusselt`
 
-One equation links average Nusselt number over the plate (Nu), Reynolds number based on the plate length (ReL) and Prandtl number of the fluid (Pr). Give all but one of them and it is solved for the one left out — by default average Nusselt number over the plate (Nu).
+One equation links average Nusselt number over the plate (Nu), Reynolds number based on the plate length (ReL) and Prandtl number of the fluid (Pr). Give all but one of them and it is solved for the one left out, by default average Nusselt number over the plate (Nu).
 
 $$
 \mathrm{Nu} = 0.664 \text{ReL}^{\frac{1}{2}} \mathrm{Pr}^{\frac{1}{3}}
@@ -1054,9 +1002,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `ReL` | in | Reynolds number based on the plate length | — |
-| `Pr` | in | Prandtl number of the fluid | — |
-| `Nu` | out | average Nusselt number over the plate | — |
+| `ReL` | in | Reynolds number based on the plate length | - |
+| `Pr` | in | Prandtl number of the fluid | - |
+| `Nu` | out | average Nusselt number over the plate | - |
 
 **Applies when:** laminar boundary layer over the whole plate; isothermal plate; Re_L < 500000 and 0.6 < Pr < 10.
 
@@ -1073,7 +1021,7 @@ average Nusselt number over the plate (Nu) = 186.4378529
 
 <a id="churchill_bernstein_cylinder"></a>
 
-#### Churchill-Bernstein correlation for a cylinder in cross flow — `churchill_bernstein_cylinder`
+#### Churchill-Bernstein correlation for a cylinder in cross flow, `churchill_bernstein_cylinder`
 
 Average Nusselt number of a circular cylinder in cross flow over the whole Reynolds range.
 
@@ -1083,9 +1031,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `Re` | in | Reynolds number based on the diameter | — |
-| `Pr` | in | Prandtl number | — |
-| `Nu` | out | average Nusselt number based on the diameter | — |
+| `Re` | in | Reynolds number based on the diameter | - |
+| `Pr` | in | Prandtl number | - |
+| `Nu` | out | average Nusselt number based on the diameter | - |
 
 **Applies when:** Re * Pr >= 0.2.
 
@@ -1102,7 +1050,7 @@ Nu = 53.32778867
 
 <a id="churchill_chu_vertical_plate"></a>
 
-#### Churchill-Chu correlation for natural convection on a vertical plate — `churchill_chu_vertical_plate`
+#### Churchill-Chu correlation for natural convection on a vertical plate, `churchill_chu_vertical_plate`
 
 Average Nusselt number of free convection from an isothermal vertical plate, laminar and turbulent.
 
@@ -1112,9 +1060,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `Ra` | in | Rayleigh number based on the plate height | — |
-| `Pr` | in | Prandtl number | — |
-| `Nu` | out | average Nusselt number | — |
+| `Ra` | in | Rayleigh number based on the plate height | - |
+| `Pr` | in | Prandtl number | - |
+| `Nu` | out | average Nusselt number | - |
 
 **Applies when:** 0 < Ra <= 1e13.
 
@@ -1131,9 +1079,9 @@ Nu = 122.8565349
 
 <a id="dittus_boelter_cooling"></a>
 
-#### Dittus-Boelter correlation, fluid being cooled — `dittus_boelter_cooling`
+#### Dittus-Boelter correlation, fluid being cooled, `dittus_boelter_cooling`
 
-One equation links Nusselt number (Nu), Reynolds number (Re) and Prandtl number of the fluid (Pr). Give all but one of them and it is solved for the one left out — by default Nusselt number (Nu).
+One equation links Nusselt number (Nu), Reynolds number (Re) and Prandtl number of the fluid (Pr). Give all but one of them and it is solved for the one left out, by default Nusselt number (Nu).
 
 $$
 \mathrm{Nu} = 0.023 \mathrm{Re}^{\frac{4}{5}} \mathrm{Pr}^{\frac{3}{10}}
@@ -1141,9 +1089,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `Re` | in | Reynolds number | — |
-| `Pr` | in | Prandtl number of the fluid | — |
-| `Nu` | out | Nusselt number | — |
+| `Re` | in | Reynolds number | - |
+| `Pr` | in | Prandtl number of the fluid | - |
+| `Nu` | out | Nusselt number | - |
 
 **Applies when:** fully developed turbulent flow in a smooth circular tube; properties at the bulk temperature; Re > 10000 and 0.6 < Pr < 160.
 
@@ -1160,9 +1108,9 @@ Nusselt number (Nu) = 214.0892402
 
 <a id="dittus_boelter_heating"></a>
 
-#### Dittus-Boelter correlation, fluid being heated — `dittus_boelter_heating`
+#### Dittus-Boelter correlation, fluid being heated, `dittus_boelter_heating`
 
-One equation links Nusselt number (Nu), Reynolds number (Re) and Prandtl number of the fluid (Pr). Give all but one of them and it is solved for the one left out — by default Nusselt number (Nu).
+One equation links Nusselt number (Nu), Reynolds number (Re) and Prandtl number of the fluid (Pr). Give all but one of them and it is solved for the one left out, by default Nusselt number (Nu).
 
 $$
 \mathrm{Nu} = 0.023 \mathrm{Re}^{\frac{4}{5}} \mathrm{Pr}^{\frac{2}{5}}
@@ -1170,9 +1118,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `Re` | in | Reynolds number | — |
-| `Pr` | in | Prandtl number of the fluid | — |
-| `Nu` | out | Nusselt number | — |
+| `Re` | in | Reynolds number | - |
+| `Pr` | in | Prandtl number of the fluid | - |
+| `Nu` | out | Nusselt number | - |
 
 **Applies when:** fully developed turbulent flow in a smooth circular tube; properties at the bulk temperature; Re > 10000 and 0.6 < Pr < 160.
 
@@ -1189,7 +1137,7 @@ Nusselt number (Nu) = 251.473277
 
 <a id="gnielinski_nusselt"></a>
 
-#### Gnielinski correlation for turbulent pipe flow — `gnielinski_nusselt`
+#### Gnielinski correlation for turbulent pipe flow, `gnielinski_nusselt`
 
 Nusselt number of fully developed turbulent or transitional flow in a tube.
 
@@ -1199,10 +1147,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `Re` | in | Reynolds number (3000 to 5e6) | — |
-| `Pr` | in | Prandtl number (0.5 to 2000) | — |
-| `f` | in | Darcy friction factor | — |
-| `Nu` | out | Nusselt number based on the diameter | — |
+| `Re` | in | Reynolds number (3000 to 5e6) | - |
+| `Pr` | in | Prandtl number (0.5 to 2000) | - |
+| `f` | in | Darcy friction factor | - |
+| `Nu` | out | Nusselt number based on the diameter | - |
 
 **Applies when:** 3000 <= Re <= 5e6; 0.5 <= Pr <= 2000.
 
@@ -1220,9 +1168,9 @@ Nu = 285.5893125
 
 <a id="nusselt_heat_transfer_coefficient"></a>
 
-#### Heat transfer coefficient from the Nusselt number — `nusselt_heat_transfer_coefficient`
+#### Heat transfer coefficient from the Nusselt number, `nusselt_heat_transfer_coefficient`
 
-One equation links convection heat transfer coefficient (h), average Nusselt number (Nu), thermal conductivity (k) and characteristic length (diameter or plate length) (Lc). Give all but one of them and it is solved for the one left out — by default convection heat transfer coefficient (h).
+One equation links convection heat transfer coefficient (h), average Nusselt number (Nu), thermal conductivity (k) and characteristic length (diameter or plate length) (Lc). Give all but one of them and it is solved for the one left out, by default convection heat transfer coefficient (h).
 
 $$
 h = \frac{\mathrm{Nu} k}{L_{c}}
@@ -1230,7 +1178,7 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `Nu` | in | average Nusselt number | — |
+| `Nu` | in | average Nusselt number | - |
 | `k` | in | thermal conductivity | W/(m*K) |
 | `Lc` | in | characteristic length (diameter or plate length) | m |
 | `h` | out | convection heat transfer coefficient | W/(m^2*K) |
@@ -1251,9 +1199,9 @@ convection heat transfer coefficient (h) = 1440 W/(m^2*K)
 
 <a id="flat_plate_laminar_local_nusselt"></a>
 
-#### Local Nusselt number for laminar flow over a flat plate — `flat_plate_laminar_local_nusselt`
+#### Local Nusselt number for laminar flow over a flat plate, `flat_plate_laminar_local_nusselt`
 
-One equation links local Nusselt number (Nux), local Reynolds number U x / nu (Rex) and Prandtl number of the fluid (Pr). Give all but one of them and it is solved for the one left out — by default local Nusselt number (Nux).
+One equation links local Nusselt number (Nux), local Reynolds number U x / nu (Rex) and Prandtl number of the fluid (Pr). Give all but one of them and it is solved for the one left out, by default local Nusselt number (Nux).
 
 $$
 \text{Nux} = 0.332 \text{Rex}^{\frac{1}{2}} \mathrm{Pr}^{\frac{1}{3}}
@@ -1261,9 +1209,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `Rex` | in | local Reynolds number U x / nu | — |
-| `Pr` | in | Prandtl number of the fluid | — |
-| `Nux` | out | local Nusselt number | — |
+| `Rex` | in | local Reynolds number U x / nu | - |
+| `Pr` | in | Prandtl number of the fluid | - |
+| `Nux` | out | local Nusselt number | - |
 
 **Applies when:** laminar boundary layer; isothermal plate; Re_x < 500000 and 0.6 < Pr < 10.
 
@@ -1280,9 +1228,9 @@ local Nusselt number (Nux) = 93.21892644
 
 <a id="newton_cooling"></a>
 
-#### Newton's law of cooling (convection heat transfer) — `newton_cooling`
+#### Newton's law of cooling (convection heat transfer), `newton_cooling`
 
-One equation links rate of heat transfer (q), convection heat transfer coefficient (h), surface area in contact with the fluid (A), surface temperature (Ts) and temperature of the fluid far from the surface (Tinf). Give all but one of them and it is solved for the one left out — by default rate of heat transfer (q).
+One equation links rate of heat transfer (q), convection heat transfer coefficient (h), surface area in contact with the fluid (A), surface temperature (Ts) and temperature of the fluid far from the surface (Tinf). Give all but one of them and it is solved for the one left out, by default rate of heat transfer (q).
 
 $$
 q = h A \left(T_{s} - \text{Tinf}\right)
@@ -1313,9 +1261,9 @@ rate of heat transfer (q) = 750 W
 
 <a id="prandtl_number"></a>
 
-#### Prandtl number — `prandtl_number`
+#### Prandtl number: `prandtl_number`
 
-One equation links Prandtl number of the fluid (Pr), specific heat of the fluid (cp), dynamic viscosity of the fluid (mu) and thermal conductivity (k). Give all but one of them and it is solved for the one left out — by default Prandtl number of the fluid (Pr).
+One equation links Prandtl number of the fluid (Pr), specific heat of the fluid (cp), dynamic viscosity of the fluid (mu) and thermal conductivity (k). Give all but one of them and it is solved for the one left out, by default Prandtl number of the fluid (Pr).
 
 $$
 \mathrm{Pr} = \frac{c_{p} \mu}{k}
@@ -1326,7 +1274,7 @@ $$
 | `cp` | in | specific heat of the fluid | J/(kg*K) |
 | `mu` | in | dynamic viscosity of the fluid | Pa*s |
 | `k` | in | thermal conductivity | W/(m*K) |
-| `Pr` | out | Prandtl number of the fluid | — |
+| `Pr` | out | Prandtl number of the fluid | - |
 
 **Applies when:** properties at the film temperature; any Newtonian fluid.
 
@@ -1346,9 +1294,9 @@ Prandtl number of the fluid (Pr) = 6.966666667
 
 <a id="drag_force"></a>
 
-#### Drag force from the drag coefficient — `drag_force`
+#### Drag force from the drag coefficient: `drag_force`
 
-One equation links drag force (F), drag coefficient (Cd), density of the fluid (rho), mean flow velocity (v) and frontal (reference) area (A). Give all but one of them and it is solved for the one left out — by default drag force (F).
+One equation links drag force (F), drag coefficient (Cd), density of the fluid (rho), mean flow velocity (v) and frontal (reference) area (A). Give all but one of them and it is solved for the one left out, by default drag force (F).
 
 $$
 F = \frac{C_{d} \rho v^{2} A}{2}
@@ -1356,7 +1304,7 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `Cd` | in | drag coefficient | — |
+| `Cd` | in | drag coefficient | - |
 | `rho` | in | density of the fluid | kg/m^3 |
 | `v` | in | mean flow velocity | m/s |
 | `A` | in | frontal (reference) area | m^2 |
@@ -1379,9 +1327,9 @@ drag force (F) = 356.4 N
 
 <a id="lift_force"></a>
 
-#### Lift force from the lift coefficient — `lift_force`
+#### Lift force from the lift coefficient: `lift_force`
 
-One equation links lift force (F), lift coefficient (CL), density of the fluid (rho), mean flow velocity (v) and wing planform area (A). Give all but one of them and it is solved for the one left out — by default lift force (F).
+One equation links lift force (F), lift coefficient (CL), density of the fluid (rho), mean flow velocity (v) and wing planform area (A). Give all but one of them and it is solved for the one left out, by default lift force (F).
 
 $$
 F = \frac{C_{L} \rho v^{2} A}{2}
@@ -1389,7 +1337,7 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `CL` | in | lift coefficient | — |
+| `CL` | in | lift coefficient | - |
 | `rho` | in | density of the fluid | kg/m^3 |
 | `v` | in | mean flow velocity | m/s |
 | `A` | in | wing planform area | m^2 |
@@ -1412,9 +1360,9 @@ lift force (F) = 64680 N
 
 <a id="stokes_drag"></a>
 
-#### Stokes drag on a small sphere — `stokes_drag`
+#### Stokes drag on a small sphere: `stokes_drag`
 
-One equation links drag force on the sphere (F), dynamic viscosity of the fluid (mu), sphere diameter (D) and mean flow velocity (v). Give all but one of them and it is solved for the one left out — by default drag force on the sphere (F).
+One equation links drag force on the sphere (F), dynamic viscosity of the fluid (mu), sphere diameter (D) and mean flow velocity (v). Give all but one of them and it is solved for the one left out, by default drag force on the sphere (F).
 
 $$
 F = 3 \pi \mu D v
@@ -1443,9 +1391,9 @@ drag force on the sphere (F) = 1.884955592e-09 N
 
 <a id="stokes_terminal_velocity"></a>
 
-#### Terminal settling velocity of a small sphere (Stokes) — `stokes_terminal_velocity`
+#### Terminal settling velocity of a small sphere (Stokes), `stokes_terminal_velocity`
 
-One equation links terminal settling velocity (v), Acceleration (g), sphere diameter (D), density of the particle (rho_p), density of the fluid (rho) and dynamic viscosity of the fluid (mu). Give all but one of them and it is solved for the one left out — by default terminal settling velocity (v).
+One equation links terminal settling velocity (v), Acceleration (g), sphere diameter (D), density of the particle (rho_p), density of the fluid (rho) and dynamic viscosity of the fluid (mu). Give all but one of them and it is solved for the one left out, by default terminal settling velocity (v).
 
 $$
 v = \frac{g D^{2} \left(\rho_{p} - \rho\right)}{18 \mu}
@@ -1480,7 +1428,7 @@ terminal settling velocity (v) = 0.008989429167 m/s
 
 <a id="pin_fin_efficiency"></a>
 
-#### Efficiency of a pin fin with an insulated tip — `pin_fin_efficiency`
+#### Efficiency of a pin fin with an insulated tip, `pin_fin_efficiency`
 
 Fin efficiency tanh(mL)/(mL) of a cylindrical pin fin with m = sqrt(4h/(kD)).
 
@@ -1494,8 +1442,8 @@ $$
 | `k` | in | fin thermal conductivity | W/(m*K) |
 | `D` | in | pin diameter | m |
 | `L` | in | fin length | m |
-| `efficiency` | out | fin efficiency | — |
-| `mL` | out | fin parameter m L | — |
+| `efficiency` | out | fin efficiency | - |
+| `mL` | out | fin parameter m L | - |
 
 **Applies when:** h, k, D, L > 0; one-dimensional conduction, uniform h, insulated tip.
 
@@ -1515,9 +1463,9 @@ mL = 0.7071067812
 
 <a id="infinite_fin_heat_rate"></a>
 
-#### Heat transfer rate of a very long fin — `infinite_fin_heat_rate`
+#### Heat transfer rate of a very long fin: `infinite_fin_heat_rate`
 
-One equation links rate of heat transfer (q), convection heat transfer coefficient (h), perimeter of the fin's cross section (P), thermal conductivity (k), cross-sectional area of the fin (Ac), temperature at the fin base (Tb) and temperature of the fluid far from the surface (Tinf). Give all but one of them and it is solved for the one left out — by default rate of heat transfer (q).
+One equation links rate of heat transfer (q), convection heat transfer coefficient (h), perimeter of the fin's cross section (P), thermal conductivity (k), cross-sectional area of the fin (Ac), temperature at the fin base (Tb) and temperature of the fluid far from the surface (Tinf). Give all but one of them and it is solved for the one left out, by default rate of heat transfer (q).
 
 $$
 q = \sqrt{h P k A_{c}} \left(T_{b} - \text{Tinf}\right)
@@ -1554,9 +1502,9 @@ rate of heat transfer (q) = 8.326182348 W
 
 <a id="bernoulli_horizontal"></a>
 
-#### Bernoulli's equation along a horizontal streamline — `bernoulli_horizontal`
+#### Bernoulli's equation along a horizontal streamline, `bernoulli_horizontal`
 
-One equation links pressure at the outlet (P2), pressure at the inlet (P1), density of the fluid (rho), speed at the inlet (v1) and speed at the outlet (v2). Give all but one of them and it is solved for the one left out — by default pressure at the outlet (P2).
+One equation links pressure at the outlet (P2), pressure at the inlet (P1), density of the fluid (rho), speed at the inlet (v1) and speed at the outlet (v2). Give all but one of them and it is solved for the one left out, by default pressure at the outlet (P2).
 
 $$
 P_{2} = P_{1} + \frac{\rho \left(v_{1}^{2} - v_{2}^{2}\right)}{2}
@@ -1587,9 +1535,9 @@ pressure at the outlet (P2) = 184000 Pa
 
 <a id="continuity_speed"></a>
 
-#### Continuity: speed after a change of pipe diameter — `continuity_speed`
+#### Continuity: speed after a change of pipe diameter, `continuity_speed`
 
-One equation links mean velocity at the outlet (v2), mean velocity at the inlet (v1), diameter at the inlet (D1) and diameter at the outlet (D2). Give all but one of them and it is solved for the one left out — by default mean velocity at the outlet (v2).
+One equation links mean velocity at the outlet (v2), mean velocity at the inlet (v1), diameter at the inlet (D1) and diameter at the outlet (D2). Give all but one of them and it is solved for the one left out, by default mean velocity at the outlet (v2).
 
 $$
 v_{2} = v_{1} \left(\frac{D_{1}}{D_{2}}\right)^{2}
@@ -1618,9 +1566,9 @@ mean velocity at the outlet (v2) = 8 m/s
 
 <a id="dynamic_pressure"></a>
 
-#### Dynamic pressure of a moving fluid — `dynamic_pressure`
+#### Dynamic pressure of a moving fluid: `dynamic_pressure`
 
-One equation links dynamic pressure (q), density of the fluid (rho) and mean flow velocity (v). Give all but one of them and it is solved for the one left out — by default dynamic pressure (q).
+One equation links dynamic pressure (q), density of the fluid (rho) and mean flow velocity (v). Give all but one of them and it is solved for the one left out, by default dynamic pressure (q).
 
 $$
 q = \frac{\rho v^{2}}{2}
@@ -1647,9 +1595,9 @@ dynamic pressure (q) = 980 Pa
 
 <a id="torricelli_efflux"></a>
 
-#### Speed of efflux from a hole (Torricelli's law) — `torricelli_efflux`
+#### Speed of efflux from a hole (Torricelli's law), `torricelli_efflux`
 
-One equation links speed of the jet leaving the hole (v), Acceleration (g) and depth of the hole below the free surface (h). Give all but one of them and it is solved for the one left out — by default speed of the jet leaving the hole (v).
+One equation links speed of the jet leaving the hole (v), Acceleration (g) and depth of the hole below the free surface (h). Give all but one of them and it is solved for the one left out, by default speed of the jet leaving the hole (v).
 
 $$
 v = \sqrt{2 g h}
@@ -1678,9 +1626,9 @@ speed of the jet leaving the hole (v) = 6.263114241 m/s
 
 <a id="absolute_pressure_depth"></a>
 
-#### Absolute pressure at a depth in a liquid — `absolute_pressure_depth`
+#### Absolute pressure at a depth in a liquid: `absolute_pressure_depth`
 
-One equation links absolute pressure at the depth (P), pressure at the free surface (P0), density of the fluid (rho), Acceleration (g) and depth below the free surface (h). Give all but one of them and it is solved for the one left out — by default absolute pressure at the depth (P).
+One equation links absolute pressure at the depth (P), pressure at the free surface (P0), density of the fluid (rho), Acceleration (g) and depth below the free surface (h). Give all but one of them and it is solved for the one left out, by default absolute pressure at the depth (P).
 
 $$
 P = P_{0} + \rho g h
@@ -1711,9 +1659,9 @@ absolute pressure at the depth (P) = 302361.325 Pa
 
 <a id="buoyant_force"></a>
 
-#### Buoyant force (Archimedes' principle) — `buoyant_force`
+#### Buoyant force (Archimedes' principle): `buoyant_force`
 
-One equation links buoyant force (F), density of the fluid (rho), Acceleration (g) and volume of fluid displaced (V). Give all but one of them and it is solved for the one left out — by default buoyant force (F).
+One equation links buoyant force (F), density of the fluid (rho), Acceleration (g) and volume of fluid displaced (V). Give all but one of them and it is solved for the one left out, by default buoyant force (F).
 
 $$
 F = \rho g V
@@ -1742,9 +1690,9 @@ buoyant force (F) = 196.133 N
 
 <a id="hydrostatic_gauge_pressure"></a>
 
-#### Gauge pressure at a depth in a liquid — `hydrostatic_gauge_pressure`
+#### Gauge pressure at a depth in a liquid: `hydrostatic_gauge_pressure`
 
-One equation links gauge pressure at the depth (P), density of the fluid (rho), Acceleration (g) and depth below the free surface (h). Give all but one of them and it is solved for the one left out — by default gauge pressure at the depth (P).
+One equation links gauge pressure at the depth (P), density of the fluid (rho), Acceleration (g) and depth below the free surface (h). Give all but one of them and it is solved for the one left out, by default gauge pressure at the depth (P).
 
 $$
 P = \rho g h
@@ -1773,9 +1721,9 @@ gauge pressure at the depth (P) = 117679.8 Pa
 
 <a id="hydrostatic_force_plane"></a>
 
-#### Hydrostatic force on a submerged plane surface — `hydrostatic_force_plane`
+#### Hydrostatic force on a submerged plane surface, `hydrostatic_force_plane`
 
-One equation links resultant hydrostatic force on the surface (F), density of the fluid (rho), Acceleration (g), depth of the surface's centroid (hc) and area of the surface (A). Give all but one of them and it is solved for the one left out — by default resultant hydrostatic force on the surface (F).
+One equation links resultant hydrostatic force on the surface (F), density of the fluid (rho), Acceleration (g), depth of the surface's centroid (hc) and area of the surface (A). Give all but one of them and it is solved for the one left out, by default resultant hydrostatic force on the surface (F).
 
 $$
 F = \rho g h_{c} A
@@ -1808,9 +1756,9 @@ resultant hydrostatic force on the surface (F) = 58839.9 N
 
 <a id="compressor_outlet_temperature_air"></a>
 
-#### Actual outlet temperature of an adiabatic air compressor — `compressor_outlet_temperature_air`
+#### Actual outlet temperature of an adiabatic air compressor, `compressor_outlet_temperature_air`
 
-One equation links final temperature (T2), initial temperature (T1), final pressure (P2), initial pressure (P1) and isentropic efficiency of the compressor (eta). Give all but one of them and it is solved for the one left out — by default final temperature (T2).
+One equation links final temperature (T2), initial temperature (T1), final pressure (P2), initial pressure (P1) and isentropic efficiency of the compressor (eta). Give all but one of them and it is solved for the one left out, by default final temperature (T2).
 
 $$
 T_{2} = T_{1} \left(1 + \frac{\left(\frac{P_{2}}{P_{1}}\right)^{\frac{2}{7}} - 1}{\eta}\right)
@@ -1821,7 +1769,7 @@ $$
 | `T1` | in | initial temperature | K |
 | `P2` | in | final pressure | Pa |
 | `P1` | in | initial pressure | Pa |
-| `eta` | in | isentropic efficiency of the compressor | — |
+| `eta` | in | isentropic efficiency of the compressor | - |
 | `T2` | out | final temperature | K |
 
 **Applies when:** air as an ideal gas with gamma = 1.4; adiabatic compressor; real compressors with a known isentropic efficiency.
@@ -1841,9 +1789,9 @@ final temperature (T2) = 535.9448615 K
 
 <a id="entropy_change_incompressible"></a>
 
-#### Entropy change of an incompressible substance — `entropy_change_incompressible`
+#### Entropy change of an incompressible substance, `entropy_change_incompressible`
 
-One equation links total entropy change (dS), mass (m), specific heat (c), final temperature (T2) and initial temperature (T1). Give all but one of them and it is solved for the one left out — by default total entropy change (dS).
+One equation links total entropy change (dS), mass (m), specific heat (c), final temperature (T2) and initial temperature (T1). Give all but one of them and it is solved for the one left out, by default total entropy change (dS).
 
 $$
 d_{S} = m c \ln\left(\frac{T_{2}}{T_{1}}\right)
@@ -1874,9 +1822,9 @@ total entropy change (dS) = 1556.70283 J/K
 
 <a id="ideal_gas_law"></a>
 
-#### Ideal gas law — `ideal_gas_law`
+#### Ideal gas law: `ideal_gas_law`
 
-One equation links absolute pressure of the gas (P), volume of the gas (V), amount of gas (n), Gas constant (R) and absolute temperature (T). Give all but one of them and it is solved for the one left out — by default .
+One equation links absolute pressure of the gas (P), volume of the gas (V), amount of gas (n), Gas constant (R) and absolute temperature (T). Give all but one of them and it is solved for the one left out, by default .
 
 $$
 P V = n R T
@@ -1907,9 +1855,9 @@ absolute pressure of the gas (P) = 99773.55142 Pa
 
 <a id="entropy_change_ideal_gas"></a>
 
-#### Specific entropy change of an ideal gas — `entropy_change_ideal_gas`
+#### Specific entropy change of an ideal gas: `entropy_change_ideal_gas`
 
-One equation links change in specific entropy (ds), specific heat at constant pressure (cp), specific gas constant (R), initial temperature (T1), final temperature (T2), initial pressure (P1) and final pressure (P2). Give all but one of them and it is solved for the one left out — by default change in specific entropy (ds).
+One equation links change in specific entropy (ds), specific heat at constant pressure (cp), specific gas constant (R), initial temperature (T1), final temperature (T2), initial pressure (P1) and final pressure (P2). Give all but one of them and it is solved for the one left out, by default change in specific entropy (ds).
 
 $$
 d_{s} = c_{p} \ln\left(\frac{T_{2}}{T_{1}}\right) - R \ln\left(\frac{P_{2}}{P_{1}}\right)
@@ -1944,9 +1892,9 @@ change in specific entropy (ds) = 234.7042356 J/(kg*K)
 
 <a id="isentropic_temperature_pressure_air"></a>
 
-#### Temperature after an isentropic pressure change of air — `isentropic_temperature_pressure_air`
+#### Temperature after an isentropic pressure change of air, `isentropic_temperature_pressure_air`
 
-One equation links final temperature (T2), initial temperature (T1), final pressure (P2) and initial pressure (P1). Give all but one of them and it is solved for the one left out — by default final temperature (T2).
+One equation links final temperature (T2), initial temperature (T1), final pressure (P2) and initial pressure (P1). Give all but one of them and it is solved for the one left out, by default final temperature (T2).
 
 $$
 T_{2} = T_{1} \left(\frac{P_{2}}{P_{1}}\right)^{\frac{2}{7}}
@@ -1975,9 +1923,9 @@ final temperature (T2) = 543.4341986 K
 
 <a id="isentropic_temperature_volume_air"></a>
 
-#### Temperature after an isentropic volume change of air — `isentropic_temperature_volume_air`
+#### Temperature after an isentropic volume change of air, `isentropic_temperature_volume_air`
 
-One equation links final temperature (T2), initial temperature (T1), initial volume (V1) and final volume (V2). Give all but one of them and it is solved for the one left out — by default final temperature (T2).
+One equation links final temperature (T2), initial temperature (T1), initial volume (V1) and final volume (V2). Give all but one of them and it is solved for the one left out, by default final temperature (T2).
 
 $$
 T_{2} = T_{1} \left(\frac{V_{1}}{V_{2}}\right)^{\frac{2}{5}}
@@ -2006,9 +1954,9 @@ final temperature (T2) = 689.219013 K
 
 <a id="isothermal_work_ideal_gas"></a>
 
-#### Work done by an ideal gas in a reversible isothermal process — `isothermal_work_ideal_gas`
+#### Work done by an ideal gas in a reversible isothermal process, `isothermal_work_ideal_gas`
 
-One equation links work done by the gas (W), amount of gas (n), Gas constant (R), constant absolute temperature (T), final volume (V2) and initial volume (V1). Give all but one of them and it is solved for the one left out — by default work done by the gas (W).
+One equation links work done by the gas (W), amount of gas (n), Gas constant (R), constant absolute temperature (T), final volume (V2) and initial volume (V1). Give all but one of them and it is solved for the one left out, by default work done by the gas (W).
 
 $$
 W = n R T \ln\left(\frac{V_{2}}{V_{1}}\right)
@@ -2043,9 +1991,9 @@ work done by the gas (W) = 1728.943896 J
 
 <a id="effectiveness_phase_change"></a>
 
-#### Effectiveness of a heat exchanger with one stream changing phase — `effectiveness_phase_change`
+#### Effectiveness of a heat exchanger with one stream changing phase, `effectiveness_phase_change`
 
-One equation links heat exchanger effectiveness (eps) and number of transfer units UA/Cmin (N). Give all but one of them and it is solved for the one left out — by default heat exchanger effectiveness (eps).
+One equation links heat exchanger effectiveness (eps) and number of transfer units UA/Cmin (N). Give all but one of them and it is solved for the one left out, by default heat exchanger effectiveness (eps).
 
 $$
 \varepsilon = 1 - e^{-N}
@@ -2053,8 +2001,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `N` | in | number of transfer units UA/Cmin | — |
-| `eps` | out | heat exchanger effectiveness | — |
+| `N` | in | number of transfer units UA/Cmin | - |
+| `eps` | out | heat exchanger effectiveness | - |
 
 **Applies when:** one stream at constant temperature (Cr = 0); condensers and evaporators, any flow arrangement.
 
@@ -2070,9 +2018,9 @@ heat exchanger effectiveness (eps) = 0.8646647168
 
 <a id="effectiveness_parallel_flow"></a>
 
-#### Effectiveness of a parallel-flow heat exchanger — `effectiveness_parallel_flow`
+#### Effectiveness of a parallel-flow heat exchanger, `effectiveness_parallel_flow`
 
-One equation links heat exchanger effectiveness (eps), number of transfer units UA/Cmin (N) and capacity rate ratio Cmin/Cmax (Cr). Give all but one of them and it is solved for the one left out — by default heat exchanger effectiveness (eps).
+One equation links heat exchanger effectiveness (eps), number of transfer units UA/Cmin (N) and capacity rate ratio Cmin/Cmax (Cr). Give all but one of them and it is solved for the one left out, by default heat exchanger effectiveness (eps).
 
 $$
 \varepsilon = \frac{1 - e^{-N \left(1 + C_{r}\right)}}{1 + C_{r}}
@@ -2080,9 +2028,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `N` | in | number of transfer units UA/Cmin | — |
-| `Cr` | in | capacity rate ratio Cmin/Cmax | — |
-| `eps` | out | heat exchanger effectiveness | — |
+| `N` | in | number of transfer units UA/Cmin | - |
+| `Cr` | in | capacity rate ratio Cmin/Cmax | - |
+| `eps` | out | heat exchanger effectiveness | - |
 
 **Applies when:** steady flow, constant properties; pure parallel-flow (co-current) exchangers.
 
@@ -2099,9 +2047,9 @@ In the worked example, N = 1 1, Cr = 0.5 1 go through the equation above and giv
 
 <a id="sensible_heat_rate"></a>
 
-#### Heat added to a flowing stream (steady-flow energy balance) — `sensible_heat_rate`
+#### Heat added to a flowing stream (steady-flow energy balance), `sensible_heat_rate`
 
-One equation links rate of heat transfer (Q), mass flow rate of the stream (mdot), specific heat of the fluid (cp), outlet temperature (Tout) and inlet temperature (Tin). Give all but one of them and it is solved for the one left out — by default rate of heat transfer (Q).
+One equation links rate of heat transfer (Q), mass flow rate of the stream (mdot), specific heat of the fluid (cp), outlet temperature (Tout) and inlet temperature (Tin). Give all but one of them and it is solved for the one left out, by default rate of heat transfer (Q).
 
 $$
 Q = \text{mdot} c_{p} \left(T_{\text{out}} - T_{\text{in}}\right)
@@ -2132,7 +2080,7 @@ rate of heat transfer (Q) = 83600 W
 
 <a id="hx_effectiveness_ntu"></a>
 
-#### Heat exchanger rating by the effectiveness-NTU method — `hx_effectiveness_ntu`
+#### Heat exchanger rating by the effectiveness-NTU method, `hx_effectiveness_ntu`
 
 Heat duty, outlet temperatures, effectiveness and NTU of a counterflow or parallel-flow exchanger.
 
@@ -2147,12 +2095,12 @@ $$
 | `UA` | in | overall conductance U A | W/K |
 | `Th_in` | in | hot inlet temperature | K |
 | `Tc_in` | in | cold inlet temperature | K |
-| `arrangement` | in | flow arrangement | — |
+| `arrangement` | in | flow arrangement | - |
 | `Q` | out | heat transfer rate | W |
 | `Th_out` | out | hot outlet temperature | K |
 | `Tc_out` | out | cold outlet temperature | K |
-| `effectiveness` | out | effectiveness | — |
-| `NTU` | out | number of transfer units | — |
+| `effectiveness` | out | effectiveness | - |
+| `NTU` | out | number of transfer units | - |
 
 **Applies when:** positive capacity rates and UA; hot inlet hotter than cold inlet.
 
@@ -2177,9 +2125,9 @@ NTU = 1.5
 
 <a id="heat_rate_effectiveness"></a>
 
-#### Heat transfer rate from the effectiveness — `heat_rate_effectiveness`
+#### Heat transfer rate from the effectiveness: `heat_rate_effectiveness`
 
-One equation links rate of heat transfer (Q), heat exchanger effectiveness (eps), smaller of the two heat capacity rates (m cp) (Cmin), inlet temperature of the hot fluid (Thi) and inlet temperature of the cold fluid (Tci). Give all but one of them and it is solved for the one left out — by default rate of heat transfer (Q).
+One equation links rate of heat transfer (Q), heat exchanger effectiveness (eps), smaller of the two heat capacity rates (m cp) (Cmin), inlet temperature of the hot fluid (Thi) and inlet temperature of the cold fluid (Tci). Give all but one of them and it is solved for the one left out, by default rate of heat transfer (Q).
 
 $$
 Q = \varepsilon C_{\text{min}} \left(\text{Thi} - \text{Tci}\right)
@@ -2187,7 +2135,7 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `eps` | in | heat exchanger effectiveness | — |
+| `eps` | in | heat exchanger effectiveness | - |
 | `Cmin` | in | smaller of the two heat capacity rates (m cp) | W/K |
 | `Thi` | in | inlet temperature of the hot fluid | K |
 | `Tci` | in | inlet temperature of the cold fluid | K |
@@ -2210,7 +2158,7 @@ rate of heat transfer (Q) = 144000 W
 
 <a id="lmtd"></a>
 
-#### Log-mean temperature difference of a heat exchanger — `lmtd`
+#### Log-mean temperature difference of a heat exchanger, `lmtd`
 
 The LMTD of a counterflow or parallel-flow exchanger from the four terminal temperatures.
 
@@ -2224,7 +2172,7 @@ $$
 | `Th_out` | in | hot stream outlet temperature | K |
 | `Tc_in` | in | cold stream inlet temperature | K |
 | `Tc_out` | in | cold stream outlet temperature | K |
-| `arrangement` | in | flow arrangement | — |
+| `arrangement` | in | flow arrangement | - |
 | `lmtd` | out | log-mean temperature difference | K |
 | `dT1` | out | temperature difference at the hot-inlet end | K |
 | `dT2` | out | temperature difference at the other end | K |
@@ -2249,9 +2197,9 @@ dT2 = 60 K
 
 <a id="ntu_definition"></a>
 
-#### Number of transfer units of a heat exchanger — `ntu_definition`
+#### Number of transfer units of a heat exchanger, `ntu_definition`
 
-One equation links number of transfer units UA/Cmin (N), overall heat transfer coefficient (U), heat transfer area (A) and smaller of the two heat capacity rates (m cp) (Cmin). Give all but one of them and it is solved for the one left out — by default number of transfer units UA/Cmin (N).
+One equation links number of transfer units UA/Cmin (N), overall heat transfer coefficient (U), heat transfer area (A) and smaller of the two heat capacity rates (m cp) (Cmin). Give all but one of them and it is solved for the one left out, by default number of transfer units UA/Cmin (N).
 
 $$
 N = \frac{U A}{C_{\text{min}}}
@@ -2262,7 +2210,7 @@ $$
 | `U` | in | overall heat transfer coefficient | W/(m^2*K) |
 | `A` | in | heat transfer area | m^2 |
 | `Cmin` | in | smaller of the two heat capacity rates (m cp) | W/K |
-| `N` | out | number of transfer units UA/Cmin | — |
+| `N` | out | number of transfer units UA/Cmin | - |
 
 **Applies when:** U uniform over the area; the effectiveness-NTU method.
 
@@ -2282,9 +2230,9 @@ number of transfer units UA/Cmin (N) = 2.5
 
 <a id="grashof_number"></a>
 
-#### Grashof number — `grashof_number`
+#### Grashof number: `grashof_number`
 
-One equation links Grashof number (Gr), Acceleration (g), volumetric thermal expansion coefficient of the fluid (beta), surface temperature (Ts), temperature of the fluid far from the surface (Tinf), height of the plate (characteristic length) (L) and kinematic viscosity of the fluid (nu). Give all but one of them and it is solved for the one left out — by default Grashof number (Gr).
+One equation links Grashof number (Gr), Acceleration (g), volumetric thermal expansion coefficient of the fluid (beta), surface temperature (Ts), temperature of the fluid far from the surface (Tinf), height of the plate (characteristic length) (L) and kinematic viscosity of the fluid (nu). Give all but one of them and it is solved for the one left out, by default Grashof number (Gr).
 
 $$
 \mathrm{Gr} = \frac{g \beta \left(T_{s} - \text{Tinf}\right) L^{3}}{\nu^{2}}
@@ -2298,7 +2246,7 @@ $$
 | `Tinf` | in | temperature of the fluid far from the surface | K |
 | `L` | in | height of the plate (characteristic length) | m |
 | `nu` | in | kinematic viscosity of the fluid | m^2/s |
-| `Gr` | out | Grashof number | — |
+| `Gr` | out | Grashof number | - |
 
 **Applies when:** Boussinesq approximation; surface hotter than the fluid; buoyancy-driven flow next to a heated or cooled surface.
 
@@ -2319,9 +2267,9 @@ Grashof number (Gr) = 474051928.7
 
 <a id="rayleigh_number"></a>
 
-#### Rayleigh number — `rayleigh_number`
+#### Rayleigh number: `rayleigh_number`
 
-One equation links Rayleigh number (Ra), Grashof number (Gr) and Prandtl number of the fluid (Pr). Give all but one of them and it is solved for the one left out — by default Rayleigh number (Ra).
+One equation links Rayleigh number (Ra), Grashof number (Gr) and Prandtl number of the fluid (Pr). Give all but one of them and it is solved for the one left out, by default Rayleigh number (Ra).
 
 $$
 \mathrm{Ra} = \mathrm{Gr} \mathrm{Pr}
@@ -2329,9 +2277,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `Gr` | in | Grashof number | — |
-| `Pr` | in | Prandtl number of the fluid | — |
-| `Ra` | out | Rayleigh number | — |
+| `Gr` | in | Grashof number | - |
+| `Pr` | in | Prandtl number of the fluid | - |
+| `Ra` | out | Rayleigh number | - |
 
 **Applies when:** properties at the film temperature; natural convection correlations.
 
@@ -2350,9 +2298,9 @@ Rayleigh number (Ra) = 71000000
 
 <a id="froude_number"></a>
 
-#### Froude number of an open-channel flow — `froude_number`
+#### Froude number of an open-channel flow: `froude_number`
 
-One equation links Froude number (Fr), mean flow velocity (v), Acceleration (g) and flow depth (h). Give all but one of them and it is solved for the one left out — by default Froude number (Fr).
+One equation links Froude number (Fr), mean flow velocity (v), Acceleration (g) and flow depth (h). Give all but one of them and it is solved for the one left out, by default Froude number (Fr).
 
 $$
 \mathrm{Fr} = \frac{v}{\sqrt{g h}}
@@ -2363,7 +2311,7 @@ $$
 | `v` | in | mean flow velocity | m/s |
 | `g` | in | Acceleration (optional) | m/s^2 |
 | `h` | in | flow depth | m |
-| `Fr` | out | Froude number | — |
+| `Fr` | out | Froude number | - |
 
 **Applies when:** rectangular channel (hydraulic depth = flow depth); free-surface flow in a channel or river.
 
@@ -2383,9 +2331,9 @@ Froude number (Fr) = 1.354802267
 
 <a id="blasius_friction_factor"></a>
 
-#### Blasius friction factor for turbulent flow in a smooth pipe — `blasius_friction_factor`
+#### Blasius friction factor for turbulent flow in a smooth pipe, `blasius_friction_factor`
 
-One equation links Darcy friction factor (f) and Reynolds number (Re). Give all but one of them and it is solved for the one left out — by default Darcy friction factor (f).
+One equation links Darcy friction factor (f) and Reynolds number (Re). Give all but one of them and it is solved for the one left out, by default Darcy friction factor (f).
 
 $$
 f = 0.3164 \mathrm{Re}^{\frac{-1}{4}}
@@ -2393,8 +2341,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `Re` | in | Reynolds number | — |
-| `f` | out | Darcy friction factor | — |
+| `Re` | in | Reynolds number | - |
+| `f` | out | Darcy friction factor | - |
 
 **Applies when:** fully developed turbulent flow in a hydraulically smooth circular pipe; Darcy friction factor; 4000 < Re < 100000 in a smooth pipe.
 
@@ -2410,7 +2358,7 @@ Darcy friction factor (f) = 0.02115894325
 
 <a id="colebrook_friction_factor"></a>
 
-#### Darcy friction factor from the Colebrook equation — `colebrook_friction_factor`
+#### Darcy friction factor from the Colebrook equation, `colebrook_friction_factor`
 
 Solve the implicit Colebrook-White equation for the Darcy friction factor of turbulent pipe flow.
 
@@ -2420,9 +2368,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `Re` | in | Reynolds number (turbulent, at least 4000) | — |
-| `eD` | in | relative roughness (roughness / diameter) | — |
-| `f` | out | Darcy friction factor | — |
+| `Re` | in | Reynolds number (turbulent, at least 4000) | - |
+| `eD` | in | relative roughness (roughness / diameter) | - |
+| `f` | out | Darcy friction factor | - |
 
 **Applies when:** Re >= 4000; 0 <= eD <= 0.05.
 
@@ -2439,9 +2387,9 @@ f = 0.01900543522
 
 <a id="laminar_friction_factor"></a>
 
-#### Darcy friction factor in laminar pipe flow — `laminar_friction_factor`
+#### Darcy friction factor in laminar pipe flow, `laminar_friction_factor`
 
-One equation links Darcy friction factor (f) and Reynolds number (Re). Give all but one of them and it is solved for the one left out — by default Darcy friction factor (f).
+One equation links Darcy friction factor (f) and Reynolds number (Re). Give all but one of them and it is solved for the one left out, by default Darcy friction factor (f).
 
 $$
 f = \frac{64}{\mathrm{Re}}
@@ -2449,8 +2397,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `Re` | in | Reynolds number | — |
-| `f` | out | Darcy friction factor | — |
+| `Re` | in | Reynolds number | - |
+| `f` | out | Darcy friction factor | - |
 
 **Applies when:** fully developed laminar flow in a circular pipe; Darcy (not Fanning) friction factor; Re below about 2300 in a circular pipe.
 
@@ -2466,9 +2414,9 @@ Darcy friction factor (f) = 0.05333333333
 
 <a id="darcy_weisbach_head_loss"></a>
 
-#### Darcy-Weisbach head loss in a pipe — `darcy_weisbach_head_loss`
+#### Darcy-Weisbach head loss in a pipe: `darcy_weisbach_head_loss`
 
-One equation links head loss to friction (hL), Darcy friction factor (f), length of the pipe (L), mean flow velocity (v), Acceleration (g) and inner diameter of the pipe (D). Give all but one of them and it is solved for the one left out — by default head loss to friction (hL).
+One equation links head loss to friction (hL), Darcy friction factor (f), length of the pipe (L), mean flow velocity (v), Acceleration (g) and inner diameter of the pipe (D). Give all but one of them and it is solved for the one left out, by default head loss to friction (hL).
 
 $$
 h_{L} = \frac{f L v^{2}}{2 g D}
@@ -2476,7 +2424,7 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `f` | in | Darcy friction factor | — |
+| `f` | in | Darcy friction factor | - |
 | `L` | in | length of the pipe | m |
 | `v` | in | mean flow velocity | m/s |
 | `g` | in | Acceleration (optional) | m/s^2 |
@@ -2501,9 +2449,9 @@ head loss to friction (hL) = 4.078864852 m
 
 <a id="darcy_weisbach_pressure_drop"></a>
 
-#### Darcy-Weisbach pressure drop in a pipe — `darcy_weisbach_pressure_drop`
+#### Darcy-Weisbach pressure drop in a pipe: `darcy_weisbach_pressure_drop`
 
-One equation links frictional pressure drop (dP), Darcy friction factor (f), length of the pipe (L), density of the fluid (rho), mean flow velocity (v) and inner diameter of the pipe (D). Give all but one of them and it is solved for the one left out — by default frictional pressure drop (dP).
+One equation links frictional pressure drop (dP), Darcy friction factor (f), length of the pipe (L), density of the fluid (rho), mean flow velocity (v) and inner diameter of the pipe (D). Give all but one of them and it is solved for the one left out, by default frictional pressure drop (dP).
 
 $$
 d_{P} = \frac{f L \rho v^{2}}{2 D}
@@ -2511,7 +2459,7 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `f` | in | Darcy friction factor | — |
+| `f` | in | Darcy friction factor | - |
 | `L` | in | length of the pipe | m |
 | `rho` | in | density of the fluid | kg/m^3 |
 | `v` | in | mean flow velocity | m/s |
@@ -2536,9 +2484,9 @@ frictional pressure drop (dP) = 17617.5 Pa
 
 <a id="haaland_friction_factor"></a>
 
-#### Haaland explicit friction factor for turbulent pipe flow — `haaland_friction_factor`
+#### Haaland explicit friction factor for turbulent pipe flow, `haaland_friction_factor`
 
-One equation links Darcy friction factor (f), absolute roughness of the pipe wall (eps), inner diameter of the pipe (D) and Reynolds number (Re). Give all but one of them and it is solved for the one left out — by default Darcy friction factor (f).
+One equation links Darcy friction factor (f), absolute roughness of the pipe wall (eps), inner diameter of the pipe (D) and Reynolds number (Re). Give all but one of them and it is solved for the one left out, by default Darcy friction factor (f).
 
 $$
 f = \frac{1}{\left(\frac{1.8 \ln\left(\left(\frac{\varepsilon}{3.7 D}\right)^{\frac{111}{100}} + \frac{6.9}{\mathrm{Re}}\right)}{\ln\left(10\right)}\right)^{2}}
@@ -2548,8 +2496,8 @@ $$
 |---|---|---|---|
 | `eps` | in | absolute roughness of the pipe wall | m |
 | `D` | in | inner diameter of the pipe | m |
-| `Re` | in | Reynolds number | — |
-| `f` | out | Darcy friction factor | — |
+| `Re` | in | Reynolds number | - |
+| `f` | out | Darcy friction factor | - |
 
 **Applies when:** fully developed turbulent flow in a circular pipe; Darcy friction factor; 4000 < Re < 1e8 and eps/D < 0.05.
 
@@ -2567,9 +2515,9 @@ Darcy friction factor (f) = 0.02766318556
 
 <a id="hagen_poiseuille"></a>
 
-#### Hagen-Poiseuille flow rate in laminar pipe flow — `hagen_poiseuille`
+#### Hagen-Poiseuille flow rate in laminar pipe flow, `hagen_poiseuille`
 
-One equation links volume flow rate (Q), inner diameter of the pipe (D), pressure drop along the pipe (dP), dynamic viscosity of the fluid (mu) and length of the pipe (L). Give all but one of them and it is solved for the one left out — by default volume flow rate (Q).
+One equation links volume flow rate (Q), inner diameter of the pipe (D), pressure drop along the pipe (dP), dynamic viscosity of the fluid (mu) and length of the pipe (L). Give all but one of them and it is solved for the one left out, by default volume flow rate (Q).
 
 $$
 Q = \frac{\pi D^{4} d_{P}}{128 \mu L}
@@ -2600,9 +2548,9 @@ volume flow rate (Q) = 9.817477042e-06 m^3/s
 
 <a id="kinematic_viscosity"></a>
 
-#### Kinematic viscosity from dynamic viscosity and density — `kinematic_viscosity`
+#### Kinematic viscosity from dynamic viscosity and density, `kinematic_viscosity`
 
-One equation links kinematic viscosity (nu), dynamic viscosity of the fluid (mu) and density of the fluid (rho). Give all but one of them and it is solved for the one left out — by default kinematic viscosity (nu).
+One equation links kinematic viscosity (nu), dynamic viscosity of the fluid (mu) and density of the fluid (rho). Give all but one of them and it is solved for the one left out, by default kinematic viscosity (nu).
 
 $$
 \nu = \frac{\mu}{\rho}
@@ -2629,9 +2577,9 @@ kinematic viscosity (nu) = 2.5e-06 m^2/s
 
 <a id="minor_loss_head"></a>
 
-#### Minor head loss in a fitting — `minor_loss_head`
+#### Minor head loss in a fitting: `minor_loss_head`
 
-One equation links head loss across the fitting (hL), loss coefficient of the fitting (K), mean flow velocity (v) and Acceleration (g). Give all but one of them and it is solved for the one left out — by default head loss across the fitting (hL).
+One equation links head loss across the fitting (hL), loss coefficient of the fitting (K), mean flow velocity (v) and Acceleration (g). Give all but one of them and it is solved for the one left out, by default head loss across the fitting (hL).
 
 $$
 h_{L} = \frac{K v^{2}}{2 g}
@@ -2639,7 +2587,7 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `K` | in | loss coefficient of the fitting | — |
+| `K` | in | loss coefficient of the fitting | - |
 | `v` | in | mean flow velocity | m/s |
 | `g` | in | Acceleration (optional) | m/s^2 |
 | `hL` | out | head loss across the fitting | m |
@@ -2660,9 +2608,9 @@ head loss across the fitting (hL) = 4.588722958 m
 
 <a id="reynolds_number"></a>
 
-#### Reynolds number from density, velocity, diameter and viscosity — `reynolds_number`
+#### Reynolds number from density, velocity, diameter and viscosity, `reynolds_number`
 
-One equation links Reynolds number (Re), density of the fluid (rho), mean flow velocity (v), pipe or body diameter (D) and dynamic viscosity of the fluid (mu). Give all but one of them and it is solved for the one left out — by default Reynolds number (Re).
+One equation links Reynolds number (Re), density of the fluid (rho), mean flow velocity (v), pipe or body diameter (D) and dynamic viscosity of the fluid (mu). Give all but one of them and it is solved for the one left out, by default Reynolds number (Re).
 
 $$
 \mathrm{Re} = \frac{\rho v D}{\mu}
@@ -2674,7 +2622,7 @@ $$
 | `v` | in | mean flow velocity | m/s |
 | `D` | in | pipe or body diameter | m |
 | `mu` | in | dynamic viscosity of the fluid | Pa*s |
-| `Re` | out | Reynolds number | — |
+| `Re` | out | Reynolds number | - |
 
 **Applies when:** Newtonian fluid; the diameter as the characteristic length; flow in a circular pipe or past a sphere or cylinder of that diameter.
 
@@ -2693,9 +2641,9 @@ Reynolds number (Re) = 74850
 
 <a id="reynolds_number_kinematic"></a>
 
-#### Reynolds number from velocity, diameter and kinematic viscosity — `reynolds_number_kinematic`
+#### Reynolds number from velocity, diameter and kinematic viscosity, `reynolds_number_kinematic`
 
-One equation links Reynolds number (Re), mean flow velocity (v), pipe or body diameter (D) and kinematic viscosity of the fluid (nu). Give all but one of them and it is solved for the one left out — by default Reynolds number (Re).
+One equation links Reynolds number (Re), mean flow velocity (v), pipe or body diameter (D) and kinematic viscosity of the fluid (nu). Give all but one of them and it is solved for the one left out, by default Reynolds number (Re).
 
 $$
 \mathrm{Re} = \frac{v D}{\nu}
@@ -2706,7 +2654,7 @@ $$
 | `v` | in | mean flow velocity | m/s |
 | `D` | in | pipe or body diameter | m |
 | `nu` | in | kinematic viscosity of the fluid | m^2/s |
-| `Re` | out | Reynolds number | — |
+| `Re` | out | Reynolds number | - |
 
 **Applies when:** Newtonian fluid; the diameter as the characteristic length; flow in a circular pipe or past a sphere or cylinder of that diameter.
 
@@ -2724,9 +2672,9 @@ Reynolds number (Re) = 20000
 
 <a id="swamee_jain_friction_factor"></a>
 
-#### Swamee-Jain explicit friction factor for turbulent pipe flow — `swamee_jain_friction_factor`
+#### Swamee-Jain explicit friction factor for turbulent pipe flow, `swamee_jain_friction_factor`
 
-One equation links Darcy friction factor (f), absolute roughness of the pipe wall (eps), inner diameter of the pipe (D) and Reynolds number (Re). Give all but one of them and it is solved for the one left out — by default Darcy friction factor (f).
+One equation links Darcy friction factor (f), absolute roughness of the pipe wall (eps), inner diameter of the pipe (D) and Reynolds number (Re). Give all but one of them and it is solved for the one left out, by default Darcy friction factor (f).
 
 $$
 f = \frac{0.25}{\left(\frac{\ln\left(\frac{\varepsilon}{3.7 D} + \left(\frac{6.97}{\mathrm{Re}}\right)^{\frac{9}{10}}\right)}{\ln\left(10\right)}\right)^{2}}
@@ -2736,8 +2684,8 @@ $$
 |---|---|---|---|
 | `eps` | in | absolute roughness of the pipe wall | m |
 | `D` | in | inner diameter of the pipe | m |
-| `Re` | in | Reynolds number | — |
-| `f` | out | Darcy friction factor | — |
+| `Re` | in | Reynolds number | - |
+| `f` | out | Darcy friction factor | - |
 
 **Applies when:** fully developed turbulent flow in a circular pipe; Darcy friction factor; 5000 < Re < 1e8 and 1e-6 < eps/D < 0.01.
 
@@ -2757,7 +2705,7 @@ Darcy friction factor (f) = 0.02019568646
 
 <a id="dew_point_temperature"></a>
 
-#### Dew-point temperature from dry-bulb temperature and relative humidity — `dew_point_temperature`
+#### Dew-point temperature from dry-bulb temperature and relative humidity, `dew_point_temperature`
 
 The temperature at which moist air of a given relative humidity becomes saturated on cooling.
 
@@ -2768,7 +2716,7 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `T` | in | dry-bulb temperature | K |
-| `RH` | in | relative humidity (fraction, or % written) | — |
+| `RH` | in | relative humidity (fraction, or % written) | - |
 | `T_dew` | out | dew-point temperature | K |
 | `p_v` | out | partial pressure of the water vapour | Pa |
 
@@ -2788,7 +2736,7 @@ p_v = 1901.529882 Pa
 
 <a id="humidity_ratio_from_relative_humidity"></a>
 
-#### Humidity ratio from temperature, relative humidity and pressure — `humidity_ratio_from_relative_humidity`
+#### Humidity ratio from temperature, relative humidity and pressure, `humidity_ratio_from_relative_humidity`
 
 Mass of water vapour per kilogram of dry air in moist air of a given relative humidity.
 
@@ -2799,9 +2747,9 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `T` | in | dry-bulb temperature | K |
-| `RH` | in | relative humidity (fraction, or % written) | — |
+| `RH` | in | relative humidity (fraction, or % written) | - |
 | `P` | in | total (barometric) pressure | Pa |
-| `W` | out | humidity ratio (kg/kg dry air) | — |
+| `W` | out | humidity ratio (kg/kg dry air) | - |
 | `p_v` | out | partial pressure of the water vapour | Pa |
 
 **Applies when:** 0 < RH <= 1; P greater than the vapour pressure.
@@ -2821,9 +2769,9 @@ p_v = 2123.015122 Pa
 
 <a id="humidity_ratio_vapour_pressure"></a>
 
-#### Humidity ratio from the partial pressure of water vapour — `humidity_ratio_vapour_pressure`
+#### Humidity ratio from the partial pressure of water vapour, `humidity_ratio_vapour_pressure`
 
-One equation links humidity ratio (kg water vapour per kg dry air) (W), partial pressure of water vapour (pv) and total (barometric) pressure of the moist air (P). Give all but one of them and it is solved for the one left out — by default humidity ratio (kg water vapour per kg dry air) (W).
+One equation links humidity ratio (kg water vapour per kg dry air) (W), partial pressure of water vapour (pv) and total (barometric) pressure of the moist air (P). Give all but one of them and it is solved for the one left out, by default humidity ratio (kg water vapour per kg dry air) (W).
 
 $$
 W = \frac{0.621945 p_{v}}{P - p_{v}}
@@ -2833,7 +2781,7 @@ $$
 |---|---|---|---|
 | `pv` | in | partial pressure of water vapour | Pa |
 | `P` | in | total (barometric) pressure of the moist air | Pa |
-| `W` | out | humidity ratio (kg water vapour per kg dry air) | — |
+| `W` | out | humidity ratio (kg water vapour per kg dry air) | - |
 
 **Applies when:** moist air as an ideal-gas mixture; ratio of molar masses 0.621945; atmospheric air-conditioning and drying calculations.
 
@@ -2850,7 +2798,7 @@ humidity ratio (kg water vapour per kg dry air) (W) = 0.01252343317
 
 <a id="saturation_vapour_pressure"></a>
 
-#### Saturation pressure of water vapour — `saturation_vapour_pressure`
+#### Saturation pressure of water vapour: `saturation_vapour_pressure`
 
 The saturation pressure of water vapour over liquid water (above 0.01 °C) or ice, -100 °C to 200 °C.
 
@@ -2877,9 +2825,9 @@ p_sat = 3169.21647 Pa
 
 <a id="moist_air_enthalpy"></a>
 
-#### Specific enthalpy of moist air — `moist_air_enthalpy`
+#### Specific enthalpy of moist air: `moist_air_enthalpy`
 
-One equation links enthalpy per kilogram of dry air (h), dry-bulb temperature (T), humidity ratio (kg water vapour per kg dry air) (W), Specific heat (cpa), Specific heat (cpv), Latent heat (hg) and Temperature (T0). Give all but one of them and it is solved for the one left out — by default enthalpy per kilogram of dry air (h).
+One equation links enthalpy per kilogram of dry air (h), dry-bulb temperature (T), humidity ratio (kg water vapour per kg dry air) (W), Specific heat (cpa), Specific heat (cpv), Latent heat (hg) and Temperature (T0). Give all but one of them and it is solved for the one left out, by default enthalpy per kilogram of dry air (h).
 
 $$
 h = \text{cpa} \left(T - T_{0}\right) + W \left(h_{g} + \text{cpv} \left(T - T_{0}\right)\right)
@@ -2888,7 +2836,7 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `T` | in | dry-bulb temperature | K |
-| `W` | in | humidity ratio (kg water vapour per kg dry air) | — |
+| `W` | in | humidity ratio (kg water vapour per kg dry air) | - |
 | `cpa` | in | Specific heat (optional) | J/(kg*K) |
 | `cpv` | in | Specific heat (optional) | J/(kg*K) |
 | `hg` | in | Latent heat (optional) | J/kg |
@@ -2914,9 +2862,9 @@ enthalpy per kilogram of dry air (h) = 50625 J/kg
 
 <a id="moist_air_specific_volume"></a>
 
-#### Specific volume of moist air per kilogram of dry air — `moist_air_specific_volume`
+#### Specific volume of moist air per kilogram of dry air, `moist_air_specific_volume`
 
-One equation links specific volume per kilogram of dry air (v), dry-bulb temperature (T), humidity ratio (kg water vapour per kg dry air) (W), total (barometric) pressure of the moist air (P) and Specific gas constant (Ra). Give all but one of them and it is solved for the one left out — by default specific volume per kilogram of dry air (v).
+One equation links specific volume per kilogram of dry air (v), dry-bulb temperature (T), humidity ratio (kg water vapour per kg dry air) (W), total (barometric) pressure of the moist air (P) and Specific gas constant (Ra). Give all but one of them and it is solved for the one left out, by default specific volume per kilogram of dry air (v).
 
 $$
 v = \frac{\mathrm{Ra} T \left(1 + 1.607858 W\right)}{P}
@@ -2925,7 +2873,7 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `T` | in | dry-bulb temperature | K |
-| `W` | in | humidity ratio (kg water vapour per kg dry air) | — |
+| `W` | in | humidity ratio (kg water vapour per kg dry air) | - |
 | `P` | in | total (barometric) pressure of the moist air | Pa |
 | `Ra` | in | Specific gas constant (optional) | J/(kg*K) |
 | `v` | out | specific volume per kilogram of dry air | m^3/kg |
@@ -2947,7 +2895,7 @@ specific volume per kilogram of dry air (v) = 0.8582048108 m^3/kg
 
 <a id="wet_bulb_temperature"></a>
 
-#### Thermodynamic wet-bulb temperature — `wet_bulb_temperature`
+#### Thermodynamic wet-bulb temperature: `wet_bulb_temperature`
 
 The wet-bulb temperature of moist air from its dry-bulb temperature, relative humidity and pressure.
 
@@ -2958,10 +2906,10 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `T` | in | dry-bulb temperature | K |
-| `RH` | in | relative humidity (fraction, or % written) | — |
+| `RH` | in | relative humidity (fraction, or % written) | - |
 | `P` | in | total (barometric) pressure | Pa |
 | `T_wb` | out | thermodynamic wet-bulb temperature | K |
-| `W` | out | humidity ratio | — |
+| `W` | out | humidity ratio | - |
 
 **Applies when:** 0 < RH <= 1; 0 °C <= T <= 50 °C for the liquid-water branch.
 
@@ -2982,9 +2930,9 @@ W = 0.01060278119
 
 <a id="hydraulic_power"></a>
 
-#### Hydraulic power delivered to a fluid — `hydraulic_power`
+#### Hydraulic power delivered to a fluid: `hydraulic_power`
 
-One equation links power delivered to the fluid (P), density of the fluid (rho), Acceleration (g), volume flow rate (Q) and head added by the pump (H). Give all but one of them and it is solved for the one left out — by default power delivered to the fluid (P).
+One equation links power delivered to the fluid (P), density of the fluid (rho), Acceleration (g), volume flow rate (Q) and head added by the pump (H). Give all but one of them and it is solved for the one left out, by default power delivered to the fluid (P).
 
 $$
 P = \rho g Q H
@@ -3015,9 +2963,9 @@ power delivered to the fluid (P) = 9806.65 W
 
 <a id="pump_shaft_power"></a>
 
-#### Shaft power required by a pump — `pump_shaft_power`
+#### Shaft power required by a pump: `pump_shaft_power`
 
-One equation links shaft power required (P), density of the fluid (rho), Acceleration (g), volume flow rate (Q), head added by the pump (H) and pump efficiency (a fraction) (eta). Give all but one of them and it is solved for the one left out — by default shaft power required (P).
+One equation links shaft power required (P), density of the fluid (rho), Acceleration (g), volume flow rate (Q), head added by the pump (H) and pump efficiency (a fraction) (eta). Give all but one of them and it is solved for the one left out, by default shaft power required (P).
 
 $$
 P = \frac{\rho g Q H}{\eta}
@@ -3029,7 +2977,7 @@ $$
 | `g` | in | Acceleration (optional) | m/s^2 |
 | `Q` | in | volume flow rate | m^3/s |
 | `H` | in | head added by the pump | m |
-| `eta` | in | pump efficiency (a fraction) | — |
+| `eta` | in | pump efficiency (a fraction) | - |
 | `P` | out | shaft power required | W |
 
 **Applies when:** incompressible liquid; steady flow; efficiency given as a fraction; sizing the drive of a pump.
@@ -3052,9 +3000,9 @@ shaft power required (P) = 9193.734375 W
 
 <a id="blackbody_emissive_power"></a>
 
-#### Emissive power of a blackbody (Stefan-Boltzmann law) — `blackbody_emissive_power`
+#### Emissive power of a blackbody (Stefan-Boltzmann law), `blackbody_emissive_power`
 
-One equation links emissive power per unit area (E), Stefan boltzmann constant (sigma) and absolute temperature of the surface (T). Give all but one of them and it is solved for the one left out — by default emissive power per unit area (E).
+One equation links emissive power per unit area (E), Stefan boltzmann constant (sigma) and absolute temperature of the surface (T). Give all but one of them and it is solved for the one left out, by default emissive power per unit area (E).
 
 $$
 E = \sigma T^{4}
@@ -3081,9 +3029,9 @@ emissive power per unit area (E) = 56703.74419 W/m^2
 
 <a id="radiation_heat_transfer_coefficient"></a>
 
-#### Linearised radiation heat transfer coefficient — `radiation_heat_transfer_coefficient`
+#### Linearised radiation heat transfer coefficient, `radiation_heat_transfer_coefficient`
 
-One equation links radiation heat transfer coefficient (hr), surface emissivity (eps), Stefan boltzmann constant (sigma), surface temperature (Ts) and temperature of the surroundings (Tsur). Give all but one of them and it is solved for the one left out — by default radiation heat transfer coefficient (hr).
+One equation links radiation heat transfer coefficient (hr), surface emissivity (eps), Stefan boltzmann constant (sigma), surface temperature (Ts) and temperature of the surroundings (Tsur). Give all but one of them and it is solved for the one left out, by default radiation heat transfer coefficient (hr).
 
 $$
 h_{r} = \varepsilon \sigma \left(T_{s} + \text{Tsur}\right) \left(T_{s}^{2} + \text{Tsur}^{2}\right)
@@ -3091,7 +3039,7 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `eps` | in | surface emissivity | — |
+| `eps` | in | surface emissivity | - |
 | `sigma` | in | Stefan boltzmann constant (optional) | W/(m^2*K^4) |
 | `Ts` | in | surface temperature | K |
 | `Tsur` | in | temperature of the surroundings | K |
@@ -3114,9 +3062,9 @@ radiation heat transfer coefficient (hr) = 8.93083971 W/(m^2*K)
 
 <a id="radiation_parallel_plates"></a>
 
-#### Net radiation between two large parallel grey plates — `radiation_parallel_plates`
+#### Net radiation between two large parallel grey plates, `radiation_parallel_plates`
 
-One equation links net radiative heat flux from plate 1 to plate 2 (qf), Stefan boltzmann constant (sigma), temperature of the first plate (T1), temperature of the second plate (T2), emissivity of the first plate (e1) and emissivity of the second plate (e2). Give all but one of them and it is solved for the one left out — by default net radiative heat flux from plate 1 to plate 2 (qf).
+One equation links net radiative heat flux from plate 1 to plate 2 (qf), Stefan boltzmann constant (sigma), temperature of the first plate (T1), temperature of the second plate (T2), emissivity of the first plate (e1) and emissivity of the second plate (e2). Give all but one of them and it is solved for the one left out, by default net radiative heat flux from plate 1 to plate 2 (qf).
 
 $$
 q_{f} = \frac{\sigma \left(T_{1}^{4} - T_{2}^{4}\right)}{\frac{1}{e_{1}} + \frac{1}{e_{2}} - 1}
@@ -3127,8 +3075,8 @@ $$
 | `sigma` | in | Stefan boltzmann constant (optional) | W/(m^2*K^4) |
 | `T1` | in | temperature of the first plate | K |
 | `T2` | in | temperature of the second plate | K |
-| `e1` | in | emissivity of the first plate | — |
-| `e2` | in | emissivity of the second plate | — |
+| `e1` | in | emissivity of the first plate | - |
+| `e2` | in | emissivity of the second plate | - |
 | `qf` | out | net radiative heat flux from plate 1 to plate 2 | W/m^2 |
 
 **Applies when:** infinite parallel grey diffuse plates; no participating medium; closely spaced large plates.
@@ -3149,9 +3097,9 @@ net radiative heat flux from plate 1 to plate 2 (qf) = 11360.47188 W/m^2
 
 <a id="radiation_net_exchange"></a>
 
-#### Net radiation exchange of a small grey surface with large surroundings — `radiation_net_exchange`
+#### Net radiation exchange of a small grey surface with large surroundings, `radiation_net_exchange`
 
-One equation links rate of heat transfer (q), emissivity of the surface (eps), Stefan boltzmann constant (sigma), surface area (A), surface temperature (Ts) and temperature of the surroundings (Tsur). Give all but one of them and it is solved for the one left out — by default rate of heat transfer (q).
+One equation links rate of heat transfer (q), emissivity of the surface (eps), Stefan boltzmann constant (sigma), surface area (A), surface temperature (Ts) and temperature of the surroundings (Tsur). Give all but one of them and it is solved for the one left out, by default rate of heat transfer (q).
 
 $$
 q = \varepsilon \sigma A \left(T_{s}^{4} - \text{Tsur}^{4}\right)
@@ -3159,7 +3107,7 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `eps` | in | emissivity of the surface | — |
+| `eps` | in | emissivity of the surface | - |
 | `sigma` | in | Stefan boltzmann constant (optional) | W/(m^2*K^4) |
 | `A` | in | surface area | m^2 |
 | `Ts` | in | surface temperature | K |
@@ -3184,9 +3132,9 @@ rate of heat transfer (q) = 1233.873474 W
 
 <a id="wien_displacement"></a>
 
-#### Wien's displacement law — `wien_displacement`
+#### Wien's displacement law: `wien_displacement`
 
-One equation links wavelength of maximum spectral emission (lam), absolute temperature of the surface (T) and Wien constant (b). Give all but one of them and it is solved for the one left out — by default wavelength of maximum spectral emission (lam).
+One equation links wavelength of maximum spectral emission (lam), absolute temperature of the surface (T) and Wien constant (b). Give all but one of them and it is solved for the one left out, by default wavelength of maximum spectral emission (lam).
 
 $$
 \lambda = \frac{b}{T}
@@ -3215,9 +3163,9 @@ wavelength of maximum spectral emission (lam) = 4.996158543e-07 m
 
 <a id="carnot_efficiency"></a>
 
-#### Carnot efficiency of a reversible heat engine — `carnot_efficiency`
+#### Carnot efficiency of a reversible heat engine, `carnot_efficiency`
 
-One equation links Carnot (maximum) efficiency (eta), temperature of the cold reservoir (Tc) and temperature of the hot reservoir (Th). Give all but one of them and it is solved for the one left out — by default Carnot (maximum) efficiency (eta).
+One equation links Carnot (maximum) efficiency (eta), temperature of the cold reservoir (Tc) and temperature of the hot reservoir (Th). Give all but one of them and it is solved for the one left out, by default Carnot (maximum) efficiency (eta).
 
 $$
 \eta = 1 - \frac{T_{c}}{T_{h}}
@@ -3227,7 +3175,7 @@ $$
 |---|---|---|---|
 | `Tc` | in | temperature of the cold reservoir | K |
 | `Th` | in | temperature of the hot reservoir | K |
-| `eta` | out | Carnot (maximum) efficiency | — |
+| `eta` | out | Carnot (maximum) efficiency | - |
 
 **Applies when:** reversible cycle between two reservoirs; absolute temperatures; the upper limit of any heat engine between two temperatures.
 
@@ -3244,9 +3192,9 @@ Carnot (maximum) efficiency (eta) = 0.5
 
 <a id="carnot_cop_heat_pump"></a>
 
-#### Coefficient of performance of a Carnot heat pump — `carnot_cop_heat_pump`
+#### Coefficient of performance of a Carnot heat pump, `carnot_cop_heat_pump`
 
-One equation links coefficient of performance (heating) (cop), temperature of the cold reservoir (Tc) and temperature of the hot reservoir (Th). Give all but one of them and it is solved for the one left out — by default coefficient of performance (heating) (cop).
+One equation links coefficient of performance (heating) (cop), temperature of the cold reservoir (Tc) and temperature of the hot reservoir (Th). Give all but one of them and it is solved for the one left out, by default coefficient of performance (heating) (cop).
 
 $$
 \text{cop} = \frac{T_{h}}{T_{h} - T_{c}}
@@ -3256,7 +3204,7 @@ $$
 |---|---|---|---|
 | `Tc` | in | temperature of the cold reservoir | K |
 | `Th` | in | temperature of the hot reservoir | K |
-| `cop` | out | coefficient of performance (heating) | — |
+| `cop` | out | coefficient of performance (heating) | - |
 
 **Applies when:** reversible heat-pump cycle; absolute temperatures; the upper limit of a heat pump's COP.
 
@@ -3273,9 +3221,9 @@ coefficient of performance (heating) (cop) = 14.75
 
 <a id="carnot_cop_refrigerator"></a>
 
-#### Coefficient of performance of a Carnot refrigerator — `carnot_cop_refrigerator`
+#### Coefficient of performance of a Carnot refrigerator, `carnot_cop_refrigerator`
 
-One equation links coefficient of performance (cooling) (cop), temperature of the cold reservoir (Tc) and temperature of the hot reservoir (Th). Give all but one of them and it is solved for the one left out — by default coefficient of performance (cooling) (cop).
+One equation links coefficient of performance (cooling) (cop), temperature of the cold reservoir (Tc) and temperature of the hot reservoir (Th). Give all but one of them and it is solved for the one left out, by default coefficient of performance (cooling) (cop).
 
 $$
 \text{cop} = \frac{T_{c}}{T_{h} - T_{c}}
@@ -3285,7 +3233,7 @@ $$
 |---|---|---|---|
 | `Tc` | in | temperature of the cold reservoir | K |
 | `Th` | in | temperature of the hot reservoir | K |
-| `cop` | out | coefficient of performance (cooling) | — |
+| `cop` | out | coefficient of performance (cooling) | - |
 
 **Applies when:** reversible refrigeration cycle; absolute temperatures; the upper limit of a refrigerator's COP.
 
@@ -3302,9 +3250,9 @@ coefficient of performance (cooling) (cop) = 9
 
 <a id="brayton_efficiency_air"></a>
 
-#### Thermal efficiency of the air-standard Brayton cycle — `brayton_efficiency_air`
+#### Thermal efficiency of the air-standard Brayton cycle, `brayton_efficiency_air`
 
-One equation links thermal efficiency of the cycle (eta) and compressor pressure ratio (rp). Give all but one of them and it is solved for the one left out — by default thermal efficiency of the cycle (eta).
+One equation links thermal efficiency of the cycle (eta) and compressor pressure ratio (rp). Give all but one of them and it is solved for the one left out, by default thermal efficiency of the cycle (eta).
 
 $$
 \eta = 1 - r_{p}^{\frac{-2}{7}}
@@ -3312,8 +3260,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `rp` | in | compressor pressure ratio | — |
-| `eta` | out | thermal efficiency of the cycle | — |
+| `rp` | in | compressor pressure ratio | - |
+| `eta` | out | thermal efficiency of the cycle | - |
 
 **Applies when:** cold-air-standard: air as an ideal gas with gamma = 1.4; isentropic compressor and turbine; idealised gas-turbine cycles.
 
@@ -3329,9 +3277,9 @@ thermal efficiency of the cycle (eta) = 0.4820525321
 
 <a id="diesel_efficiency_air"></a>
 
-#### Thermal efficiency of the air-standard Diesel cycle — `diesel_efficiency_air`
+#### Thermal efficiency of the air-standard Diesel cycle, `diesel_efficiency_air`
 
-One equation links thermal efficiency of the cycle (eta), compression ratio V1/V2 (r) and cutoff ratio V3/V2 (rc). Give all but one of them and it is solved for the one left out — by default thermal efficiency of the cycle (eta).
+One equation links thermal efficiency of the cycle (eta), compression ratio V1/V2 (r) and cutoff ratio V3/V2 (rc). Give all but one of them and it is solved for the one left out, by default thermal efficiency of the cycle (eta).
 
 $$
 \eta = 1 - \frac{r^{\frac{-2}{5}} \left(r_{c}^{\frac{7}{5}} - 1\right)}{\frac{7 \left(r_{c} - 1\right)}{5}}
@@ -3339,9 +3287,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `r` | in | compression ratio V1/V2 | — |
-| `rc` | in | cutoff ratio V3/V2 | — |
-| `eta` | out | thermal efficiency of the cycle | — |
+| `r` | in | compression ratio V1/V2 | - |
+| `rc` | in | cutoff ratio V3/V2 | - |
+| `eta` | out | thermal efficiency of the cycle | - |
 
 **Applies when:** cold-air-standard: air as an ideal gas with gamma = 1.4; heat added at constant pressure; idealised compression-ignition engines.
 
@@ -3358,9 +3306,9 @@ thermal efficiency of the cycle (eta) = 0.6315775314
 
 <a id="otto_efficiency_air"></a>
 
-#### Thermal efficiency of the air-standard Otto cycle — `otto_efficiency_air`
+#### Thermal efficiency of the air-standard Otto cycle, `otto_efficiency_air`
 
-One equation links thermal efficiency of the cycle (eta) and compression ratio V1/V2 (r). Give all but one of them and it is solved for the one left out — by default thermal efficiency of the cycle (eta).
+One equation links thermal efficiency of the cycle (eta) and compression ratio V1/V2 (r). Give all but one of them and it is solved for the one left out, by default thermal efficiency of the cycle (eta).
 
 $$
 \eta = 1 - r^{\frac{-2}{5}}
@@ -3368,8 +3316,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `r` | in | compression ratio V1/V2 | — |
-| `eta` | out | thermal efficiency of the cycle | — |
+| `r` | in | compression ratio V1/V2 | - |
+| `eta` | out | thermal efficiency of the cycle | - |
 
 **Applies when:** cold-air-standard: air as an ideal gas with gamma = 1.4; reversible adiabatic compression and expansion; idealised spark-ignition engines.
 
@@ -3387,9 +3335,9 @@ thermal efficiency of the cycle (eta) = 0.5647247184
 
 <a id="biot_number"></a>
 
-#### Biot number — `biot_number`
+#### Biot number: `biot_number`
 
-One equation links Biot number (Bi), convection heat transfer coefficient (h), characteristic length (Lc) and thermal conductivity (k). Give all but one of them and it is solved for the one left out — by default Biot number (Bi).
+One equation links Biot number (Bi), convection heat transfer coefficient (h), characteristic length (Lc) and thermal conductivity (k). Give all but one of them and it is solved for the one left out, by default Biot number (Bi).
 
 $$
 \mathrm{Bi} = \frac{h L_{c}}{k}
@@ -3400,7 +3348,7 @@ $$
 | `h` | in | convection heat transfer coefficient | W/(m^2*K) |
 | `Lc` | in | characteristic length | m |
 | `k` | in | thermal conductivity | W/(m*K) |
-| `Bi` | out | Biot number | — |
+| `Bi` | out | Biot number | - |
 
 **Applies when:** Lc = volume / surface area for the lumped-capacitance test; judging whether a body's internal temperature is uniform (Bi < 0.1).
 
@@ -3418,9 +3366,9 @@ Biot number (Bi) = 0.0025
 
 <a id="fourier_number"></a>
 
-#### Fourier number — `fourier_number`
+#### Fourier number: `fourier_number`
 
-One equation links Fourier number (Fo), thermal diffusivity (alpha), elapsed time (t) and characteristic length (Lc). Give all but one of them and it is solved for the one left out — by default Fourier number (Fo).
+One equation links Fourier number (Fo), thermal diffusivity (alpha), elapsed time (t) and characteristic length (Lc). Give all but one of them and it is solved for the one left out, by default Fourier number (Fo).
 
 $$
 F_{o} = \frac{\alpha t}{L_{c}^{2}}
@@ -3431,7 +3379,7 @@ $$
 | `alpha` | in | thermal diffusivity | m^2/s |
 | `t` | in | elapsed time | s |
 | `Lc` | in | characteristic length | m |
-| `Fo` | out | Fourier number | — |
+| `Fo` | out | Fourier number | - |
 
 **Applies when:** constant properties; transient conduction charts and series solutions.
 
@@ -3449,9 +3397,9 @@ Fourier number (Fo) = 1.5
 
 <a id="lumped_capacitance_temperature"></a>
 
-#### Temperature of a lumped body cooling or heating in a fluid — `lumped_capacitance_temperature`
+#### Temperature of a lumped body cooling or heating in a fluid, `lumped_capacitance_temperature`
 
-One equation links temperature of the body at time t (T), temperature of the fluid far from the surface (Tinf), initial temperature of the body (Ti), convection heat transfer coefficient (h), surface area of the body (A), elapsed time (t), density of the body (rho), volume of the body (V) and specific heat of the body (c). Give all but one of them and it is solved for the one left out — by default temperature of the body at time t (T).
+One equation links temperature of the body at time t (T), temperature of the fluid far from the surface (Tinf), initial temperature of the body (Ti), convection heat transfer coefficient (h), surface area of the body (A), elapsed time (t), density of the body (rho), volume of the body (V) and specific heat of the body (c). Give all but one of them and it is solved for the one left out, by default temperature of the body at time t (T).
 
 $$
 T = \text{Tinf} + \left(T_{i} - \text{Tinf}\right) e^{\frac{-h A t}{\rho V c}}
@@ -3490,9 +3438,9 @@ temperature of the body at time t (T) = 457.286536 K
 
 <a id="lumped_time_constant"></a>
 
-#### Thermal time constant of a lumped body — `lumped_time_constant`
+#### Thermal time constant of a lumped body: `lumped_time_constant`
 
-One equation links thermal time constant (tau), density of the body (rho), volume of the body (V), specific heat of the body (c), convection heat transfer coefficient (h) and surface area of the body (A). Give all but one of them and it is solved for the one left out — by default thermal time constant (tau).
+One equation links thermal time constant (tau), density of the body (rho), volume of the body (V), specific heat of the body (c), convection heat transfer coefficient (h) and surface area of the body (A). Give all but one of them and it is solved for the one left out, by default thermal time constant (tau).
 
 $$
 \tau = \frac{\rho V c}{h A}
@@ -3523,4 +3471,4 @@ thermal time constant (tau) = 219.375 s
 
 **What the worked example means:** This calculation determines the thermal time constant, denoted as tau, which represents the time required for a lumped body to reach approximately sixty-three percent of its total temperature change. The value is derived from the body's density, volume, and specific heat divided by the product of the convection heat transfer coefficient and surface area. A result of 219.375 s indicates how quickly the object responds to changes in its surrounding temperature environment.
 
-Questions and reports: support@ai999x.com. AI999X — The Future Is Self-Improving.
+Questions and reports: support@ai999x.com. AI999X, The Future Is Self-Improving.

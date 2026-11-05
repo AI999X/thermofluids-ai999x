@@ -182,7 +182,7 @@ result.show()
 
 <a id="hydrostatic_gauge_pressure"></a>
 
-### Gauge pressure at a depth in a liquid — `hydrostatic_gauge_pressure`
+### Gauge pressure at a depth in a liquid: `hydrostatic_gauge_pressure`
 
 $$
 P = \rho g h
@@ -230,7 +230,7 @@ $$
 
 <a id="absolute_pressure_depth"></a>
 
-### Absolute pressure at a depth in a liquid — `absolute_pressure_depth`
+### Absolute pressure at a depth in a liquid: `absolute_pressure_depth`
 
 $$
 P = P_{0} + \rho g h
@@ -279,7 +279,7 @@ $$
 
 <a id="buoyant_force"></a>
 
-### Buoyant force (Archimedes' principle) — `buoyant_force`
+### Buoyant force (Archimedes' principle): `buoyant_force`
 
 $$
 F = \rho g V
@@ -327,7 +327,7 @@ $$
 
 <a id="continuity_speed"></a>
 
-### Continuity: speed after a change of pipe diameter — `continuity_speed`
+### Continuity: speed after a change of pipe diameter, `continuity_speed`
 
 $$
 v_{2} = v_{1} \left(\frac{D_{1}}{D_{2}}\right)^{2}
@@ -375,7 +375,7 @@ $$
 
 <a id="bernoulli_horizontal"></a>
 
-### Bernoulli's equation along a horizontal streamline — `bernoulli_horizontal`
+### Bernoulli's equation along a horizontal streamline, `bernoulli_horizontal`
 
 $$
 P_{2} = P_{1} + \frac{\rho \left(v_{1}^{2} - v_{2}^{2}\right)}{2}
@@ -424,7 +424,7 @@ $$
 
 <a id="torricelli_efflux"></a>
 
-### Speed of efflux from a hole (Torricelli's law) — `torricelli_efflux`
+### Speed of efflux from a hole (Torricelli's law), `torricelli_efflux`
 
 $$
 v = \sqrt{2 g h}
@@ -467,7 +467,7 @@ $$
 
 <a id="dynamic_pressure"></a>
 
-### Dynamic pressure of a moving fluid — `dynamic_pressure`
+### Dynamic pressure of a moving fluid: `dynamic_pressure`
 
 $$
 q = \frac{\rho v^{2}}{2}
@@ -514,7 +514,7 @@ $$
 
 <a id="reynolds_number"></a>
 
-### Reynolds number from density, velocity, diameter and viscosity — `reynolds_number`
+### Reynolds number from density, velocity, diameter and viscosity, `reynolds_number`
 
 $$
 \mathrm{Re} = \frac{\rho v D}{\mu}
@@ -559,7 +559,7 @@ $$
 
 <a id="reynolds_number_kinematic"></a>
 
-### Reynolds number from velocity, diameter and kinematic viscosity — `reynolds_number_kinematic`
+### Reynolds number from velocity, diameter and kinematic viscosity, `reynolds_number_kinematic`
 
 $$
 \mathrm{Re} = \frac{v D}{\nu}
@@ -603,7 +603,7 @@ $$
 
 <a id="kinematic_viscosity"></a>
 
-### Kinematic viscosity from dynamic viscosity and density — `kinematic_viscosity`
+### Kinematic viscosity from dynamic viscosity and density, `kinematic_viscosity`
 
 $$
 \nu = \frac{\mu}{\rho}
@@ -650,7 +650,7 @@ $$
 
 <a id="laminar_friction_factor"></a>
 
-### Darcy friction factor in laminar pipe flow — `laminar_friction_factor`
+### Darcy friction factor in laminar pipe flow, `laminar_friction_factor`
 
 $$
 f = \frac{64}{\mathrm{Re}}
@@ -668,9 +668,9 @@ $$
 - **Assumes:** fully developed laminar flow in a circular pipe; Darcy (not Fanning) friction factor
 - **Evidence:** theorem
 
-![Friction factor against Reynolds number (log–log): the package's laminar line 64/Re to Re = 2300, its Blasius smooth-pipe formula from 4000 to 10⁵ and, for comparison, its Colebrook factor of a smooth pipe to 10⁶ — each at up to 41 Reynolds numbers](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/laminar-friction-factor-chart)
+![Friction factor against Reynolds number (log–log): the package's laminar line 64/Re to Re = 2300, its Blasius smooth-pipe formula from 4000 to 10⁵ and, for comparison, its Colebrook factor of a smooth pipe to 10⁶, each at up to 41 Reynolds numbers](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/laminar-friction-factor-chart)
 
-*Friction factor against Reynolds number (log–log): the package's laminar line 64/Re to Re = 2300, its Blasius smooth-pipe formula from 4000 to 10⁵ and, for comparison, its Colebrook factor of a smooth pipe to 10⁶ — each at up to 41 Reynolds numbers. Marked: the worked example on the laminar 64/Re line, Re = 1200, f = 0.0533333.*
+*Friction factor against Reynolds number (log–log): the package's laminar line 64/Re to Re = 2300, its Blasius smooth-pipe formula from 4000 to 10⁵ and, for comparison, its Colebrook factor of a smooth pipe to 10⁶, each at up to 41 Reynolds numbers. Marked: the worked example on the laminar 64/Re line, Re = 1200, f = 0.0533333.*
 
 ![f (Darcy friction factor) against Re (Reynolds number) from 600 to 1800](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/laminar-friction-factor-curve)
 
@@ -697,7 +697,7 @@ $$
 
 <a id="blasius_friction_factor"></a>
 
-### Blasius friction factor for turbulent flow in a smooth pipe — `blasius_friction_factor`
+### Blasius friction factor for turbulent flow in a smooth pipe, `blasius_friction_factor`
 
 $$
 f = 0.3164 \mathrm{Re}^{\frac{-1}{4}}
@@ -715,9 +715,9 @@ $$
 - **Assumes:** fully developed turbulent flow in a hydraulically smooth circular pipe; Darcy friction factor
 - **Evidence:** theorem
 
-![Friction factor against Reynolds number (log–log): the package's laminar line 64/Re to Re = 2300, its Blasius smooth-pipe formula from 4000 to 10⁵ and, for comparison, its Colebrook factor of a smooth pipe to 10⁶ — each at up to 41 Reynolds numbers](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/blasius-friction-factor-chart)
+![Friction factor against Reynolds number (log–log): the package's laminar line 64/Re to Re = 2300, its Blasius smooth-pipe formula from 4000 to 10⁵ and, for comparison, its Colebrook factor of a smooth pipe to 10⁶, each at up to 41 Reynolds numbers](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/blasius-friction-factor-chart)
 
-*Friction factor against Reynolds number (log–log): the package's laminar line 64/Re to Re = 2300, its Blasius smooth-pipe formula from 4000 to 10⁵ and, for comparison, its Colebrook factor of a smooth pipe to 10⁶ — each at up to 41 Reynolds numbers. Marked: the worked example on the Blasius line, Re = 50000, f = 0.0211589.*
+*Friction factor against Reynolds number (log–log): the package's laminar line 64/Re to Re = 2300, its Blasius smooth-pipe formula from 4000 to 10⁵ and, for comparison, its Colebrook factor of a smooth pipe to 10⁶, each at up to 41 Reynolds numbers. Marked: the worked example on the Blasius line, Re = 50000, f = 0.0211589.*
 
 ![f (Darcy friction factor) against Re (Reynolds number) from 25000 to 75000](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/blasius-friction-factor-curve)
 
@@ -744,7 +744,7 @@ $$
 
 <a id="swamee_jain_friction_factor"></a>
 
-### Swamee-Jain explicit friction factor for turbulent pipe flow — `swamee_jain_friction_factor`
+### Swamee-Jain explicit friction factor for turbulent pipe flow, `swamee_jain_friction_factor`
 
 $$
 f = \frac{0.25}{\left(\frac{\ln\left(\frac{\varepsilon}{3.7 D} + \left(\frac{6.97}{\mathrm{Re}}\right)^{\frac{9}{10}}\right)}{\ln\left(10\right)}\right)^{2}}
@@ -793,7 +793,7 @@ $$
 
 <a id="haaland_friction_factor"></a>
 
-### Haaland explicit friction factor for turbulent pipe flow — `haaland_friction_factor`
+### Haaland explicit friction factor for turbulent pipe flow, `haaland_friction_factor`
 
 $$
 f = \frac{1}{\left(\frac{1.8 \ln\left(\left(\frac{\varepsilon}{3.7 D}\right)^{\frac{111}{100}} + \frac{6.9}{\mathrm{Re}}\right)}{\ln\left(10\right)}\right)^{2}}
@@ -842,7 +842,7 @@ $$
 
 <a id="darcy_weisbach_head_loss"></a>
 
-### Darcy-Weisbach head loss in a pipe — `darcy_weisbach_head_loss`
+### Darcy-Weisbach head loss in a pipe: `darcy_weisbach_head_loss`
 
 $$
 h_{L} = \frac{f L v^{2}}{2 g D}
@@ -889,7 +889,7 @@ $$
 
 <a id="darcy_weisbach_pressure_drop"></a>
 
-### Darcy-Weisbach pressure drop in a pipe — `darcy_weisbach_pressure_drop`
+### Darcy-Weisbach pressure drop in a pipe: `darcy_weisbach_pressure_drop`
 
 $$
 d_{P} = \frac{f L \rho v^{2}}{2 D}
@@ -936,7 +936,7 @@ $$
 
 <a id="hagen_poiseuille"></a>
 
-### Hagen-Poiseuille flow rate in laminar pipe flow — `hagen_poiseuille`
+### Hagen-Poiseuille flow rate in laminar pipe flow, `hagen_poiseuille`
 
 $$
 Q = \frac{\pi D^{4} d_{P}}{128 \mu L}
@@ -986,7 +986,7 @@ $$
 
 <a id="minor_loss_head"></a>
 
-### Minor head loss in a fitting — `minor_loss_head`
+### Minor head loss in a fitting: `minor_loss_head`
 
 $$
 h_{L} = \frac{K v^{2}}{2 g}
@@ -1034,7 +1034,7 @@ $$
 
 <a id="hydraulic_power"></a>
 
-### Hydraulic power delivered to a fluid — `hydraulic_power`
+### Hydraulic power delivered to a fluid: `hydraulic_power`
 
 $$
 P = \rho g Q H
@@ -1079,7 +1079,7 @@ $$
 
 <a id="pump_shaft_power"></a>
 
-### Shaft power required by a pump — `pump_shaft_power`
+### Shaft power required by a pump: `pump_shaft_power`
 
 $$
 P = \frac{\rho g Q H}{\eta}
@@ -1125,7 +1125,7 @@ $$
 
 <a id="hydrostatic_force_plane"></a>
 
-### Hydrostatic force on a submerged plane surface — `hydrostatic_force_plane`
+### Hydrostatic force on a submerged plane surface, `hydrostatic_force_plane`
 
 $$
 F = \rho g h_{c} A
@@ -1170,7 +1170,7 @@ $$
 
 <a id="drag_force"></a>
 
-### Drag force from the drag coefficient — `drag_force`
+### Drag force from the drag coefficient: `drag_force`
 
 $$
 F = \frac{C_{d} \rho v^{2} A}{2}
@@ -1215,7 +1215,7 @@ $$
 
 <a id="lift_force"></a>
 
-### Lift force from the lift coefficient — `lift_force`
+### Lift force from the lift coefficient: `lift_force`
 
 $$
 F = \frac{C_{L} \rho v^{2} A}{2}
@@ -1260,7 +1260,7 @@ $$
 
 <a id="stokes_drag"></a>
 
-### Stokes drag on a small sphere — `stokes_drag`
+### Stokes drag on a small sphere: `stokes_drag`
 
 $$
 F = 3 \pi \mu D v
@@ -1304,7 +1304,7 @@ $$
 
 <a id="stokes_terminal_velocity"></a>
 
-### Terminal settling velocity of a small sphere (Stokes) — `stokes_terminal_velocity`
+### Terminal settling velocity of a small sphere (Stokes), `stokes_terminal_velocity`
 
 $$
 v = \frac{g D^{2} \left(\rho_{p} - \rho\right)}{18 \mu}
@@ -1350,7 +1350,7 @@ $$
 
 <a id="thin_airfoil_lift_coefficient"></a>
 
-### Lift coefficient of a thin symmetric airfoil — `thin_airfoil_lift_coefficient`
+### Lift coefficient of a thin symmetric airfoil, `thin_airfoil_lift_coefficient`
 
 $$
 C_{L} = 2 \pi \alpha
@@ -1392,7 +1392,7 @@ $$
 
 <a id="mach_number"></a>
 
-### Mach number — `mach_number`
+### Mach number: `mach_number`
 
 $$
 M = \frac{v}{a}
@@ -1439,7 +1439,7 @@ $$
 
 <a id="speed_of_sound_ideal_gas"></a>
 
-### Speed of sound in an ideal gas — `speed_of_sound_ideal_gas`
+### Speed of sound in an ideal gas: `speed_of_sound_ideal_gas`
 
 $$
 a = \sqrt{\gamma R T}
@@ -1483,7 +1483,7 @@ $$
 
 <a id="stagnation_temperature_mach"></a>
 
-### Stagnation temperature from the Mach number — `stagnation_temperature_mach`
+### Stagnation temperature from the Mach number, `stagnation_temperature_mach`
 
 $$
 T_{0} = T \left(1 + \frac{\left(\gamma - 1\right) M^{2}}{2}\right)
@@ -1527,7 +1527,7 @@ $$
 
 <a id="stagnation_pressure_air"></a>
 
-### Isentropic stagnation pressure of air from the Mach number — `stagnation_pressure_air`
+### Isentropic stagnation pressure of air from the Mach number, `stagnation_pressure_air`
 
 $$
 P_{0} = P \left(1 + \frac{M^{2}}{5}\right)^{\frac{7}{2}}
@@ -1571,7 +1571,7 @@ $$
 
 <a id="normal_shock_mach_air"></a>
 
-### Mach number behind a normal shock in air — `normal_shock_mach_air`
+### Mach number behind a normal shock in air: `normal_shock_mach_air`
 
 $$
 M_{2} = \sqrt{\frac{M_{1}^{2} + 5}{7 M_{1}^{2} - 1}}
@@ -1618,7 +1618,7 @@ $$
 
 <a id="normal_shock_pressure_air"></a>
 
-### Static pressure behind a normal shock in air — `normal_shock_pressure_air`
+### Static pressure behind a normal shock in air, `normal_shock_pressure_air`
 
 $$
 P_{2} = \frac{P_{1} \left(7 M_{1}^{2} - 1\right)}{6}
@@ -1666,7 +1666,7 @@ $$
 
 <a id="blasius_displacement_thickness"></a>
 
-### Displacement thickness of a laminar flat-plate boundary layer — `blasius_displacement_thickness`
+### Displacement thickness of a laminar flat-plate boundary layer, `blasius_displacement_thickness`
 
 $$
 d_{s} = \frac{1.7207876575205 x}{\sqrt{\text{Rex}}}
@@ -1714,7 +1714,7 @@ $$
 
 <a id="blasius_momentum_thickness"></a>
 
-### Momentum thickness of a laminar flat-plate boundary layer — `blasius_momentum_thickness`
+### Momentum thickness of a laminar flat-plate boundary layer, `blasius_momentum_thickness`
 
 $$
 t_{h} = \frac{0.6641146724303926 x}{\sqrt{\text{Rex}}}
@@ -1762,7 +1762,7 @@ $$
 
 <a id="blasius_local_skin_friction"></a>
 
-### Local skin-friction coefficient of a laminar flat plate — `blasius_local_skin_friction`
+### Local skin-friction coefficient of a laminar flat plate, `blasius_local_skin_friction`
 
 $$
 c_{f} = \frac{0.6641146724303926}{\sqrt{\text{Rex}}}
@@ -1805,7 +1805,7 @@ $$
 
 <a id="blasius_average_skin_friction"></a>
 
-### Average skin-friction coefficient of a laminar flat plate — `blasius_average_skin_friction`
+### Average skin-friction coefficient of a laminar flat plate, `blasius_average_skin_friction`
 
 $$
 \text{cfm} = \frac{1.3282293448607851}{\sqrt{\text{ReL}}}
@@ -1848,7 +1848,7 @@ $$
 
 <a id="froude_number"></a>
 
-### Froude number of an open-channel flow — `froude_number`
+### Froude number of an open-channel flow: `froude_number`
 
 $$
 \mathrm{Fr} = \frac{v}{\sqrt{g h}}
@@ -1896,7 +1896,7 @@ $$
 
 <a id="plane_wall_conduction"></a>
 
-### Fourier's law: heat conduction through a plane wall — `plane_wall_conduction`
+### Fourier's law: heat conduction through a plane wall, `plane_wall_conduction`
 
 $$
 q = \frac{k A \left(T_{1} - T_{2}\right)}{L}
@@ -1946,7 +1946,7 @@ $$
 
 <a id="cylinder_conduction"></a>
 
-### Radial heat conduction through a cylindrical wall — `cylinder_conduction`
+### Radial heat conduction through a cylindrical wall, `cylinder_conduction`
 
 $$
 q = \frac{2 \pi k L \left(T_{1} - T_{2}\right)}{\ln\left(\frac{r_{2}}{r_{1}}\right)}
@@ -1997,7 +1997,7 @@ $$
 
 <a id="sphere_conduction"></a>
 
-### Radial heat conduction through a spherical shell — `sphere_conduction`
+### Radial heat conduction through a spherical shell, `sphere_conduction`
 
 $$
 q = \frac{4 \pi k \left(T_{1} - T_{2}\right)}{\frac{1}{r_{1}} - \frac{1}{r_{2}}}
@@ -2047,7 +2047,7 @@ $$
 
 <a id="overall_u_plane_wall"></a>
 
-### Overall heat transfer coefficient of a plane wall with convection on both sides — `overall_u_plane_wall`
+### Overall heat transfer coefficient of a plane wall with convection on both sides, `overall_u_plane_wall`
 
 $$
 U = \frac{1}{\frac{1}{h_{1}} + \frac{L}{k} + \frac{1}{h_{2}}}
@@ -2096,7 +2096,7 @@ $$
 
 <a id="overall_heat_rate"></a>
 
-### Heat transfer rate from the overall heat transfer coefficient — `overall_heat_rate`
+### Heat transfer rate from the overall heat transfer coefficient, `overall_heat_rate`
 
 $$
 q = U A \left(T_{i} - T_{o}\right)
@@ -2141,7 +2141,7 @@ $$
 
 <a id="critical_insulation_radius"></a>
 
-### Critical radius of insulation on a cylinder — `critical_insulation_radius`
+### Critical radius of insulation on a cylinder, `critical_insulation_radius`
 
 $$
 r = \frac{k}{h}
@@ -2188,7 +2188,7 @@ $$
 
 <a id="wall_generation_max_temperature"></a>
 
-### Maximum temperature of a plane wall with uniform heat generation — `wall_generation_max_temperature`
+### Maximum temperature of a plane wall with uniform heat generation, `wall_generation_max_temperature`
 
 $$
 T_{\text{max}} = T_{s} + \frac{q L^{2}}{2 k}
@@ -2237,7 +2237,7 @@ $$
 
 <a id="thermal_diffusivity"></a>
 
-### Thermal diffusivity — `thermal_diffusivity`
+### Thermal diffusivity: `thermal_diffusivity`
 
 $$
 \alpha = \frac{k}{\rho c_{p}}
@@ -2281,7 +2281,7 @@ $$
 
 <a id="biot_number"></a>
 
-### Biot number — `biot_number`
+### Biot number: `biot_number`
 
 $$
 \mathrm{Bi} = \frac{h L_{c}}{k}
@@ -2325,7 +2325,7 @@ $$
 
 <a id="fourier_number"></a>
 
-### Fourier number — `fourier_number`
+### Fourier number: `fourier_number`
 
 $$
 F_{o} = \frac{\alpha t}{L_{c}^{2}}
@@ -2369,7 +2369,7 @@ $$
 
 <a id="newton_cooling"></a>
 
-### Newton's law of cooling (convection heat transfer) — `newton_cooling`
+### Newton's law of cooling (convection heat transfer), `newton_cooling`
 
 $$
 q = h A \left(T_{s} - \text{Tinf}\right)
@@ -2414,7 +2414,7 @@ $$
 
 <a id="nusselt_heat_transfer_coefficient"></a>
 
-### Heat transfer coefficient from the Nusselt number — `nusselt_heat_transfer_coefficient`
+### Heat transfer coefficient from the Nusselt number, `nusselt_heat_transfer_coefficient`
 
 $$
 h = \frac{\mathrm{Nu} k}{L_{c}}
@@ -2458,7 +2458,7 @@ $$
 
 <a id="prandtl_number"></a>
 
-### Prandtl number — `prandtl_number`
+### Prandtl number: `prandtl_number`
 
 $$
 \mathrm{Pr} = \frac{c_{p} \mu}{k}
@@ -2502,7 +2502,7 @@ $$
 
 <a id="dittus_boelter_heating"></a>
 
-### Dittus-Boelter correlation, fluid being heated — `dittus_boelter_heating`
+### Dittus-Boelter correlation, fluid being heated, `dittus_boelter_heating`
 
 $$
 \mathrm{Nu} = 0.023 \mathrm{Re}^{\frac{4}{5}} \mathrm{Pr}^{\frac{2}{5}}
@@ -2550,7 +2550,7 @@ $$
 
 <a id="dittus_boelter_cooling"></a>
 
-### Dittus-Boelter correlation, fluid being cooled — `dittus_boelter_cooling`
+### Dittus-Boelter correlation, fluid being cooled, `dittus_boelter_cooling`
 
 $$
 \mathrm{Nu} = 0.023 \mathrm{Re}^{\frac{4}{5}} \mathrm{Pr}^{\frac{3}{10}}
@@ -2598,7 +2598,7 @@ $$
 
 <a id="flat_plate_laminar_average_nusselt"></a>
 
-### Average Nusselt number for laminar flow over a flat plate — `flat_plate_laminar_average_nusselt`
+### Average Nusselt number for laminar flow over a flat plate, `flat_plate_laminar_average_nusselt`
 
 $$
 \mathrm{Nu} = 0.664 \text{ReL}^{\frac{1}{2}} \mathrm{Pr}^{\frac{1}{3}}
@@ -2646,7 +2646,7 @@ $$
 
 <a id="flat_plate_laminar_local_nusselt"></a>
 
-### Local Nusselt number for laminar flow over a flat plate — `flat_plate_laminar_local_nusselt`
+### Local Nusselt number for laminar flow over a flat plate, `flat_plate_laminar_local_nusselt`
 
 $$
 \text{Nux} = 0.332 \text{Rex}^{\frac{1}{2}} \mathrm{Pr}^{\frac{1}{3}}
@@ -2694,7 +2694,7 @@ $$
 
 <a id="grashof_number"></a>
 
-### Grashof number — `grashof_number`
+### Grashof number: `grashof_number`
 
 $$
 \mathrm{Gr} = \frac{g \beta \left(T_{s} - \text{Tinf}\right) L^{3}}{\nu^{2}}
@@ -2741,7 +2741,7 @@ $$
 
 <a id="rayleigh_number"></a>
 
-### Rayleigh number — `rayleigh_number`
+### Rayleigh number: `rayleigh_number`
 
 $$
 \mathrm{Ra} = \mathrm{Gr} \mathrm{Pr}
@@ -2788,7 +2788,7 @@ $$
 
 <a id="blackbody_emissive_power"></a>
 
-### Emissive power of a blackbody (Stefan-Boltzmann law) — `blackbody_emissive_power`
+### Emissive power of a blackbody (Stefan-Boltzmann law), `blackbody_emissive_power`
 
 $$
 E = \sigma T^{4}
@@ -2831,7 +2831,7 @@ $$
 
 <a id="radiation_net_exchange"></a>
 
-### Net radiation exchange of a small grey surface with large surroundings — `radiation_net_exchange`
+### Net radiation exchange of a small grey surface with large surroundings, `radiation_net_exchange`
 
 $$
 q = \varepsilon \sigma A \left(T_{s}^{4} - \text{Tsur}^{4}\right)
@@ -2878,7 +2878,7 @@ $$
 
 <a id="radiation_parallel_plates"></a>
 
-### Net radiation between two large parallel grey plates — `radiation_parallel_plates`
+### Net radiation between two large parallel grey plates, `radiation_parallel_plates`
 
 $$
 q_{f} = \frac{\sigma \left(T_{1}^{4} - T_{2}^{4}\right)}{\frac{1}{e_{1}} + \frac{1}{e_{2}} - 1}
@@ -2928,7 +2928,7 @@ $$
 
 <a id="wien_displacement"></a>
 
-### Wien's displacement law — `wien_displacement`
+### Wien's displacement law: `wien_displacement`
 
 $$
 \lambda = \frac{b}{T}
@@ -2971,7 +2971,7 @@ $$
 
 <a id="radiation_heat_transfer_coefficient"></a>
 
-### Linearised radiation heat transfer coefficient — `radiation_heat_transfer_coefficient`
+### Linearised radiation heat transfer coefficient, `radiation_heat_transfer_coefficient`
 
 $$
 h_{r} = \varepsilon \sigma \left(T_{s} + \text{Tsur}\right) \left(T_{s}^{2} + \text{Tsur}^{2}\right)
@@ -3016,7 +3016,7 @@ $$
 
 <a id="infinite_fin_heat_rate"></a>
 
-### Heat transfer rate of a very long fin — `infinite_fin_heat_rate`
+### Heat transfer rate of a very long fin: `infinite_fin_heat_rate`
 
 $$
 q = \sqrt{h P k A_{c}} \left(T_{b} - \text{Tinf}\right)
@@ -3067,7 +3067,7 @@ $$
 
 <a id="lumped_capacitance_temperature"></a>
 
-### Temperature of a lumped body cooling or heating in a fluid — `lumped_capacitance_temperature`
+### Temperature of a lumped body cooling or heating in a fluid, `lumped_capacitance_temperature`
 
 $$
 T = \text{Tinf} + \left(T_{i} - \text{Tinf}\right) e^{\frac{-h A t}{\rho V c}}
@@ -3120,7 +3120,7 @@ $$
 
 <a id="lumped_time_constant"></a>
 
-### Thermal time constant of a lumped body — `lumped_time_constant`
+### Thermal time constant of a lumped body: `lumped_time_constant`
 
 $$
 \tau = \frac{\rho V c}{h A}
@@ -3170,7 +3170,7 @@ $$
 
 <a id="ntu_definition"></a>
 
-### Number of transfer units of a heat exchanger — `ntu_definition`
+### Number of transfer units of a heat exchanger, `ntu_definition`
 
 $$
 N = \frac{U A}{C_{\text{min}}}
@@ -3214,7 +3214,7 @@ $$
 
 <a id="effectiveness_parallel_flow"></a>
 
-### Effectiveness of a parallel-flow heat exchanger — `effectiveness_parallel_flow`
+### Effectiveness of a parallel-flow heat exchanger, `effectiveness_parallel_flow`
 
 $$
 \varepsilon = \frac{1 - e^{-N \left(1 + C_{r}\right)}}{1 + C_{r}}
@@ -3262,7 +3262,7 @@ $$
 
 <a id="effectiveness_phase_change"></a>
 
-### Effectiveness of a heat exchanger with one stream changing phase — `effectiveness_phase_change`
+### Effectiveness of a heat exchanger with one stream changing phase, `effectiveness_phase_change`
 
 $$
 \varepsilon = 1 - e^{-N}
@@ -3304,7 +3304,7 @@ $$
 
 <a id="heat_rate_effectiveness"></a>
 
-### Heat transfer rate from the effectiveness — `heat_rate_effectiveness`
+### Heat transfer rate from the effectiveness: `heat_rate_effectiveness`
 
 $$
 Q = \varepsilon C_{\text{min}} \left(\text{Thi} - \text{Tci}\right)
@@ -3349,7 +3349,7 @@ $$
 
 <a id="sensible_heat_rate"></a>
 
-### Heat added to a flowing stream (steady-flow energy balance) — `sensible_heat_rate`
+### Heat added to a flowing stream (steady-flow energy balance), `sensible_heat_rate`
 
 $$
 Q = \text{mdot} c_{p} \left(T_{\text{out}} - T_{\text{in}}\right)
@@ -3394,7 +3394,7 @@ $$
 
 <a id="carnot_efficiency"></a>
 
-### Carnot efficiency of a reversible heat engine — `carnot_efficiency`
+### Carnot efficiency of a reversible heat engine, `carnot_efficiency`
 
 $$
 \eta = 1 - \frac{T_{c}}{T_{h}}
@@ -3442,7 +3442,7 @@ $$
 
 <a id="carnot_cop_refrigerator"></a>
 
-### Coefficient of performance of a Carnot refrigerator — `carnot_cop_refrigerator`
+### Coefficient of performance of a Carnot refrigerator, `carnot_cop_refrigerator`
 
 $$
 \text{cop} = \frac{T_{c}}{T_{h} - T_{c}}
@@ -3490,7 +3490,7 @@ $$
 
 <a id="carnot_cop_heat_pump"></a>
 
-### Coefficient of performance of a Carnot heat pump — `carnot_cop_heat_pump`
+### Coefficient of performance of a Carnot heat pump, `carnot_cop_heat_pump`
 
 $$
 \text{cop} = \frac{T_{h}}{T_{h} - T_{c}}
@@ -3538,7 +3538,7 @@ $$
 
 <a id="otto_efficiency_air"></a>
 
-### Thermal efficiency of the air-standard Otto cycle — `otto_efficiency_air`
+### Thermal efficiency of the air-standard Otto cycle, `otto_efficiency_air`
 
 $$
 \eta = 1 - r^{\frac{-2}{5}}
@@ -3589,7 +3589,7 @@ $$
 
 <a id="diesel_efficiency_air"></a>
 
-### Thermal efficiency of the air-standard Diesel cycle — `diesel_efficiency_air`
+### Thermal efficiency of the air-standard Diesel cycle, `diesel_efficiency_air`
 
 $$
 \eta = 1 - \frac{r^{\frac{-2}{5}} \left(r_{c}^{\frac{7}{5}} - 1\right)}{\frac{7 \left(r_{c} - 1\right)}{5}}
@@ -3637,7 +3637,7 @@ $$
 
 <a id="brayton_efficiency_air"></a>
 
-### Thermal efficiency of the air-standard Brayton cycle — `brayton_efficiency_air`
+### Thermal efficiency of the air-standard Brayton cycle, `brayton_efficiency_air`
 
 $$
 \eta = 1 - r_{p}^{\frac{-2}{7}}
@@ -3684,7 +3684,7 @@ $$
 
 <a id="isentropic_temperature_pressure_air"></a>
 
-### Temperature after an isentropic pressure change of air — `isentropic_temperature_pressure_air`
+### Temperature after an isentropic pressure change of air, `isentropic_temperature_pressure_air`
 
 $$
 T_{2} = T_{1} \left(\frac{P_{2}}{P_{1}}\right)^{\frac{2}{7}}
@@ -3729,7 +3729,7 @@ $$
 
 <a id="isentropic_temperature_volume_air"></a>
 
-### Temperature after an isentropic volume change of air — `isentropic_temperature_volume_air`
+### Temperature after an isentropic volume change of air, `isentropic_temperature_volume_air`
 
 $$
 T_{2} = T_{1} \left(\frac{V_{1}}{V_{2}}\right)^{\frac{2}{5}}
@@ -3774,7 +3774,7 @@ $$
 
 <a id="compressor_outlet_temperature_air"></a>
 
-### Actual outlet temperature of an adiabatic air compressor — `compressor_outlet_temperature_air`
+### Actual outlet temperature of an adiabatic air compressor, `compressor_outlet_temperature_air`
 
 $$
 T_{2} = T_{1} \left(1 + \frac{\left(\frac{P_{2}}{P_{1}}\right)^{\frac{2}{7}} - 1}{\eta}\right)
@@ -3824,7 +3824,7 @@ $$
 
 <a id="ideal_gas_law"></a>
 
-### Ideal gas law — `ideal_gas_law`
+### Ideal gas law: `ideal_gas_law`
 
 $$
 P V = n R T
@@ -3869,7 +3869,7 @@ $$
 
 <a id="isothermal_work_ideal_gas"></a>
 
-### Work done by an ideal gas in a reversible isothermal process — `isothermal_work_ideal_gas`
+### Work done by an ideal gas in a reversible isothermal process, `isothermal_work_ideal_gas`
 
 $$
 W = n R T \ln\left(\frac{V_{2}}{V_{1}}\right)
@@ -3919,7 +3919,7 @@ $$
 
 <a id="entropy_change_ideal_gas"></a>
 
-### Specific entropy change of an ideal gas — `entropy_change_ideal_gas`
+### Specific entropy change of an ideal gas: `entropy_change_ideal_gas`
 
 $$
 d_{s} = c_{p} \ln\left(\frac{T_{2}}{T_{1}}\right) - R \ln\left(\frac{P_{2}}{P_{1}}\right)
@@ -3970,7 +3970,7 @@ $$
 
 <a id="entropy_change_incompressible"></a>
 
-### Entropy change of an incompressible substance — `entropy_change_incompressible`
+### Entropy change of an incompressible substance, `entropy_change_incompressible`
 
 $$
 d_{S} = m c \ln\left(\frac{T_{2}}{T_{1}}\right)
@@ -4016,7 +4016,7 @@ $$
 
 <a id="humidity_ratio_vapour_pressure"></a>
 
-### Humidity ratio from the partial pressure of water vapour — `humidity_ratio_vapour_pressure`
+### Humidity ratio from the partial pressure of water vapour, `humidity_ratio_vapour_pressure`
 
 $$
 W = \frac{0.621945 p_{v}}{P - p_{v}}
@@ -4063,7 +4063,7 @@ $$
 
 <a id="moist_air_enthalpy"></a>
 
-### Specific enthalpy of moist air — `moist_air_enthalpy`
+### Specific enthalpy of moist air: `moist_air_enthalpy`
 
 $$
 h = \text{cpa} \left(T - T_{0}\right) + W \left(h_{g} + \text{cpv} \left(T - T_{0}\right)\right)
@@ -4114,7 +4114,7 @@ $$
 
 <a id="moist_air_specific_volume"></a>
 
-### Specific volume of moist air per kilogram of dry air — `moist_air_specific_volume`
+### Specific volume of moist air per kilogram of dry air, `moist_air_specific_volume`
 
 $$
 v = \frac{\mathrm{Ra} T \left(1 + 1.607858 W\right)}{P}
@@ -4159,7 +4159,7 @@ $$
 
 <a id="adiabatic_flame_temperature_simple"></a>
 
-### Adiabatic flame temperature with constant product specific heat — `adiabatic_flame_temperature_simple`
+### Adiabatic flame temperature with constant product specific heat, `adiabatic_flame_temperature_simple`
 
 $$
 \text{Tad} = T_{0} + \frac{\text{LHV}}{\left(1 + \text{AFR}\right) c_{p}}
@@ -4224,7 +4224,7 @@ Call `solve("<id>", **inputs)` with plain numbers; the result's `values` holds e
 
 <a id="colebrook_friction_factor"></a>
 
-### Darcy friction factor from the Colebrook equation — `colebrook_friction_factor`
+### Darcy friction factor from the Colebrook equation, `colebrook_friction_factor`
 
 Solve the implicit Colebrook-White equation for the Darcy friction factor of turbulent pipe flow.
 
@@ -4277,7 +4277,7 @@ thermofluids_ai999x.solve('colebrook_friction_factor', Re=1000000.0, eD=0.0)
 
 <a id="lmtd"></a>
 
-### Log-mean temperature difference of a heat exchanger — `lmtd`
+### Log-mean temperature difference of a heat exchanger, `lmtd`
 
 The LMTD of a counterflow or parallel-flow exchanger from the four terminal temperatures.
 
@@ -4332,7 +4332,7 @@ thermofluids_ai999x.solve('lmtd', Th_in=423.15, Th_out=363.15, Tc_in=303.15, Tc_
 
 <a id="hx_effectiveness_ntu"></a>
 
-### Heat exchanger rating by the effectiveness-NTU method — `hx_effectiveness_ntu`
+### Heat exchanger rating by the effectiveness-NTU method, `hx_effectiveness_ntu`
 
 Heat duty, outlet temperatures, effectiveness and NTU of a counterflow or parallel-flow exchanger.
 
@@ -4387,7 +4387,7 @@ thermofluids_ai999x.solve('hx_effectiveness_ntu', C_hot=2000, C_cold=4000, UA=30
 
 <a id="saturation_vapour_pressure"></a>
 
-### Saturation pressure of water vapour — `saturation_vapour_pressure`
+### Saturation pressure of water vapour: `saturation_vapour_pressure`
 
 The saturation pressure of water vapour over liquid water (above 0.01 °C) or ice, -100 °C to 200 °C.
 
@@ -4431,7 +4431,7 @@ thermofluids_ai999x.solve('saturation_vapour_pressure', T=373.15)
 
 <a id="dew_point_temperature"></a>
 
-### Dew-point temperature from dry-bulb temperature and relative humidity — `dew_point_temperature`
+### Dew-point temperature from dry-bulb temperature and relative humidity, `dew_point_temperature`
 
 The temperature at which moist air of a given relative humidity becomes saturated on cooling.
 
@@ -4477,7 +4477,7 @@ thermofluids_ai999x.solve('dew_point_temperature', T=298.15, RH=0.6)
 
 <a id="humidity_ratio_from_relative_humidity"></a>
 
-### Humidity ratio from temperature, relative humidity and pressure — `humidity_ratio_from_relative_humidity`
+### Humidity ratio from temperature, relative humidity and pressure, `humidity_ratio_from_relative_humidity`
 
 Mass of water vapour per kilogram of dry air in moist air of a given relative humidity.
 
@@ -4526,7 +4526,7 @@ thermofluids_ai999x.solve('humidity_ratio_from_relative_humidity', T=303.15, RH=
 
 <a id="wet_bulb_temperature"></a>
 
-### Thermodynamic wet-bulb temperature — `wet_bulb_temperature`
+### Thermodynamic wet-bulb temperature: `wet_bulb_temperature`
 
 The wet-bulb temperature of moist air from its dry-bulb temperature, relative humidity and pressure.
 
@@ -4575,7 +4575,7 @@ thermofluids_ai999x.solve('wet_bulb_temperature', T=303.15, RH=0.4, P=101325)
 
 <a id="stoichiometric_air_fuel_ratio"></a>
 
-### Stoichiometric air-fuel ratio of a gaseous fuel — `stoichiometric_air_fuel_ratio`
+### Stoichiometric air-fuel ratio of a gaseous fuel, `stoichiometric_air_fuel_ratio`
 
 Mass of air per mass of fuel for complete combustion, with the moles of O2 and air per mole of fuel.
 
@@ -4621,7 +4621,7 @@ thermofluids_ai999x.solve('stoichiometric_air_fuel_ratio', fuel='propane')
 
 <a id="equivalence_ratio"></a>
 
-### Equivalence ratio of a fuel-air mixture — `equivalence_ratio`
+### Equivalence ratio of a fuel-air mixture: `equivalence_ratio`
 
 Equivalence ratio and excess air of a gaseous fuel burned at a given air-fuel ratio by mass.
 
@@ -4663,7 +4663,7 @@ thermofluids_ai999x.solve('equivalence_ratio', fuel='methane', afr=20)
 
 <a id="gnielinski_nusselt"></a>
 
-### Gnielinski correlation for turbulent pipe flow — `gnielinski_nusselt`
+### Gnielinski correlation for turbulent pipe flow, `gnielinski_nusselt`
 
 Nusselt number of fully developed turbulent or transitional flow in a tube.
 
@@ -4703,7 +4703,7 @@ thermofluids_ai999x.solve('gnielinski_nusselt', Re=50000, Pr=5, f=0.021)
 
 <a id="churchill_bernstein_cylinder"></a>
 
-### Churchill-Bernstein correlation for a cylinder in cross flow — `churchill_bernstein_cylinder`
+### Churchill-Bernstein correlation for a cylinder in cross flow, `churchill_bernstein_cylinder`
 
 Average Nusselt number of a circular cylinder in cross flow over the whole Reynolds range.
 
@@ -4747,7 +4747,7 @@ thermofluids_ai999x.solve('churchill_bernstein_cylinder', Re=10000, Pr=0.7)
 
 <a id="churchill_chu_vertical_plate"></a>
 
-### Churchill-Chu correlation for natural convection on a vertical plate — `churchill_chu_vertical_plate`
+### Churchill-Chu correlation for natural convection on a vertical plate, `churchill_chu_vertical_plate`
 
 Average Nusselt number of free convection from an isothermal vertical plate, laminar and turbulent.
 
@@ -4790,7 +4790,7 @@ thermofluids_ai999x.solve('churchill_chu_vertical_plate', Ra=1000000000.0, Pr=0.
 
 <a id="pin_fin_efficiency"></a>
 
-### Efficiency of a pin fin with an insulated tip — `pin_fin_efficiency`
+### Efficiency of a pin fin with an insulated tip, `pin_fin_efficiency`
 
 Fin efficiency tanh(mL)/(mL) of a cylindrical pin fin with $m = sqrt$($4h/(kD)$).
 

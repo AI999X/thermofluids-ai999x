@@ -1,16 +1,16 @@
-# thermofluids-ai999x — offline, verified thermofluids solver with step-by-step answers
+# thermofluids-ai999x: offline, verified thermofluids solver with step-by-step answers
 
 [![tests](https://github.com/AI999X/thermofluids-ai999x/actions/workflows/ci.yml/badge.svg)](https://github.com/AI999X/thermofluids-ai999x/actions/workflows/ci.yml) [![PyPI](https://img.shields.io/pypi/v/thermofluids-ai999x)](https://pypi.org/project/thermofluids-ai999x/) [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97-Hugging%20Face-yellow)](https://huggingface.co/AI999X/thermofluids-ai999x)
 
 **[Desktop app & command line](https://www.ai999x.com/desktop-cli/)** · **[Compute in your browser](https://www.ai999x.com/models/thermofluids-ai999x/#try)** · **[Install (Python)](https://pypi.org/project/thermofluids-ai999x/)** · **[Guides](https://huggingface.co/AI999X/thermofluids-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/thermofluids-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.1.0
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.5.0
 
-Field: **Engineering** · Tasks: Question Answering, Token Classification, Text Classification, Sentence Similarity, Feature Extraction
+Field: **Engineering** · Tasks: Question Answering
 
-thermofluids-ai999x is an offline, deterministic Python solver that answers thermofluids questions with verified results from 126 certified capabilities, gives 1010 documented answers identically on Windows and Linux, and refuses rather than guesses when an answer cannot be verified.
+thermofluids-ai999x is an offline, deterministic thermofluids solver written in Rust: a desktop app, a command-line program, a browser module and a Python package. It answers thermofluids questions with verified results from 126 certified capabilities, gives 1010 documented answers identically on Windows and Linux, and refuses rather than guesses when an answer cannot be verified.
 
-**thermofluids-ai999x** is a compact, deterministic thermofluids engine for Python. It reads a question in plain English (or a typed call), picks a certified thermofluids capability, computes the answer exactly, checks it, and returns the result with its steps, units, LaTeX and assumptions — or an honest refusal that says what is missing. It runs fully offline on any CPU, needs no GPU, no API key and no internet, and is built to give **zero wrong answers**: when it is not sure, it refuses instead of guessing.
+**thermofluids-ai999x** reads a question in plain English (or a typed call), picks a certified thermofluids capability, computes the answer exactly, checks it, and returns the result with its steps, units, LaTeX and assumptions, or a refusal that says what is missing. It runs fully offline on any CPU, needs no GPU, no API key and no internet, and is built to give **zero wrong answers**: when it is not sure, it refuses instead of guessing.
 
 [![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-support%20development-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/ibnuljaiffarabi) ![License](https://img.shields.io/badge/license-Apache--2.0-blue) ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13%20%7C%203.14-blue) ![Offline](https://img.shields.io/badge/runs-offline%20on%20CPU-green) ![Rust](https://img.shields.io/badge/Rust-Windows%20%7C%20Linux%20%7C%20WebAssembly-orange)
 
@@ -20,13 +20,13 @@ thermofluids-ai999x is an offline, deterministic Python solver that answers ther
 
 | Way to run it | For | Get it |
 |---|---|---|
-| **AI999X Thermofluids desktop app** 1.4.0 | Windows, Linux — this model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-thermofluids-1.4.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-thermofluids-1.4.0-linux-x86_64.tar.gz) |
-| **AI999X desktop app** 1.4.0 | Windows, Linux — every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz) |
-| **Command line** (`thermofluids`) | Windows, Linux — one program per model, offline, no Python | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz) |
-| **In your browser** | any device — nothing to install | [Compute on the model page](https://www.ai999x.com/models/thermofluids-ai999x/#try) |
+| **AI999X Thermofluids desktop app** 1.5.0 | Windows, Linux. This model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-thermofluids-1.5.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-thermofluids-1.5.0-linux-x86_64.tar.gz) |
+| **AI999X desktop app** 1.5.0 | Windows, Linux. Every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz) |
+| **Command line** (`thermofluids`) | Windows, Linux. One program per model, offline, no Python | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz) |
+| **In your browser** | any device. Nothing to install | [Compute on the model page](https://www.ai999x.com/models/thermofluids-ai999x/#try) |
 | **Python** | Python 3.10+ | `pip install thermofluids-ai999x` |
 
-Checksums: [SHA256SUMS](https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS) · every version: [https://downloads.ai999x.com/desktop/latest/](https://downloads.ai999x.com/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
+Checksums: [SHA256SUMS](https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS) · every version: [https://downloads.ai999x.com/desktop/latest/](https://downloads.ai999x.com/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
 
 ## Quick start
 
@@ -37,11 +37,11 @@ Download **AI999X Thermofluids** for your system (above), unpack it and start it
 Linux, from a terminal:
 
 ```bash
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-thermofluids-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-thermofluids-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-thermofluids-1.4.0-linux-x86_64.tar.gz
-./ai999x-thermofluids-1.4.0-linux-x86_64/ai999x-thermofluids
+tar xzf ai999x-thermofluids-1.5.0-linux-x86_64.tar.gz
+./ai999x-thermofluids-1.5.0-linux-x86_64/ai999x-thermofluids
 ```
 
 ### Command line
@@ -49,30 +49,30 @@ tar xzf ai999x-thermofluids-1.4.0-linux-x86_64.tar.gz
 Linux:
 
 ```bash
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.4.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.4.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 thermofluids --version
 ```
 
 Windows (PowerShell):
 
 ```powershell
-$F = "ai999x-cli-1.4.0-windows-x86_64.zip"
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/$F" -OutFile $F
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.5.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.4.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 thermofluids --version
 ```
 
 Every command below was run as shown; the text under it is what the program printed.
 
-**Ask in words** — Write the question as you would say it: the program reads the quantities and their units, picks the capability and answers.
+**Ask in words**: Write the question as you would say it: the program reads the quantities and their units, picks the capability and answers.
 
 ```console
 $ thermofluids ask "Water with density 998 kg/m^3 and dynamic viscosity 0.001 Pa*s flows at an average velocity of 1.5 m/s in a pipe of diameter 0.05 m. What is the Reynolds number?"
@@ -86,7 +86,7 @@ Reynolds number (Re) = 74850
   assumes: Newtonian fluid; the diameter as the characteristic length; the situation is: fluid flow
 ```
 
-**What a capability needs** — The equation or method, every input and output with its SI unit. Read this before solve: it tells you the input names.
+**What a capability needs**: The equation or method, every input and output with its SI unit. Read this before solve: it tells you the input names.
 
 ```console
 $ thermofluids info dew_point_temperature
@@ -98,7 +98,7 @@ Dew-point temperature from dry-bulb temperature and relative humidity
   out  p_v      partial pressure of the water vapour [Pa]
 ```
 
-**Solve** — Inputs as name=value, each with any unit of the right kind. The answer lists every output, the method used, each input converted to SI, and the conditions the answer assumes.
+**Solve**: Inputs as name=value, each with any unit of the right kind. The answer lists every output, the method used, each input converted to SI, and the conditions the answer assumes.
 
 ```console
 $ thermofluids solve dew_point_temperature "T=25 °C" RH=0.6
@@ -110,7 +110,7 @@ p_v = 1901.529882 Pa
   assumes: 0 < RH <= 1; -100 °C <= T <= 200 °C
 ```
 
-**Many questions at once** — One JSON request per line in, one JSON answer per line out, in order: for scripts, notebooks and agents (the program starts once). In PowerShell: Get-Content cases.jsonl | thermofluids batch
+**Many questions at once**: One JSON request per line in, one JSON answer per line out, in order: for scripts, notebooks and agents (the program starts once). In PowerShell: Get-Content cases.jsonl | thermofluids batch
 
 `cases.jsonl`:
 
@@ -244,18 +244,18 @@ _What this means:_ This calculation determines the local skin-friction coefficie
 
 ## Documentation
 
-- **Rust user guide** — the command line, every capability with a command and what it printed: [PDF](https://huggingface.co/AI999X/thermofluids-ai999x/blob/main/docs/thermofluids_ai999x_rust_guide.pdf) · [Markdown](https://huggingface.co/AI999X/thermofluids-ai999x/blob/main/docs/thermofluids_ai999x_rust_guide.md)
-- **Python guide** — every capability with a Python example: [PDF](https://huggingface.co/AI999X/thermofluids-ai999x/blob/main/docs/thermofluids_ai999x_capabilities.pdf) · [Markdown](https://huggingface.co/AI999X/thermofluids-ai999x/blob/main/docs/thermofluids_ai999x_capabilities.md)
-- **Desktop app & command line** — downloads, install, ask and search, figures, offline use, checksums: https://www.ai999x.com/desktop-cli/
-- **Model page** — compute in your browser, every capability explained: https://www.ai999x.com/models/thermofluids-ai999x/
+- **Rust user guide**: the command line, every capability with a command and what it printed: [PDF](https://huggingface.co/AI999X/thermofluids-ai999x/blob/main/docs/thermofluids_ai999x_rust_guide.pdf) · [Markdown](https://huggingface.co/AI999X/thermofluids-ai999x/blob/main/docs/thermofluids_ai999x_rust_guide.md)
+- **Python guide**: every capability with a Python example: [PDF](https://huggingface.co/AI999X/thermofluids-ai999x/blob/main/docs/thermofluids_ai999x_capabilities.pdf) · [Markdown](https://huggingface.co/AI999X/thermofluids-ai999x/blob/main/docs/thermofluids_ai999x_capabilities.md)
+- **Desktop app & command line**: downloads, install, ask and search, figures, offline use, checksums: https://www.ai999x.com/desktop-cli/
+- **Model page**: compute in your browser, every capability explained: https://www.ai999x.com/models/thermofluids-ai999x/
 
 ## Highlights
 
 - **Verified, not generated.** Every answer is computed by a certified thermofluids capability and checked (substituted back, dimension-checked or compared with an independent computation) before it is returned.
-- **Zero wrong answers by design.** Seven explicit outcomes — SOLVED, NEEDS_INPUT, AMBIGUOUS, INVALID_INPUT, OUT_OF_SCOPE, UNRECOGNIZED_FORMAT, INTERNAL_ERROR — never a silent guess. Every one of its 1010 documented answers is reproduced exactly on every tested platform.
+- **Zero wrong answers by design.** Seven explicit outcomes (SOLVED, NEEDS_INPUT, AMBIGUOUS, INVALID_INPUT, OUT_OF_SCOPE, UNRECOGNIZED_FORMAT, INTERNAL_ERROR), never a silent guess. Every one of its 1010 documented answers is reproduced exactly on every tested platform.
 - **Plain-English questions and a guaranteed typed interface.** `ask()` reads documented question forms; `solve(capability_id, **inputs)` always solves a supported task with valid inputs.
 - **Explains itself.** Steps, formulas in LaTeX, units, assumptions and the model used, ready for notebooks, tutoring apps and homework checkers.
-- **Native and in the browser.** Every capability also computes natively in Rust: the desktop app and the `thermofluids` command line for Windows and Linux, and WebAssembly on the model page — no Python, no network.
+- **Native and in the browser.** Every capability also computes natively in Rust: the desktop app and the `thermofluids` command line for Windows and Linux, and WebAssembly on the model page, no Python, no network.
 - **Small and portable.** Pure Python (sympy, mpmath); identical answers on Windows and Linux (Python 3.10, 3.11, 3.12, 3.13, 3.14).
 - **Coverage:** fluid statics and dynamics, pipe flow, boundary layers, aerodynamics and compressible flow, heat conduction, convection and radiation, fins, heat exchangers, thermodynamic cycles, psychrometrics and combustion.
 
@@ -263,7 +263,7 @@ _What this means:_ This calculation determines the local skin-friction coefficie
 
 | Property | Value |
 |---|---|
-| Package | `thermofluids-ai999x` 1.1.0 (import `thermofluids_ai999x`) |
+| Package | `thermofluids-ai999x` 1.5.0 (import `thermofluids_ai999x`) |
 | Type | Deterministic neuro-symbolic thermofluids engine (rule-based reading + certified symbolic capabilities) |
 | Capabilities | 27 certified derivations, 13 certified procedures, 86 certified relations |
 | Knowledge pack | version 0.1.1 |
@@ -297,20 +297,11 @@ thermofluids.ask("Who created you?").message
 # -> thermofluids-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-The Python package also installs a Python command, `thermofluids-ai999x "<question>"`; for the native program use `thermofluids` (above). The outputs above were produced by running this exact code on thermofluids-ai999x 1.1.0.
+The Python package also installs a Python command, `thermofluids-ai999x "<question>"`; for the native program use `thermofluids` (above). The outputs above were produced by running this exact code on thermofluids-ai999x 1.5.0.
 
-## Find the right capability, and draw it
+## Draw the answer
 
-`thermofluids.search()` finds which certified capability a question is about — across **every** AI999X model, so a question for another model points you to it. It runs **[ai999x-encoder](https://huggingface.co/AI999X/ai999x-encoder)**, AI999X's own capability encoder (4.7M parameters, a 4.9 MB ONNX model, offline; the root `model.safetensors` of this repository): `pip install "thermofluids-ai999x[search]"`. `ask(question, suggest=True)` adds the same pointers to a question it does not answer; an answer itself never changes.
-
-```python
-import thermofluids_ai999x as thermofluids
-
-thermofluids.search("Solve x^2 - 5x + 6 = 0", k=2)
-# -> Roots of a quadratic equation (math-foundations-ai999x, 0.63); Roots of a cubic equation (math-foundations-ai999x, 0.59)
-```
-
-`thermofluids.plot(answer)` draws the answer's formula around its own result — the engine's numbers, as SVG (Jupyter shows it directly; `.figure()` gives a matplotlib figure with the `[plot]` extra, `.plotly()` a Plotly figure).
+`thermofluids.plot(answer)` draws the answer's formula around its own result: the engine's numbers, as SVG (Jupyter shows it directly; `.figure()` gives a matplotlib figure with the `[plot]` extra, `.plotly()` a Plotly figure).
 
 ```python
 a = thermofluids.ask("Water with density 998 kg/m^3 and dynamic viscosity 0.001 Pa*s flows at an average velocity of 1.5 m/s in a pipe of diameter 0.05 m. What is the Reynolds number?")
@@ -320,10 +311,10 @@ thermofluids.plot(a)
 
 ## How every answer is verified
 
-1. **Reading** — the question is turned into typed quantities (value, unit, kind, role) and one asked quantity; every stated number must be used or the question is refused.
-2. **Planning** — only certified capabilities may answer; a capability applies only under the conditions the wording states (for example a pendulum, a liquid at rest, boiling).
-3. **Computing** — exact symbolic or high-precision numeric evaluation.
-4. **Checking** — dimensions, substitution back into the defining equation, and agreement between independent readings; any disagreement becomes a refusal, never a number.
+1. **Reading**: the question is turned into typed quantities (value, unit, kind, role) and one asked quantity; every stated number must be used or the question is refused.
+2. **Planning**: only certified capabilities may answer; a capability applies only under the conditions the wording states (for example a pendulum, a liquid at rest, boiling).
+3. **Computing**: exact symbolic or high-precision numeric evaluation.
+4. **Checking**: dimensions, substitution back into the defining equation, and agreement between independent readings; any disagreement becomes a refusal, never a number.
 
 Capabilities are certified before they ship: each must reproduce hand-worked reference cases, reject a deliberately wrong variant (a control), and leave every benchmark answer unchanged.
 
@@ -410,31 +401,31 @@ Every point was computed by `thermofluids-ai999x`.
 
 **Friction factor chart (Colebrook, turbulent flow)**
 
-![Friction factor chart (Colebrook, turbulent flow) — computed by thermofluids-ai999x](https://huggingface.co/AI999X/thermofluids-ai999x/resolve/main/figures/colebrook-friction-factor-chart.svg)
+![Friction factor chart (Colebrook, turbulent flow), computed by thermofluids-ai999x](https://huggingface.co/AI999X/thermofluids-ai999x/resolve/main/figures/colebrook-friction-factor-chart.svg)
 
 _Darcy friction factor of turbulent pipe flow against Reynolds number (logarithmic axis) for five relative roughnesses from smooth to ε/D = 0.05, each from the Colebrook equation solved by the package at up to 89 Reynolds numbers between 4000 and 10⁸. Marked: Re = 100000, ε/D = 0.0002, f = 0.0190054._
 
 **Psychrometric chart: humidity ratio against temperature**
 
-![Psychrometric chart: humidity ratio against temperature — computed by thermofluids-ai999x](https://huggingface.co/AI999X/thermofluids-ai999x/resolve/main/figures/humidity-ratio-from-relative-humidity-chart.svg)
+![Psychrometric chart: humidity ratio against temperature, computed by thermofluids-ai999x](https://huggingface.co/AI999X/thermofluids-ai999x/resolve/main/figures/humidity-ratio-from-relative-humidity-chart.svg)
 
 _Psychrometric chart at 101325 Pa: humidity ratio against dry-bulb temperature at 20, 40, 60, 80 and 100 % relative humidity, computed by the package every 1 °C. Air at 30 °C and 40 % has a wet-bulb temperature of 20.0643 °C; marked: T = 30 °C, W = 10.6028 g/kg._
 
 **Heat-exchanger effectiveness against NTU**
 
-![Heat-exchanger effectiveness against NTU — computed by thermofluids-ai999x](https://huggingface.co/AI999X/thermofluids-ai999x/resolve/main/figures/hx-effectiveness-ntu-chart.svg)
+![Heat-exchanger effectiveness against NTU, computed by thermofluids-ai999x](https://huggingface.co/AI999X/thermofluids-ai999x/resolve/main/figures/hx-effectiveness-ntu-chart.svg)
 
 _Heat-exchanger effectiveness against the number of transfer units for counterflow and parallel flow with heat-capacity rates 2000 and 4000 W/K (ratio 0.5), computed by the package at 60 values of UA. Marked: counterflow, UA = 3000 W/K, NTU = 1.5, ε = 0.690785, Q = 165788 W._
 
 **Otto cycle on a pressure–volume diagram**
 
-![Otto cycle on a pressure–volume diagram — computed by thermofluids-ai999x](https://huggingface.co/AI999X/thermofluids-ai999x/resolve/main/figures/otto-cycle-pv.svg)
+![Otto cycle on a pressure–volume diagram, computed by thermofluids-ai999x](https://huggingface.co/AI999X/thermofluids-ai999x/resolve/main/figures/otto-cycle-pv.svg)
 
 _An air-standard Otto cycle drawn on pressure–volume axes: compression ratio 8, intake 1 bar and 300 K in 0.5 L, peak temperature 1800 K (stated). Each point is a solve of the package's isentropic and ideal-gas relations (amount of air 0.0200454 mol): T2 = 689.219 K, T4 = 783.496 K; the enclosed area is the net work. The package's Otto efficiency for r = 8 is 0.564725; marked: state 3, P = 48 bar._
 
 **Wet-bulb temperature table**
 
-![Wet-bulb temperature table — computed by thermofluids-ai999x](https://huggingface.co/AI999X/thermofluids-ai999x/resolve/main/figures/wet-bulb-temperature-heatmap.svg)
+![Wet-bulb temperature table, computed by thermofluids-ai999x](https://huggingface.co/AI999X/thermofluids-ai999x/resolve/main/figures/wet-bulb-temperature-heatmap.svg)
 
 _Wet-bulb temperature at 101325 Pa for dry-bulb temperatures 10, 15, 20, 25, 30, 35, 40 °C (rows) and relative humidities 20, 40, 60, 80 and 100 % (columns), each cell computed by the package (°C, one decimal). At 100 % the wet bulb equals the dry bulb; at 40 °C and 20 % it is 22 °C._
 
@@ -451,22 +442,22 @@ _Wet-bulb temperature at 101325 Pa for dry-bulb temperatures 10, 15, 20, 25, 30,
 ## Out of scope
 
 - Open-ended explanation, essay writing or tutoring dialogue: it is a solver, not a chatbot.
-- Questions outside its certified thermofluids capabilities, and any question whose stated numbers it cannot all use — it refuses with the reason instead.
+- Questions outside its certified thermofluids capabilities, and any question whose stated numbers it cannot all use: it refuses with the reason instead.
 - High-stakes engineering, medical or legal decisions without independent review.
 
 ## Limitations
 
 - It answers what its certified capabilities cover (fluid statics and dynamics, pipe flow, boundary layers, aerodynamics and compressible flow, heat conduction, convection and radiation, fins, heat exchangers, thermodynamic cycles, psychrometrics and combustion); anything else is refused with a reason.
-- `ask()` reads documented question forms and common phrasings; unusual wording may be refused — use `solve()` for guaranteed results.
+- `ask()` reads documented question forms and common phrasings; unusual wording may be refused; use `solve()` for guaranteed results.
 - Results are as correct as the certified relations and their stated conditions; a certified relation is a checked model, not a claim about every physical situation.
 
 ## Citation
 
 ```bibtex
-@software{thermofluids_ai999x_1_1_0,
+@software{thermofluids_ai999x_1_5_0,
   title  = {thermofluids-ai999x: an offline, verified thermofluids solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.1.0},
+  year   = {2026}, version = {1.5.0},
   url    = {https://huggingface.co/AI999X/thermofluids-ai999x}
 }
 ```
@@ -483,4 +474,15 @@ Created and engineered by **Ibnul Jaif Farabi** · **[AI999X](https://huggingfac
 
 ## Source and releases
 
-This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/thermofluids-ai999x/) (`pip install .` builds it). Releases are tagged `v<version>`; the wheel is attached to each [GitHub release](https://github.com/AI999X/thermofluids-ai999x/releases). The optional ONNX models (formula graphs and, where measured, a decision model) are on [Hugging Face](https://huggingface.co/AI999X/thermofluids-ai999x/tree/main/onnx).
+This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/thermofluids-ai999x/) (`pip install .` builds it). Releases are tagged `v1.5.0`; the [GitHub release](https://github.com/AI999X/thermofluids-ai999x/releases/tag/v1.5.0) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
+
+## Build the program from source
+
+`rust/` holds the Rust source of the `thermofluids` command-line program and browser module: the AI999X engine (`rust/ax-engine`), this model (`rust/thermofluids`) and its data (`rust/models/thermofluids/pack.json`). With Rust 1.80 or later:
+
+```bash
+cd rust
+cargo build --release -p thermofluids-ai999x
+./target/release/thermofluids --help
+cargo test -p thermofluids-ai999x
+```
