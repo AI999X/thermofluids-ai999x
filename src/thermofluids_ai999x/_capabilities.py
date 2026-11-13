@@ -15,7 +15,7 @@ def _bind(product) -> None:
     _P = product
 
 
-CapabilityId = Literal["absolute_pressure_depth", "adiabatic_flame_temperature_simple", "bernoulli_horizontal", "biot_number", "blackbody_emissive_power", "blasius_average_skin_friction", "blasius_displacement_thickness", "blasius_friction_factor", "blasius_local_skin_friction", "blasius_momentum_thickness", "brayton_efficiency_air", "buoyant_force", "carnot_cop_heat_pump", "carnot_cop_refrigerator", "carnot_efficiency", "churchill_bernstein_cylinder", "churchill_chu_vertical_plate", "colebrook_friction_factor", "compressor_outlet_temperature_air", "continuity_speed", "critical_insulation_radius", "cylinder_conduction", "darcy_weisbach_head_loss", "darcy_weisbach_pressure_drop", "dew_point_temperature", "diesel_efficiency_air", "dittus_boelter_cooling", "dittus_boelter_heating", "drag_force", "dynamic_pressure", "effectiveness_parallel_flow", "effectiveness_phase_change", "entropy_change_ideal_gas", "entropy_change_incompressible", "equivalence_ratio", "flat_plate_laminar_average_nusselt", "flat_plate_laminar_local_nusselt", "fourier_number", "froude_number", "gnielinski_nusselt", "grashof_number", "haaland_friction_factor", "hagen_poiseuille", "heat_rate_effectiveness", "humidity_ratio_from_relative_humidity", "humidity_ratio_vapour_pressure", "hx_effectiveness_ntu", "hydraulic_power", "hydrostatic_force_plane", "hydrostatic_gauge_pressure", "ideal_gas_law", "infinite_fin_heat_rate", "isentropic_temperature_pressure_air", "isentropic_temperature_volume_air", "isothermal_work_ideal_gas", "kinematic_viscosity", "laminar_friction_factor", "lift_force", "lmtd", "lumped_capacitance_temperature", "lumped_time_constant", "mach_number", "minor_loss_head", "moist_air_enthalpy", "moist_air_specific_volume", "newton_cooling", "normal_shock_mach_air", "normal_shock_pressure_air", "ntu_definition", "nusselt_heat_transfer_coefficient", "otto_efficiency_air", "overall_heat_rate", "overall_u_plane_wall", "pin_fin_efficiency", "plane_wall_conduction", "prandtl_number", "pump_shaft_power", "radiation_heat_transfer_coefficient", "radiation_net_exchange", "radiation_parallel_plates", "rayleigh_number", "reynolds_number", "reynolds_number_kinematic", "saturation_vapour_pressure", "sensible_heat_rate", "speed_of_sound_ideal_gas", "sphere_conduction", "stagnation_pressure_air", "stagnation_temperature_mach", "stoichiometric_air_fuel_ratio", "stokes_drag", "stokes_terminal_velocity", "swamee_jain_friction_factor", "thermal_diffusivity", "thin_airfoil_lift_coefficient", "torricelli_efflux", "wall_generation_max_temperature", "wet_bulb_temperature", "wien_displacement"]
+CapabilityId = Literal["absolute_pressure_depth", "adiabatic_flame_temperature_simple", "bernoulli_horizontal", "bernoulli_with_height", "biot_number", "blackbody_emissive_power", "blasius_average_skin_friction", "blasius_displacement_thickness", "blasius_friction_factor", "blasius_local_skin_friction", "blasius_momentum_thickness", "brayton_efficiency_air", "buoyant_force", "carnot_cop_heat_pump", "carnot_cop_refrigerator", "carnot_efficiency", "churchill_bernstein_cylinder", "churchill_chu_vertical_plate", "colebrook_friction_factor", "compressor_outlet_temperature_air", "continuity_speed", "critical_insulation_radius", "cylinder_conduction", "darcy_weisbach_head_loss", "darcy_weisbach_pressure_drop", "dew_point_temperature", "diesel_efficiency_air", "dittus_boelter_cooling", "dittus_boelter_heating", "drag_force", "dynamic_pressure", "effectiveness_parallel_flow", "effectiveness_phase_change", "entropy_change_ideal_gas", "entropy_change_incompressible", "entropy_change_reservoir", "entropy_generation_heat_transfer", "equivalence_ratio", "first_law_internal_energy_change", "flat_plate_laminar_average_nusselt", "flat_plate_laminar_local_nusselt", "fourier_number", "froude_number", "gnielinski_nusselt", "grashof_number", "haaland_friction_factor", "hagen_poiseuille", "heat_rate_effectiveness", "humidity_ratio_from_relative_humidity", "humidity_ratio_vapour_pressure", "hx_effectiveness_ntu", "hydraulic_power", "hydraulic_press_pascal", "hydrostatic_force_plane", "hydrostatic_gauge_pressure", "ideal_gas_law", "infinite_fin_heat_rate", "isentropic_temperature_pressure_air", "isentropic_temperature_volume_air", "isobaric_boundary_work", "isothermal_work_ideal_gas", "kinematic_viscosity", "laminar_friction_factor", "lift_force", "lmtd", "lumped_capacitance_temperature", "lumped_time_constant", "mach_number", "minor_loss_head", "moist_air_enthalpy", "moist_air_specific_volume", "newton_cooling", "normal_shock_mach_air", "normal_shock_pressure_air", "ntu_definition", "nusselt_heat_transfer_coefficient", "otto_efficiency_air", "overall_heat_rate", "overall_u_plane_wall", "pin_fin_efficiency", "plane_wall_conduction", "prandtl_number", "pump_shaft_power", "radiation_heat_transfer_coefficient", "radiation_net_exchange", "radiation_parallel_plates", "rayleigh_number", "reynolds_number", "reynolds_number_kinematic", "saturation_vapour_pressure", "sensible_heat_rate", "speed_of_sound_ideal_gas", "sphere_conduction", "stagnation_pressure_air", "stagnation_temperature_mach", "stoichiometric_air_fuel_ratio", "stokes_drag", "stokes_terminal_velocity", "swamee_jain_friction_factor", "thermal_diffusivity", "thin_airfoil_lift_coefficient", "torricelli_efflux", "wall_generation_max_temperature", "wet_bulb_temperature", "wet_steam_mixture", "wien_displacement"]
 
 
 def solve(find: CapabilityId | str, given: dict | None = None, conditions=(), *, target: str | None = None, **inputs):
@@ -77,6 +77,23 @@ def bernoulli_horizontal(P2=None, P1=None, rho=None, v1=None, v2=None, *, target
     """
     given = {k: v for k, v in dict(P2=P2, P1=P1, rho=rho, v1=v1, v2=v2).items() if v is not None}
     return _P.solve("bernoulli_horizontal", target=target, **given)
+
+def bernoulli_with_height(P1=None, v1=None, h1=None, v2=None, h2=None, rho=None, g=None):
+    """Bernoulli's equation with a change of height. The absolute pressure at a second point of a streamline of steady, inviscid, incompressible flow from the pressure, speed and height at the first and the speed and height at the second.
+    Formula: P_1 + \\tfrac{1}{2}\\rho v_1^2 + \\rho g h_1 = P_2 + \\tfrac{1}{2}\\rho v_2^2 + \\rho g h_2
+    Inputs:
+        P1: absolute pressure at point 1
+        v1: flow speed at point 1
+        h1: height of point 1 above a datum
+        v2: flow speed at point 2
+        h2: height of point 2 above the same datum
+        rho: density of the fluid
+        g: gravitational acceleration
+    Outputs: P2 (absolute pressure at point 2)
+    See also: help("bernoulli_with_height")
+    """
+    given = {k: v for k, v in dict(P1=P1, v1=v1, h1=h1, v2=v2, h2=h2, rho=rho, g=g).items() if v is not None}
+    return _P.solve("bernoulli_with_height", **given)
 
 def biot_number(Bi=None, h=None, Lc=None, k=None, *, target: str | None = None):
     """Biot number: Bi = h*Lc/k
@@ -522,6 +539,31 @@ def entropy_change_incompressible(dS=None, m=None, c=None, T2=None, T1=None, *, 
     given = {k: v for k, v in dict(dS=dS, m=m, c=c, T2=T2, T1=T1).items() if v is not None}
     return _P.solve("entropy_change_incompressible", target=target, **given)
 
+def entropy_change_reservoir(Q=None, T=None):
+    """Entropy change for heat exchanged at a constant temperature. The entropy change dS = Q/T of a reservoir (or any system) that takes in heat Q reversibly at a fixed absolute temperature T.
+    Formula: \\Delta S = \\frac{Q}{T}
+    Inputs:
+        Q: heat added to the reservoir (negative if heat leaves it)
+        T: absolute temperature of the reservoir
+    Outputs: dS (entropy change of the reservoir)
+    See also: help("entropy_change_reservoir")
+    """
+    given = {k: v for k, v in dict(Q=Q, T=T).items() if v is not None}
+    return _P.solve("entropy_change_reservoir", **given)
+
+def entropy_generation_heat_transfer(Q=None, T_hot=None, T_cold=None):
+    """Entropy generated when heat flows between two reservoirs. The entropy changes of a hot and a cold reservoir when heat Q flows from the hot one to the cold one, and the total (generated) entropy.
+    Formula: \\Delta S_{tot} = -\\frac{Q}{T_h} + \\frac{Q}{T_c} = Q\\,\\frac{T_h - T_c}{T_h T_c}
+    Inputs:
+        Q: heat that flows from the hot to the cold reservoir
+        T_hot: absolute temperature of the hot reservoir
+        T_cold: absolute temperature of the cold reservoir
+    Outputs: dS_total (total entropy change (entropy generated)), dS_hot (entropy change of the hot reservoir), dS_cold (entropy change of the cold reservoir)
+    See also: help("entropy_generation_heat_transfer")
+    """
+    given = {k: v for k, v in dict(Q=Q, T_hot=T_hot, T_cold=T_cold).items() if v is not None}
+    return _P.solve("entropy_generation_heat_transfer", **given)
+
 def equivalence_ratio(fuel=None, afr=None):
     """Equivalence ratio of a fuel-air mixture. Equivalence ratio and excess air of a gaseous fuel burned at a given air-fuel ratio by mass.
     Formula: \\phi = \\frac{AFR_s}{AFR}
@@ -533,6 +575,18 @@ def equivalence_ratio(fuel=None, afr=None):
     """
     given = {k: v for k, v in dict(fuel=fuel, afr=afr).items() if v is not None}
     return _P.solve("equivalence_ratio", **given)
+
+def first_law_internal_energy_change(Q=None, W=None):
+    """First law of thermodynamics: change of internal energy. The change of internal energy of a closed system from the heat added to it and the work it does.
+    Formula: \\Delta U = Q - W
+    Inputs:
+        Q: heat added to the system (negative if heat leaves it)
+        W: work done BY the system (negative if work is done on it)
+    Outputs: dU (change of internal energy)
+    See also: help("first_law_internal_energy_change")
+    """
+    given = {k: v for k, v in dict(Q=Q, W=W).items() if v is not None}
+    return _P.solve("first_law_internal_energy_change", **given)
 
 def flat_plate_laminar_average_nusselt(Nu=None, ReL=None, Pr=None, *, target: str | None = None):
     """Average Nusselt number for laminar flow over a flat plate: Nu = 0.664*ReL**(1/2)*Pr**(1/3)
@@ -729,6 +783,19 @@ def hydraulic_power(P=None, rho=None, g=None, Q=None, H=None, *, target: str | N
     given = {k: v for k, v in dict(P=P, rho=rho, g=g, Q=Q, H=H).items() if v is not None}
     return _P.solve("hydraulic_power", target=target, **given)
 
+def hydraulic_press_pascal(F1=None, A1=None, A2=None):
+    """Hydraulic press (Pascal's principle). Output force, pressure, mechanical advantage and piston-travel ratio of an ideal hydraulic press or lift.
+    Formula: \\frac{F_1}{A_1} = \\frac{F_2}{A_2},\\quad \\frac{d_2}{d_1} = \\frac{A_1}{A_2}
+    Inputs:
+        F1: force on the input (small) piston
+        A1: area of the input piston
+        A2: area of the output piston
+    Outputs: F2 (force on the output piston), P (pressure transmitted through the liquid (above ambient)), MA (mechanical advantage F2/F1 = A2/A1), d_ratio (output piston travel / input piston travel (d2/d1 = A1/A2))
+    See also: help("hydraulic_press_pascal")
+    """
+    given = {k: v for k, v in dict(F1=F1, A1=A1, A2=A2).items() if v is not None}
+    return _P.solve("hydraulic_press_pascal", **given)
+
 def hydrostatic_force_plane(F=None, rho=None, g=None, hc=None, A=None, *, target: str | None = None):
     """Hydrostatic force on a submerged plane surface: F = rho*g*hc*A
     Formula: F = \\rho g h_{c} A
@@ -823,6 +890,19 @@ def isentropic_temperature_volume_air(T2=None, T1=None, V1=None, V2=None, *, tar
     """
     given = {k: v for k, v in dict(T2=T2, T1=T1, V1=V1, V2=V2).items() if v is not None}
     return _P.solve("isentropic_temperature_volume_air", target=target, **given)
+
+def isobaric_boundary_work(P=None, V1=None, V2=None):
+    """Boundary work of a constant-pressure (isobaric) process. The work done by a gas that expands or is compressed at constant pressure from V1 to V2.
+    Formula: W = \\int_{V_1}^{V_2} P\\,dV = P\\,(V_2 - V_1)
+    Inputs:
+        P: constant (absolute) pressure
+        V1: initial volume
+        V2: final volume
+    Outputs: W (work done by the system (negative for a compression)), dV (change of volume V2 - V1)
+    See also: help("isobaric_boundary_work")
+    """
+    given = {k: v for k, v in dict(P=P, V1=V1, V2=V2).items() if v is not None}
+    return _P.solve("isobaric_boundary_work", **given)
 
 def isothermal_work_ideal_gas(W=None, n=None, R=None, T=None, V2=None, V1=None, *, target: str | None = None):
     """Work done by an ideal gas in a reversible isothermal process: W = n*R*T*log(V2/V1)
@@ -1492,6 +1572,26 @@ def wet_bulb_temperature(T=None, RH=None, P=None):
     given = {k: v for k, v in dict(T=T, RH=RH, P=P).items() if v is not None}
     return _P.solve("wet_bulb_temperature", **given)
 
+def wet_steam_mixture(vf=None, vg=None, hf=None, hfg=None, sf=None, sfg=None, x=None, v=None, h=None, s=None):
+    """Wet steam: quality and mixture properties from saturated values. The quality x of a saturated liquid-vapour mixture and its specific volume, enthalpy and entropy by the lever rule, from the saturated-liquid and saturated-vapour values the user supplies (vf, vg; hf, hfg; sf, sfg) and either the quality or one mixture property (v, h or s).
+    Formula: x = \\frac{h - h_f}{h_{fg}},\\quad v = v_f + x\\,(v_g - v_f),\\quad h = h_f + x\\,h_{fg},\\quad s = s_f + x\\,s_{fg}
+    Inputs:
+        vf: specific volume of the saturated liquid (optional)
+        vg: specific volume of the saturated vapour (optional)
+        hf: specific enthalpy of the saturated liquid (optional)
+        hfg: enthalpy of vaporization hg - hf (optional)
+        sf: specific entropy of the saturated liquid (optional)
+        sfg: entropy of vaporization sg - sf (optional)
+        x: quality (vapour mass fraction), a fraction or % (optional)
+        v: specific volume of the mixture (instead of x) (optional)
+        h: specific enthalpy of the mixture (instead of x) (optional)
+        s: specific entropy of the mixture (instead of x) (optional)
+    Outputs: x (quality (vapour mass fraction)), moisture (moisture content 1 - x (liquid mass fraction)), v (specific volume of the mixture), h (specific enthalpy of the mixture), s (specific entropy of the mixture), hg (specific enthalpy of the saturated vapour hf + hfg), sg (specific entropy of the saturated vapour sf + sfg)
+    See also: help("wet_steam_mixture")
+    """
+    given = {k: v for k, v in dict(vf=vf, vg=vg, hf=hf, hfg=hfg, sf=sf, sfg=sfg, x=x, v=v, h=h, s=s).items() if v is not None}
+    return _P.solve("wet_steam_mixture", **given)
+
 def wien_displacement(lam=None, T=None, b=None, *, target: str | None = None):
     """Wien's displacement law: lam = b/T
     Formula: \\lambda = \\frac{b}{T}
@@ -1507,4 +1607,4 @@ def wien_displacement(lam=None, T=None, b=None, *, target: str | None = None):
     return _P.solve("wien_displacement", target=target, **given)
 
 
-__all__ = ["CapabilityId", "solve", "help", "absolute_pressure_depth", "adiabatic_flame_temperature_simple", "bernoulli_horizontal", "biot_number", "blackbody_emissive_power", "blasius_average_skin_friction", "blasius_displacement_thickness", "blasius_friction_factor", "blasius_local_skin_friction", "blasius_momentum_thickness", "brayton_efficiency_air", "buoyant_force", "carnot_cop_heat_pump", "carnot_cop_refrigerator", "carnot_efficiency", "churchill_bernstein_cylinder", "churchill_chu_vertical_plate", "colebrook_friction_factor", "compressor_outlet_temperature_air", "continuity_speed", "critical_insulation_radius", "cylinder_conduction", "darcy_weisbach_head_loss", "darcy_weisbach_pressure_drop", "dew_point_temperature", "diesel_efficiency_air", "dittus_boelter_cooling", "dittus_boelter_heating", "drag_force", "dynamic_pressure", "effectiveness_parallel_flow", "effectiveness_phase_change", "entropy_change_ideal_gas", "entropy_change_incompressible", "equivalence_ratio", "flat_plate_laminar_average_nusselt", "flat_plate_laminar_local_nusselt", "fourier_number", "froude_number", "gnielinski_nusselt", "grashof_number", "haaland_friction_factor", "hagen_poiseuille", "heat_rate_effectiveness", "humidity_ratio_from_relative_humidity", "humidity_ratio_vapour_pressure", "hx_effectiveness_ntu", "hydraulic_power", "hydrostatic_force_plane", "hydrostatic_gauge_pressure", "ideal_gas_law", "infinite_fin_heat_rate", "isentropic_temperature_pressure_air", "isentropic_temperature_volume_air", "isothermal_work_ideal_gas", "kinematic_viscosity", "laminar_friction_factor", "lift_force", "lmtd", "lumped_capacitance_temperature", "lumped_time_constant", "mach_number", "minor_loss_head", "moist_air_enthalpy", "moist_air_specific_volume", "newton_cooling", "normal_shock_mach_air", "normal_shock_pressure_air", "ntu_definition", "nusselt_heat_transfer_coefficient", "otto_efficiency_air", "overall_heat_rate", "overall_u_plane_wall", "pin_fin_efficiency", "plane_wall_conduction", "prandtl_number", "pump_shaft_power", "radiation_heat_transfer_coefficient", "radiation_net_exchange", "radiation_parallel_plates", "rayleigh_number", "reynolds_number", "reynolds_number_kinematic", "saturation_vapour_pressure", "sensible_heat_rate", "speed_of_sound_ideal_gas", "sphere_conduction", "stagnation_pressure_air", "stagnation_temperature_mach", "stoichiometric_air_fuel_ratio", "stokes_drag", "stokes_terminal_velocity", "swamee_jain_friction_factor", "thermal_diffusivity", "thin_airfoil_lift_coefficient", "torricelli_efflux", "wall_generation_max_temperature", "wet_bulb_temperature", "wien_displacement"]
+__all__ = ["CapabilityId", "solve", "help", "absolute_pressure_depth", "adiabatic_flame_temperature_simple", "bernoulli_horizontal", "bernoulli_with_height", "biot_number", "blackbody_emissive_power", "blasius_average_skin_friction", "blasius_displacement_thickness", "blasius_friction_factor", "blasius_local_skin_friction", "blasius_momentum_thickness", "brayton_efficiency_air", "buoyant_force", "carnot_cop_heat_pump", "carnot_cop_refrigerator", "carnot_efficiency", "churchill_bernstein_cylinder", "churchill_chu_vertical_plate", "colebrook_friction_factor", "compressor_outlet_temperature_air", "continuity_speed", "critical_insulation_radius", "cylinder_conduction", "darcy_weisbach_head_loss", "darcy_weisbach_pressure_drop", "dew_point_temperature", "diesel_efficiency_air", "dittus_boelter_cooling", "dittus_boelter_heating", "drag_force", "dynamic_pressure", "effectiveness_parallel_flow", "effectiveness_phase_change", "entropy_change_ideal_gas", "entropy_change_incompressible", "entropy_change_reservoir", "entropy_generation_heat_transfer", "equivalence_ratio", "first_law_internal_energy_change", "flat_plate_laminar_average_nusselt", "flat_plate_laminar_local_nusselt", "fourier_number", "froude_number", "gnielinski_nusselt", "grashof_number", "haaland_friction_factor", "hagen_poiseuille", "heat_rate_effectiveness", "humidity_ratio_from_relative_humidity", "humidity_ratio_vapour_pressure", "hx_effectiveness_ntu", "hydraulic_power", "hydraulic_press_pascal", "hydrostatic_force_plane", "hydrostatic_gauge_pressure", "ideal_gas_law", "infinite_fin_heat_rate", "isentropic_temperature_pressure_air", "isentropic_temperature_volume_air", "isobaric_boundary_work", "isothermal_work_ideal_gas", "kinematic_viscosity", "laminar_friction_factor", "lift_force", "lmtd", "lumped_capacitance_temperature", "lumped_time_constant", "mach_number", "minor_loss_head", "moist_air_enthalpy", "moist_air_specific_volume", "newton_cooling", "normal_shock_mach_air", "normal_shock_pressure_air", "ntu_definition", "nusselt_heat_transfer_coefficient", "otto_efficiency_air", "overall_heat_rate", "overall_u_plane_wall", "pin_fin_efficiency", "plane_wall_conduction", "prandtl_number", "pump_shaft_power", "radiation_heat_transfer_coefficient", "radiation_net_exchange", "radiation_parallel_plates", "rayleigh_number", "reynolds_number", "reynolds_number_kinematic", "saturation_vapour_pressure", "sensible_heat_rate", "speed_of_sound_ideal_gas", "sphere_conduction", "stagnation_pressure_air", "stagnation_temperature_mach", "stoichiometric_air_fuel_ratio", "stokes_drag", "stokes_terminal_velocity", "swamee_jain_friction_factor", "thermal_diffusivity", "thin_airfoil_lift_coefficient", "torricelli_efflux", "wall_generation_max_temperature", "wet_bulb_temperature", "wet_steam_mixture", "wien_displacement"]

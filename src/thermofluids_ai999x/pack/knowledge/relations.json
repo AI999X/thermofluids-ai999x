@@ -1193,7 +1193,7 @@
     "eta": {
      "kind": "efficiency",
      "role": "pump",
-     "sign": "positive",
+     "sign": "fraction",
      "desc": "pump efficiency (a fraction)",
      "accepts": [
       "plain"
@@ -1662,7 +1662,7 @@
     "gamma": {
      "kind": "heat_capacity_ratio",
      "role": "plain",
-     "sign": "positive",
+     "sign": "at_least_one",
      "desc": "ratio of specific heats"
     },
     "R": {
@@ -1724,7 +1724,7 @@
     "gamma": {
      "kind": "heat_capacity_ratio",
      "role": "plain",
-     "sign": "positive",
+     "sign": "at_least_one",
      "desc": "ratio of specific heats"
     },
     "M": {
@@ -1818,13 +1818,13 @@
     "M2": {
      "kind": "mach_number",
      "role": "downstream",
-     "sign": "positive",
+     "sign": "fraction",
      "desc": "Mach number behind the shock"
     },
     "M1": {
      "kind": "mach_number",
      "role": "upstream",
-     "sign": "positive",
+     "sign": "at_least_one",
      "desc": "Mach number ahead of the shock"
     }
    },
@@ -1875,7 +1875,7 @@
     "M1": {
      "kind": "mach_number",
      "role": "upstream",
-     "sign": "positive",
+     "sign": "at_least_one",
      "desc": "Mach number ahead of the shock"
     }
    },
@@ -3331,7 +3331,7 @@
     "eps": {
      "kind": "emissivity",
      "role": "plain",
-     "sign": "positive",
+     "sign": "fraction",
      "desc": "emissivity of the surface"
     },
     "sigma": {
@@ -3425,13 +3425,13 @@
     "e1": {
      "kind": "emissivity",
      "role": "first",
-     "sign": "positive",
+     "sign": "fraction",
      "desc": "emissivity of the first plate"
     },
     "e2": {
      "kind": "emissivity",
      "role": "second",
-     "sign": "positive",
+     "sign": "fraction",
      "desc": "emissivity of the second plate"
     }
    },
@@ -3525,7 +3525,7 @@
     "eps": {
      "kind": "emissivity",
      "role": "plain",
-     "sign": "positive",
+     "sign": "fraction",
      "desc": "surface emissivity"
     },
     "sigma": {
@@ -3858,7 +3858,7 @@
     "eps": {
      "kind": "heat_exchanger_effectiveness",
      "role": "plain",
-     "sign": "positive",
+     "sign": "fraction",
      "desc": "heat exchanger effectiveness"
     },
     "N": {
@@ -3906,7 +3906,7 @@
     "eps": {
      "kind": "heat_exchanger_effectiveness",
      "role": "plain",
-     "sign": "positive",
+     "sign": "fraction",
      "desc": "heat exchanger effectiveness"
     },
     "N": {
@@ -3952,7 +3952,7 @@
     "eps": {
      "kind": "heat_exchanger_effectiveness",
      "role": "plain",
-     "sign": "positive",
+     "sign": "fraction",
      "desc": "heat exchanger effectiveness"
     },
     "Cmin": {
@@ -4064,7 +4064,7 @@
     "eta": {
      "kind": "efficiency",
      "role": "carnot",
-     "sign": "positive",
+     "sign": "fraction",
      "desc": "Carnot (maximum) efficiency",
      "accepts": [
       "plain"
@@ -4214,7 +4214,7 @@
     "eta": {
      "kind": "efficiency",
      "role": "cycle",
-     "sign": "positive",
+     "sign": "fraction",
      "desc": "thermal efficiency of the cycle",
      "accepts": [
       "plain"
@@ -4223,7 +4223,7 @@
     "r": {
      "kind": "compression_ratio",
      "role": "plain",
-     "sign": "positive",
+     "sign": "at_least_one",
      "desc": "compression ratio V1/V2"
     }
    },
@@ -4261,7 +4261,7 @@
     "eta": {
      "kind": "efficiency",
      "role": "cycle",
-     "sign": "positive",
+     "sign": "fraction",
      "desc": "thermal efficiency of the cycle",
      "accepts": [
       "plain"
@@ -4270,13 +4270,13 @@
     "r": {
      "kind": "compression_ratio",
      "role": "plain",
-     "sign": "positive",
+     "sign": "at_least_one",
      "desc": "compression ratio V1/V2"
     },
     "rc": {
      "kind": "cutoff_ratio",
      "role": "plain",
-     "sign": "positive",
+     "sign": "at_least_one",
      "desc": "cutoff ratio V3/V2"
     }
    },
@@ -4313,7 +4313,7 @@
     "eta": {
      "kind": "efficiency",
      "role": "cycle",
-     "sign": "positive",
+     "sign": "fraction",
      "desc": "thermal efficiency of the cycle",
      "accepts": [
       "plain"
@@ -4322,7 +4322,7 @@
     "rp": {
      "kind": "pressure_ratio",
      "role": "plain",
-     "sign": "positive",
+     "sign": "at_least_one",
      "desc": "compressor pressure ratio"
     }
    },
@@ -4496,7 +4496,7 @@
     "eta": {
      "kind": "efficiency",
      "role": "isentropic",
-     "sign": "positive",
+     "sign": "fraction",
      "desc": "isentropic efficiency of the compressor"
     }
    },

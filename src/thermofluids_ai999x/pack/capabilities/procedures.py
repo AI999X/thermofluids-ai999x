@@ -748,3 +748,612 @@ PROCEDURES = {
                        "outputs": {"mL": math.sqrt(4 * 50 / (200 * 0.005)) * 0.05}},
                       {"q": "Pin fin efficiency: h = 50 W/(m^2*K), k = 200 W/(m*K), D = 5 mm", "outcome": "NEEDS_INPUT"}]},
 }
+
+
+# ================================================================================================ core additions (2026-11-12)
+# The elementary first-course calculations the curriculum gap report found missing: the first law, boundary work at
+# constant pressure, the entropy of heat exchanged at a fixed temperature (one reservoir, and heat flowing between two),
+# Pascal's hydraulic press and Bernoulli's equation with a change of height.
+# Conventions: W is the work done BY the system (W > 0 when the system expands); Q is the heat added TO the system
+# (Q < 0 when heat leaves it). Pressures in Bernoulli's equation are absolute. g is an input (it is never assumed).
+# Their documented form is the same 'phrase: name = value, ...' with EVERY value carrying a unit; units the pair reader
+# above lacks (J, N, m^2, m^3, L, m/s, kg/m^3, m/s^2) are read by the reader below and converted by the runtime.
+_U2 = (r"kg/m\^3|m/s\^2|m/s|J/K|kJ/K|cm\^2|mm\^2|m\^2|cm\^3|m\^3|kJ|MJ|mJ|J|kN|MN|N|kPa|MPa|bar|Pa|atm|°\s*C|degC|K|L|"
+       r"km|cm|mm|m")
+_PAIR2 = re.compile(r"\b([A-Za-z][A-Za-z_0-9]*)\s*=\s*(" + _NUM + r")\s*(?:(" + _U2 + r")(?![A-Za-z0-9^/*]))?")
+
+
+def _upairs(question: str, phrase: str, names: dict):
+    """{symbol: 'value unit'} from 'phrase ... name = value unit, ...'; None unless the phrase is present, every number
+    belongs to a known name and every value carries a unit (temperatures in K or °C)."""
+    q = question.strip()
+    if not re.search(phrase, q, re.I):
+        return None
+    out, rest = {}, q
+    for m in _PAIR2.finditer(q):
+        key = names.get(m.group(1).lower())
+        unit = (m.group(3) or "").replace(" ", "")
+        if key is None or key in out or not unit:
+            return None
+        out[key] = f"{m.group(2)} {'°C' if unit.lower() in ('°c', 'degc') else unit}"
+        rest = rest.replace(m.group(0), " ", 1)
+    if re.search(r"\d", re.sub(phrase, " ", rest, flags=re.I)):
+        return None                                   # a number that is not a 'name = value unit' pair: never guessed
+    return out
+
+
+def _quad(f, a, b):
+    from scipy.integrate import quad
+    return quad(f, a, b, epsabs=0.0, epsrel=1e-13, limit=200)[0]
+
+
+# ------------------------------------------------------------------------------------------------ first law
+def first_law(Q, W) -> dict:
+    if not (math.isfinite(Q) and math.isfinite(W)):
+        raise ValueError("the heat and the work must be finite numbers")
+    return {"dU": Q - W}
+
+
+def verify_first_law(i, o) -> float:
+    s = max(abs(i["Q"]), abs(i["W"]))
+    if s == 0:
+        return abs(o["dU"])
+    return abs(o["dU"] + i["W"] - i["Q"]) / s
+
+
+def ref_first_law(Q, W):
+    """The first law in rate form, dU/dt = Qdot - Wdot, integrated over a process that adds Q and does W uniformly
+    (scipy quad). A restatement of the law: a weaker reference, documented."""
+    return {"dU": _quad(lambda t: Q - W, 0.0, 1.0)}
+
+
+# ------------------------------------------------------------------------------------------------ isobaric work
+def isobaric_work(P, V1, V2) -> dict:
+    if not (math.isfinite(P) and P > 0):
+        raise ValueError("the pressure must be positive (an absolute pressure)")
+    if not (math.isfinite(V1) and math.isfinite(V2) and V1 > 0 and V2 > 0):
+        raise ValueError("the initial and final volumes must be positive")
+    return {"W": P * (V2 - V1), "dV": V2 - V1}
+
+
+def verify_isobaric_work(i, o) -> float:
+    P, V1, V2 = i["P"], i["V1"], i["V2"]
+    s = max(V1, V2)
+    return abs(o["W"] - P * (V2 - V1)) / (P * s) + abs(o["dV"] - (V2 - V1)) / s
+
+
+def ref_isobaric_work(P, V1, V2):
+    """Boundary work as the integral of P dV from V1 to V2 (scipy quad), the definition rather than the closed form."""
+    return {"W": _quad(lambda V: P, V1, V2), "dV": V2 - V1}
+
+
+# ------------------------------------------------------------------------------------------------ entropy and heat
+def entropy_reservoir(Q, T) -> dict:
+    if not (math.isfinite(T) and T > 0):
+        raise ValueError("the absolute temperature must be positive")
+    if not math.isfinite(Q):
+        raise ValueError("the heat must be a finite number")
+    return {"dS": Q / T}
+
+
+def verify_entropy_reservoir(i, o) -> float:
+    Q, T = i["Q"], i["T"]
+    if Q == 0:
+        return abs(o["dS"])
+    return abs(o["dS"] * T - Q) / abs(Q)
+
+
+def ref_entropy_reservoir(Q, T):
+    """dS = integral of dQ_rev / T over the heat added at the fixed temperature (scipy quad). Weaker reference, documented."""
+    return {"dS": _quad(lambda q: 1.0 / T, 0.0, Q)}
+
+
+def entropy_heat_transfer(Q, T_hot, T_cold) -> dict:
+    if not (math.isfinite(T_hot) and math.isfinite(T_cold) and T_hot > 0 and T_cold > 0):
+        raise ValueError("the absolute temperatures must be positive")
+    if not (math.isfinite(Q) and Q > 0):
+        raise ValueError("Q is the heat that flows from the hot to the cold reservoir and must be positive")
+    if T_hot < T_cold:
+        raise ValueError("heat cannot flow by itself from the colder to the hotter reservoir (the total entropy would fall)")
+    return {"dS_total": Q * (T_hot - T_cold) / (T_hot * T_cold), "dS_hot": -Q / T_hot, "dS_cold": Q / T_cold}
+
+
+def verify_entropy_heat_transfer(i, o) -> float:
+    Q, Th, Tc = i["Q"], i["T_hot"], i["T_cold"]
+    return (abs(o["dS_hot"] * Th + Q) / Q + abs(o["dS_cold"] * Tc - Q) / Q
+            + abs(o["dS_total"] * Th * Tc - Q * (Th - Tc)) / (Q * Th))
+
+
+def ref_entropy_heat_transfer(Q, T_hot, T_cold):
+    """Each reservoir's entropy change as the integral of dQ/T (scipy quad), summed. Weaker reference, documented."""
+    s_hot = -_quad(lambda q: 1.0 / T_hot, 0.0, Q)
+    s_cold = _quad(lambda q: 1.0 / T_cold, 0.0, Q)
+    return {"dS_total": s_hot + s_cold, "dS_hot": s_hot, "dS_cold": s_cold}
+
+
+# ------------------------------------------------------------------------------------------------ hydraulic press
+def hydraulic_press(F1, A1, A2) -> dict:
+    if not (math.isfinite(F1) and F1 > 0):
+        raise ValueError("the input force must be positive")
+    if not (math.isfinite(A1) and math.isfinite(A2) and A1 > 0 and A2 > 0):
+        raise ValueError("the piston areas must be positive")
+    P = F1 / A1
+    return {"F2": P * A2, "P": P, "MA": A2 / A1, "d_ratio": A1 / A2}
+
+
+def verify_hydraulic_press(i, o) -> float:
+    F1, A1, A2 = i["F1"], i["A1"], i["A2"]
+    return (abs(o["F2"] * A1 - F1 * A2) / (F1 * A2) + abs(o["P"] * A1 - F1) / F1
+            + abs(o["MA"] * A1 - A2) / A2 + abs(o["d_ratio"] * A2 - A1) / A1)
+
+
+def ref_hydraulic_press(F1, A1, A2):
+    """Energy route: an input stroke d1 displaces A1 d1 of liquid, which lifts the output piston d2 = A1 d1 / A2; a
+    lossless press does the same work on the load as on the input piston (work by scipy quad), so F2 = W / d2."""
+    d1 = 0.01
+    d2 = A1 * d1 / A2
+    W_in = _quad(lambda x: F1, 0.0, d1)
+    F2 = W_in / d2
+    return {"F2": F2, "P": F2 / A2, "MA": F2 / F1, "d_ratio": d2 / d1}
+
+
+# ------------------------------------------------------------------------------------------------ Bernoulli with height
+def bernoulli_height(P1, v1, h1, v2, h2, rho, g) -> dict:
+    if not (math.isfinite(rho) and rho > 0 and math.isfinite(g) and g > 0):
+        raise ValueError("the density and g must be positive")
+    if not (math.isfinite(P1) and P1 > 0):
+        raise ValueError("P1 is an absolute pressure and must be positive")
+    if not (math.isfinite(v1) and math.isfinite(v2) and v1 >= 0 and v2 >= 0):
+        raise ValueError("give the speeds as magnitudes (v >= 0)")
+    if not (math.isfinite(h1) and math.isfinite(h2)):
+        raise ValueError("the heights must be finite numbers")
+    P2 = P1 + 0.5 * rho * (v1 * v1 - v2 * v2) + rho * g * (h1 - h2)
+    if not P2 > 0:
+        raise ValueError("the computed absolute pressure P2 is not positive: the flow cannot exist so (the liquid would cavitate)")
+    return {"P2": P2}
+
+
+def verify_bernoulli_height(i, o) -> float:
+    rho, g = i["rho"], i["g"]
+    lhs = o["P2"] + 0.5 * rho * i["v2"] * i["v2"] + rho * g * i["h2"]
+    rhs = i["P1"] + 0.5 * rho * i["v1"] * i["v1"] + rho * g * i["h1"]
+    s = i["P1"] + 0.5 * rho * (i["v1"] * i["v1"] + i["v2"] * i["v2"]) + rho * g * (abs(i["h1"]) + abs(i["h2"]))
+    return abs(lhs - rhs) / s
+
+
+def ref_bernoulli_height(P1, v1, h1, v2, h2, rho, g):
+    """Euler's equation along the streamline, dp/ds = -rho (v dv/ds + g dz/ds), integrated (scipy quad) on a path from
+    point 1 to point 2 on which the speed and the height vary linearly (the result depends only on the end points)."""
+    dv, dh = v2 - v1, h2 - h1
+    dp = _quad(lambda s: -rho * ((v1 + dv * s) * dv + g * dh), 0.0, 1.0)
+    return {"P2": P1 + dp}
+
+
+_TF_FIRST = r"first law(?: of thermodynamics)?"
+_TF_ISOB = r"isobaric (?:boundary )?work|constant[- ]pressure work|work at constant pressure"
+_TF_SRES = r"entropy change (?:of a (?:thermal )?reservoir|at (?:a )?constant temperature)"
+_TF_SGEN = r"entropy (?:generated|generation|produced) (?:by|in) heat transfer"
+_TF_PRESS = r"hydraulic (?:press|lift|jack)|pascal'?s principle"
+_TF_BERN = r"bernoulli(?:'s)?(?: equation)? with (?:a )?(?:change (?:of|in) )?(?:height|elevation)"
+
+
+def _sgn(rng):
+    return rng.choice([-1.0, 1.0])
+
+
+PROCEDURES.update({
+    "first_law_internal_energy_change": {
+        "name": "First law of thermodynamics: change of internal energy", "topic": "thermodynamics / first law",
+        "purpose": "The change of internal energy of a closed system from the heat added to it and the work it does.",
+        "inputs": [_phys("Q", "energy", "heat added to the system (negative if heat leaves it)"),
+                   _phys("W", "energy", "work done BY the system (negative if work is done on it)")],
+        "outputs": [{"symbol": "dU", "kind": "energy", "meaning": "change of internal energy"}],
+        "primary": "dU", "conditions": ["closed system", "Q added to the system, W done by the system"],
+        "method": "dU = Q - W",
+        "latex": r"\Delta U = Q - W",
+        "run": first_law, "verify": verify_first_law, "reference": ref_first_law,
+        "parse": lambda q: _upairs(q, _TF_FIRST, {"q": "Q", "w": "W"}),
+        "wrong": lambda Q, W: {"dU": Q + W},                                     # the work-on-the-system sign
+        "random_inputs": lambda rng: (lambda q: {"Q": q, "W": _sgn(rng) * abs(q) * rng.uniform(0.1, 2.0)})(_sgn(rng) * _log_uniform(rng, 10, 1e6)),
+        "templates": ["First law of thermodynamics: Q = 500 J, W = 200 J"],
+        "examples": [{"inputs": {"Q": 500.0, "W": 200.0}, "outputs": {"dU": 300.0}},
+                     {"inputs": {"Q": -300.0, "W": -100.0}, "outputs": {"dU": -200.0}},
+                     {"inputs": {"Q": 1200.0, "W": 1500.0}, "outputs": {"dU": -300.0}}],
+        "questions": [{"q": "First law of thermodynamics: Q = 500 J, W = 200 J", "outputs": {"dU": 300.0}},
+                      {"q": "First law of thermodynamics: Q = -300 J, W = -100 J", "outputs": {"dU": -200.0}},
+                      {"q": "First law: Q = 1.2 kJ, W = 1500 J", "outputs": {"dU": -300.0}},
+                      {"q": "First law of thermodynamics: Q = 1e400 J, W = 200 J", "outcome": "INVALID_INPUT"},
+                      {"q": "First law of thermodynamics: Q = 500 J", "outcome": "NEEDS_INPUT"}]},
+    "isobaric_boundary_work": {
+        "name": "Boundary work of a constant-pressure (isobaric) process", "topic": "thermodynamics / boundary work",
+        "purpose": "The work done by a gas that expands or is compressed at constant pressure from V1 to V2.",
+        "inputs": [_phys("P", "pressure", "constant (absolute) pressure"), _phys("V1", "volume", "initial volume"),
+                   _phys("V2", "volume", "final volume")],
+        "outputs": [{"symbol": "W", "kind": "energy", "meaning": "work done by the system (negative for a compression)"},
+                    {"symbol": "dV", "kind": "volume", "meaning": "change of volume V2 - V1"}],
+        "primary": "W", "conditions": ["P > 0 and constant", "V1, V2 > 0", "quasi-static process"],
+        "method": "W = P (V2 - V1)",
+        "latex": r"W = \int_{V_1}^{V_2} P\,dV = P\,(V_2 - V_1)",
+        "run": isobaric_work, "verify": verify_isobaric_work, "reference": ref_isobaric_work,
+        "parse": lambda q: _upairs(q, _TF_ISOB, {"p": "P", "v1": "V1", "v2": "V2"}),
+        "wrong": lambda P, V1, V2: {"W": P * (V1 - V2), "dV": V2 - V1},          # the sign of the work on the gas
+        "random_inputs": lambda rng: (lambda v1: {"P": _log_uniform(rng, 5e4, 5e6), "V1": v1,
+                                                  "V2": v1 * rng.choice([rng.uniform(0.3, 0.8), rng.uniform(1.25, 3.0)])})(rng.uniform(1e-3, 1.0)),
+        "templates": ["Isobaric work: P = 200 kPa, V1 = 0.010 m^3, V2 = 0.025 m^3"],
+        "examples": [{"inputs": {"P": 200000.0, "V1": 0.010, "V2": 0.025}, "outputs": {"W": 3000.0}},
+                     {"inputs": {"P": 101325.0, "V1": 0.002, "V2": 0.001}, "outputs": {"W": -101.325}}],
+        "questions": [{"q": "Isobaric work: P = 200 kPa, V1 = 0.010 m^3, V2 = 0.025 m^3", "outputs": {"W": 3000.0}},
+                      {"q": "Isobaric work: P = 2 bar, V1 = 10 L, V2 = 25 L", "outputs": {"W": 3000.0}},
+                      {"q": "Isobaric work: P = 200 kPa, V1 = -0.010 m^3, V2 = 0.025 m^3", "outcome": "INVALID_INPUT"},
+                      {"q": "Isobaric work: P = 200 kPa, V1 = 0.010 m^3", "outcome": "NEEDS_INPUT"}]},
+    "entropy_change_reservoir": {
+        "name": "Entropy change for heat exchanged at a constant temperature", "topic": "thermodynamics / entropy",
+        "purpose": "The entropy change dS = Q/T of a reservoir (or any system) that takes in heat Q reversibly at a fixed absolute temperature T.",
+        "inputs": [_phys("Q", "energy", "heat added to the reservoir (negative if heat leaves it)"),
+                   _phys("T", "temperature", "absolute temperature of the reservoir")],
+        "outputs": [{"symbol": "dS", "kind": "entropy", "meaning": "entropy change of the reservoir"}],
+        "primary": "dS", "conditions": ["T > 0 (absolute)", "the temperature stays constant while Q is exchanged"],
+        "method": "dS = Q / T",
+        "latex": r"\Delta S = \frac{Q}{T}",
+        "run": entropy_reservoir, "verify": verify_entropy_reservoir, "reference": ref_entropy_reservoir,
+        "parse": lambda q: _upairs(q, _TF_SRES, {"q": "Q", "t": "T"}),
+        "wrong": lambda Q, T: {"dS": Q / (T - 273.15)},                          # the temperature in °C
+        "random_inputs": lambda rng: {"Q": _sgn(rng) * _log_uniform(rng, 10, 1e7), "T": rng.uniform(320, 1500)},
+        "templates": ["Entropy change of a reservoir: Q = 1000 J, T = 300 K"],
+        "examples": [{"inputs": {"Q": 1000.0, "T": 300.0}, "outputs": {"dS": 1000 / 300}},
+                     {"inputs": {"Q": -5000.0, "T": 500.0}, "outputs": {"dS": -10.0}}],
+        "questions": [{"q": "Entropy change of a reservoir: Q = 1000 J, T = 300 K", "outputs": {"dS": 1000 / 300}},
+                      {"q": "Entropy change of a reservoir: Q = 2 kJ, T = 27 °C", "outputs": {"dS": 2000 / 300.15}},
+                      {"q": "Entropy change of a reservoir: Q = 1000 J, T = 0 K", "outcome": "INVALID_INPUT"},
+                      {"q": "Entropy change of a reservoir: Q = 1000 J", "outcome": "NEEDS_INPUT"}]},
+    "entropy_generation_heat_transfer": {
+        "name": "Entropy generated when heat flows between two reservoirs", "topic": "thermodynamics / entropy and the second law",
+        "purpose": "The entropy changes of a hot and a cold reservoir when heat Q flows from the hot one to the cold one, and the total (generated) entropy.",
+        "inputs": [_phys("Q", "energy", "heat that flows from the hot to the cold reservoir"),
+                   _phys("T_hot", "temperature", "absolute temperature of the hot reservoir"),
+                   _phys("T_cold", "temperature", "absolute temperature of the cold reservoir")],
+        "outputs": [{"symbol": "dS_total", "kind": "entropy", "meaning": "total entropy change (entropy generated)"},
+                    {"symbol": "dS_hot", "kind": "entropy", "meaning": "entropy change of the hot reservoir"},
+                    {"symbol": "dS_cold", "kind": "entropy", "meaning": "entropy change of the cold reservoir"}],
+        "primary": "dS_total", "conditions": ["Q > 0", "T_hot >= T_cold > 0 (absolute)", "both temperatures stay constant"],
+        "method": "dS_hot = -Q/T_hot, dS_cold = Q/T_cold, dS_total = Q (T_hot - T_cold)/(T_hot T_cold) >= 0",
+        "latex": r"\Delta S_{tot} = -\frac{Q}{T_h} + \frac{Q}{T_c} = Q\,\frac{T_h - T_c}{T_h T_c}",
+        "run": entropy_heat_transfer, "verify": verify_entropy_heat_transfer, "reference": ref_entropy_heat_transfer,
+        "parse": lambda q: _upairs(q, _TF_SGEN, {"q": "Q", "t_hot": "T_hot", "th": "T_hot", "t_cold": "T_cold", "tc": "T_cold"}),
+        "wrong": lambda Q, T_hot, T_cold: {"dS_total": Q / T_hot - Q / T_cold, "dS_hot": Q / T_hot, "dS_cold": -Q / T_cold},
+        "random_inputs": lambda rng: (lambda tc: {"Q": _log_uniform(rng, 10, 1e7), "T_cold": tc, "T_hot": tc * rng.uniform(1.2, 4.0)})(rng.uniform(200, 600)),
+        "templates": ["Entropy generated by heat transfer: Q = 1000 J, T_hot = 500 K, T_cold = 300 K"],
+        "examples": [{"inputs": {"Q": 1000.0, "T_hot": 500.0, "T_cold": 300.0},
+                      "outputs": {"dS_total": 1000 * 200 / (500 * 300), "dS_hot": -2.0, "dS_cold": 1000 / 300}},
+                     {"inputs": {"Q": 1200.0, "T_hot": 600.0, "T_cold": 400.0}, "outputs": {"dS_total": 1.0, "dS_hot": -2.0, "dS_cold": 3.0}}],
+        "questions": [{"q": "Entropy generated by heat transfer: Q = 1000 J, T_hot = 500 K, T_cold = 300 K",
+                       "outputs": {"dS_total": 1000 * 200 / (500 * 300)}},
+                      {"q": "Entropy generated by heat transfer: Q = 1.2 kJ, T_hot = 327 °C, T_cold = 127 °C",
+                       "outputs": {"dS_total": 1200 * 200 / (600.15 * 400.15)}},
+                      {"q": "Entropy generated by heat transfer: Q = 1000 J, T_hot = 300 K, T_cold = 500 K", "outcome": "INVALID_INPUT"},
+                      {"q": "Entropy generated by heat transfer: Q = 1000 J, T_hot = 500 K", "outcome": "NEEDS_INPUT"}]},
+    "hydraulic_press_pascal": {
+        "name": "Hydraulic press (Pascal's principle)", "topic": "fluid statics / Pascal's principle",
+        "purpose": "Output force, pressure, mechanical advantage and piston-travel ratio of an ideal hydraulic press or lift.",
+        "inputs": [_phys("F1", "force", "force on the input (small) piston"), _phys("A1", "area", "area of the input piston"),
+                   _phys("A2", "area", "area of the output piston")],
+        "outputs": [{"symbol": "F2", "kind": "force", "meaning": "force on the output piston"},
+                    {"symbol": "P", "kind": "pressure", "meaning": "pressure transmitted through the liquid (above ambient)"},
+                    {"symbol": "MA", "kind": "number", "meaning": "mechanical advantage F2/F1 = A2/A1"},
+                    {"symbol": "d_ratio", "kind": "number", "meaning": "output piston travel / input piston travel (d2/d1 = A1/A2)"}],
+        "primary": "F2", "conditions": ["F1, A1, A2 > 0", "incompressible liquid, pistons at the same level, no friction"],
+        "method": "P = F1/A1 is transmitted undiminished, F2 = P A2; the displaced volume is shared, d2/d1 = A1/A2",
+        "latex": r"\frac{F_1}{A_1} = \frac{F_2}{A_2},\quad \frac{d_2}{d_1} = \frac{A_1}{A_2}",
+        "run": hydraulic_press, "verify": verify_hydraulic_press, "reference": ref_hydraulic_press,
+        "parse": lambda q: _upairs(q, _TF_PRESS, {"f1": "F1", "a1": "A1", "a2": "A2"}),
+        "wrong": lambda F1, A1, A2: {"F2": F1 * A1 / A2, "P": F1 / A1, "MA": A1 / A2, "d_ratio": A2 / A1},   # the ratio inverted
+        "random_inputs": lambda rng: (lambda a1: {"F1": _log_uniform(rng, 1, 1e4), "A1": a1, "A2": a1 * _log_uniform(rng, 4, 400)})(_log_uniform(rng, 1e-5, 1e-2)),
+        "templates": ["Hydraulic press: F1 = 100 N, A1 = 0.01 m^2, A2 = 0.5 m^2"],
+        "examples": [{"inputs": {"F1": 100.0, "A1": 0.01, "A2": 0.5}, "outputs": {"F2": 5000.0, "P": 10000.0, "MA": 50.0, "d_ratio": 0.02}},
+                     {"inputs": {"F1": 50.0, "A1": 0.001, "A2": 0.02}, "outputs": {"F2": 1000.0, "MA": 20.0}}],
+        "questions": [{"q": "Hydraulic press: F1 = 100 N, A1 = 0.01 m^2, A2 = 0.5 m^2", "outputs": {"F2": 5000.0}},
+                      {"q": "Hydraulic press: F1 = 50 N, A1 = 10 cm^2, A2 = 200 cm^2", "outputs": {"F2": 1000.0}},
+                      {"q": "Hydraulic press: F1 = 100 N, A1 = 0 m^2, A2 = 0.5 m^2", "outcome": "INVALID_INPUT"},
+                      {"q": "Hydraulic press: F1 = 100 N, A1 = 0.01 m^2", "outcome": "NEEDS_INPUT"}]},
+    "bernoulli_with_height": {
+        "name": "Bernoulli's equation with a change of height", "topic": "fluid flow / Bernoulli's equation",
+        "purpose": "The absolute pressure at a second point of a streamline of steady, inviscid, incompressible flow from the pressure, speed and height at the first and the speed and height at the second.",
+        "inputs": [_phys("P1", "pressure", "absolute pressure at point 1"), _phys("v1", "speed", "flow speed at point 1"),
+                   _phys("h1", "length", "height of point 1 above a datum"), _phys("v2", "speed", "flow speed at point 2"),
+                   _phys("h2", "length", "height of point 2 above the same datum"), _phys("rho", "density", "density of the fluid"),
+                   _phys("g", "acceleration", "gravitational acceleration")],
+        "outputs": [{"symbol": "P2", "kind": "pressure", "meaning": "absolute pressure at point 2"}],
+        "primary": "P2", "conditions": ["steady, inviscid, incompressible flow along one streamline", "rho, g > 0", "P1 and P2 absolute and positive"],
+        "method": "P2 = P1 + rho (v1^2 - v2^2)/2 + rho g (h1 - h2)",
+        "latex": r"P_1 + \tfrac{1}{2}\rho v_1^2 + \rho g h_1 = P_2 + \tfrac{1}{2}\rho v_2^2 + \rho g h_2",
+        "run": bernoulli_height, "verify": verify_bernoulli_height, "reference": ref_bernoulli_height,
+        "parse": lambda q: _upairs(q, _TF_BERN, {"p1": "P1", "v1": "v1", "h1": "h1", "v2": "v2", "h2": "h2", "rho": "rho", "g": "g"}),
+        "wrong": lambda P1, v1, h1, v2, h2, rho, g: {"P2": P1 + 0.5 * rho * (v1 * v1 - v2 * v2) + rho * g * (h2 - h1)},  # height sign
+        "random_inputs": lambda rng: (lambda h1: {"P1": rng.uniform(1.5e5, 4e5), "v1": rng.uniform(0.5, 5.0), "h1": h1, "v2": rng.uniform(0.5, 8.0),
+                                                  "h2": h1 + _sgn(rng) * rng.uniform(1.0, 8.0), "rho": rng.uniform(700, 1100),
+                                                  "g": rng.choice([9.80665, 9.81, 9.8])})(rng.uniform(0.0, 5.0)),
+        "templates": ["Bernoulli equation with height: P1 = 200 kPa, v1 = 2 m/s, h1 = 0 m, v2 = 6 m/s, h2 = 5 m, rho = 1000 kg/m^3, g = 9.81 m/s^2"],
+        "examples": [{"inputs": {"P1": 200000.0, "v1": 2.0, "h1": 0.0, "v2": 6.0, "h2": 5.0, "rho": 1000.0, "g": 9.81}, "outputs": {"P2": 134950.0}},
+                     {"inputs": {"P1": 150000.0, "v1": 3.0, "h1": 10.0, "v2": 3.0, "h2": 0.0, "rho": 1000.0, "g": 9.80665}, "outputs": {"P2": 248066.5}}],
+        "questions": [{"q": "Bernoulli equation with height: P1 = 200 kPa, v1 = 2 m/s, h1 = 0 m, v2 = 6 m/s, h2 = 5 m, rho = 1000 kg/m^3, g = 9.81 m/s^2",
+                       "outputs": {"P2": 134950.0}},
+                      {"q": "Bernoulli equation with height: P1 = 150 kPa, v1 = 3 m/s, h1 = 10 m, v2 = 3 m/s, h2 = 0 m, rho = 1000 kg/m^3, g = 9.80665 m/s^2",
+                       "outputs": {"P2": 248066.5}},
+                      {"q": "Bernoulli equation with height: P1 = 100 kPa, v1 = 1 m/s, h1 = 0 m, v2 = 1 m/s, h2 = 20 m, rho = 1000 kg/m^3, g = 9.81 m/s^2",
+                       "outcome": "INVALID_INPUT"},
+                      {"q": "Bernoulli equation with height: P1 = 200 kPa, v1 = 2 m/s, h1 = 0 m, v2 = 6 m/s, h2 = 5 m, rho = 1000 kg/m^3",
+                       "outcome": "NEEDS_INPUT"}]},
+})
+
+
+# ================================================================================================ core addition, part 3 (2026-11-12)
+# Wet steam (a saturated liquid-vapour mixture): the quality and the mixture's specific volume, enthalpy and entropy by
+# the lever rule from saturated-liquid and saturated-vapour values THE USER SUPPLIES (vf, vg; hf, hfg; sf, sfg read from
+# their own table at the mixture's pressure or temperature). No steam table is built in, so the result is only as good
+# as the values given. Conventions: x is the vapour mass fraction (0 saturated liquid, 1 saturated vapour); each pair is
+# given whole or not at all; exactly one of x, v, h, s states the mixture; a quality computed within 1e-12 of 0 or 1 is
+# written as 0 or 1 (a value typed as hf + hfg is saturated vapour, not "outside the dome"). Values in SI internally
+# (J/kg, J/(kg*K), m^3/kg); the question form accepts kJ/kg and kJ/(kg*K).
+_U_WET = r"kJ/\(kg\*K\)|J/\(kg\*K\)|m\^3/kg|kJ/kg|MJ/kg|J/kg|%"
+_PAIR_WET = re.compile(r"\b([A-Za-z][A-Za-z_0-9]*)\s*=\s*(" + _NUM + r")\s*(?:(" + _U_WET + r")(?![A-Za-z0-9^/*(]))?")
+_WET_NAMES = {"vf": "vf", "vg": "vg", "hf": "hf", "hfg": "hfg", "sf": "sf", "sfg": "sfg", "x": "x", "v": "v", "h": "h", "s": "s"}
+_WET_UNITS = {"vf": ("m^3/kg",), "vg": ("m^3/kg",), "v": ("m^3/kg",), "hf": ("kJ/kg", "MJ/kg", "J/kg"),
+              "hfg": ("kJ/kg", "MJ/kg", "J/kg"), "h": ("kJ/kg", "MJ/kg", "J/kg"), "sf": ("kJ/(kg*K)", "J/(kg*K)"),
+              "sfg": ("kJ/(kg*K)", "J/(kg*K)"), "s": ("kJ/(kg*K)", "J/(kg*K)")}
+_TF_WET = r"wet steam|two[- ]phase (?:liquid[- ]vapou?r )?mixture|steam quality|quality of (?:a )?wet steam"
+
+
+def parse_wet_steam(q):
+    """'Wet steam: name = value unit, ...' (x a fraction or %); None for any other number, unknown name or unit."""
+    if not isinstance(q, str) or not re.search(_TF_WET, q, re.I):
+        return None
+    out, rest = {}, q
+    for m in _PAIR_WET.finditer(q):
+        key = _WET_NAMES.get(m.group(1).lower())
+        unit = m.group(3) or ""
+        if key is None or key in out:
+            return None
+        if key == "x":
+            if unit == "%":
+                out[key] = float(m.group(2)) / 100.0
+            elif unit:
+                return None
+            else:
+                out[key] = float(m.group(2))
+        else:
+            if unit not in _WET_UNITS[key]:
+                return None
+            out[key] = f"{m.group(2)} {unit}"
+        rest = rest.replace(m.group(0), " ", 1)
+    if re.search(r"\d", re.sub(_TF_WET, " ", rest, flags=re.I)):
+        return None
+    return out
+
+
+def wet_steam(vf=None, vg=None, hf=None, hfg=None, sf=None, sfg=None, x=None, v=None, h=None, s=None) -> dict:
+    if (vf is None) != (vg is None) or (hf is None) != (hfg is None) or (sf is None) != (sfg is None):
+        raise ValueError("give each saturated pair whole: vf with vg, hf with hfg, sf with sfg")
+    if vf is None and hf is None and sf is None:
+        raise ValueError("give at least one saturated pair (vf and vg, hf and hfg, or sf and sfg)")
+    n = 0
+    for val in (x, v, h, s):
+        if val is not None:
+            n += 1
+    if n != 1:
+        raise ValueError("state the mixture by exactly one of the quality x, or its v, h or s")
+    if vf is not None:
+        if not (math.isfinite(vf) and math.isfinite(vg) and 0 < vf < vg):
+            raise ValueError("the specific volumes must satisfy 0 < vf < vg")
+    if hf is not None:
+        if not (math.isfinite(hf) and math.isfinite(hfg) and hfg > 0):
+            raise ValueError("the enthalpy of vaporization hfg must be positive")
+    if sf is not None:
+        if not (math.isfinite(sf) and math.isfinite(sfg) and sfg > 0):
+            raise ValueError("the entropy of vaporization sfg must be positive")
+    if x is not None:
+        if not (math.isfinite(x) and 0 <= x <= 1):
+            raise ValueError("the quality x must be a fraction from 0 to 1")
+        q = x
+    else:
+        if v is not None:
+            if vf is None:
+                raise ValueError("a mixture specific volume needs vf and vg")
+            q = (v - vf) / (vg - vf)
+        elif h is not None:
+            if hf is None:
+                raise ValueError("a mixture enthalpy needs hf and hfg")
+            q = (h - hf) / hfg
+        else:
+            if sf is None:
+                raise ValueError("a mixture entropy needs sf and sfg")
+            q = (s - sf) / sfg
+        if not math.isfinite(q):
+            raise ValueError("the mixture property must be a finite number")
+        if -1e-12 < q < 0:
+            q = 0.0
+        if 1 < q < 1 + 1e-12:
+            q = 1.0
+        if q < 0 or q > 1:
+            raise ValueError("the state is not a wet mixture: the property lies outside the saturated-liquid to saturated-vapour range "
+                             "(compressed liquid or superheated vapour)")
+    out = {"x": q, "moisture": 1.0 - q}
+    if vf is not None:
+        out["v"] = vf + q * (vg - vf)
+    if hf is not None:
+        out["h"] = hf + q * hfg
+        out["hg"] = hf + hfg
+    if sf is not None:
+        out["s"] = sf + q * sfg
+        out["sg"] = sf + sfg
+    return out
+
+
+def verify_wet_steam(i, o) -> float:
+    if "x" not in o or "moisture" not in o:
+        return math.inf
+    q = o["x"]
+    if not (math.isfinite(q) and 0 <= q <= 1):
+        return math.inf
+    res = abs(o["moisture"] + q - 1.0)
+    vf, vg, hf, hfg, sf, sfg = i.get("vf"), i.get("vg"), i.get("hf"), i.get("hfg"), i.get("sf"), i.get("sfg")
+    if vf is not None:
+        if "v" not in o:
+            return math.inf
+        res += abs(o["v"] - vf - q * (vg - vf)) / vg
+        if i.get("v") is not None:
+            res += abs(o["v"] - i["v"]) / vg
+    if hf is not None:
+        if "h" not in o or "hg" not in o:
+            return math.inf
+        sc = abs(hf) + hfg
+        res += abs(o["h"] - hf - q * hfg) / sc + abs(o["hg"] - hf - hfg) / sc
+        if i.get("h") is not None:
+            res += abs(o["h"] - i["h"]) / sc
+    if sf is not None:
+        if "s" not in o or "sg" not in o:
+            return math.inf
+        sc = abs(sf) + sfg
+        res += abs(o["s"] - sf - q * sfg) / sc + abs(o["sg"] - sf - sfg) / sc
+        if i.get("s") is not None:
+            res += abs(o["s"] - i["s"]) / sc
+    if i.get("x") is not None:
+        res += abs(q - i["x"])
+    return res
+
+
+def ref_wet_steam(vf=None, vg=None, hf=None, hfg=None, sf=None, sfg=None, x=None, v=None, h=None, s=None):
+    """The lever rule as linear interpolation between the saturated end states (numpy interp), the quality of a stated
+    mixture property found by root-finding on that interpolation (scipy brentq). The same definition by another route:
+    a weaker reference, documented (no steam table is involved, so there is nothing else to compare with)."""
+    import numpy as np
+    from scipy.optimize import brentq
+    ends = {}
+    if vf is not None:
+        ends["v"] = (vf, vg)
+    if hf is not None:
+        ends["h"] = (hf, hf + hfg)
+    if sf is not None:
+        ends["s"] = (sf, sf + sfg)
+    if x is not None:
+        q = x
+    else:
+        name, val = [(k, w) for k, w in (("v", v), ("h", h), ("s", s)) if w is not None][0]
+        lo, hi = ends[name]
+        q = brentq(lambda t: float(np.interp(t, [0.0, 1.0], [lo, hi])) - val, 0.0, 1.0, xtol=1e-16, rtol=8.9e-16, maxiter=500)
+    out = {"x": q, "moisture": 1.0 - q}
+    for k, (lo, hi) in ends.items():
+        out[k] = float(np.interp(q, [0.0, 1.0], [lo, hi]))
+    if hf is not None:
+        out["hg"] = hf + hfg
+    if sf is not None:
+        out["sg"] = sf + sfg
+    return out
+
+
+def _wrong_wet_steam(vf=None, vg=None, hf=None, hfg=None, sf=None, sfg=None, x=None, v=None, h=None, s=None):
+    """The liquid part forgotten: mixture property = x times the saturated-vapour value (v = x vg, h = x hg, s = x sg)."""
+    gs = {}
+    if vf is not None:
+        gs["v"] = vg
+    if hf is not None:
+        gs["h"] = hf + hfg
+    if sf is not None:
+        gs["s"] = sf + sfg
+    if x is not None:
+        q = x
+    elif v is not None:
+        q = v / vg
+    elif h is not None:
+        q = h / (hf + hfg)
+    else:
+        q = s / (sf + sfg)
+    out = {"x": q, "moisture": 1.0 - q}
+    for k, g in gs.items():
+        out[k] = q * g
+    if hf is not None:
+        out["hg"] = hf + hfg
+    if sf is not None:
+        out["sg"] = sf + sfg
+    return out
+
+
+def _rand_wet_steam(rng):
+    d = {"vf": round(rng.uniform(0.001, 0.0016), 6), "vg": round(_log_uniform(rng, 0.01, 50.0), 5),
+         "hf": round(rng.uniform(100e3, 1500e3), -2), "hfg": round(rng.uniform(800e3, 2400e3), -2),
+         "sf": round(rng.uniform(300.0, 3500.0), 1), "sfg": round(rng.uniform(1500.0, 8000.0), 1)}
+    mode = rng.choice(["x", "v", "h", "s"])
+    q = rng.uniform(0.05, 0.98)
+    keep = {"v": ("vf", "vg"), "h": ("hf", "hfg"), "s": ("sf", "sfg")}
+    for k, pair in keep.items():
+        if k != mode and rng.random() < 0.4:
+            for p in pair:
+                del d[p]
+    if "vf" not in d and "hf" not in d and "sf" not in d:
+        d.update(hf=round(rng.uniform(100e3, 1500e3), -2), hfg=round(rng.uniform(800e3, 2400e3), -2))
+    if mode == "x":
+        d["x"] = round(q, 4)
+    elif mode == "v":
+        d["v"] = float(f"{d['vf'] + q * (d['vg'] - d['vf']):.6g}")
+    elif mode == "h":
+        d["h"] = float(f"{d['hf'] + q * d['hfg']:.6g}")
+    else:
+        d["s"] = float(f"{d['sf'] + q * d['sfg']:.6g}")
+    return d
+
+
+def _wet_in(sym, kind, meaning):
+    return {"symbol": sym, "kind": kind, "meaning": meaning, "required": False}
+
+
+_X_WET = (0.5 - 0.001043) / (1.694 - 0.001043)
+
+PROCEDURES.update({
+    "wet_steam_mixture": {
+        "name": "Wet steam: quality and mixture properties from saturated values", "topic": "thermodynamics / properties of pure substances",
+        "purpose": "The quality x of a saturated liquid-vapour mixture and its specific volume, enthalpy and entropy by the lever "
+                   "rule, from the saturated-liquid and saturated-vapour values the user supplies (vf, vg; hf, hfg; sf, sfg) and "
+                   "either the quality or one mixture property (v, h or s).",
+        "inputs": [_wet_in("vf", "specific_volume", "specific volume of the saturated liquid"),
+                   _wet_in("vg", "specific_volume", "specific volume of the saturated vapour"),
+                   _wet_in("hf", "specific_enthalpy", "specific enthalpy of the saturated liquid"),
+                   _wet_in("hfg", "latent_heat", "enthalpy of vaporization hg - hf"),
+                   _wet_in("sf", "specific_entropy", "specific entropy of the saturated liquid"),
+                   _wet_in("sfg", "specific_entropy", "entropy of vaporization sg - sf"),
+                   {"symbol": "x", "kind": "number", "meaning": "quality (vapour mass fraction), a fraction or %", "required": False},
+                   _wet_in("v", "specific_volume", "specific volume of the mixture (instead of x)"),
+                   _wet_in("h", "specific_enthalpy", "specific enthalpy of the mixture (instead of x)"),
+                   _wet_in("s", "specific_entropy", "specific entropy of the mixture (instead of x)")],
+        "outputs": [{"symbol": "x", "kind": "number", "meaning": "quality (vapour mass fraction)"},
+                    {"symbol": "moisture", "kind": "number", "meaning": "moisture content 1 - x (liquid mass fraction)"},
+                    {"symbol": "v", "kind": "specific_volume", "meaning": "specific volume of the mixture"},
+                    {"symbol": "h", "kind": "specific_enthalpy", "meaning": "specific enthalpy of the mixture"},
+                    {"symbol": "s", "kind": "specific_entropy", "meaning": "specific entropy of the mixture"},
+                    {"symbol": "hg", "kind": "specific_enthalpy", "meaning": "specific enthalpy of the saturated vapour hf + hfg"},
+                    {"symbol": "sg", "kind": "specific_entropy", "meaning": "specific entropy of the saturated vapour sf + sfg"}],
+        "primary": "x", "conditions": ["saturated values at the mixture's own pressure (or temperature), supplied by the user",
+                                       "each pair whole; 0 < vf < vg, hfg > 0, sfg > 0",
+                                       "exactly one of x, v, h, s; 0 <= x <= 1 (otherwise not a wet mixture)"],
+        "method": "lever rule: y = yf + x (yg - yf) for y = v, h, s; x = (y - yf)/(yg - yf) from a stated mixture property",
+        "latex": r"x = \frac{h - h_f}{h_{fg}},\quad v = v_f + x\,(v_g - v_f),\quad h = h_f + x\,h_{fg},\quad s = s_f + x\,s_{fg}",
+        "run": wet_steam, "verify": verify_wet_steam, "reference": ref_wet_steam, "parse": parse_wet_steam,
+        "wrong": _wrong_wet_steam,
+        "random_inputs": _rand_wet_steam,
+        "templates": ["Wet steam: vf = 0.001043 m^3/kg, vg = 1.694 m^3/kg, hf = 417.5 kJ/kg, hfg = 2257.5 kJ/kg, "
+                      "sf = 1.3028 kJ/(kg*K), sfg = 6.0562 kJ/(kg*K), x = 0.9",
+                      "Wet steam: hf = 417.5 kJ/kg, hfg = 2257.5 kJ/kg, h = 2000 kJ/kg"],
+        "examples": [{"inputs": {"vf": 0.001043, "vg": 1.694, "hf": 417500.0, "hfg": 2257500.0, "sf": 1302.8, "sfg": 6056.2, "x": 0.9},
+                      "outputs": {"x": 0.9, "moisture": 0.1, "v": 1.5247043, "h": 2449250.0, "s": 6753.38, "hg": 2675000.0, "sg": 7359.0}},
+                     {"inputs": {"hf": 417500.0, "hfg": 2257500.0, "h": 2000000.0},
+                      "outputs": {"x": 1582500.0 / 2257500.0, "h": 2000000.0, "hg": 2675000.0}},
+                     {"inputs": {"vf": 0.001043, "vg": 1.694, "sf": 1302.8, "sfg": 6056.2, "v": 0.5},
+                      "outputs": {"x": _X_WET, "v": 0.5, "s": 1302.8 + _X_WET * 6056.2}}],
+        "questions": [{"q": "Wet steam: vf = 0.001043 m^3/kg, vg = 1.694 m^3/kg, hf = 417.5 kJ/kg, hfg = 2257.5 kJ/kg, "
+                            "sf = 1.3028 kJ/(kg*K), sfg = 6.0562 kJ/(kg*K), x = 90%",
+                       "outputs": {"h": 2449250.0, "s": 6753.38, "v": 1.5247043}},
+                      {"q": "Wet steam: hf = 417.5 kJ/kg, hfg = 2257.5 kJ/kg, h = 2000 kJ/kg", "outputs": {"x": 1582500.0 / 2257500.0}},
+                      {"q": "Steam quality: vf = 0.001043 m^3/kg, vg = 1.694 m^3/kg, sf = 1.3028 kJ/(kg*K), sfg = 6.0562 kJ/(kg*K), v = 0.5 m^3/kg",
+                       "outputs": {"x": _X_WET}},
+                      {"q": "Wet steam: vf = 0.001043 m^3/kg, vg = 1.694 m^3/kg, v = 2 m^3/kg", "outcome": "INVALID_INPUT"},
+                      {"q": "Wet steam: hf = 417.5 kJ/kg, hfg = 2257.5 kJ/kg, x = 1.2", "outcome": "INVALID_INPUT"},
+                      {"q": "Wet steam: hf = 417.5 kJ/kg, hfg = 2257.5 kJ/kg, x = 0.9, h = 2449.25 kJ/kg", "outcome": "INVALID_INPUT"}]},
+})

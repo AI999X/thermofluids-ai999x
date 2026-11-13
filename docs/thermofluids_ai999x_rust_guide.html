@@ -21,42 +21,42 @@ figcaption{font-size:9pt;color:#555}
 .pb{page-break-after:always}
 </style></head><body>
 <h1>thermofluids: the Thermofluids program, user guide</h1>
-<p><strong>thermofluids-ai999x 1.1.0</strong>, Rust build: command line, desktop app and browser. <strong>Creator / engineer:</strong> Ibnul Jaif Farabi · <strong>Company:</strong> AI999X · support@ai999x.com</p>
-<p>Thermofluids covers fluid statics and dynamics, pipe flow, boundary layers, aerodynamics, heat conduction, convection and radiation, heat exchangers, thermodynamic cycles, psychrometrics and combustion. This guide is about <code>thermofluids</code>, the model as a self-contained program for Windows and Linux: 99 capabilities in 20 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model&#x27;s page (https://www.ai999x.com/models/thermofluids-ai999x/); the Python package (<code>pip install thermofluids-ai999x</code>) has its own guide. Every command output printed here is what the program printed.</p>
+<p><strong>thermofluids-ai999x 1.6.0</strong>, Rust build: command line, desktop app and browser. <strong>Creator / engineer:</strong> Ibnul Jaif Farabi · <strong>Company:</strong> AI999X · support@ai999x.com</p>
+<p>Thermofluids covers fluid statics and dynamics, pipe flow, boundary layers, aerodynamics, heat conduction, convection and radiation, heat exchangers, thermodynamic cycles, psychrometrics and combustion. This guide is about <code>thermofluids</code>, the model as a self-contained program for Windows and Linux: 106 capabilities in 22 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model&#x27;s page (https://www.ai999x.com/models/thermofluids-ai999x/); the Python package (<code>pip install thermofluids-ai999x</code>) has its own guide. Every command output printed here is what the program printed.</p>
 <h2>Contents</h2>
 <ul><li>1. Get it: desktop app, command line, browser, Python</li><li>2. Quick start</li><li>3. Writing inputs</li><li>4. Outcomes and exit codes</li><li>5. Scripts and agents: batch and JSON</li><li>6. Figures</li><li>7. In a web page or Node.js: WebAssembly</li><li>8. Every capability</li></ul>
 <h2>1. Get it</h2>
-<p>Version 1.5.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/</p>
-<table><thead><tr><th>what</th><th>system</th><th>download</th></tr></thead><tbody><tr><td>Desktop app: Thermofluids</td><td>Windows x86-64</td><td>https://downloads.ai999x.com/desktop/1.5.0/ai999x-thermofluids-1.5.0-windows-x86_64.zip</td></tr><tr><td>Desktop app: Thermofluids</td><td>Linux x86-64</td><td>https://downloads.ai999x.com/desktop/1.5.0/ai999x-thermofluids-1.5.0-linux-x86_64.tar.gz</td></tr><tr><td>Desktop app: all models</td><td>Windows x86-64</td><td>https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip</td></tr><tr><td>Desktop app: all models</td><td>Linux x86-64</td><td>https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz</td></tr><tr><td>Command line</td><td>Windows x86-64</td><td>https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip</td></tr><tr><td>Command line</td><td>Linux x86-64</td><td>https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz</td></tr></tbody></table>
+<p>Version 1.6.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/</p>
+<table><thead><tr><th>what</th><th>system</th><th>download</th></tr></thead><tbody><tr><td>Desktop app: Thermofluids</td><td>Windows x86-64</td><td>https://downloads.ai999x.com/desktop/1.6.0/ai999x-thermofluids-1.6.0-windows-x86_64.zip</td></tr><tr><td>Desktop app: Thermofluids</td><td>Linux x86-64</td><td>https://downloads.ai999x.com/desktop/1.6.0/ai999x-thermofluids-1.6.0-linux-x86_64.tar.gz</td></tr><tr><td>Desktop app: all models</td><td>Windows x86-64</td><td>https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-windows-x86_64.zip</td></tr><tr><td>Desktop app: all models</td><td>Linux x86-64</td><td>https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-linux-x86_64.tar.gz</td></tr><tr><td>Command line</td><td>Windows x86-64</td><td>https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-windows-x86_64.zip</td></tr><tr><td>Command line</td><td>Linux x86-64</td><td>https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz</td></tr></tbody></table>
 <h3>Desktop app</h3>
-<p>Thermofluids in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-thermofluids-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-thermofluids.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:</p>
-<pre><code class="shell">curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-thermofluids-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+<p>Thermofluids in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-thermofluids-1.6.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-thermofluids.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:</p>
+<pre><code class="shell">curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-thermofluids-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-thermofluids-1.5.0-linux-x86_64.tar.gz
-./ai999x-thermofluids-1.5.0-linux-x86_64/ai999x-thermofluids</code></pre>
-<p>It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:</p>
-<pre><code class="shell">curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+tar xzf ai999x-thermofluids-1.6.0-linux-x86_64.tar.gz
+./ai999x-thermofluids-1.6.0-linux-x86_64/ai999x-thermofluids</code></pre>
+<p>It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.6.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:</p>
+<pre><code class="shell">curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
-./ai999x-1.5.0-linux-x86_64/ai999x</code></pre>
+tar xzf ai999x-1.6.0-linux-x86_64.tar.gz
+./ai999x-1.6.0-linux-x86_64/ai999x</code></pre>
 <h3>Command line, Linux</h3>
 <p>The bundle holds one program per model; <code>thermofluids</code> is this one. The checksum line should print OK.</p>
-<pre><code class="shell">curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+<pre><code class="shell">curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share &amp;&amp; tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
-echo &#x27;export PATH=&quot;$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH&quot;&#x27; &gt;&gt; ~/.bashrc &amp;&amp; source ~/.bashrc
+mkdir -p ~/.local/share &amp;&amp; tar xzf ai999x-cli-1.6.0-linux-x86_64.tar.gz -C ~/.local/share
+echo &#x27;export PATH=&quot;$HOME/.local/share/ai999x-cli-1.6.0-linux-x86_64:$PATH&quot;&#x27; &gt;&gt; ~/.bashrc &amp;&amp; source ~/.bashrc
 thermofluids --version</code></pre>
 <h3>Command line, Windows (PowerShell)</h3>
 <p>The fourth line should print True.</p>
-<pre><code class="powershell">$F = &quot;ai999x-cli-1.5.0-windows-x86_64.zip&quot;
-Invoke-WebRequest &quot;https://downloads.ai999x.com/desktop/1.5.0/$F&quot; -OutFile $F
-Invoke-WebRequest &quot;https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS&quot; -OutFile SHA256SUMS
+<pre><code class="powershell">$F = &quot;ai999x-cli-1.6.0-windows-x86_64.zip&quot;
+Invoke-WebRequest &quot;https://downloads.ai999x.com/desktop/1.6.0/$F&quot; -OutFile $F
+Invoke-WebRequest &quot;https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS&quot; -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split &#x27; &#x27;)[0]
 Expand-Archive $F -DestinationPath &quot;$env:LOCALAPPDATA\AI999X&quot; -Force
-$D = &quot;$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64&quot;; $env:Path += &quot;;$D&quot;
+$D = &quot;$env:LOCALAPPDATA\AI999X\ai999x-cli-1.6.0-windows-x86_64&quot;; $env:Path += &quot;;$D&quot;
 [Environment]::SetEnvironmentVariable(&quot;Path&quot;, [Environment]::GetEnvironmentVariable(&quot;Path&quot;, &quot;User&quot;) + &quot;;$D&quot;, &quot;User&quot;)
 thermofluids --version</code></pre>
 <h3>In your browser</h3>
@@ -67,7 +67,7 @@ thermofluids --version</code></pre>
 <h3>2.1 Check the install</h3>
 <p>Prints the model, its version and that this is the Rust build.</p>
 <pre><code class="shell">$ thermofluids --version
-thermofluids-ai999x 1.5.0 (Rust build, ax-engine 1.5.0)</code></pre>
+thermofluids-ai999x 1.6.0 (Rust build, ax-engine 1.6.0)</code></pre>
 <h3>2.2 Ask in words</h3>
 <p>Write the question as you would say it: the program reads the quantities and their units, picks the capability and answers.</p>
 <pre><code class="shell">$ thermofluids ask &quot;Water with density 998 kg/m^3 and dynamic viscosity 0.001 Pa*s flows at an average velocity of 1.5 m/s in a pipe of diameter 0.05 m. What is the Reynolds number?&quot;
@@ -88,8 +88,8 @@ wet_bulb_temperature                 Thermodynamic wet-bulb temperature  (psychr
 moist_air_specific_volume            Specific volume of moist air per kilogram of dry air  (psychrometrics)
 moist_air_enthalpy                   Specific enthalpy of moist air  (psychrometrics)
 humidity_ratio_vapour_pressure       Humidity ratio from the partial pressure of water vapour  (psychrometrics)
+entropy_change_reservoir             Entropy change for heat exchanged at a constant temperature  (thermodynamics / entropy)
 stagnation_temperature_mach          Stagnation temperature from the Mach number  (compressible flow)
-isentropic_temperature_pressure_air  Temperature after an isentropic pressure change of air  (gas processes)
 … 12 more</code></pre>
 <h3>2.4 List the capabilities</h3>
 <p>Every capability the program answers: its id (what you pass to solve) and its name.</p>
@@ -102,7 +102,7 @@ bernoulli_horizontal                     Bernoulli&#x27;s equation along a horiz
 torricelli_efflux                        Speed of efflux from a hole (Torricelli&#x27;s law)
 dynamic_pressure                         Dynamic pressure of a moving fluid
 reynolds_number                          Reynolds number from density, velocity, diameter and viscosity
-… 91 more</code></pre>
+… 98 more</code></pre>
 <h3>2.5 What a capability needs</h3>
 <p>The equation or method, every input and output with its SI unit. Read this before solve: it tells you the input names.</p>
 <pre><code class="shell">$ thermofluids info dew_point_temperature
@@ -124,7 +124,7 @@ p_v = 1901.529882 Pa
 <h3>2.7 Machine-readable answer</h3>
 <p>--json prints the same answer as one line of JSON (values in SI): for scripts and other programs.</p>
 <pre><code class="shell">$ thermofluids solve dew_point_temperature &quot;T=25 °C&quot; RH=0.6 --json
-{&quot;outcome&quot;:&quot;SOLVED&quot;,&quot;message&quot;:&quot;&quot;,&quot;value&quot;:289.85113185453645,&quot;unit&quot;:&quot;K&quot;,&quot;solved_for&quot;:&quot;T_dew&quot;,&quot;si&quot;:[[&quot;T&quot;,298.15],[&quot;RH&quot;,0.6]],&quot;values&quot;:[[&quot;T_dew&quot;,289.85113185453645,&quot;K&quot;],[&quot;p_v&quot;,1901.5298820861763,&quot;Pa&quot;]],&quot;target&quot;:&quot;T_dew&quot;,&quot;phrase&quot;:&quot;dew-point temperature&quot;,&quot;assumptions&quot;:[&quot;0 &lt; RH &lt;= 1&quot;,&quot;-100 °C &lt;= T &lt;= 200 °C&quot;],&quot;name&quot;:&quot;Dew-point temperature from dry-bulb temperature and relative humidity&quot;,&quot;equation&quot;:&quot;p_v = RH p_ws(T), then p_ws(T_dew) = p_v solved by bisection to the last digit&quot;}</code></pre>
+{&quot;outcome&quot;:&quot;SOLVED&quot;,&quot;message&quot;:&quot;&quot;,&quot;value&quot;:289.85113185453645,&quot;unit&quot;:&quot;K&quot;,&quot;solved_for&quot;:&quot;T_dew&quot;,&quot;si&quot;:[[&quot;T&quot;,298.15],[&quot;RH&quot;,0.6]],&quot;values&quot;:[[&quot;T_dew&quot;,289.85113185453645,&quot;K&quot;],[&quot;p_v&quot;,1901.5298820861765,&quot;Pa&quot;]],&quot;target&quot;:&quot;T_dew&quot;,&quot;phrase&quot;:&quot;dew-point temperature&quot;,&quot;assumptions&quot;:[&quot;0 &lt; RH &lt;= 1&quot;,&quot;-100 °C &lt;= T &lt;= 200 °C&quot;],&quot;name&quot;:&quot;Dew-point temperature from dry-bulb temperature and relative humidity&quot;,&quot;equation&quot;:&quot;p_v = RH p_ws(T), then p_ws(T_dew) = p_v solved by bisection to the last digit&quot;}</code></pre>
 <h3>2.8 When an input is missing</h3>
 <p>No number is guessed: the answer names what is missing, shows a complete call, and the program exits with status 1.</p>
 <pre><code class="shell">$ thermofluids solve dew_point_temperature &quot;T=25 °C&quot;
@@ -143,7 +143,7 @@ distance from the leading edge (x) = 0.5000002369 m
 <pre><code class="json">{&quot;key&quot;: &quot;dew_point_temperature&quot;, &quot;inputs&quot;: {&quot;T&quot;: &quot;25 °C&quot;, &quot;RH&quot;: 0.6}}
 {&quot;key&quot;: &quot;lmtd&quot;, &quot;inputs&quot;: {&quot;Th_in&quot;: &quot;150 °C&quot;, &quot;Th_out&quot;: &quot;90 °C&quot;, &quot;Tc_in&quot;: &quot;30 °C&quot;, &quot;Tc_out&quot;: &quot;70 °C&quot;, &quot;arrangement&quot;: &quot;counterflow&quot;}}</code></pre>
 <pre><code class="shell">$ thermofluids batch &lt; cases.jsonl
-{&quot;outcome&quot;:&quot;SOLVED&quot;,&quot;message&quot;:&quot;&quot;,&quot;value&quot;:289.85113185453645,&quot;unit&quot;:&quot;K&quot;,&quot;solved_for&quot;:&quot;T_dew&quot;,&quot;si&quot;:[[&quot;T&quot;,298.15],[&quot;RH&quot;,0.6]],&quot;values&quot;:[[&quot;T_dew&quot;,289.85113185453645,&quot;K&quot;],[&quot;p_v&quot;,1901.5298820861763,&quot;Pa&quot;]],&quot;target&quot;:&quot;T_dew&quot;,&quot;phrase&quot;:&quot;dew-point temperature&quot;,&quot;assumptions&quot;:[&quot;0 &lt; RH &lt;= 1&quot;,&quot;-100 °C &lt;= T &lt;= 200 °C&quot;],&quot;name&quot;:&quot;Dew-point temperature from dry-bulb temperature and relative humidity&quot;,&quot;equation&quot;:&quot;p_v = RH p_ws(T), then p_ws(T_dew) = p_v solved by bisection to the last digit&quot;}
+{&quot;outcome&quot;:&quot;SOLVED&quot;,&quot;message&quot;:&quot;&quot;,&quot;value&quot;:289.85113185453645,&quot;unit&quot;:&quot;K&quot;,&quot;solved_for&quot;:&quot;T_dew&quot;,&quot;si&quot;:[[&quot;T&quot;,298.15],[&quot;RH&quot;,0.6]],&quot;values&quot;:[[&quot;T_dew&quot;,289.85113185453645,&quot;K&quot;],[&quot;p_v&quot;,1901.5298820861765,&quot;Pa&quot;]],&quot;target&quot;:&quot;T_dew&quot;,&quot;phrase&quot;:&quot;dew-point temperature&quot;,&quot;assumptions&quot;:[&quot;0 &lt; RH &lt;= 1&quot;,&quot;-100 °C &lt;= T &lt;= 200 °C&quot;],&quot;name&quot;:&quot;Dew-point temperature from dry-bulb temperature and relative humidity&quot;,&quot;equation&quot;:&quot;p_v = RH p_ws(T), then p_ws(T_dew) = p_v solved by bisection to the last digit&quot;}
 {&quot;outcome&quot;:&quot;SOLVED&quot;,&quot;message&quot;:&quot;&quot;,&quot;value&quot;:69.52118993564416,&quot;unit&quot;:&quot;K&quot;,&quot;solved_for&quot;:&quot;lmtd&quot;,&quot;si&quot;:[[&quot;Th_in&quot;,423.15],[&quot;Th_out&quot;,363.15],[&quot;Tc_in&quot;,303.15],[&quot;Tc_out&quot;,343.15]],&quot;values&quot;:[[&quot;lmtd&quot;,69.52118993564416,&quot;K&quot;],[&quot;dT1&quot;,80.0,&quot;K&quot;],[&quot;dT2&quot;,60.0,&quot;K&quot;]],&quot;target&quot;:&quot;lmtd&quot;,&quot;phrase&quot;:&quot;log-mean temperature difference&quot;,&quot;assumptions&quot;:[&quot;both terminal temperature differences positive&quot;,&quot;the hot stream cools and the cold stream warms&quot;],&quot;name&quot;:&quot;Log-mean temperature difference of a heat exchanger&quot;,&quot;equation&quot;:&quot;(dT1 - dT2) / ln(dT1 / dT2) from the terminal differences of the chosen arrangement&quot;}</code></pre>
 <h2>3. Writing inputs</h2>
 <p>Inputs are written <code>name=value</code>, one per argument; <code>thermofluids info &lt;capability&gt;</code> lists the names. Quote an argument that holds a space or brackets (bash, zsh and PowerShell all accept double quotes). The answer always states each input as it was read, converted to SI, so a misread unit is visible at once.</p>
@@ -731,7 +731,25 @@ speed of the jet leaving the hole (v) = 6.263114241 m/s
   h = 2 m   [2 m]
   assumes: large tank (surface speed negligible); no losses at the hole; open to the atmosphere; the situation is: torricelli</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the exit velocity of a liquid draining from a tank through a small hole. It uses the depth of the hole below the free surface, given as 2 m, and the acceleration due to gravity, 9.80665 m/s^2, to find that the speed of the jet leaving the hole is 6.26311 m/s. This result represents the theoretical maximum speed assuming no energy losses and a large tank where the surface movement is negligible.</p>
-<h3>Fluid statics (4)</h3>
+<h3>Fluid flow (1)</h3>
+<h4 id="bernoulli_with_height">Bernoulli&#x27;s equation with a change of height, <code>bernoulli_with_height</code></h4>
+<p>The absolute pressure at a second point of a streamline of steady, inviscid, incompressible flow from the pressure, speed and height at the first and the speed and height at the second.</p>
+<div class="math">\[P_1 + \tfrac{1}{2}\rho v_1^2 + \rho g h_1 = P_2 + \tfrac{1}{2}\rho v_2^2 + \rho g h_2\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>P1</code></td><td>in</td><td>absolute pressure at point 1</td><td>Pa</td></tr><tr><td><code>v1</code></td><td>in</td><td>flow speed at point 1</td><td>m/s</td></tr><tr><td><code>h1</code></td><td>in</td><td>height of point 1 above a datum</td><td>m</td></tr><tr><td><code>v2</code></td><td>in</td><td>flow speed at point 2</td><td>m/s</td></tr><tr><td><code>h2</code></td><td>in</td><td>height of point 2 above the same datum</td><td>m</td></tr><tr><td><code>rho</code></td><td>in</td><td>density of the fluid</td><td>kg/m^3</td></tr><tr><td><code>g</code></td><td>in</td><td>gravitational acceleration</td><td>m/s^2</td></tr><tr><td><code>P2</code></td><td>out</td><td>absolute pressure at point 2</td><td>Pa</td></tr></tbody></table>
+<p><strong>Applies when:</strong> steady, inviscid, incompressible flow along one streamline; rho, g &gt; 0; P1 and P2 absolute and positive.</p>
+<pre><code class="shell">$ thermofluids solve bernoulli_with_height &quot;P1=200 kPa&quot; &quot;v1=2 m/s&quot; &quot;h1=0 m&quot; &quot;v2=6 m/s&quot; &quot;h2=5 m&quot; &quot;rho=1000 kg/m^3&quot; &quot;g=9.81 m/s^2&quot;
+P2 = 134950 Pa
+  by: Bernoulli&#x27;s equation with a change of height  (P2 = P1 + rho (v1^2 - v2^2)/2 + rho g (h1 - h2))
+  P1 = 200000 Pa
+  v1 = 2 m/s
+  h1 = 0 m
+  v2 = 6 m/s
+  h2 = 5 m
+  rho = 1000 kg/m^3
+  g = 9.81 m/s^2
+  assumes: steady, inviscid, incompressible flow along one streamline; rho, g &gt; 0; P1 and P2 absolute and positive</code></pre>
+<p>In the worked example, P1 = 200 kPa, v1 = 2 m/s, h1 = 0 m, v2 = 6 m/s, h2 = 5 m, rho = 1000 kg/m^3, g = 9.81 m/s^2 go through the equation above and give P2 = 134950 Pa. It applies only when steady, inviscid, incompressible flow along one streamline; rho, g &gt; 0; P1 and P2 absolute and positive: outside that it says what is wrong instead of returning a number.</p>
+<h3>Fluid statics (5)</h3>
 <h4 id="absolute_pressure_depth">Absolute pressure at a depth in a liquid, <code>absolute_pressure_depth</code></h4>
 <p>One equation links absolute pressure at the depth (P), pressure at the free surface (P0), density of the fluid (rho), Acceleration (g) and depth below the free surface (h). Give all but one of them and it is solved for the one left out, by default absolute pressure at the depth (P).</p>
 <div class="math">\[P = P_{0} + \rho g h\]</div>
@@ -772,6 +790,22 @@ gauge pressure at the depth (P) = 117679.8 Pa
   h = 12 m   [12 m]
   assumes: incompressible liquid at rest; uniform gravity; the situation is: hydrostatic</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the gauge pressure at a specific point within a liquid, which represents the pressure increase due solely to the weight of the fluid above that point, excluding atmospheric pressure. The result of 117680 Pa is derived by multiplying the fluid&#x27;s density of 1000 kg/m^3, the acceleration due to gravity of 9.80665 m/s^2, and the vertical depth below the free surface of 12 m. This value indicates how much the local pressure exceeds the ambient atmospheric pressure at the surface, a critical factor for assessing structural loads in tanks or diving depths.</p>
+<h4 id="hydraulic_press_pascal">Hydraulic press (Pascal&#x27;s principle), <code>hydraulic_press_pascal</code></h4>
+<p>Output force, pressure, mechanical advantage and piston-travel ratio of an ideal hydraulic press or lift.</p>
+<div class="math">\[\frac{F_1}{A_1} = \frac{F_2}{A_2},\quad \frac{d_2}{d_1} = \frac{A_1}{A_2}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>F1</code></td><td>in</td><td>force on the input (small) piston</td><td>N</td></tr><tr><td><code>A1</code></td><td>in</td><td>area of the input piston</td><td>m^2</td></tr><tr><td><code>A2</code></td><td>in</td><td>area of the output piston</td><td>m^2</td></tr><tr><td><code>F2</code></td><td>out</td><td>force on the output piston</td><td>N</td></tr><tr><td><code>P</code></td><td>out</td><td>pressure transmitted through the liquid (above ambient)</td><td>Pa</td></tr><tr><td><code>MA</code></td><td>out</td><td>mechanical advantage F2/F1 = A2/A1</td><td>, </td></tr><tr><td><code>d_ratio</code></td><td>out</td><td>output piston travel / input piston travel (d2/d1 = A1/A2)</td><td>, </td></tr></tbody></table>
+<p><strong>Applies when:</strong> F1, A1, A2 &gt; 0; incompressible liquid, pistons at the same level, no friction.</p>
+<pre><code class="shell">$ thermofluids solve hydraulic_press_pascal &quot;F1=100 N&quot; &quot;A1=0.01 m^2&quot; &quot;A2=0.5 m^2&quot;
+F2 = 5000 N
+P = 10000 Pa
+MA = 50
+d_ratio = 0.02
+  by: Hydraulic press (Pascal&#x27;s principle)  (P = F1/A1 is transmitted undiminished, F2 = P A2; the displaced volume is shared, d2/d1 = A1/A2)
+  F1 = 100 N
+  A1 = 0.01 m^2
+  A2 = 0.5 m^2
+  assumes: F1, A1, A2 &gt; 0; incompressible liquid, pistons at the same level, no friction</code></pre>
+<p>In the worked example, F1 = 100 N, A1 = 0.01 m^2, A2 = 0.5 m^2 go through the equation above and give F2 = 5000 N, P = 10000 Pa, MA = 50, d_ratio = 0.02. It applies only when F1, A1, A2 &gt; 0; incompressible liquid, pistons at the same level, no friction: outside that it says what is wrong instead of returning a number.</p>
 <h4 id="hydrostatic_force_plane">Hydrostatic force on a submerged plane surface, <code>hydrostatic_force_plane</code></h4>
 <p>One equation links resultant hydrostatic force on the surface (F), density of the fluid (rho), Acceleration (g), depth of the surface&#x27;s centroid (hc) and area of the surface (A). Give all but one of them and it is solved for the one left out, by default resultant hydrostatic force on the surface (F).</p>
 <div class="math">\[F = \rho g h_{c} A\]</div>
@@ -1453,6 +1487,83 @@ thermal efficiency of the cycle (eta) = 0.5647247184
   r = 8   [8 1]
   assumes: cold-air-standard: air as an ideal gas with gamma = 1.4; reversible adiabatic compression and expansion; the situation is: otto, air</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the ideal thermal efficiency of an air-standard Otto cycle. It uses the formula eta equals one minus r raised to the power of negative two-fifths, where r represents the compression ratio defined as the maximum cylinder volume divided by the minimum cylinder volume. The result, 0.564725, indicates the fraction of heat energy converted into useful work under ideal conditions. This value serves as a theoretical upper limit for spark-ignition engines operating with air as the working fluid.</p>
+<h3>Thermodynamics (5)</h3>
+<h4 id="isobaric_boundary_work">Boundary work of a constant-pressure (isobaric) process, <code>isobaric_boundary_work</code></h4>
+<p>The work done by a gas that expands or is compressed at constant pressure from V1 to V2.</p>
+<div class="math">\[W = \int_{V_1}^{V_2} P\,dV = P\,(V_2 - V_1)\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>P</code></td><td>in</td><td>constant (absolute) pressure</td><td>Pa</td></tr><tr><td><code>V1</code></td><td>in</td><td>initial volume</td><td>m^3</td></tr><tr><td><code>V2</code></td><td>in</td><td>final volume</td><td>m^3</td></tr><tr><td><code>W</code></td><td>out</td><td>work done by the system (negative for a compression)</td><td>J</td></tr><tr><td><code>dV</code></td><td>out</td><td>change of volume V2 - V1</td><td>m^3</td></tr></tbody></table>
+<p><strong>Applies when:</strong> P &gt; 0 and constant; V1, V2 &gt; 0; quasi-static process.</p>
+<pre><code class="shell">$ thermofluids solve isobaric_boundary_work &quot;P=200 kPa&quot; &quot;V1=0.01 m^3&quot; &quot;V2=0.025 m^3&quot;
+W = 3000 J
+dV = 0.015 m^3
+  by: Boundary work of a constant-pressure (isobaric) process  (W = P (V2 - V1))
+  P = 200000 Pa
+  V1 = 0.01 m^3
+  V2 = 0.025 m^3
+  assumes: P &gt; 0 and constant; V1, V2 &gt; 0; quasi-static process</code></pre>
+<p>In the worked example, P = 200 kPa, V1 = 0.01 m^3, V2 = 0.025 m^3 go through the equation above and give W = 3000 J, dV = 0.015 m^3. It applies only when P &gt; 0 and constant; V1, V2 &gt; 0; quasi-static process: outside that it says what is wrong instead of returning a number.</p>
+<h4 id="entropy_change_reservoir">Entropy change for heat exchanged at a constant temperature, <code>entropy_change_reservoir</code></h4>
+<p>The entropy change dS = Q/T of a reservoir (or any system) that takes in heat Q reversibly at a fixed absolute temperature T.</p>
+<div class="math">\[\Delta S = \frac{Q}{T}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>Q</code></td><td>in</td><td>heat added to the reservoir (negative if heat leaves it)</td><td>J</td></tr><tr><td><code>T</code></td><td>in</td><td>absolute temperature of the reservoir</td><td>K</td></tr><tr><td><code>dS</code></td><td>out</td><td>entropy change of the reservoir</td><td>J/K</td></tr></tbody></table>
+<p><strong>Applies when:</strong> T &gt; 0 (absolute); the temperature stays constant while Q is exchanged.</p>
+<pre><code class="shell">$ thermofluids solve entropy_change_reservoir &quot;Q=1000 J&quot; &quot;T=300 K&quot;
+dS = 3.333333333 J/K
+  by: Entropy change for heat exchanged at a constant temperature  (dS = Q / T)
+  Q = 1000 J
+  T = 300 K
+  assumes: T &gt; 0 (absolute); the temperature stays constant while Q is exchanged</code></pre>
+<p>In the worked example, Q = 1000 J, T = 300 K go through the equation above and give dS = 3.333333333 J/K. It applies only when T &gt; 0 (absolute); the temperature stays constant while Q is exchanged: outside that it says what is wrong instead of returning a number.</p>
+<h4 id="entropy_generation_heat_transfer">Entropy generated when heat flows between two reservoirs, <code>entropy_generation_heat_transfer</code></h4>
+<p>The entropy changes of a hot and a cold reservoir when heat Q flows from the hot one to the cold one, and the total (generated) entropy.</p>
+<div class="math">\[\Delta S_{tot} = -\frac{Q}{T_h} + \frac{Q}{T_c} = Q\,\frac{T_h - T_c}{T_h T_c}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>Q</code></td><td>in</td><td>heat that flows from the hot to the cold reservoir</td><td>J</td></tr><tr><td><code>T_hot</code></td><td>in</td><td>absolute temperature of the hot reservoir</td><td>K</td></tr><tr><td><code>T_cold</code></td><td>in</td><td>absolute temperature of the cold reservoir</td><td>K</td></tr><tr><td><code>dS_total</code></td><td>out</td><td>total entropy change (entropy generated)</td><td>J/K</td></tr><tr><td><code>dS_hot</code></td><td>out</td><td>entropy change of the hot reservoir</td><td>J/K</td></tr><tr><td><code>dS_cold</code></td><td>out</td><td>entropy change of the cold reservoir</td><td>J/K</td></tr></tbody></table>
+<p><strong>Applies when:</strong> Q &gt; 0; T_hot &gt;= T_cold &gt; 0 (absolute); both temperatures stay constant.</p>
+<pre><code class="shell">$ thermofluids solve entropy_generation_heat_transfer &quot;Q=1000 J&quot; &quot;T_hot=500 K&quot; &quot;T_cold=300 K&quot;
+dS_total = 1.333333333 J/K
+dS_hot = -2 J/K
+dS_cold = 3.333333333 J/K
+  by: Entropy generated when heat flows between two reservoirs  (dS_hot = -Q/T_hot, dS_cold = Q/T_cold, dS_total = Q (T_hot - T_cold)/(T_hot T_cold) &gt;= 0)
+  Q = 1000 J
+  T_hot = 500 K
+  T_cold = 300 K
+  assumes: Q &gt; 0; T_hot &gt;= T_cold &gt; 0 (absolute); both temperatures stay constant</code></pre>
+<p>In the worked example, Q = 1000 J, T_hot = 500 K, T_cold = 300 K go through the equation above and give dS_total = 1.333333333 J/K, dS_hot = -2 J/K, dS_cold = 3.333333333 J/K. It applies only when Q &gt; 0; T_hot &gt;= T_cold &gt; 0 (absolute); both temperatures stay constant: outside that it says what is wrong instead of returning a number.</p>
+<h4 id="first_law_internal_energy_change">First law of thermodynamics: change of internal energy, <code>first_law_internal_energy_change</code></h4>
+<p>The change of internal energy of a closed system from the heat added to it and the work it does.</p>
+<div class="math">\[\Delta U = Q - W\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>Q</code></td><td>in</td><td>heat added to the system (negative if heat leaves it)</td><td>J</td></tr><tr><td><code>W</code></td><td>in</td><td>work done BY the system (negative if work is done on it)</td><td>J</td></tr><tr><td><code>dU</code></td><td>out</td><td>change of internal energy</td><td>J</td></tr></tbody></table>
+<p><strong>Applies when:</strong> closed system; Q added to the system, W done by the system.</p>
+<pre><code class="shell">$ thermofluids solve first_law_internal_energy_change &quot;Q=500 J&quot; &quot;W=200 J&quot;
+dU = 300 J
+  by: First law of thermodynamics: change of internal energy  (dU = Q - W)
+  Q = 500 J
+  W = 200 J
+  assumes: closed system; Q added to the system, W done by the system</code></pre>
+<p>In the worked example, Q = 500 J, W = 200 J go through the equation above and give dU = 300 J. It applies only when closed system; Q added to the system, W done by the system: outside that it says what is wrong instead of returning a number.</p>
+<h4 id="wet_steam_mixture">Wet steam: quality and mixture properties from saturated values, <code>wet_steam_mixture</code></h4>
+<p>The quality x of a saturated liquid-vapour mixture and its specific volume, enthalpy and entropy by the lever rule, from the saturated-liquid and saturated-vapour values the user supplies (vf, vg; hf, hfg; sf, sfg) and either the quality or one mixture property (v, h or s).</p>
+<div class="math">\[x = \frac{h - h_f}{h_{fg}},\quad v = v_f + x\,(v_g - v_f),\quad h = h_f + x\,h_{fg},\quad s = s_f + x\,s_{fg}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>vf</code></td><td>in</td><td>specific volume of the saturated liquid (optional)</td><td>m^3/kg</td></tr><tr><td><code>vg</code></td><td>in</td><td>specific volume of the saturated vapour (optional)</td><td>m^3/kg</td></tr><tr><td><code>hf</code></td><td>in</td><td>specific enthalpy of the saturated liquid (optional)</td><td>J/kg</td></tr><tr><td><code>hfg</code></td><td>in</td><td>enthalpy of vaporization hg - hf (optional)</td><td>J/kg</td></tr><tr><td><code>sf</code></td><td>in</td><td>specific entropy of the saturated liquid (optional)</td><td>J/(kg*K)</td></tr><tr><td><code>sfg</code></td><td>in</td><td>entropy of vaporization sg - sf (optional)</td><td>J/(kg*K)</td></tr><tr><td><code>x</code></td><td>in</td><td>quality (vapour mass fraction), a fraction or % (optional)</td><td>, </td></tr><tr><td><code>v</code></td><td>in</td><td>specific volume of the mixture (instead of x) (optional)</td><td>m^3/kg</td></tr><tr><td><code>h</code></td><td>in</td><td>specific enthalpy of the mixture (instead of x) (optional)</td><td>J/kg</td></tr><tr><td><code>s</code></td><td>in</td><td>specific entropy of the mixture (instead of x) (optional)</td><td>J/(kg*K)</td></tr><tr><td><code>x</code></td><td>out</td><td>quality (vapour mass fraction)</td><td>, </td></tr><tr><td><code>moisture</code></td><td>out</td><td>moisture content 1 - x (liquid mass fraction)</td><td>, </td></tr><tr><td><code>v</code></td><td>out</td><td>specific volume of the mixture</td><td>m^3/kg</td></tr><tr><td><code>h</code></td><td>out</td><td>specific enthalpy of the mixture</td><td>J/kg</td></tr><tr><td><code>s</code></td><td>out</td><td>specific entropy of the mixture</td><td>J/(kg*K)</td></tr><tr><td><code>hg</code></td><td>out</td><td>specific enthalpy of the saturated vapour hf + hfg</td><td>J/kg</td></tr><tr><td><code>sg</code></td><td>out</td><td>specific entropy of the saturated vapour sf + sfg</td><td>J/(kg*K)</td></tr></tbody></table>
+<p><strong>Applies when:</strong> saturated values at the mixture&#x27;s own pressure (or temperature), supplied by the user; each pair whole; 0 &lt; vf &lt; vg, hfg &gt; 0, sfg &gt; 0; exactly one of x, v, h, s; 0 &lt;= x &lt;= 1 (otherwise not a wet mixture).</p>
+<pre><code class="shell">$ thermofluids solve wet_steam_mixture &quot;vf=0.001043 m^3/kg&quot; &quot;vg=1.694 m^3/kg&quot; &quot;hf=417.5 kJ/kg&quot; &quot;hfg=2257.5 kJ/kg&quot; &quot;sf=1.3028 kJ/(kg*K)&quot; &quot;sfg=6.0562 kJ/(kg*K)&quot; x=0.9
+x = 0.9
+moisture = 0.1
+v = 1.5247043 m^3/kg
+h = 2449250 J/kg
+hg = 2675000 J/kg
+s = 6753.38 J/(kg*K)
+sg = 7359 J/(kg*K)
+  by: Wet steam: quality and mixture properties from saturated values  (lever rule: y = yf + x (yg - yf) for y = v, h, s; x = (y - yf)/(yg - yf) from a stated mixture property)
+  vf = 0.001043 m^3/kg
+  vg = 1.694 m^3/kg
+  hf = 417500 J/kg
+  hfg = 2257500 J/kg
+  sf = 1302.8 J/(kg*K)
+  sfg = 6056.2 J/(kg*K)
+  x = 0.9
+  assumes: saturated values at the mixture&#x27;s own pressure (or temperature), supplied by the user; each pair whole; 0 &lt; vf &lt; vg, hfg &gt; 0, sfg &gt; 0; exactly one of x, v, h, s; 0 &lt;= x &lt;= 1 (otherwise not a wet mixture)</code></pre>
+<p>In the worked example, vf = 0.001043 m^3/kg, vg = 1.694 m^3/kg, hf = 417.5 kJ/kg, hfg = 2257.5 kJ/kg, sf = 1.3028 kJ/(kg*K), sfg = 6.0562 kJ/(kg*K), x = 0.9 go through the equation above and give x = 0.9, moisture = 0.1, v = 1.5247043 m^3/kg, h = 2449250 J/kg. It applies only when saturated values at the mixture&#x27;s own pressure (or temperature), supplied by the user; each pair whole; 0 &lt; vf &lt; vg, hfg &gt; 0, sfg &gt; 0; exactly one of x, v, h, s; 0 &lt;= x &lt;= 1 (otherwise not a wet mixture): outside that it says what is wrong instead of returning a number.</p>
 <h3>Transient conduction (4)</h3>
 <h4 id="biot_number">Biot number, <code>biot_number</code></h4>
 <p>One equation links Biot number (Bi), convection heat transfer coefficient (h), characteristic length (Lc) and thermal conductivity (k). Give all but one of them and it is solved for the one left out, by default Biot number (Bi).</p>

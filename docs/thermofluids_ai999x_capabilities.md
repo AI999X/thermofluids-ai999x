@@ -33,7 +33,9 @@ result.show()
 | Fins | [Heat transfer rate of a very long fin](#infinite_fin_heat_rate) |
 | Fins / extended surfaces | [Efficiency of a pin fin with an insulated tip](#pin_fin_efficiency) |
 | Fluid dynamics | [Continuity: speed after a change of pipe diameter](#continuity_speed), [Bernoulli's equation along a horizontal streamline](#bernoulli_horizontal), [Speed of efflux from a hole (Torricelli's law)](#torricelli_efflux), [Dynamic pressure of a moving fluid](#dynamic_pressure) |
+| Fluid flow / Bernoulli's equation | [Bernoulli's equation with a change of height](#bernoulli_with_height) |
 | Fluid statics | [Gauge pressure at a depth in a liquid](#hydrostatic_gauge_pressure), [Absolute pressure at a depth in a liquid](#absolute_pressure_depth), [Buoyant force (Archimedes' principle)](#buoyant_force), [Hydrostatic force on a submerged plane surface](#hydrostatic_force_plane) |
+| Fluid statics / Pascal's principle | [Hydraulic press (Pascal's principle)](#hydraulic_press_pascal) |
 | Gas processes | [Temperature after an isentropic pressure change of air](#isentropic_temperature_pressure_air), [Temperature after an isentropic volume change of air](#isentropic_temperature_volume_air), [Actual outlet temperature of an adiabatic air compressor](#compressor_outlet_temperature_air), [Ideal gas law](#ideal_gas_law), [Work done by an ideal gas in a reversible isothermal process](#isothermal_work_ideal_gas), [Specific entropy change of an ideal gas](#entropy_change_ideal_gas), [Entropy change of an incompressible substance](#entropy_change_incompressible) |
 | Heat exchangers | [Number of transfer units of a heat exchanger](#ntu_definition), [Effectiveness of a parallel-flow heat exchanger](#effectiveness_parallel_flow), [Effectiveness of a heat exchanger with one stream changing phase](#effectiveness_phase_change), [Heat transfer rate from the effectiveness](#heat_rate_effectiveness), [Heat added to a flowing stream (steady-flow energy balance)](#sensible_heat_rate) |
 | Heat exchangers / effectiveness-NTU | [Heat exchanger rating by the effectiveness-NTU method](#hx_effectiveness_ntu) |
@@ -51,6 +53,11 @@ result.show()
 | Pumps | [Hydraulic power delivered to a fluid](#hydraulic_power), [Shaft power required by a pump](#pump_shaft_power) |
 | Radiation | [Emissive power of a blackbody (Stefan-Boltzmann law)](#blackbody_emissive_power), [Net radiation exchange of a small grey surface with large surroundings](#radiation_net_exchange), [Net radiation between two large parallel grey plates](#radiation_parallel_plates), [Wien's displacement law](#wien_displacement), [Linearised radiation heat transfer coefficient](#radiation_heat_transfer_coefficient) |
 | Thermodynamic cycles | [Carnot efficiency of a reversible heat engine](#carnot_efficiency), [Coefficient of performance of a Carnot refrigerator](#carnot_cop_refrigerator), [Coefficient of performance of a Carnot heat pump](#carnot_cop_heat_pump), [Thermal efficiency of the air-standard Otto cycle](#otto_efficiency_air), [Thermal efficiency of the air-standard Diesel cycle](#diesel_efficiency_air), [Thermal efficiency of the air-standard Brayton cycle](#brayton_efficiency_air) |
+| Thermodynamics / boundary work | [Boundary work of a constant-pressure (isobaric) process](#isobaric_boundary_work) |
+| Thermodynamics / entropy | [Entropy change for heat exchanged at a constant temperature](#entropy_change_reservoir) |
+| Thermodynamics / entropy and the second law | [Entropy generated when heat flows between two reservoirs](#entropy_generation_heat_transfer) |
+| Thermodynamics / first law | [First law of thermodynamics: change of internal energy](#first_law_internal_energy_change) |
+| Thermodynamics / properties of pure substances | [Wet steam: quality and mixture properties from saturated values](#wet_steam_mixture) |
 | Transient conduction | [Biot number](#biot_number), [Fourier number](#fourier_number), [Temperature of a lumped body cooling or heating in a fluid](#lumped_capacitance_temperature), [Thermal time constant of a lumped body](#lumped_time_constant) |
 
 ## Outcomes
@@ -1458,9 +1465,9 @@ $$
 - **Assumes:** ideal gas; small-amplitude (acoustic) waves
 - **Evidence:** theorem
 
-![a (speed of sound) against gamma (ratio of specific heats) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/speed-of-sound-ideal-gas-curve)
+![a (speed of sound) against R (specific gas constant) from 143](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/speed-of-sound-ideal-gas-curve)
 
-*a (speed of sound) against gamma (ratio of specific heats) from 0.7 to 2.1. One curve for each value of R (specific gas constant): 287 J/(kg*K), 143.5 J/(kg*K), 574 J/(kg*K). Other inputs as in the worked example: T = 300 K. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, gamma = 1.4, a = 347.189 m/s.*
+*a (speed of sound) against R (specific gas constant) from 143.5 J/(kg*K) to 430.5 J/(kg*K). One curve for each value of T (absolute temperature of the gas): 300 K, 150 K, 600 K. Other inputs as in the worked example: gamma = 1.4 1. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, R = 287 J/(kg*K), a = 347.189 m/s.*
 
 ```python
 thermofluids_ai999x.solve('speed_of_sound_ideal_gas', gamma='1.4 1', R='287 J/(kg*K)', T='300 K', target='a')
@@ -1593,9 +1600,9 @@ $$
 
 *A normal shock in air (γ = 1.4) at M1 = 2 with an upstream static pressure of 100 kPa (the worked example): the package gives M2 = 0.57735 and P2 = 450 kPa; the stagnation pressures from its stagnation-pressure relation, 782.445 kPa before and 564.044 kPa after (the loss across the shock). Marked: M2, P2 and both stagnation pressures.*
 
-![M2 (Mach number behind the shock) against M1 (Mach number ahead of the shock) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/normal-shock-mach-air-curve)
+![M2 (Mach number behind the shock) against M1 (Mach number ahead of the shock) from 1 to 3](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/normal-shock-mach-air-curve)
 
-*M2 (Mach number behind the shock) against M1 (Mach number ahead of the shock) from 0.2 to 20 on a logarithmic axis. 35 points computed by thermofluids-ai999x; marked: the worked example, M1 = 2, M2 = 0.57735.*
+*M2 (Mach number behind the shock) against M1 (Mach number ahead of the shock) from 1 to 3. 31 points computed by thermofluids-ai999x; marked: the worked example, M1 = 2, M2 = 0.57735.*
 
 ```python
 thermofluids_ai999x.solve('normal_shock_mach_air', M1='2 1', target='M2')
@@ -3324,9 +3331,9 @@ $$
 - **Assumes:** steady flow; no heat loss to the surroundings
 - **Evidence:** theorem
 
-![Q (rate of heat transfer) against eps (heat exchanger effectiveness) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/heat-rate-effectiveness-curve)
+![Q (rate of heat transfer) against Cmin (smaller of the two heat capacity rates (m cp)) from 1000 W/K to 3000 W/K](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/heat-rate-effectiveness-curve)
 
-*Q (rate of heat transfer) against eps (heat exchanger effectiveness) from 0.3 to 0.9. One curve for each value of Thi (inlet temperature of the hot fluid): 150 °C, 75 °C, 300 °C. Other inputs as in the worked example: Cmin = 2000 W/K, Tci = 30 °C. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, eps = 0.6, Q = 144000 W.*
+*Q (rate of heat transfer) against Cmin (smaller of the two heat capacity rates (m cp)) from 1000 W/K to 3000 W/K. One curve for each value of Thi (inlet temperature of the hot fluid): 150 °C, 75 °C, 300 °C. Other inputs as in the worked example: eps = 0.6 1, Tci = 30 °C. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, Cmin = 2000 W/K, Q = 144000 W.*
 
 ```python
 thermofluids_ai999x.solve('heat_rate_effectiveness', eps='0.6 1', Cmin='2000 W/K', Thi='150 °C', Tci='30 °C', target='Q')
@@ -3419,7 +3426,7 @@ $$
 
 ![eta (Carnot (maximum) efficiency) against Th (temperature of the hot reservoir) from 300 K to 900 K](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/carnot-efficiency-curve)
 
-*eta (Carnot (maximum) efficiency) against Th (temperature of the hot reservoir) from 300 K to 900 K. One curve for each value of Tc (temperature of the cold reservoir): 300 K, 150 K, 600 K. 30 points per curve computed by thermofluids-ai999x; marked: the worked example, Th = 600 K, eta = 0.5.*
+*eta (Carnot (maximum) efficiency) against Th (temperature of the hot reservoir) from 300 K to 900 K. One curve for each value of Tc (temperature of the cold reservoir): 300 K, 150 K, 600 K. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, Th = 600 K, eta = 0.5.*
 
 ```python
 thermofluids_ai999x.solve('carnot_efficiency', Tc='300 K', Th='600 K', target='eta')
@@ -3661,7 +3668,7 @@ $$
 
 ![eta (thermal efficiency of the cycle) against rp (compressor pressure ratio) from 1 to 100 on a logarithmic axis](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/brayton-efficiency-air-curve)
 
-*eta (thermal efficiency of the cycle) against rp (compressor pressure ratio) from 1 to 100 on a logarithmic axis. 40 points computed by thermofluids-ai999x; marked: the worked example, rp = 10, eta = 0.482053.*
+*eta (thermal efficiency of the cycle) against rp (compressor pressure ratio) from 1 to 100 on a logarithmic axis. 41 points computed by thermofluids-ai999x; marked: the worked example, rp = 10, eta = 0.482053.*
 
 ```python
 thermofluids_ai999x.solve('brayton_efficiency_air', rp='10 1', target='eta')
@@ -4221,6 +4228,13 @@ Call `solve("<id>", **inputs)` with plain numbers; the result's `values` holds e
 | churchill_bernstein_cylinder | Churchill-Bernstein correlation for a cylinder in cross flow | Re, Pr | Nu |
 | churchill_chu_vertical_plate | Churchill-Chu correlation for natural convection on a vertical plate | Ra, Pr | Nu |
 | pin_fin_efficiency | Efficiency of a pin fin with an insulated tip | h, k, D, L | efficiency, mL |
+| first_law_internal_energy_change | First law of thermodynamics: change of internal energy | Q, W | dU |
+| isobaric_boundary_work | Boundary work of a constant-pressure (isobaric) process | P, V1, V2 | W, dV |
+| entropy_change_reservoir | Entropy change for heat exchanged at a constant temperature | Q, T | dS |
+| entropy_generation_heat_transfer | Entropy generated when heat flows between two reservoirs | Q, T_hot, T_cold | dS_total, dS_hot, dS_cold |
+| hydraulic_press_pascal | Hydraulic press (Pascal's principle) | F1, A1, A2 | F2, P, MA, d_ratio |
+| bernoulli_with_height | Bernoulli's equation with a change of height | P1, v1, h1, v2, h2, rho, g | P2 |
+| wet_steam_mixture | Wet steam: quality and mixture properties from saturated values | vf, vg, hf, hfg, sf, sfg, x, v, h, s | x, moisture, v, h, s, hg, sg |
 
 <a id="colebrook_friction_factor"></a>
 
@@ -4833,6 +4847,377 @@ thermofluids_ai999x.solve('pin_fin_efficiency', h=50, k=200, D=0.005, L=0.05)
 |---|---|---|
 | Pin fin efficiency: h = 50 W/(m^2*K), k = 200 W/(m*K), D = 5 mm, L = 50 mm | SOLVED | efficiency = 0.861057, mL = 0.707107 |
 | Pin fin efficiency: h = 50 W/(m^2*K), k = 200 W/(m*K), D = 5 mm | NEEDS_INPUT | pin_fin_efficiency needs L (fin length). Example: solve('pin_fin_efficiency', h='50 W/(m^2*K)', k='200 W/(m*K)', D='0.00 |
+
+<a id="first_law_internal_energy_change"></a>
+
+### First law of thermodynamics: change of internal energy, `first_law_internal_energy_change`
+
+The change of internal energy of a closed system from the heat added to it and the work it does.
+
+$$
+\Delta U = Q - W
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `Q` | heat added to the system (negative if heat leaves it) |  |
+| `W` | work done BY the system (negative if work is done on it) |  |
+
+| output | meaning |
+|---|---|
+| `dU` | change of internal energy |
+
+- **Method:** $dU = Q - W$
+- **Assumes:** closed system; Q added to the system, W done by the system
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![dU (change of internal energy) against Q (heat added to the system (negative if heat leaves it)) from 250 J to 750 J](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/first-law-internal-energy-change-curve)
+
+*dU (change of internal energy) against Q (heat added to the system (negative if heat leaves it)) from 250 J to 750 J. One curve for each value of W (work done BY the system (negative if work is done on it)): 200 J, 100 J, 400 J. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, Q = 500 J, dU = 300 J.*
+
+![dU (change of internal energy) over Q (heat added to the system (negative if heat leaves it)) from 250 J to 750 J and W (work done BY the system (negative if work is done on it)) from 100 J to 300 J: each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its sign and magnitude (second colour negative); iso-lines at dU = 0, 200, 400, 600 J](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/first-law-internal-energy-change-field)
+
+*dU (change of internal energy) over Q (heat added to the system (negative if heat leaves it)) from 250 J to 750 J and W (work done BY the system (negative if work is done on it)) from 100 J to 300 J: each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its sign and magnitude (second colour negative); iso-lines at dU = 0, 200, 400, 600 J. Marked: the worked example, Q = 500 J, W = 200 J, dU = 300 J.*
+
+```python
+thermofluids_ai999x.solve('first_law_internal_energy_change', Q=500.0, W=200.0)
+# -> dU = 300 J   (SOLVED)
+```
+
+```python
+thermofluids_ai999x.solve('first_law_internal_energy_change', Q=-300.0, W=-100.0)
+# -> dU = -200 J   (SOLVED)
+```
+
+```python
+thermofluids_ai999x.solve('first_law_internal_energy_change', Q=1200.0, W=1500.0)
+# -> dU = -300 J   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| First law of thermodynamics: Q = 500 J, W = 200 J | SOLVED | dU = 300 J |
+| First law of thermodynamics: Q = -300 J, W = -100 J | SOLVED | dU = -200 J |
+| First law: Q = 1.2 kJ, W = 1500 J | SOLVED | dU = -300 J |
+| First law of thermodynamics: Q = 1e400 J, W = 200 J | INVALID_INPUT | First law of thermodynamics: change of internal energy: the heat and the work must be finite numbers. |
+| First law of thermodynamics: Q = 500 J | NEEDS_INPUT | first_law_internal_energy_change needs W (work done BY the system (negative if work is done on it)). Example: solve('fir |
+
+<a id="isobaric_boundary_work"></a>
+
+### Boundary work of a constant-pressure (isobaric) process, `isobaric_boundary_work`
+
+The work done by a gas that expands or is compressed at constant pressure from V1 to V2.
+
+$$
+W = \int_{V_1}^{V_2} P\,dV = P\,(V_2 - V_1)
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `P` | constant (absolute) pressure |  |
+| `V1` | initial volume |  |
+| `V2` | final volume |  |
+
+| output | meaning |
+|---|---|
+| `W` | work done by the system (negative for a compression) |
+| `dV` | change of volume $V_{2} - V_{1}$ |
+
+- **Method:** $W = P$ $(V_{2} - V_{1})$
+- **Assumes:** $P > 0$ and constant; V1, $V_{2} > 0$; quasi-static process
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![W (work done by the system (negative for a compression)) against P (constant (absolute) pressure) from 100000 Pa to 300000 Pa](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/isobaric-boundary-work-curve)
+
+*W (work done by the system (negative for a compression)) against P (constant (absolute) pressure) from 100000 Pa to 300000 Pa. One curve for each value of V2 (final volume): 0.025 m^3, 0.0125 m^3, 0.05 m^3. Other inputs as in the worked example: V1 = 0.01 m^3. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, P = 200000 Pa, W = 3000 J.*
+
+```python
+thermofluids_ai999x.solve('isobaric_boundary_work', P=200000.0, V1=0.01, V2=0.025)
+# -> W = 3000 J, dV = 0.015 m^3   (SOLVED)
+```
+
+```python
+thermofluids_ai999x.solve('isobaric_boundary_work', P=101325.0, V1=0.002, V2=0.001)
+# -> W = -101.325 J, dV = -0.001 m^3   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Isobaric work: P = 200 kPa, V1 = 0.010 m^3, V2 = 0.025 m^3 | SOLVED | W = 3000 J, dV = 0.015 m^3 |
+| Isobaric work: P = 2 bar, V1 = 10 L, V2 = 25 L | SOLVED | W = 3000 J, dV = 0.015 m^3 |
+| Isobaric work: P = 200 kPa, V1 = -0.010 m^3, V2 = 0.025 m^3 | INVALID_INPUT | Boundary work of a constant-pressure (isobaric) process: the initial and final volumes must be positive. |
+| Isobaric work: P = 200 kPa, V1 = 0.010 m^3 | NEEDS_INPUT | isobaric_boundary_work needs V2 (final volume). Example: solve('isobaric_boundary_work', P='200000 Pa', V1='0.01 m^3', V |
+
+<a id="entropy_change_reservoir"></a>
+
+### Entropy change for heat exchanged at a constant temperature, `entropy_change_reservoir`
+
+The entropy change $dS = Q/T$ of a reservoir (or any system) that takes in heat Q reversibly at a fixed absolute temperature T.
+
+$$
+\Delta S = \frac{Q}{T}
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `Q` | heat added to the reservoir (negative if heat leaves it) |  |
+| `T` | absolute temperature of the reservoir |  |
+
+| output | meaning |
+|---|---|
+| `dS` | entropy change of the reservoir |
+
+- **Method:** $dS = Q / T$
+- **Assumes:** $T > 0$ (absolute); the temperature stays constant while Q is exchanged
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![dS (entropy change of the reservoir) against T (absolute temperature of the reservoir) from 150 K to 450 K](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/entropy-change-reservoir-curve)
+
+*dS (entropy change of the reservoir) against T (absolute temperature of the reservoir) from 150 K to 450 K. One curve for each value of Q (heat added to the reservoir (negative if heat leaves it)): 1000 J, 500 J, 2000 J. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, T = 300 K, dS = 3.33333 J/K.*
+
+![dS (entropy change of the reservoir) over Q (heat added to the reservoir (negative if heat leaves it)) from 500 J to 1500 J and T (absolute temperature of the reservoir) from 150 K to 450 K: each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its value (light 1](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/entropy-change-reservoir-field)
+
+*dS (entropy change of the reservoir) over Q (heat added to the reservoir (negative if heat leaves it)) from 500 J to 1500 J and T (absolute temperature of the reservoir) from 150 K to 450 K: each of the 21 × 15 cells is one run of thermofluids-ai999x, shaded by its value (light 1.11111 J/K to dark 10 J/K); iso-lines at dS = 2, 4, 6, 8 J/K. Marked: the worked example, Q = 1000 J, T = 300 K, dS = 3.33333 J/K.*
+
+```python
+thermofluids_ai999x.solve('entropy_change_reservoir', Q=1000.0, T=300.0)
+# -> dS = 3.33333 J/K   (SOLVED)
+```
+
+```python
+thermofluids_ai999x.solve('entropy_change_reservoir', Q=-5000.0, T=500.0)
+# -> dS = -10 J/K   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Entropy change of a reservoir: Q = 1000 J, T = 300 K | SOLVED | dS = 3.33333 J/K |
+| Entropy change of a reservoir: Q = 2 kJ, T = 27 °C | SOLVED | dS = 6.66333 J/K |
+| Entropy change of a reservoir: Q = 1000 J, T = 0 K | INVALID_INPUT | Entropy change for heat exchanged at a constant temperature: the absolute temperature must be positive. |
+| Entropy change of a reservoir: Q = 1000 J | NEEDS_INPUT | entropy_change_reservoir needs T (absolute temperature of the reservoir). Example: solve('entropy_change_reservoir', Q=' |
+
+<a id="entropy_generation_heat_transfer"></a>
+
+### Entropy generated when heat flows between two reservoirs, `entropy_generation_heat_transfer`
+
+The entropy changes of a hot and a cold reservoir when heat Q flows from the hot one to the cold one, and the total (generated) entropy.
+
+$$
+\Delta S_{tot} = -\frac{Q}{T_h} + \frac{Q}{T_c} = Q\,\frac{T_h - T_c}{T_h T_c}
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `Q` | heat that flows from the hot to the cold reservoir |  |
+| `T_hot` | absolute temperature of the hot reservoir |  |
+| `T_cold` | absolute temperature of the cold reservoir |  |
+
+| output | meaning |
+|---|---|
+| `dS_total` | total entropy change (entropy generated) |
+| `dS_hot` | entropy change of the hot reservoir |
+| `dS_cold` | entropy change of the cold reservoir |
+
+- **Method:** dS_hot = -Q/T_hot, dS_cold = Q/T_cold, dS_total = Q (T_hot - T_cold)/(T_hot T_cold) >= 0
+- **Assumes:** $Q > 0$; T_hot >= T_cold > 0 (absolute); both temperatures stay constant
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![dS_total (total entropy change (entropy generated)) against T_cold (absolute temperature of the cold reservoir) from 150 K to 450 K](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/entropy-generation-heat-transfer-curve)
+
+*dS_total (total entropy change (entropy generated)) against T_cold (absolute temperature of the cold reservoir) from 150 K to 450 K. One curve for each value of Q (heat that flows from the hot to the cold reservoir): 1000 J, 500 J, 2000 J. Other inputs as in the worked example: T_hot = 500.0 K. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, T_cold = 300 K, dS_total = 1.33333 J/K.*
+
+```python
+thermofluids_ai999x.solve('entropy_generation_heat_transfer', Q=1000.0, T_hot=500.0, T_cold=300.0)
+# -> dS_total = 1.33333 J/K, dS_hot = -2 J/K, dS_cold = 3.33333 J/K   (SOLVED)
+```
+
+```python
+thermofluids_ai999x.solve('entropy_generation_heat_transfer', Q=1200.0, T_hot=600.0, T_cold=400.0)
+# -> dS_total = 1 J/K, dS_hot = -2 J/K, dS_cold = 3 J/K   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Entropy generated by heat transfer: Q = 1000 J, T_hot = 500 K, T_cold = 300 K | SOLVED | dS_total = 1.33333 J/K, dS_hot = -2 J/K, dS_cold = 3.33333 J/K |
+| Entropy generated by heat transfer: Q = 1.2 kJ, T_hot = 327 °C, T_cold = 127 °C | SOLVED | dS_total = 0.999375 J/K, dS_hot = -1.9995 J/K, dS_cold = 2.99888 J/K |
+| Entropy generated by heat transfer: Q = 1000 J, T_hot = 300 K, T_cold = 500 K | INVALID_INPUT | Entropy generated when heat flows between two reservoirs: heat cannot flow by itself from the colder to the hotter reser |
+| Entropy generated by heat transfer: Q = 1000 J, T_hot = 500 K | NEEDS_INPUT | entropy_generation_heat_transfer needs T_cold (absolute temperature of the cold reservoir). Example: solve('entropy_gene |
+
+<a id="hydraulic_press_pascal"></a>
+
+### Hydraulic press (Pascal's principle): `hydraulic_press_pascal`
+
+Output force, pressure, mechanical advantage and piston-travel ratio of an ideal hydraulic press or lift.
+
+$$
+\frac{F_1}{A_1} = \frac{F_2}{A_2},\quad \frac{d_2}{d_1} = \frac{A_1}{A_2}
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `F1` | force on the input (small) piston |  |
+| `A1` | area of the input piston |  |
+| `A2` | area of the output piston |  |
+
+| output | meaning |
+|---|---|
+| `F2` | force on the output piston |
+| `P` | pressure transmitted through the liquid (above ambient) |
+| `MA` | mechanical advantage $F_{2}/F_{1} = A_{2}/A_{1}$ |
+| `d_ratio` | output piston travel / input piston travel $(d_{2}/d_{1} = A_{1}/A_{2})$ |
+
+- **Method:** $P = F_{1}/A_{1}$ is transmitted undiminished, $F_{2} = P$ A2; the displaced volume is shared, $d_{2}/d_{1} = A_{1}/A_{2}$
+- **Assumes:** F1, A1, $A_{2} > 0$; incompressible liquid, pistons at the same level, no friction
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![F2 (force on the output piston) against A1 (area of the input piston) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/hydraulic-press-pascal-curve)
+
+*F2 (force on the output piston) against A1 (area of the input piston) from 0.005 m^2 to 0.015 m^2. One curve for each value of F1 (force on the input (small) piston): 100 N, 50 N, 200 N. Other inputs as in the worked example: A2 = 0.5 m^2. 31 points per curve computed by thermofluids-ai999x; marked: the worked example, A1 = 0.01 m^2, F2 = 5000 N.*
+
+```python
+thermofluids_ai999x.solve('hydraulic_press_pascal', F1=100.0, A1=0.01, A2=0.5)
+# -> F2 = 5000 N, P = 10000 Pa, MA = 50, d_ratio = 0.02   (SOLVED)
+```
+
+```python
+thermofluids_ai999x.solve('hydraulic_press_pascal', F1=50.0, A1=0.001, A2=0.02)
+# -> F2 = 1000 N, P = 50000 Pa, MA = 20, d_ratio = 0.05   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Hydraulic press: F1 = 100 N, A1 = 0.01 m^2, A2 = 0.5 m^2 | SOLVED | F2 = 5000 N, P = 10000 Pa, MA = 50, d_ratio = 0.02 |
+| Hydraulic press: F1 = 50 N, A1 = 10 cm^2, A2 = 200 cm^2 | SOLVED | F2 = 1000 N, P = 50000 Pa, MA = 20, d_ratio = 0.05 |
+| Hydraulic press: F1 = 100 N, A1 = 0 m^2, A2 = 0.5 m^2 | INVALID_INPUT | Hydraulic press (Pascal's principle): the piston areas must be positive. |
+| Hydraulic press: F1 = 100 N, A1 = 0.01 m^2 | NEEDS_INPUT | hydraulic_press_pascal needs A2 (area of the output piston). Example: solve('hydraulic_press_pascal', F1='100 N', A1='0. |
+
+<a id="bernoulli_with_height"></a>
+
+### Bernoulli's equation with a change of height, `bernoulli_with_height`
+
+The absolute pressure at a second point of a streamline of steady, inviscid, incompressible flow from the pressure, speed and height at the first and the speed and height at the second.
+
+$$
+P_1 + \tfrac{1}{2}\rho v_1^2 + \rho g h_1 = P_2 + \tfrac{1}{2}\rho v_2^2 + \rho g h_2
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `P1` | absolute pressure at point 1 |  |
+| `v1` | flow speed at point 1 |  |
+| `h1` | height of point 1 above a datum |  |
+| `v2` | flow speed at point 2 |  |
+| `h2` | height of point 2 above the same datum |  |
+| `rho` | density of the fluid |  |
+| `g` | gravitational acceleration |  |
+
+| output | meaning |
+|---|---|
+| `P2` | absolute pressure at point 2 |
+
+- **Method:** $P_{2} = P_{1} + \rho$ $(v_{1}^{2} - v_{2}^{2})/2 + \rho$ g $(h_{1} - h_{2})$
+- **Assumes:** steady, inviscid, incompressible flow along one streamline; rho, $g > 0$; P1 and P2 absolute and positive
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![P2 (absolute pressure at point 2) against v1 (flow speed at point 1) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/bernoulli-with-height-curve)
+
+*P2 (absolute pressure at point 2) against v1 (flow speed at point 1) from 0.2 m/s to 20 m/s on a logarithmic axis. One curve for each value of P1 (absolute pressure at point 1): 200000 Pa, 100000 Pa, 400000 Pa. Other inputs as in the worked example: h1 = 0.0 m, v2 = 6.0 m/s, h2 = 5.0 m, rho = 1000.0 kg/m^3, g = 9.81 m/s^2. 41 points per curve computed by thermofluids-ai999x; marked: the worked example, v1 = 2 m/s, P2 = 134950 Pa.*
+
+```python
+thermofluids_ai999x.solve('bernoulli_with_height', P1=200000.0, v1=2.0, h1=0.0, v2=6.0, h2=5.0, rho=1000.0, g=9.81)
+# -> P2 = 134950 Pa   (SOLVED)
+```
+
+```python
+thermofluids_ai999x.solve('bernoulli_with_height', P1=150000.0, v1=3.0, h1=10.0, v2=3.0, h2=0.0, rho=1000.0, g=9.80665)
+# -> P2 = 248066 Pa   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Bernoulli equation with height: P1 = 200 kPa, v1 = 2 m/s, h1 = 0 m, v2 = 6 m/s, h2 = 5 m, rho = 1000 kg/m^3, g = 9.81 m/s^2 | SOLVED | P2 = 134950 Pa |
+| Bernoulli equation with height: P1 = 150 kPa, v1 = 3 m/s, h1 = 10 m, v2 = 3 m/s, h2 = 0 m, rho = 1000 kg/m^3, g = 9.80665 m/s^2 | SOLVED | P2 = 248066 Pa |
+| Bernoulli equation with height: P1 = 100 kPa, v1 = 1 m/s, h1 = 0 m, v2 = 1 m/s, h2 = 20 m, rho = 1000 kg/m^3, g = 9.81 m/s^2 | INVALID_INPUT | Bernoulli's equation with a change of height: the computed absolute pressure P2 is not positive: the flow cannot exist s |
+| Bernoulli equation with height: P1 = 200 kPa, v1 = 2 m/s, h1 = 0 m, v2 = 6 m/s, h2 = 5 m, rho = 1000 kg/m^3 | NEEDS_INPUT | bernoulli_with_height needs g (gravitational acceleration). Example: solve('bernoulli_with_height', P1='200000 Pa', v1=' |
+
+<a id="wet_steam_mixture"></a>
+
+### Wet steam: quality and mixture properties from saturated values, `wet_steam_mixture`
+
+The quality x of a saturated liquid-vapour mixture and its specific volume, enthalpy and entropy by the lever rule, from the saturated-liquid and saturated-vapour values the user supplies (vf, vg; hf, hfg; sf, sfg) and either the quality or one mixture property (v, h or s).
+
+$$
+x = \frac{h - h_f}{h_{fg}},\quad v = v_f + x\,(v_g - v_f),\quad h = h_f + x\,h_{fg},\quad s = s_f + x\,s_{fg}
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `vf` | specific volume of the saturated liquid |  |
+| `vg` | specific volume of the saturated vapour |  |
+| `hf` | specific enthalpy of the saturated liquid |  |
+| `hfg` | enthalpy of vaporization hg - hf |  |
+| `sf` | specific entropy of the saturated liquid |  |
+| `sfg` | entropy of vaporization sg - sf |  |
+| `x` | quality (vapour mass fraction), a fraction or % |  |
+| `v` | specific volume of the mixture (instead of x) |  |
+| `h` | specific enthalpy of the mixture (instead of x) |  |
+| `s` | specific entropy of the mixture (instead of x) |  |
+
+| output | meaning |
+|---|---|
+| `x` | quality (vapour mass fraction) |
+| `moisture` | moisture content $1 - x$ (liquid mass fraction) |
+| `v` | specific volume of the mixture |
+| `h` | specific enthalpy of the mixture |
+| `s` | specific entropy of the mixture |
+| `hg` | specific enthalpy of the saturated vapour hf + hfg |
+| `sg` | specific entropy of the saturated vapour sf + sfg |
+
+- **Method:** lever rule: $y = yf + x$ (yg - yf) for $y = v$, h, s; $x = (y - yf)/(yg - yf)$ from a stated mixture property
+- **Assumes:** saturated values at the mixture's own pressure (or temperature), supplied by the user; each pair whole; $0 < vf < vg$, hfg > 0, sfg > 0; exactly one of x, v, h, s; $0  \leq  x  \leq  1$ (otherwise not a wet mixture)
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![x (quality (vapour mass fraction)) against x (quality (vapour mass fraction), a fraction or %) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/wet-steam-mixture-curve)
+
+*x (quality (vapour mass fraction)) against x (quality (vapour mass fraction), a fraction or %) from 0.02 to 0.98. Other inputs as in the worked example: vf = 0.001043 m^3/kg, vg = 1.694 m^3/kg, hf = 417500.0 J/kg, hfg = 2257500.0 J/kg, sf = 1302.8 J/(kg*K), sfg = 6056.2 J/(kg*K). 41 points computed by thermofluids-ai999x; marked: the worked example, x = 0.9, x = 0.9.*
+
+```python
+thermofluids_ai999x.solve('wet_steam_mixture', vf=0.001043, vg=1.694, hf=417500.0, hfg=2257500.0, sf=1302.8, sfg=6056.2, x=0.9)
+# -> x = 0.9, moisture = 0.1, v = 1.5247 m^3/kg, h = 2.44925e+06 J/kg, hg = 2.675e+06 J/kg, s = 6753.38 J/(kg*K), sg = 7359 J/(kg*K)   (SOLVED)
+```
+
+```python
+thermofluids_ai999x.solve('wet_steam_mixture', hf=417500.0, hfg=2257500.0, h=2000000.0)
+# -> x = 0.700997, moisture = 0.299003, h = 2e+06 J/kg, hg = 2.675e+06 J/kg   (SOLVED)
+```
+
+```python
+thermofluids_ai999x.solve('wet_steam_mixture', vf=0.001043, vg=1.694, sf=1302.8, sfg=6056.2, v=0.5)
+# -> x = 0.294725, moisture = 0.705275, v = 0.5 m^3/kg, s = 3087.71 J/(kg*K), sg = 7359 J/(kg*K)   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Wet steam: vf = 0.001043 m^3/kg, vg = 1.694 m^3/kg, hf = 417.5 kJ/kg, hfg = 2257.5 kJ/kg, sf = 1.3028 kJ/(kg*K), sfg = 6.0562 kJ/(kg*K), x = 90% | SOLVED | x = 0.9, moisture = 0.1, v = 1.5247 m^3/kg, h = 2.44925e+06 J/kg, hg = 2.675e+06 J/kg, s = 6753.38 J/(kg*K), sg = 7359 J/(kg*K) |
+| Wet steam: hf = 417.5 kJ/kg, hfg = 2257.5 kJ/kg, h = 2000 kJ/kg | SOLVED | x = 0.700997, moisture = 0.299003, h = 2e+06 J/kg, hg = 2.675e+06 J/kg |
+| Steam quality: vf = 0.001043 m^3/kg, vg = 1.694 m^3/kg, sf = 1.3028 kJ/(kg*K), sfg = 6.0562 kJ/(kg*K), v = 0.5 m^3/kg | SOLVED | x = 0.294725, moisture = 0.705275, v = 0.5 m^3/kg, s = 3087.71 J/(kg*K), sg = 7359 J/(kg*K) |
+| Wet steam: vf = 0.001043 m^3/kg, vg = 1.694 m^3/kg, v = 2 m^3/kg | INVALID_INPUT | Wet steam: quality and mixture properties from saturated values: the state is not a wet mixture: the property lies outsi |
+| Wet steam: hf = 417.5 kJ/kg, hfg = 2257.5 kJ/kg, x = 1.2 | INVALID_INPUT | Wet steam: quality and mixture properties from saturated values: the quality x must be a fraction from 0 to 1. |
+| Wet steam: hf = 417.5 kJ/kg, hfg = 2257.5 kJ/kg, x = 0.9, h = 2449.25 kJ/kg | INVALID_INPUT | Wet steam: quality and mixture properties from saturated values: state the mixture by exactly one of the quality x, or i |
 
 ## Proofs and derivations
 

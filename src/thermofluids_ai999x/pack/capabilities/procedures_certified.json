@@ -12,9 +12,16 @@
   "gnielinski_nusselt",
   "churchill_bernstein_cylinder",
   "churchill_chu_vertical_plate",
-  "pin_fin_efficiency"
+  "pin_fin_efficiency",
+  "first_law_internal_energy_change",
+  "isobaric_boundary_work",
+  "entropy_change_reservoir",
+  "entropy_generation_heat_transfer",
+  "hydraulic_press_pascal",
+  "bernoulli_with_height",
+  "wet_steam_mixture"
  ],
- "generated": "2026-10-22",
+ "generated": "2026-11-13",
  "tool": "tools/certify_procedures.py",
  "report": "release/procedure_certification.json"
 }
