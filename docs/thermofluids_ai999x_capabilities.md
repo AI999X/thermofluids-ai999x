@@ -208,9 +208,9 @@ $$
 - **Assumes:** incompressible liquid at rest; uniform gravity
 - **Evidence:** theorem
 
-![A tank of liquid (ρ = 1000 kg/m^3) to depth h = 12 m with the gauge pressure on its wall: the package's pressure at h/4, h/2, 3h/4 and h (at the surface the gauge pressure is zero), drawn as arrows to a common scale](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/hydrostatic-gauge-pressure-schematic)
+![A tank of liquid (ρ = 1000) to depth h = 12 m with the gauge pressure on its wall: the package's pressure at h/4, h/2, 3h/4 and h (at the surface the gauge pressure is zero), drawn as arrows to a common scale](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/hydrostatic-gauge-pressure-schematic)
 
-*A tank of liquid (ρ = 1000 kg/m^3) to depth h = 12 m with the gauge pressure on its wall: the package's pressure at h/4, h/2, 3h/4 and h (at the surface the gauge pressure is zero), drawn as arrows to a common scale. Marked: 117.7 kPa at the bottom (the worked example), 0 kPa at 0 m, 29.42 kPa at 3 m, 58.84 kPa at 6 m, 88.26 kPa at 9 m.*
+*A tank of liquid (ρ = 1000) to depth h = 12 m with the gauge pressure on its wall: the package's pressure at h/4, h/2, 3h/4 and h (at the surface the gauge pressure is zero), drawn as arrows to a common scale. Marked: 117.7 kPa at the bottom (the worked example), 0 kPa at 0 m, 29.42 kPa at 3 m, 58.84 kPa at 6 m, 88.26 kPa at 9 m.*
 
 ![P (gauge pressure at the depth) against rho (density of the fluid) from 500 kg/m^3 to 1500 kg/m^3](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/hydrostatic-gauge-pressure-curve)
 
@@ -257,9 +257,9 @@ $$
 - **Assumes:** incompressible liquid at rest; uniform gravity
 - **Evidence:** theorem
 
-![A tank of liquid (ρ = 1025 kg/m^3, surface pressure 101325 Pa) to depth h = 20 m with the absolute pressure on its wall: the package's pressure at h/4, h/2, 3h/4 and h (at the surface the stated surface pressure), drawn as arrows to a common scale](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/absolute-pressure-depth-schematic)
+![A tank of liquid (ρ = 1025, surface pressure 101325) to depth h = 20 m with the absolute pressure on its wall: the package's pressure at h/4, h/2, 3h/4 and h (at the surface the stated surface pressure), drawn as arrows to a common scale](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/absolute-pressure-depth-schematic)
 
-*A tank of liquid (ρ = 1025 kg/m^3, surface pressure 101325 Pa) to depth h = 20 m with the absolute pressure on its wall: the package's pressure at h/4, h/2, 3h/4 and h (at the surface the stated surface pressure), drawn as arrows to a common scale. Marked: 302.4 kPa at the bottom (the worked example), 101.3 kPa at 0 m, 151.6 kPa at 5 m, 201.8 kPa at 10 m, 252.1 kPa at 15 m.*
+*A tank of liquid (ρ = 1025, surface pressure 101325) to depth h = 20 m with the absolute pressure on its wall: the package's pressure at h/4, h/2, 3h/4 and h (at the surface the stated surface pressure), drawn as arrows to a common scale. Marked: 302.4 kPa at the bottom (the worked example), 101.3 kPa at 0 m, 151.6 kPa at 5 m, 201.8 kPa at 10 m, 252.1 kPa at 15 m.*
 
 ![P (absolute pressure at the depth) against P0 (pressure at the free surface) from 50662](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/absolute-pressure-depth-curve)
 
@@ -351,7 +351,7 @@ $$
 
 ![Flow through a contraction drawn to scale: diameter 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/continuity-speed-schematic)
 
-*Flow through a contraction drawn to scale: diameter 0.1 m narrowing to 0.05 m, inlet speed 2 m/s (the worked example); arrow lengths are proportional to the mean speed. Marked: the package's outlet speed v2 = 8 m/s.*
+*Flow through a contraction drawn to scale: diameter 0.1 narrowing to 0.05, inlet speed 2 (the worked example); arrow lengths are proportional to the mean speed. Marked: the package's outlet speed v2 = 8 m/s.*
 
 ![v2 (mean velocity at the outlet) against D2 (diameter at the outlet) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/continuity-speed-curve)
 
@@ -398,9 +398,9 @@ $$
 - **Assumes:** steady, incompressible, inviscid flow along a streamline; no height change
 - **Evidence:** theorem
 
-![Bernoulli's equation along a horizontal contraction (ρ = 1000 kg/m^3, P1 = 200 kPa, v1 = 2 m/s, v2 = 6 m/s; the worked example)](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/bernoulli-horizontal-schematic)
+![Bernoulli's equation along a horizontal contraction (ρ = 1000, P1 = 200000, v1 = 2, v2 = 6; the worked example)](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/bernoulli-horizontal-schematic)
 
-*Bernoulli's equation along a horizontal contraction (ρ = 1000 kg/m^3, P1 = 200 kPa, v1 = 2 m/s, v2 = 6 m/s; the worked example). The pipe is drawn for a stated inlet diameter 0.1 m, the outlet 0.057735 m from the package's continuity relation; the pressure at 41 positions is the package's Bernoulli pressure at the local speed (from continuity). Marked: P2 = 184 kPa.*
+*Bernoulli's equation along a horizontal contraction (ρ = 1000, P1 = 200000, v1 = 2, v2 = 6; the worked example). The pipe is drawn for a stated inlet diameter 0.1 m, the outlet 0.057735 m from the package's continuity relation; the pressure at 41 positions is the package's Bernoulli pressure at the local speed (from continuity). Marked: P2 = 184 kPa.*
 
 ![P2 (pressure at the outlet) against v2 (speed at the outlet) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/bernoulli-horizontal-curve)
 
@@ -966,7 +966,7 @@ $$
 
 ![Laminar flow in a pipe (D = 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/hagen-poiseuille-schematic)
 
-*Laminar flow in a pipe (D = 0.01 m, pressure drop 20000 Pa over 10 m, μ = 0.05 Pa*s; the worked example). Marked: the package's volume flow Q = 9.8175e-06 m³/s; the mean speed Q/A = 0.125 m/s and the parabolic velocity profile u = 2·(Q/A)·(1 − r²/R²) with its centre-line maximum 0.25 m/s are derived from it.*
+*Laminar flow in a pipe (D = 0.01, pressure drop 20000 over 10, μ = 0.05; the worked example). Marked: the package's volume flow Q = 9.8175e-06 m³/s; the mean speed Q/A = 0.125 m/s and the parabolic velocity profile u = 2·(Q/A)·(1 − r²/R²) with its centre-line maximum 0.25 m/s are derived from it.*
 
 ![Q (volume flow rate) against D (inner diameter of the pipe) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/hagen-poiseuille-curve)
 
@@ -1918,7 +1918,7 @@ $$
 
 ![Steady conduction through a plane wall of thickness L = 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/plane-wall-conduction-profile)
 
-*Steady conduction through a plane wall of thickness L = 0.2 m, area 10 m^2, k = 0.7 W/(m*K), faces at 20 °C and 5 °C (the worked example); the temperature falls linearly through the wall. Marked: the package's heat rate Q = 525 W (flux 52.5 W/m², Q divided by the area).*
+*Steady conduction through a plane wall of thickness L = 0.2, area 10, k = 0.7, faces at 293.15 and 278.15 (the worked example); the temperature falls linearly through the wall. Marked: the package's heat rate Q = 525 W (flux 52.5 W/m², Q divided by the area).*
 
 ![q (rate of heat transfer) against L (wall thickness) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/plane-wall-conduction-curve)
 
@@ -1969,7 +1969,7 @@ $$
 
 ![Steady radial conduction through a cylinder wall (the worked example): r1 = 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/cylinder-conduction-profile)
 
-*Steady radial conduction through a cylinder wall (the worked example): r1 = 0.05 m at 120 °C, r2 = 0.06 m at 119 °C, k = 45 W/(m*K), length 5 m. Top: the cross-section with the radial heat flow; bottom: the temperature through the wall, T(r) = T1 − (T1 − T2)·ln(r/r1)/ln(r2/r1), derived from the stated surface temperatures. Marked: the package's heat rate Q = 7753.97 W.*
+*Steady radial conduction through a cylinder wall (the worked example): r1 = 0.05 at 393.15, r2 = 0.06 at 392.15, k = 45, length 5. Top: the cross-section with the radial heat flow; bottom: the temperature through the wall, T(r) = T1 − (T1 − T2)·ln(r/r1)/ln(r2/r1), derived from the stated surface temperatures. Marked: the package's heat rate Q = 7753.97 W.*
 
 ![q (rate of heat transfer) against r1 (inner radius) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/cylinder-conduction-curve)
 
@@ -2019,7 +2019,7 @@ $$
 
 ![Steady radial conduction through a sphere wall (the worked example): r1 = 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/sphere-conduction-profile)
 
-*Steady radial conduction through a sphere wall (the worked example): r1 = 0.1 m at 400 K, r2 = 0.15 m at 300 K, k = 0.04 W/(m*K). Top: the cross-section with the radial heat flow; bottom: the temperature through the wall, T(r) = T1 − (T1 − T2)·(1/r1 − 1/r)/(1/r1 − 1/r2), derived from the stated surface temperatures. Marked: the package's heat rate Q = 15.0796 W.*
+*Steady radial conduction through a sphere wall (the worked example): r1 = 0.1 at 400, r2 = 0.15 at 300, k = 0.04. Top: the cross-section with the radial heat flow; bottom: the temperature through the wall, T(r) = T1 − (T1 − T2)·(1/r1 − 1/r)/(1/r1 − 1/r2), derived from the stated surface temperatures. Marked: the package's heat rate Q = 15.0796 W.*
 
 ![q (rate of heat transfer) against r1 (inner radius) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/sphere-conduction-curve)
 
@@ -2066,9 +2066,9 @@ $$
 - **Assumes:** steady one-dimensional heat flow; a single plane layer; no radiation
 - **Evidence:** theorem
 
-![A plane wall between two fluids (h1 = 10 W/(m^2*K), wall L = 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/overall-u-plane-wall-network)
+![A plane wall between two fluids (h1 = 10, wall L = 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/overall-u-plane-wall-network)
 
-*A plane wall between two fluids (h1 = 10 W/(m^2*K), wall L = 0.2 m, k = 0.7 W/(m*K), h2 = 25 W/(m^2*K); the worked example) and its thermal-resistance chain per square metre: the three resistances 1/h1, L/k and 1/h2 in m²·K/W are the inputs inverted (derived); they add in series. Marked: the package's overall coefficient U = 2.34899 W/(m²·K) (1/U = 0.425714 m²·K/W).*
+*A plane wall between two fluids (h1 = 10, wall L = 0.2, k = 0.7, h2 = 25; the worked example) and its thermal-resistance chain per square metre: the three resistances 1/h1, L/k and 1/h2 in m²·K/W are the inputs inverted (derived); they add in series. Marked: the package's overall coefficient U = 2.34899 W/(m²·K) (1/U = 0.425714 m²·K/W).*
 
 ![U (overall heat transfer coefficient) against L (wall thickness) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/overall-u-plane-wall-curve)
 
@@ -2160,7 +2160,7 @@ $$
 
 ![Heat loss per metre from a pipe of radius 2 mm covered with insulation of k = 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/critical-insulation-radius-curve)
 
-*Heat loss per metre from a pipe of radius 2 mm covered with insulation of k = 0.05 W/(m*K) in a fluid with h = 10 W/(m^2*K) (the worked example's k and h; the pipe radius and a 50 K temperature difference are stated), derived from the conduction and convection resistances in series. Adding insulation first raises the loss; the maximum lies at the package's critical radius, marked: r_cr = k/h = 5 mm.*
+*Heat loss per metre from a pipe of radius 2 mm covered with insulation of k = 0.05 in a fluid with h = 10 (the worked example's k and h; the pipe radius and a 50 K temperature difference are stated), derived from the conduction and convection resistances in series. Adding insulation first raises the loss; the maximum lies at the package's critical radius, marked: r_cr = k/h = 5 mm.*
 
 ![r (critical outer radius of the insulation) against h (outside heat transfer coefficient) from 5 W/(m^2*K) to 15 W/(m^2*K)](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/critical-insulation-radius-curve-2)
 
@@ -2209,7 +2209,7 @@ $$
 
 ![A plane wall of half-thickness L = 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/wall-generation-max-temperature-profile)
 
-*A plane wall of half-thickness L = 0.01 m (k = 20 W/(m*K)) generating heat uniformly at 1e+06 W/m^3, both faces held at 350 K (the worked example). The temperature is parabolic, T = Ts + (Tmax − Ts)(1 − x²/L²), drawn from the package's mid-plane maximum (derived shape). Marked: Tmax = 352.5 K.*
+*A plane wall of half-thickness L = 0.01 (k = 20) generating heat uniformly at 1e+06, both faces held at 350 (the worked example). The temperature is parabolic, T = Ts + (Tmax − Ts)(1 − x²/L²), drawn from the package's mid-plane maximum (derived shape). Marked: Tmax = 352.5 K.*
 
 ![Tmax (temperature at the mid-plane) against L (half-thickness of the wall) from 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/wall-generation-max-temperature-curve)
 
@@ -2902,9 +2902,9 @@ $$
 - **Assumes:** infinite parallel grey diffuse plates; no participating medium
 - **Evidence:** theorem
 
-![Radiation between two large parallel grey plates at 800 K (emissivity 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/radiation-parallel-plates-schematic)
+![Radiation between two large parallel grey plates at 800 (emissivity 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/radiation-parallel-plates-schematic)
 
-*Radiation between two large parallel grey plates at 800 K (emissivity 0.8) and 400 K (emissivity 0.6), the worked example. Marked: the package's net flux q = 11360.5 W/m², and the blackbody emissive powers of the two surfaces from its blackbody capability, 23225.9 and 1451.62 W/m².*
+*Radiation between two large parallel grey plates at 800 (emissivity 0.8) and 400 (emissivity 0.6), the worked example. Marked: the package's net flux q = 11360.5 W/m², and the blackbody emissive powers of the two surfaces from its blackbody capability, 23225.9 and 1451.62 W/m².*
 
 ![qf (net radiative heat flux from plate 1 to plate 2) against T1 (temperature of the first plate) from 80 K to 8000 K on a logarithmic axis](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/radiation-parallel-plates-curve)
 
@@ -3045,9 +3045,9 @@ $$
 - **Assumes:** one-dimensional conduction along the fin; uniform h; constant cross section; very long fin
 - **Evidence:** theorem
 
-![Temperature along a very long fin (h = 25 W/(m^2*K), perimeter 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/infinite-fin-heat-rate-fin)
+![Temperature along a very long fin (h = 25, perimeter 0](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/infinite-fin-heat-rate-fin)
 
-*Temperature along a very long fin (h = 25 W/(m^2*K), perimeter 0.0314 m, k = 200 W/(m*K), cross-section 7.8500e-05 m^2, base 100 °C in fluid at 25 °C; the worked example): T = T∞ + (Tb − T∞)·e^(−mx) with m = √(hP/(kAc)) = 7.07107 1/m, derived from the inputs. Marked: the package's heat rate through the base, q = 8.32618 W; the excess falls to 1/e at x = 1/m = 14.1421 cm.*
+*Temperature along a very long fin (h = 25, perimeter 0.0314, k = 200, cross-section 7.8500e-05, base 373.15 in fluid at 298.15; the worked example): T = T∞ + (Tb − T∞)·e^(−mx) with m = √(hP/(kAc)) = 7.07107 1/m, derived from the inputs. Marked: the package's heat rate through the base, q = 8.32618 W; the excess falls to 1/e at x = 1/m = 14.1421 cm.*
 
 ![q (rate of heat transfer) against h (convection heat transfer coefficient) from 12](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/infinite-fin-heat-rate-curve)
 
@@ -3098,9 +3098,9 @@ $$
 - **Assumes:** Biot number below about 0.1 (uniform internal temperature); constant h and properties
 - **Evidence:** theorem
 
-![Lumped cooling of a body (ρ = 7800 kg/m^3, V = 5](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/lumped-capacitance-temperature-curve)
+![Lumped cooling of a body (ρ = 7800, V = 5](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/lumped-capacitance-temperature-curve)
 
-*Lumped cooling of a body (ρ = 7800 kg/m^3, V = 5.0000e-06 m^3, c = 450 J/(kg*K), A = 0.002 m^2, h = 40 W/(m^2*K)) from 300 °C in fluid at 25 °C: the package's temperature at 51 times over five time constants, the time constant τ = 219.375 s from its time-constant capability (dashed at τ, 2τ, 3τ). Marked: T = 184.137 °C at t = 120 s (the worked example).*
+*Lumped cooling of a body (ρ = 7800, V = 5.0000e-06, c = 450, A = 0.002, h = 40) from 573.15 in fluid at 298.15: the package's temperature at 51 times over five time constants, the time constant τ = 219.375 s from its time-constant capability (dashed at τ, 2τ, 3τ). Marked: T = 184.137 °C at t = 120 s (the worked example).*
 
 ![T (temperature of the body at time t) against Tinf (temperature of the fluid far from the surface) from 149](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/lumped-capacitance-temperature-curve-2)
 
@@ -3148,9 +3148,9 @@ $$
 - **Assumes:** Biot number below about 0.1; constant h and properties
 - **Evidence:** theorem
 
-![Lumped cooling of a body (ρ = 7800 kg/m^3, V = 5](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/lumped-time-constant-curve)
+![Lumped cooling of a body (ρ = 7800, V = 5](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/lumped-time-constant-curve)
 
-*Lumped cooling of a body (ρ = 7800 kg/m^3, V = 5.0000e-06 m^3, c = 450 J/(kg*K), A = 0.002 m^2, h = 40 W/(m^2*K)) from 300 °C in fluid at 25 °C: the package's temperature at 51 times over five time constants, the time constant τ = 219.375 s from its time-constant capability (dashed at τ, 2τ, 3τ). Marked: τ = 219.375 s.*
+*Lumped cooling of a body (ρ = 7800, V = 5.0000e-06, c = 450, A = 0.002, h = 40) from 300 °C in fluid at 25 °C: the package's temperature at 51 times over five time constants, the time constant τ = 219.375 s from its time-constant capability (dashed at τ, 2τ, 3τ). Marked: τ = 219.375 s.*
 
 ![tau (thermal time constant) against h (convection heat transfer coefficient) from 20 W/(m^2*K) to 60 W/(m^2*K)](https://www.ai999x.com/?ax_fig=thermofluids-ai999x/lumped-time-constant-curve-2)
 
