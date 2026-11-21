@@ -10,8 +10,8 @@ Thermofluids covers fluid statics and dynamics, pipe flow, boundary layers, aero
 
 | | |
 |---|---|
-| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.5/ai999x-thermofluids-1.6.5-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.5/ai999x-thermofluids-1.6.5-linux-x86_64.tar.gz) |
-| **Command line** `thermofluids` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.4/ai999x-cli-1.6.4-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.4/ai999x-cli-1.6.4-linux-x86_64.tar.gz) |
+| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-thermofluids-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-thermofluids-1.6.6-linux-x86_64.tar.gz) |
+| **Command line** `thermofluids` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-linux-x86_64.tar.gz) |
 | **Browser** (any device) | [Try it on the model page](https://www.ai999x.com/models/thermofluids-ai999x/#capabilities) |
 | **Python** 3.10+ | `pip install thermofluids-ai999x`: on Windows and Linux (x86-64) `pip` installs the same compiled engine; on other systems (macOS, ARM) it installs a pure-Python build that gives the same answers |
 
@@ -179,72 +179,6 @@ $ thermofluids solve froude_number "v=3 m/s" "g=9.80665 m/s^2" "h=0.5 m"
 Froude number (Fr) = 1.354802267
 ```
 
-## Rust library: 15 examples
-
-The crate `thermofluids-ai999x` (in `rust/` of the GitHub repository) answers a JSON request with `thermofluids_ai999x::solve_json`. Each call below was compiled and run on this release; the comment under it is what it printed. The whole program is `rust/thermofluids/examples/readme.rs`: `cd rust && cargo run --release --example readme -p thermofluids-ai999x`.
-
-```rust
-use serde_json::{json, Value};
-
-fn show(request: Value) {
-    let answer: Value = serde_json::from_str(&thermofluids_ai999x::solve_json(&request.to_string())).unwrap();
-    println!("{}", answer["outcome"].as_str().unwrap_or(""));
-    for v in answer["values"].as_array().into_iter().flatten() {
-        let unit = v[2].as_str().unwrap_or("");
-        let unit = if unit.is_empty() || unit == "1" { String::new() } else { format!(" {unit}") };
-        println!("{} = {}{}", v[0].as_str().unwrap_or(""), v[1], unit);
-    }
-}
-
-show(json!({"key": "thin_airfoil_lift_coefficient", "inputs": {"alpha": "0.0872664626 rad"}}));
-// SOLVED
-
-show(json!({"key": "blasius_average_skin_friction", "inputs": {"ReL": "250000 1"}}));
-// SOLVED
-
-show(json!({"key": "adiabatic_flame_temperature_simple", "inputs": {"T0": "298 K", "LHV": "50000000 J/kg", "AFR": "17.2 1", "cp": "1200 J/(kg*K)"}}));
-// SOLVED
-
-show(json!({"key": "stagnation_pressure_air", "inputs": {"P": "50000 Pa", "M": "1.5 1"}}));
-// SOLVED
-
-show(json!({"key": "critical_insulation_radius", "inputs": {"k": "0.05 W/(m*K)", "h": "10 W/(m^2*K)"}}));
-// SOLVED
-
-show(json!({"key": "flat_plate_laminar_average_nusselt", "inputs": {"ReL": "100000 1", "Pr": "0.7 1"}}));
-// SOLVED
-
-show(json!({"key": "drag_force", "inputs": {"Cd": "0.3 1", "rho": "1.2 kg/m^3", "v": "30 m/s", "A": "2.2 m^2"}}));
-// SOLVED
-
-show(json!({"key": "pin_fin_efficiency", "inputs": {"h": "50 W/(m^2*K)", "k": "200 W/(m*K)", "D": "5 mm", "L": "50 mm"}}));
-// SOLVED
-// efficiency = 0.8610571715805476
-// mL = 0.7071067811865476
-
-show(json!({"key": "bernoulli_horizontal", "inputs": {"P1": "200000 Pa", "rho": "1000 kg/m^3", "v1": "2 m/s", "v2": "6 m/s"}}));
-// SOLVED
-
-show(json!({"key": "bernoulli_with_height", "inputs": {"P1": "200 kPa", "v1": "2 m/s", "h1": "0 m", "v2": "6 m/s", "h2": "5 m", "rho": "1000 kg/m^3", "g": "9.81 m/s^2"}}));
-// SOLVED
-// P2 = 134950.0 Pa
-
-show(json!({"key": "absolute_pressure_depth", "inputs": {"P0": "101325 Pa", "rho": "1025 kg/m^3", "g": "9.80665 m/s^2", "h": "20 m"}}));
-// SOLVED
-
-show(json!({"key": "compressor_outlet_temperature_air", "inputs": {"T1": "300 K", "P2": "600000 Pa", "P1": "100000 Pa", "eta": "0.85 1"}}));
-// SOLVED
-
-show(json!({"key": "effectiveness_phase_change", "inputs": {"N": "2 1"}}));
-// SOLVED
-
-show(json!({"key": "grashof_number", "inputs": {"g": "9.80665 m/s^2", "beta": "0.0033 1/K", "Ts": "330 K", "Tinf": "300 K", "L": "0.5 m", "nu": "1.6e-05 m^2/s"}}));
-// SOLVED
-
-show(json!({"key": "froude_number", "inputs": {"v": "3 m/s", "g": "9.80665 m/s^2", "h": "0.5 m"}}));
-// SOLVED
-```
-
 ## Guides
 
 - Desktop app guide: the window, every calculation, scenes and charts: [PDF](https://huggingface.co/AI999X/thermofluids-ai999x/blob/main/docs/thermofluids_ai999x_desktop_guide.pdf) · [HTML](https://huggingface.co/AI999X/thermofluids-ai999x/blob/main/docs/thermofluids_ai999x_desktop_guide.html) · [Markdown](https://huggingface.co/AI999X/thermofluids-ai999x/blob/main/docs/thermofluids_ai999x_desktop_guide.md)
@@ -253,7 +187,7 @@ show(json!({"key": "froude_number", "inputs": {"v": "3 m/s", "g": "9.80665 m/s^2
 
 Every calculation, with its formula, a worked example and its figures: **[Thermofluids on ai999x.com](https://www.ai999x.com/models/thermofluids-ai999x/)**. Install guides for the app and the command line: [https://www.ai999x.com/desktop-cli/](https://www.ai999x.com/desktop-cli/).
 
-Version 1.6.4 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
+Version 1.6.6 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
 
 *The Future Is Self-Improving.*
 
