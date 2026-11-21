@@ -10,8 +10,8 @@ Thermofluids covers fluid statics and dynamics, pipe flow, boundary layers, aero
 
 | | |
 |---|---|
-| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-thermofluids-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-thermofluids-1.6.6-linux-x86_64.tar.gz) |
-| **Command line** `thermofluids` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-linux-x86_64.tar.gz) |
+| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-thermofluids-1.6.7-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-thermofluids-1.6.7-linux-x86_64.tar.gz) |
+| **Command line** `thermofluids` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-cli-1.6.7-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-cli-1.6.7-linux-x86_64.tar.gz) |
 | **Browser** (any device) | [Try it on the model page](https://www.ai999x.com/models/thermofluids-ai999x/#capabilities) |
 | **Python** 3.10+ | `pip install thermofluids-ai999x`: on Windows and Linux (x86-64) `pip` installs the same compiled engine; on other systems (macOS, ARM) it installs a pure-Python build that gives the same answers |
 
@@ -127,58 +127,6 @@ print(a.outcome, a.values)
 # SOLVED {'T_wb': 293.2143470642154, 'W': 0.010602781187021928}
 ```
 
-## Command line: 15 examples
-
-Each command below was run with `thermofluids` of this release; the lines under it are the answer it printed (the full answer goes on with the method, every input in SI units and the conditions it assumes).
-
-```text
-$ thermofluids solve thin_airfoil_lift_coefficient "alpha=0.0872664626 rad"
-section lift coefficient (CL) = 0.5483113556
-
-$ thermofluids solve blasius_average_skin_friction "ReL=250000 1"
-average skin-friction coefficient over the plate (cfm) = 0.00265645869
-
-$ thermofluids solve adiabatic_flame_temperature_simple "T0=298 K" "LHV=50000000 J/kg" "AFR=17.2 1" "cp=1200 J/(kg*K)"
-adiabatic flame temperature (Tad) = 2587.377289 K
-
-$ thermofluids solve stagnation_pressure_air "P=50000 Pa" "M=1.5 1"
-stagnation pressure (P0) = 183551.5314 Pa
-
-$ thermofluids solve critical_insulation_radius "k=0.05 W/(m*K)" "h=10 W/(m^2*K)"
-critical outer radius of the insulation (r) = 0.005 m
-
-$ thermofluids solve flat_plate_laminar_average_nusselt "ReL=100000 1" "Pr=0.7 1"
-average Nusselt number over the plate (Nu) = 186.4378529
-
-$ thermofluids solve drag_force "Cd=0.3 1" "rho=1.2 kg/m^3" "v=30 m/s" "A=2.2 m^2"
-drag force (F) = 356.4 N
-
-$ thermofluids solve pin_fin_efficiency "h=50 W/(m^2*K)" "k=200 W/(m*K)" "D=5 mm" "L=50 mm"
-efficiency = 0.8610571716
-mL = 0.7071067812
-
-$ thermofluids solve bernoulli_horizontal "P1=200000 Pa" "rho=1000 kg/m^3" "v1=2 m/s" "v2=6 m/s"
-pressure at the outlet (P2) = 184000 Pa
-
-$ thermofluids solve bernoulli_with_height "P1=200 kPa" "v1=2 m/s" "h1=0 m" "v2=6 m/s" "h2=5 m" "rho=1000 kg/m^3" "g=9.81 m/s^2"
-P2 = 134950 Pa
-
-$ thermofluids solve absolute_pressure_depth "P0=101325 Pa" "rho=1025 kg/m^3" "g=9.80665 m/s^2" "h=20 m"
-absolute pressure at the depth (P) = 302361.325 Pa
-
-$ thermofluids solve compressor_outlet_temperature_air "T1=300 K" "P2=600000 Pa" "P1=100000 Pa" "eta=0.85 1"
-final temperature (T2) = 535.9448615 K
-
-$ thermofluids solve effectiveness_phase_change "N=2 1"
-heat exchanger effectiveness (eps) = 0.8646647168
-
-$ thermofluids solve grashof_number "g=9.80665 m/s^2" "beta=0.0033 1/K" "Ts=330 K" "Tinf=300 K" "L=0.5 m" "nu=1.6e-05 m^2/s"
-Grashof number (Gr) = 474051928.7
-
-$ thermofluids solve froude_number "v=3 m/s" "g=9.80665 m/s^2" "h=0.5 m"
-Froude number (Fr) = 1.354802267
-```
-
 ## Guides
 
 - Desktop app guide: the window, every calculation, scenes and charts: [PDF](https://huggingface.co/AI999X/thermofluids-ai999x/blob/main/docs/thermofluids_ai999x_desktop_guide.pdf) · [HTML](https://huggingface.co/AI999X/thermofluids-ai999x/blob/main/docs/thermofluids_ai999x_desktop_guide.html) · [Markdown](https://huggingface.co/AI999X/thermofluids-ai999x/blob/main/docs/thermofluids_ai999x_desktop_guide.md)
@@ -187,13 +135,13 @@ Froude number (Fr) = 1.354802267
 
 Every calculation, with its formula, a worked example and its figures: **[Thermofluids on ai999x.com](https://www.ai999x.com/models/thermofluids-ai999x/)**. Install guides for the app and the command line: [https://www.ai999x.com/desktop-cli/](https://www.ai999x.com/desktop-cli/).
 
-Version 1.6.6 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
+Version 1.6.7 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
 
 *The Future Is Self-Improving.*
 
 ## Source and releases
 
-This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/thermofluids-ai999x/) (`pip install .` builds it). Releases are tagged `v1.6.6`; the [GitHub release](https://github.com/AI999X/thermofluids-ai999x/releases/tag/v1.6.6) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
+This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/thermofluids-ai999x/) (`pip install .` builds it). Releases are tagged `v1.6.7`; the [GitHub release](https://github.com/AI999X/thermofluids-ai999x/releases/tag/v1.6.7) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
 
 ## Build the program from source
 
